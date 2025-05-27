@@ -17,6 +17,6 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-int
 
 windowsPE Components
 
-[Microsoft-Windows-International-Core-WinPE](Microsoft-Windows-International-Core-WinPE.md) https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-international-core-winpe
+[Microsoft-Windows-International-Core-WinPE](Microsoft-Windows-International-Core-WinPE.md) 
 
-[Microsoft-Windows-Setup](Microsoft-Windows-Setup.md) https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup
+[Microsoft-Windows-Setup](Microsoft-Windows-Setup.md) 
