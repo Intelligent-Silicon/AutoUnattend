@@ -33,7 +33,9 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/co
 
 ### Overview of the AutoUnattend.xml file
 
-[offlineServicing](offlineServicing.md)  Apply unattended Setup setting to an offline Microsoft Windows image.
+[How Configuration Passes Work](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work)
+
+[offlineServicing](offlineServicing.md)  Apply unattended Setup setting to an offline Microsoft Windows image, like drivers, language packs, update packages and other packages.
 
 [windowsPE](windowsPE.md) 
 
