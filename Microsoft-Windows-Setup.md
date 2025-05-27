@@ -40,6 +40,8 @@ If you have been hacked, this option is generally the best as it will wipe malwa
 
 [Generic Windows product keys](https://www.elevenforum.com/t/generic-product-keys-to-install-or-upgrade-windows-11-editions.3713/)
 
+You can use Windows without activation for up to 30 days, but then you'll encounter some restrictions. This should give you plenty of time to evaluate different versions of windows using the generic windows product keys in the link above.
+
 ```
 <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
 	<ImageInstall>
