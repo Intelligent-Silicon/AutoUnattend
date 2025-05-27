@@ -1,4 +1,4 @@
-# Component
+# windowsPE Component
 # Microsoft-Windows-Setup
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup
