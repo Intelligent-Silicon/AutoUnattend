@@ -3,9 +3,7 @@
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup
 
-To quick wipe the hard drive keep QUICK in the partition commands eg 
-
-```FORMAT QUICK FS=FAT32```
+To quick wipe the hard drive keep QUICK in the partition commands eg ```FORMAT QUICK FS=FAT32```
 ```
 <RunSynchronousCommand wcm:action="add">
 	<Order>1</Order>
