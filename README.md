@@ -33,9 +33,9 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/co
 
 ### Overview of the AutoUnattend.xml file
 
-[offlineServicing](offlineServicing.md)
+[offlineServicing](offlineServicing.md)  Apply unattended Setup setting to an offline Microsoft Windows image.
 
-[windowsPE](windowsPE.md)
+[windowsPE](windowsPE.md) 
 
 [generalize](generalize.md)
 
