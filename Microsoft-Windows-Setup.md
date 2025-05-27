@@ -41,16 +41,16 @@ To wipe the hard drive and wipe every sector, remove QUICK from the partition co
 <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
 	<ImageInstall>
 		<OSImage>
-			<Compact>false</Compact>	/// Use CompactOS, Options = true or false. If <Compact></Compact>, windowsPE decides.
+			<Compact>false</Compact> /// Use CompactOS, Options = true or false. If <Compact></Compact>, windowsPE decides.
 			<InstallTo>
-			<DiskID>0</DiskID>		/// Disk 0 is the first drive, and partition 3 is the 2nd partition on the hard drive. Partition 1 during installation is the installation partition.
+			<DiskID>0</DiskID> /// Disk 0 is the first drive, and partition 3 is the 2nd partition on the hard drive. Partition 1 during installation is the installation partition.
 			<PartitionID>3</PartitionID>
 			</InstallTo>
 		</OSImage>
 	</ImageInstall>
 	<UserData>
 		<ProductKey>
-		<Key>VK7JG-NPHTM-C97JM-9MPGT-3V66T</Key>	/// To get the Windows Key from UEFI Bios use Powershell as administrator. (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
+		<Key>VK7JG-NPHTM-C97JM-9MPGT-3V66T</Key> /// To get the Windows Key from UEFI Bios use Powershell as administrator. PS>(Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
 		<WillShowUI>OnError</WillShowUI> /// Always/OnError/Never https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-willshowui
 		</ProductKey>
 		<AcceptEula>true</AcceptEula> /// true/false https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-userdata-accepteula
