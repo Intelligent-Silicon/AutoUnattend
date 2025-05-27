@@ -3,8 +3,10 @@
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup
 
-To quick wipe the hard drive keep QUICK in the partition commands eg '''FORMAT QUICK FS=FAT32'''
+To quick wipe the hard drive keep QUICK in the partition commands eg 
 
+```FORMAT QUICK FS=FAT32```
+```
 <RunSynchronousCommand wcm:action="add">
 	<Order>1</Order>
 	<Path>cmd.exe /c "&gt;&gt;"X:\diskpart.txt" (echo SELECT DISK=0&amp;echo CLEAN&amp;echo CONVERT GPT&amp;echo CREATE PARTITION EFI SIZE=300&amp;echo FORMAT QUICK FS=FAT32 LABEL="System"&amp;echo CREATE PARTITION MSR SIZE=16)"</Path>
@@ -17,9 +19,10 @@ To quick wipe the hard drive keep QUICK in the partition commands eg '''FORMAT Q
 	<Order>3</Order>
 	<Path>cmd.exe /c "diskpart.exe /s "X:\diskpart.txt" &gt;&gt;"X:\diskpart.log" || ( type "X:\diskpart.log" &amp; echo diskpart encountered an error. &amp; pause &amp; exit /b 1 )"</Path>
 </RunSynchronousCommand>
+```
 
-To wipe the hard drive and wipe ever sector remove QUICK from the partition commands eg '''FORMAT FS=FAT32'''
-
+To wipe the hard drive and wipe ever sector remove QUICK from the partition commands eg ```FORMAT FS=FAT32```
+```
 <RunSynchronousCommand wcm:action="add">
 	<Order>1</Order>
 	<Path>cmd.exe /c "&gt;&gt;"X:\diskpart.txt" (echo SELECT DISK=0&amp;echo CLEAN&amp;echo CONVERT GPT&amp;echo CREATE PARTITION EFI SIZE=300&amp;echo FORMAT FS=FAT32 LABEL="System"&amp;echo CREATE PARTITION MSR SIZE=16)"</Path>
@@ -32,6 +35,7 @@ To wipe the hard drive and wipe ever sector remove QUICK from the partition comm
 	<Order>3</Order>
 	<Path>cmd.exe /c "diskpart.exe /s "X:\diskpart.txt" &gt;&gt;"X:\diskpart.log" || ( type "X:\diskpart.log" &amp; echo diskpart encountered an error. &amp; pause &amp; exit /b 1 )"</Path>
 </RunSynchronousCommand>
+```
 
 
 
