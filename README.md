@@ -34,11 +34,18 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/co
 ### Overview of the AutoUnattend.xml file
 
 [offlineServicing](offlineServicing.md)
+
 [windowsPE](windowsPE.md)
+
 [generalize](generalize.md)
+
 [specialize](specialize.md)
+
 [auditSystem](auditSystem.md)
+
 [auditUser](auditUser.md)
+
 [oobeSystem](oobeSystem.md)
+
 [Extensions](Extensions.md)
 
