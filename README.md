@@ -1,5 +1,7 @@
-# AutoUnattend
+# AutoUnattend.xml
 Auto Unattend Notes and Examples
+
+### Windows 11 and 10 media creation tool
 
 Web link to the Microsoft Windows 11 download page. Download the media creation tool, install and then run. This will install the latest installation version of windows 11 onto a USB memory stick or download it as an ISO, which is a CD/DVD file that can be easily burnt to CD/DVD.
 
@@ -7,16 +9,19 @@ Copy the AutoUnattend.xml file to the root directory/folder of the USB stick onc
 
 If everything goes smoothly, Windows will install automatically, and depending on the options and scripts that run, will also configure your version of Windows just how you like it, saving you time making Windows yours.
 
-
 https://www.microsoft.com/en-us/software-download/windows11
 
 https://www.microsoft.com/en-us/software-download/windows10
+
+### schneegans.de
 
 Autounattend.xml generator, containing most common settings and some of the latest changes to help customise windows.
 
 https://schneegans.de/windows/unattend-generator/
 
-Microsoft web links for the autounattend.xml file.
+
+
+### Microsoft web links for the autounattend.xml file.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/
 
