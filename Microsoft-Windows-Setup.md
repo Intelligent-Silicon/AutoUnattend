@@ -19,7 +19,7 @@ To quick wipe the hard drive keep QUICK in the partition commands eg ```FORMAT Q
 </RunSynchronousCommand>
 ```
 
-To wipe the hard drive and wipe ever sector remove QUICK from the partition commands eg ```FORMAT FS=FAT32```
+To wipe the hard drive and wipe every sector, remove QUICK from the partition commands eg ```FORMAT FS=FAT32```
 ```
 <RunSynchronousCommand wcm:action="add">
 	<Order>1</Order>
@@ -36,8 +36,7 @@ To wipe the hard drive and wipe ever sector remove QUICK from the partition comm
 ```
 
 
-
-
+```
 <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
 			<ImageInstall>
 				<OSImage>
@@ -73,3 +72,4 @@ To wipe the hard drive and wipe ever sector remove QUICK from the partition comm
 			<RunAsynchronous> /// Run all at the same time aka a free for all, cant not rely on previous steps being completed. https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-runasynchronous
 			</RunAynchronous>
 		</component>
+```
