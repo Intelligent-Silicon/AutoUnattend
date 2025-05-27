@@ -51,7 +51,6 @@ To wipe the hard drive and wipe every sector, remove QUICK from the partition co
 	<UserData>
 		<ProductKey>
 		<Key>VK7JG-NPHTM-C97JM-9MPGT-3V66T</Key>	/// To get the Windows Key from UEFI Bios use Powershell as administrator. (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
-		<Key>[Generic Windows product keys](https://www.elevenforum.com/t/generic-product-keys-to-install-or-upgrade-windows-11-editions.3713/)</Key>	/// To get the Windows Key from UEFI Bios use Powershell as administrator. (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
 		<WillShowUI>OnError</WillShowUI> /// Always/OnError/Never https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-willshowui
 		</ProductKey>
 		<AcceptEula>true</AcceptEula> /// true/false https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-userdata-accepteula
