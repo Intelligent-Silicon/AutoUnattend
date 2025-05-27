@@ -1,28 +1,22 @@
 ### windowsPE
 
-The windowsPE configuration pass is used to configure settings specific to Windows Preinstallation Environment (Windows PE) in addition to settings that apply to installation.
+## Overview
 
-For example, you can specify the display resolution of Windows PE, where to save a log file, and other Windows PE-related settings.
+Windows Preinstallation Environment (Windows PE) is a small operating system where settings for the installation and WinPE are set, like display resolutions, disk partitions, installation partition, licence keys and specific commands.
+
+To add out-of-box, boot-critical drivers during an unattended installation, you must make sure that the boot-critical driver is available on preinstallation media. 
+
+Boot-critical drivers should be added during the windowsPE configuration pass.
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windowspe
 
-## Overview
-
-https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-intro?view=windows-11
-
-```Windows PE (WinPE) is a small operating system used to install, deploy, and repair Windows desktop editions, Windows Server, and other Windows operating systems. 
-
-From Windows PE, you can:
-
-    Set up your hard drive before installing Windows.
-    Install Windows by using apps or scripts from a network or a local drive.
-    Capture and apply Windows images.
-    Modify the Windows operating system while it's not running.
-    Set up automatic recovery tools.
-    Recover data from unbootable devices.
-    Add your own custom shell or GUI to automate these kinds of tasks.```
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-intro
 
 
-Microsoft-Windows-International-Core-WinPE
+[windowsPE AutoUnattend.xml](windowsPE-AutoUnattend.md)
 
-Microsoft-Windows-Setup
+windowsPE Components
+
+[Microsoft-Windows-International-Core-WinPE](Microsoft-Windows-International-Core-WinPE.md) https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-international-core-winpe
+
+[Microsoft-Windows-Setup](Microsoft-Windows-Setup.md) https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup
