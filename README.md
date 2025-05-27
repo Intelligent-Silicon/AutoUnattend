@@ -1,5 +1,9 @@
 # AutoUnattend.xml
-Auto Unattend Notes and Examples
+Auto Unattend Notes and Examples.
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-technical-reference
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-automation-overview#answer-files-named-autounattendxml-are-automatically-discovered-by-windows-setup
 
 ### Windows 11 and 10 media creation tool
 
@@ -35,19 +39,32 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/co
 
 [How Configuration Passes Work](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work)
 
+In order of processing, when a component exists. 
+
+[windowsPE](windowsPE.md) Windows Preinstallation Environment (Windows PE) is where settings for the installation and WinPE are set, like display resolutions, disk partitions, installation partition, licence keys and specific commands.
+
 [offlineServicing](offlineServicing.md)  Apply unattended Setup setting to an offline Microsoft Windows image, like drivers, language packs, update packages and other packages.
 
-[windowsPE](windowsPE.md) 
+[generalize](generalize.md) The generalize pass is used to create a reference or master image that can be used throughout an organisation. Its the master image before department customisations take place in the specialize pass.
 
-[generalize](generalize.md)
+[specialize](specialize.md) The specialize pass is where machine specific settings are processed, like domain information, wifi, network, international settings, department webpages. It runs on the next reboot after the generalize pass. 
 
-[specialize](specialize.md)
+[auditSystem](auditSystem.md)  IF the optional auditMode is activated, the auditSystem pass runs as System immediately before login and auditUser and is where OEM's can install device drivers, applications and other updates.
 
-[auditSystem](auditSystem.md)
+[auditUser](auditUser.md)  IF the optional auditMode is activated, the auditUser pass runs after login as User immediately after auditSystem and is used to execute RunSynchronous or RunAsynchronous commands for the default user profile which is used to configure and personalise all subsequent user accounts. This includes HKEY_USERS\DefaultUser\
 
-[auditUser](auditUser.md)
-
-[oobeSystem](oobeSystem.md)
+[oobeSystem](oobeSystem.md)  The oobeSystem pass is where the settings for the users first login are processed. OOBE is the users first boot experience.
 
 [Extensions](Extensions.md)
 
+
+### How to for AutoUnattend.xml answer file
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/windows-system-image-manager-how-to-topics
+
+### How to add drivers to offlineServicing in AutoUnattend.xml file 
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/add-a-device-driver-path-to-an-answer-file
+
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image#add-driver-packages-to-an-offline-windows-image-by-using-an-unattended-answer-file

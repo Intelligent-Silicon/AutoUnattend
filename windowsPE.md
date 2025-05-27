@@ -1,4 +1,10 @@
-# windowsPE
+### windowsPE
+
+The windowsPE configuration pass is used to configure settings specific to Windows Preinstallation Environment (Windows PE) in addition to settings that apply to installation.
+
+For example, you can specify the display resolution of Windows PE, where to save a log file, and other Windows PE-related settings.
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windowspe
 
 ## Overview
 
