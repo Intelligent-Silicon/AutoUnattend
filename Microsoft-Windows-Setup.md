@@ -34,7 +34,9 @@ To wipe the hard drive and wipe every sector, remove QUICK from the partition co
 	<Path>cmd.exe /c "diskpart.exe /s "X:\diskpart.txt" &gt;&gt;"X:\diskpart.log" || ( type "X:\diskpart.log" &amp; echo diskpart encountered an error. &amp; pause &amp; exit /b 1 )"</Path>
 </RunSynchronousCommand>
 ```
+Generic Windows product keys https://www.elevenforum.com/t/generic-product-keys-to-install-or-upgrade-windows-11-editions.3713/
 
+[Generic Windows product keys](https://www.elevenforum.com/t/generic-product-keys-to-install-or-upgrade-windows-11-editions.3713/)
 
 ```
 <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
@@ -49,7 +51,7 @@ To wipe the hard drive and wipe every sector, remove QUICK from the partition co
 	</ImageInstall>
 	<UserData>
 		<ProductKey>
-		<Key>KYNWQ-VFYMR-DG2GG-BPXGF-KBVKB</Key>	/// Windows Licence Key. Powershell as administrator. (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
+		<Key>VK7JG-NPHTM-C97JM-9MPGT-3V66T</Key>	/// To get the Windows Key from UEFI Bios use Powershell as administrator. (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
 		<WillShowUI>OnError</WillShowUI> /// Always/OnError/Never https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-willshowui
 		</ProductKey>
 		<AcceptEula>true</AcceptEula> /// true/false https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-userdata-accepteula
