@@ -55,7 +55,7 @@ In order of processing, when a component exists.
 
 [oobeSystem](oobeSystem.md)  The oobeSystem pass is where the settings for the users first login are processed. OOBE is the users first boot experience.
 
-[Extensions](Extensions.md)
+[Extensions](Extensions.md) Where files and scripts can be stored in the AutoUnattend.xml before being extracted to specific locations typically on the windows partition.
 
 
 ### How to for AutoUnattend.xml answer file
