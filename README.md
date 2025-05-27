@@ -33,14 +33,12 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/co
 
 ### Overview of the AutoUnattend.xml file
 
-```<settings pass="offlineServicing"></settings>```	/// 
-```<settings pass="windowsPE"></settings>```
-```<settings pass="generalize"></settings>```
-```<settings pass="specialize"></settings>```
-```<settings pass="auditSystem"></settings>```
-```<settings pass="auditUser"></settings>```
-```<settings pass="oobeSystem"></settings>```
-```<Extensions xmlns="https://schneegans.de/windows/unattend-generator/">```
-
-
+[offlineServicing](offlineServicing.md)
+[windowsPE](windowsPE.md)
+[generalize](generalize.md)
+[specialize](specialize.md)
+[auditSystem](auditSystem.md)
+[auditUser](auditUser.md)
+[oobeSystem](oobeSystem.md)
+[Extensions](Extensions.md)
 
