@@ -165,14 +165,23 @@ The Windows RE Recovery partition is installed in C:\Recovery and no recovery pa
 ```
 
 This example creates the following:
+
 Order 1
+
 Partition 1    System             300 MB FAT32
+
 Partition 2    Reserved            16 MB
+
 Order 2
+
 Partition 3    Primary            118 GB NTFS
+
 Order 3
+
 Partition 4    Recovery           651 MB
+
 Order 4
+
 diskpart /s X:\diskpart.txt > X:\diskpart.log
 
 The Windows RE Recovery partition is installed in a seperate partition called Recovery. For more information see https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/configure-uefigpt-based-hard-drive-partitions
