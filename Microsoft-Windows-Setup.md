@@ -62,9 +62,9 @@ DISKPART>exit
 ```
 <ImageInstall>
 	<OSImage>
-		<Compact>false</Compact> /// Use CompactOS, Options = true or false. If <Compact></Compact>, windowsPE decides.
+		<Compact>false</Compact> 
 		<InstallTo>
-			<DiskID>0</DiskID> /// Disk 0 is the first drive, and partition 3 is the 2nd partition on the hard drive. Partition 1 during installation is the installation partition.
+			<DiskID>0</DiskID>
 			<PartitionID>3</PartitionID>
 		</InstallTo>
 	</OSImage>
