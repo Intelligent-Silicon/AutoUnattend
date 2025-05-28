@@ -77,7 +77,7 @@ This is the section where you specify the user settings to install the version o
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-userdata
 
-<ProductKey> is the section where you choose what edition of windows to install based on the 25 characters generic key supplied, or you can pull the licence key from the UEFI bios using powershell. Use Powershell running elevated as administrator and type at the powershell prompt:
+```<ProductKey>``` is the section where you choose what edition of windows to install based on the 25 characters generic key supplied, or you can pull the licence key from the UEFI bios using powershell. Use Powershell running elevated as administrator and type at the powershell prompt:
 ```
 PS C:\Users\SysOps> (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
 ABCDE-FGHIJ-KLMNO-PQRST-UVWXY
@@ -88,11 +88,11 @@ PS C:\Users\SysOps>
 
 You can use Windows without activation for up to 30 days, but then you'll encounter some restrictions. This should give you plenty of time to evaluate different versions of windows using the generic windows product keys in the link above.
 
-<WillShowUI> specifies when the Windows Installation User Interface (UI) is displayed. Options include Always, OnError, Never. 
+```<WillShowUI>``` specifies when the Windows Installation User Interface (UI) is displayed. Options include Always, OnError, Never. 
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage-willshowui
 
-<AcceptEula> specifies whether to automatically accept the Microsoft Software License Terms aka the End User Licence Agreement (EULA). Options are true and false.
+```<AcceptEula>``` specifies whether to automatically accept the Microsoft Software License Terms aka the End User Licence Agreement (EULA). Options are true and false.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-userdata-accepteula
 
