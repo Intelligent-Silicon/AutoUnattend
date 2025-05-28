@@ -241,30 +241,30 @@ diskpart /s X:\diskpart.txt > X:\diskpart.log
 	
 		<!-- System -->
 		<CreatePartition wcm:action="add">
-        <Order>1</Order> 
-        <Type>EFI</Type> 
-        <Size>300</Size> 
+			<Order>1</Order> 
+			<Type>EFI</Type> 
+			<Size>300</Size> 
 		</CreatePartition>
 
-		<!-- Reserved -->
+		<!-- Reserved Docs suggest minimum size of 32MB -->
 		<CreatePartition wcm:action="add">
-		<Order>2</Order> 
-        <Type>MSR</Type>
-		<Size>16</Size>		 
+			<Order>2</Order> 
+			<Type>MSR</Type>
+			<Size>16</Size>		 
 		</CreatePartition>
 		
 		<!-- Primary In MB. 1GB = 1000MB -->
 		<CreatePartition wcm:action="add">
-		<Order>3</Order> 
-        <Type>Primary</Type>
-		<Size>118000</Size>		 
+			<Order>3</Order> 
+			<Type>Primary</Type>
+			<Size>118000</Size>		 
 		</CreatePartition>
 		
 		<!-- Recovery using <ModifyPartitions> below -->
 		<CreatePartition wcm:action="add">
-		<Order>4</Order> 
-        <Type>Primary</Type>
-		<Size>651</Size>		 
+			<Order>4</Order> 
+			<Type>Primary</Type>
+			<Size>651</Size>		 
 		</CreatePartition>
 
     </CreatePartitions>
@@ -273,33 +273,33 @@ diskpart /s X:\diskpart.txt > X:\diskpart.log
 
 		<!-- EFI -->
 		<ModifyPartition wcm:action="add">
-        <Order>1</Order> 
-        <PartitionID>1</PartitionID> 
-        <Format>FAT32</Format> 
+			<Order>1</Order> 
+			<PartitionID>1</PartitionID> 
+			<Format>FAT32</Format> 
 		</ModifyPartition>
 		
 		<!-- MSR -->
 		<ModifyPartition wcm:action="add">
-        <Order>1</Order> 
-        <PartitionID>2</PartitionID> 
-        <Format>FAT32</Format> 
+			<Order>2</Order> 
+			<PartitionID>2</PartitionID> 
+			<Format>FAT32</Format> 
 		</ModifyPartition>
 
 		<!-- Windows partition -->
 		<ModifyPartition wcm:action="add">
-        <Order>2</Order> 
-        <PartitionID>2</PartitionID> 
-        <Label>Windows</Label> 
-        <Letter>C</Letter> 
-        <Format>NTFS</Format> 
+			<Order>3</Order> 
+			<PartitionID>3</PartitionID> 
+			<Label>Windows</Label> 
+			<Letter>C</Letter> 
+			<Format>NTFS</Format> 
 		</ModifyPartition>
 		
 		<!-- Recovery -->
 		<ModifyPartition wcm:action="add">
-        <Order>1</Order> 
-        <PartitionID>4</PartitionID> 
-        <TypeID>de94bba4-06d1-4d40-a16a-bfd50179d6ac</TypeID>
-		<Format>FAT32</Format>		
+			<Order>4</Order> 
+			<PartitionID>4</PartitionID> 
+			<TypeID>de94bba4-06d1-4d40-a16a-bfd50179d6ac</TypeID>
+			<Format>FAT32</Format>		
 		</ModifyPartition>
 	</ModifyPartitions>
 </Disk>
