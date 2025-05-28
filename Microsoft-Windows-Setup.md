@@ -107,7 +107,48 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 </UserData>
 ```
 
+### ```<UseConfigurationSet>```
+
+```<UseConfigurationSet>``` sets whether to use a configuration set or not. Options are true or false, the latter being the default option.
+A configuration set is a folder that contains additional drivers, packages and/or software. This is useful for installing in offline circumstances.
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-useconfigurationset
+
+```
+<UseConfigurationSet>true</UseConfigurationSet>
+```
+
+### ```<RunSynchronousCommand>```
+
+```<RunSynchronousCommand>``` is where you can run additional commands or scripts to perform additional functions. These run one after the after unlike ```<RunAsynchronousCommand>``` which run all at the same time and cant be relied upon by later steps in the order. These run as User in the auditUser pass and as System in the specialise pass.
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-runsynchronous-runsynchronouscommand
+
+
+These examples create hard drive partitions. When copying commands that use symbols like >> encoding them as ```&gt;``` reduces errors with commands.
+
+```
+&lt; stands for the less-than sign: <
+&gt; stands for the greater-than sign: >
+&le; stands for the less-than or equals sign: ≤
+&ge; stands for the greater-than or equals sign: ≥
+&amp; stands for the ampersand sign: &
+```
+
+
 To quick wipe the hard drive keep QUICK in the partition commands eg ```FORMAT QUICK FS=FAT32```
+
+This example creates the following:
+Order 1
+Partition 1    System             300 MB
+Partition 2    Reserved            16 MB
+Order 2
+Partition 3    Primary            118 GB
+Order 3
+diskpart /s X:\diskpart.txt > X:\diskpart.log
+
+The Windows RE Recovery partition is installed in C:\Recovery and no recovery partition will be created.
+
 ```
 <RunSynchronousCommand wcm:action="add">
 	<Order>1</Order>
@@ -122,6 +163,44 @@ To quick wipe the hard drive keep QUICK in the partition commands eg ```FORMAT Q
 	<Path>cmd.exe /c "diskpart.exe /s "X:\diskpart.txt" &gt;&gt;"X:\diskpart.log" || ( type "X:\diskpart.log" &amp; echo diskpart encountered an error. &amp; pause &amp; exit /b 1 )"</Path>
 </RunSynchronousCommand>
 ```
+
+This example creates the following:
+Order 1
+Partition 1    System             300 MB FAT32
+Partition 2    Reserved            16 MB
+Order 2
+Partition 3    Primary            118 GB NTFS
+Order 3
+Partition 4    Recovery           651 MB
+Order 4
+diskpart /s X:\diskpart.txt > X:\diskpart.log
+
+The Windows RE Recovery partition is installed in a seperate partition called Recovery. For more information see https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/configure-uefigpt-based-hard-drive-partitions
+Also note this example is not using any encoding for symbols, but would need to be encode if saved to an autounattend.xml file.
+
+```
+<RunSynchronousCommand wcm:action="add">
+	<Order>1</Order>
+	<Path>cmd.exe /c ">>"X:\diskpart.txt" (echo SELECT DISK=0&echo CLEAN&echo CONVERT GPT&echo CREATE PARTITION EFI SIZE=300&echo FORMAT QUICK FS=FAT32 LABEL="System"&echo CREATE PARTITION MSR SIZE=16)"
+	</Path>
+</RunSynchronousCommand>
+<RunSynchronousCommand wcm:action="add">
+	<Order>2</Order>
+	<Path>cmd.exe /c ">>"X:\diskpart.txt" (echo CREATE PARTITION PRIMARY&echo SHRINK MINIMUM=1000&echo FORMAT QUICK FS=NTFS LABEL="Windows"&echo CREATE PARTITION PRIMARY&echo FORMAT QUICK FS=NTFS LABEL="Recovery")"
+	</Path>
+</RunSynchronousCommand>
+<RunSynchronousCommand wcm:action="add">
+	<Order>3</Order>
+	<Path>cmd.exe /c ">>"X:\diskpart.txt" (echo SET ID="de94bba4-06d1-4d40-a16a-bfd50179d6ac"&echo GPT ATTRIBUTES=0x8000000000000001)"
+	</Path>
+</RunSynchronousCommand>
+<RunSynchronousCommand wcm:action="add">
+	<Order>4</Order>
+	<Path>cmd.exe /c "diskpart.exe /s "X:\diskpart.txt" >>"X:\diskpart.log" || ( type "X:\diskpart.log" & echo diskpart encountered an error. & pause & exit /b 1 )"
+	</Path>
+</RunSynchronousCommand>
+```
+
 
 To wipe the hard drive and wipe every sector which will take longer, anything from 10-15minutes to hours depending on size and if its a slow spin disk or not, remove QUICK from the partition commands eg ```FORMAT FS=FAT32``` 
 
