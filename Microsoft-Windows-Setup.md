@@ -12,17 +12,17 @@ This is the section where you can choose the version of windows you want to inst
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage
 
 
-<Compact> Compact OS allows you to run the operating system from compressed files. This will result in a slower experience because files have to be decompressed before they can be used, but enables devices with small storage drives to run windows from. Works best with a fast cpu and plenty of fast ram.
+```<Compact>``` Compact OS allows you to run the operating system from compressed files. This will result in a slower experience because files have to be decompressed before they can be used, but enables devices with small storage drives to run windows from. Works best with a fast cpu and plenty of fast ram.
 
 
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/compact-os
 
-<InstallTo> specifies the disk and partition where you install the Windows operating system image.
+```<InstallTo>``` specifies the disk and partition where you install the Windows operating system image.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage-installto
 
-<DiskID> is the hard drive found on the device. Drive numbers start at 0 and increment by 1. Typically this will be drive 0 for most computers unless you have added additional hard drives and want to install windows on a specific drive. To find out what your computer has, open up a dos command window, diskpart, list disk, exit.
+```<DiskID>``` is the hard drive found on the device. Drive numbers start at 0 and increment by 1. Typically this will be drive 0 for most computers unless you have added additional hard drives and want to install windows on a specific drive. To find out what your computer has, open up a dos command window, diskpart, list disk, exit.
 
 ```
 DISKPART> list disk
@@ -34,7 +34,7 @@ DISKPART> list disk
 DISKPART>
 ```
 
-<PartitionID> specifies the identification number of the partition to modify. The first partition on a disk has the value of 1, the second, 2, and so on. If you have a typical single hard drive, it will typically look like the partition list below. Primary is where you want to install windows onto.
+```<PartitionID>``` specifies the identification number of the partition to modify. The first partition on a disk has the value of 1, the second, 2, and so on. If you have a typical single hard drive, it will typically look like the partition list below. Primary is where you want to install windows onto.
 
 ```
 DISKPART> list disk
@@ -59,7 +59,7 @@ DISKPART> list partition
 DISKPART>exit
 ```
 
-
+```
 <ImageInstall>
 	<OSImage>
 		<Compact>false</Compact> /// Use CompactOS, Options = true or false. If <Compact></Compact>, windowsPE decides.
@@ -69,7 +69,7 @@ DISKPART>exit
 		</InstallTo>
 	</OSImage>
 </ImageInstall>
-
+```
 
 ### <UserData>
 
