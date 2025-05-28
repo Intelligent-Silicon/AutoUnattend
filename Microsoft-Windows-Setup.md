@@ -136,7 +136,7 @@ These examples create hard drive partitions. When copying commands that use symb
 ```
 
 
-To quick wipe the hard drive keep ```QUICK``` in the partition commands eg ```FORMAT QUICK FS=FAT32```
+To quick wipe the hard drive keep ```QUICK``` in the partition commands eg ```FORMAT QUICK FS=FAT32```.
 To wipe the hard drive and wipe every sector which will take longer, anything from 10-15minutes to hours depending on disk size and if its a slow spin disk or not, remove ```QUICK``` from the partition commands eg ```FORMAT FS=FAT32``` 
 
 If you have been hacked, removing the ```QUICK``` option is generally the best as it will wipe malware stored on the drive that is not removed by simply removing the index of disk files which is what the ```QUICK``` does.
