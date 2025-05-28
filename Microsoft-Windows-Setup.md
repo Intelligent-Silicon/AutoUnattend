@@ -18,7 +18,7 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/compact-os
 
-```<InstallTo>``` specifies the disk and partition where you install the Windows operating system image.
+```<InstallTo>``` specifies the disk and partition where you install the Windows operating system image, requires ```<DiskID>``` and ```<PartitionID>```. See next sections below.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage-installto
 
