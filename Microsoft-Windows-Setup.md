@@ -172,11 +172,11 @@ This example creates the following:
 ```
 Order 1
 Partition 1    System             300 MB FAT32
-Partition 2    Reserved            16 MB
+Partition 2    Reserved            16 MB FAT32
 Order 2
-Partition 3    Primary            118 GB NTFS
+Partition 3    Primary            118 GB NTFS	Windows
 Order 3
-Partition 4    Recovery           651 MB
+Partition 4    Recovery           651 MB FAT32
 Order 4
 diskpart /s X:\diskpart.txt > X:\diskpart.log
 ```
@@ -210,60 +210,96 @@ Also note this example is not using any encoding for symbols, but would need to 
 </RunSynchronousCommand>
 ```
 
+This example uses ```<DiskConfiguration>``` to create the partitions and assumes a UEFI bios exists and not the older bios type:
+Create partitions first, then modify the required partitions. Its unclear if this is a sector level data wipe or index only wipe.
 
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-disk-createpartitions-createpartition-type
 
-
-```
-<RunSynchronousCommand wcm:action="add">
-	<Order>1</Order>
-	<Path>cmd.exe /c "&gt;&gt;"X:\diskpart.txt" (echo SELECT DISK=0&amp;echo CLEAN&amp;echo CONVERT GPT&amp;echo CREATE PARTITION EFI SIZE=300&amp;echo FORMAT FS=FAT32 LABEL="System"&amp;echo CREATE PARTITION MSR SIZE=16)"</Path>
-</RunSynchronousCommand>
-<RunSynchronousCommand wcm:action="add">
-	<Order>2</Order>
-	<Path>cmd.exe /c "&gt;&gt;"X:\diskpart.txt" (echo CREATE PARTITION PRIMARY&amp;echo FORMAT FS=NTFS LABEL="Windows")"</Path>
-</RunSynchronousCommand>
-<RunSynchronousCommand wcm:action="add">
-	<Order>3</Order>
-	<Path>cmd.exe /c "diskpart.exe /s "X:\diskpart.txt" &gt;&gt;"X:\diskpart.log" || ( type "X:\diskpart.log" &amp; echo diskpart encountered an error. &amp; pause &amp; exit /b 1 )"</Path>
-</RunSynchronousCommand>
-```
-
-
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-disk-modifypartitions-modifypartition-typeid
 
 ```
-<component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
-	<ImageInstall>
-		<OSImage>
-			<Compact>false</Compact> /// Use CompactOS, Options = true or false. If <Compact></Compact>, windowsPE decides.
-			<InstallTo>
-			<DiskID>0</DiskID> /// Disk 0 is the first drive, and partition 3 is the 2nd partition on the hard drive. Partition 1 during installation is the installation partition.
-			<PartitionID>3</PartitionID>
-			</InstallTo>
-		</OSImage>
-	</ImageInstall>
-	<UserData>
-		<ProductKey>
-		<Key>VK7JG-NPHTM-C97JM-9MPGT-3V66T</Key> /// To get the Windows Key from UEFI Bios use Powershell as administrator. PS>(Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
-		<WillShowUI>OnError</WillShowUI> /// Always/OnError/Never https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-willshowui
-		</ProductKey>
-		<AcceptEula>true</AcceptEula> /// true/false https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-userdata-accepteula
-	</UserData>
-	<UseConfigurationSet>true</UseConfigurationSet> /// true/false https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-useconfigurationset
-	<RunSynchronous> /// Run one after the other, can rely on previous steps being completed first https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-runsynchronous
-		<RunSynchronousCommand wcm:action="add">
-			<Order>1</Order>
-			<Path>cmd.exe /c "&gt;&gt;"X:\diskpart.txt" (echo SELECT DISK=0&amp;echo CLEAN&amp;echo CONVERT GPT&amp;echo CREATE PARTITION EFI SIZE=300&amp;echo FORMAT QUICK FS=FAT32 LABEL="System"&amp;echo CREATE PARTITION MSR SIZE=16)"</Path>
-		</RunSynchronousCommand>
-		<RunSynchronousCommand wcm:action="add">
-			<Order>2</Order>
-			<Path>cmd.exe /c "&gt;&gt;"X:\diskpart.txt" (echo CREATE PARTITION PRIMARY&amp;echo FORMAT QUICK FS=NTFS LABEL="Windows")"</Path>
-		</RunSynchronousCommand>
-		<RunSynchronousCommand wcm:action="add">
-			<Order>3</Order>
-			<Path>cmd.exe /c "diskpart.exe /s "X:\diskpart.txt" &gt;&gt;"X:\diskpart.log" || ( type "X:\diskpart.log" &amp; echo diskpart encountered an error. &amp; pause &amp; exit /b 1 )"</Path>
-		</RunSynchronousCommand>
-	</RunSynchronous>
-	<RunAsynchronous> /// Run all at the same time aka a free for all, cant not rely on previous steps being completed. https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-runasynchronous
-	</RunAynchronous>
-</component>
+Order 1
+Partition 1    System             300 MB FAT32
+Order 2
+Partition 2    Reserved            16 MB FAT32
+Order 3
+Partition 3    Primary            118 GB NTFS	Windows
+Order 3
+Partition 4    Recovery           651 MB FAT32
+Order 4
+diskpart /s X:\diskpart.txt > X:\diskpart.log
+```
+
+```
+<Disk wcm:action="add">
+	<DiskID>0</DiskID>
+	<!-- Its unclear if this is a sector level wipe or just an index wipe. -->
+    <WillWipeDisk>true</WillWipeDisk>
+	
+	<CreatePartitions>
+	
+		<!-- System -->
+		<CreatePartition wcm:action="add">
+        <Order>1</Order> 
+        <Type>EFI</Type> 
+        <Size>300</Size> 
+		</CreatePartition>
+
+		<!-- Reserved -->
+		<CreatePartition wcm:action="add">
+		<Order>2</Order> 
+        <Type>MSR</Type>
+		<Size>16</Size>		 
+		</CreatePartition>
+		
+		<!-- Primary In MB. 1GB = 1000MB -->
+		<CreatePartition wcm:action="add">
+		<Order>3</Order> 
+        <Type>Primary</Type>
+		<Size>118000</Size>		 
+		</CreatePartition>
+		
+		<!-- Recovery using <ModifyPartitions> below -->
+		<CreatePartition wcm:action="add">
+		<Order>4</Order> 
+        <Type>Primary</Type>
+		<Size>651</Size>		 
+		</CreatePartition>
+
+    </CreatePartitions>
+	
+    <ModifyPartitions>
+
+		<!-- EFI -->
+		<ModifyPartition wcm:action="add">
+        <Order>1</Order> 
+        <PartitionID>1</PartitionID> 
+        <Format>FAT32</Format> 
+		</ModifyPartition>
+		
+		<!-- MSR -->
+		<ModifyPartition wcm:action="add">
+        <Order>1</Order> 
+        <PartitionID>2</PartitionID> 
+        <Format>FAT32</Format> 
+		</ModifyPartition>
+
+		<!-- Windows partition -->
+		<ModifyPartition wcm:action="add">
+        <Order>2</Order> 
+        <PartitionID>2</PartitionID> 
+        <Label>Windows</Label> 
+        <Letter>C</Letter> 
+        <Format>NTFS</Format> 
+		</ModifyPartition>
+		
+		<!-- Recovery -->
+		<ModifyPartition wcm:action="add">
+        <Order>1</Order> 
+        <PartitionID>4</PartitionID> 
+        <TypeID>de94bba4-06d1-4d40-a16a-bfd50179d6ac</TypeID>
+		<Format>FAT32</Format>		
+		</ModifyPartition>
+	</ModifyPartitions>
+</Disk>
 ```
