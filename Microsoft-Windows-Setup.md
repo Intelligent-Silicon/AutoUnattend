@@ -5,9 +5,9 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 
 This is the section where you can choose the version of windows you want to install, configure the partition drives on the hard disk and configure the windowsPE operating system further.
 
-### <ImageInstall>
+### ```<ImageInstall>```
 
-<OSImage> specifies the path and the destination of a Windows image (.wim) file that contains the image to install.
+```<OSImage>``` specifies the path and the destination of a Windows image (.wim) file that contains the image to install.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage
 
