@@ -246,7 +246,7 @@ diskpart /s X:\diskpart.txt > X:\diskpart.log
 			<Size>300</Size> 
 		</CreatePartition>
 
-		<!-- Reserved Docs suggest minimum size of 32MB -->
+		<!-- Reserved - Docs suggest minimum size of 32MB -->
 		<CreatePartition wcm:action="add">
 			<Order>2</Order> 
 			<Type>MSR</Type>
