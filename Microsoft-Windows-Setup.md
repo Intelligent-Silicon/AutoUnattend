@@ -211,6 +211,7 @@ Also note this example is not using any encoding for symbols, but would need to 
 ```
 
 This example uses ```<DiskConfiguration>``` to create the partitions and assumes a UEFI bios exists and not the older bios type:
+
 Create partitions first, then modify the required partitions. Its unclear if this is a sector level data wipe or index only wipe.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-disk-createpartitions-createpartition-type
