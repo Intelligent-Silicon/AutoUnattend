@@ -120,12 +120,12 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 
 ### ```<RunSynchronousCommand>```
 
-```<RunSynchronousCommand>``` is where you can run additional commands or scripts to perform additional functions. These run one after the after unlike ```<RunAsynchronousCommand>``` which run all at the same time and cant be relied upon by later steps in the order. These run as User in the auditUser pass and as System in the specialise pass.
+```<RunSynchronousCommand>``` is where you can run additional commands or scripts to perform additional functions. These run one after the after unlike ```<RunAsynchronousCommand>``` which run all at the same time and cant be relied upon by commands in later orders. These run as User in the auditUser pass and as System in the specialise pass.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-runsynchronous-runsynchronouscommand
 
 
-These examples create hard drive partitions. When copying commands that use symbols like >> encoding them as ```&gt;``` reduces errors with commands.
+These examples create hard drive partitions. When copying commands that use symbols like >> encoding them as ```&gt;``` reduces errors with commands when stored in a file.
 
 ```
 &lt; stands for the less-than sign: <
@@ -137,6 +137,9 @@ These examples create hard drive partitions. When copying commands that use symb
 
 
 To quick wipe the hard drive keep QUICK in the partition commands eg ```FORMAT QUICK FS=FAT32```
+To wipe the hard drive and wipe every sector which will take longer, anything from 10-15minutes to hours depending on disk size and if its a slow spin disk or not, remove QUICK from the partition commands eg ```FORMAT FS=FAT32``` 
+
+If you have been hacked, this option is generally the best as it will wipe malware stored on the drive that is not removed by simply removing the index of disk files which is what the ```QUICK``` does.
 
 This example creates the following:
 ```
@@ -205,9 +208,7 @@ Also note this example is not using any encoding for symbols, but would need to 
 ```
 
 
-To wipe the hard drive and wipe every sector which will take longer, anything from 10-15minutes to hours depending on size and if its a slow spin disk or not, remove QUICK from the partition commands eg ```FORMAT FS=FAT32``` 
 
-If you have been hacked, this option is generally the best as it will wipe malware stored on the drive that is not removed by simply removing the index of disk files which is what the ```QUICK``` does.
 
 ```
 <RunSynchronousCommand wcm:action="add">
