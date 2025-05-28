@@ -181,7 +181,10 @@ Order 4
 diskpart /s X:\diskpart.txt > X:\diskpart.log
 ```
 
-The Windows RE Recovery partition is installed in a seperate partition called Recovery. For more information see https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/configure-uefigpt-based-hard-drive-partitions
+The Windows RE Recovery partition is installed in a seperate partition called Recovery. 
+
+For more information see https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/configure-uefigpt-based-hard-drive-partitions
+
 Also note this example is not using any encoding for symbols, but would need to be encoded if saved to an autounattend.xml file.
 
 ```
