@@ -31,7 +31,7 @@ DISKPART> list disk
   --------  -------------  -------  -------  ---  ---
   Disk 0    Online          119 GB  1024 KB        *
 
-DISKPART>
+DISKPART> exit
 ```
 
 ```<PartitionID>``` specifies the identification number of the partition to modify. The first partition on a disk has the value of 1, the second, 2, and so on. If you have a typical single hard drive, it will typically look like the partition list below. Primary is where you want to install windows onto.
@@ -56,7 +56,7 @@ DISKPART> list partition
   Partition 3    Primary            118 GB   317 MB
   Partition 4    Recovery           651 MB   118 GB
 
-DISKPART>exit
+DISKPART> exit
 ```
 
 ```
