@@ -151,7 +151,7 @@ Partition 3    Primary            118 GB
 Order 3
 diskpart /s X:\diskpart.txt > X:\diskpart.log
 ```
-The Windows RE Recovery partition is installed in C:\Recovery and no recovery partition will be created.
+The Windows RE (Recovery Environment) partition is installed in C:\Recovery and no recovery partition will be created.
 
 ```
 <RunSynchronousCommand wcm:action="add">
@@ -181,7 +181,7 @@ Order 4
 diskpart /s X:\diskpart.txt > X:\diskpart.log
 ```
 
-The Windows RE Recovery partition is installed in a seperate partition called Recovery. 
+The Windows RE (Recovery Environment) partition is installed in a seperate partition categorized as Recovery. 
 
 For more information see https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/configure-uefigpt-based-hard-drive-partitions
 
