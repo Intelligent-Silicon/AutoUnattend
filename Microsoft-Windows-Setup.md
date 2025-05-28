@@ -139,6 +139,7 @@ These examples create hard drive partitions. When copying commands that use symb
 To quick wipe the hard drive keep QUICK in the partition commands eg ```FORMAT QUICK FS=FAT32```
 
 This example creates the following:
+```
 Order 1
 Partition 1    System             300 MB
 Partition 2    Reserved            16 MB
@@ -146,7 +147,7 @@ Order 2
 Partition 3    Primary            118 GB
 Order 3
 diskpart /s X:\diskpart.txt > X:\diskpart.log
-
+```
 The Windows RE Recovery partition is installed in C:\Recovery and no recovery partition will be created.
 
 ```
