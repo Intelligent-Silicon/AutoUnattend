@@ -37,6 +37,8 @@ Don't expect Driver's to work from $oem$ copy because here as I've noticed by lo
 Driver's are working here but you have to point to them.
 Note: Driver's are done early on, PE is looking for them or right after if you are pointing otherwise an error.
 
+https://www.tenforums.com/installation-upgrade/178735-answer-file-autounattend-xml-diskid-changes-after-loading-drivers.html
+
 https://www.tenforums.com/general-support/203561-add-applications-answer-file-windows-10-a-2.html
 
 https://www.tenforums.com/tutorials/96683-create-media-automated-unattended-install-windows-10-a-91.html
