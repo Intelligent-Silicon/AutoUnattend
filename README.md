@@ -1,6 +1,8 @@
 # AutoUnattend.xml
 Auto Unattend Notes and Examples.
 
+This is predominantly geared towards single computers with a UEFIbios and a single hard drive used in a home or small business settings without being connected a domain server.
+
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-technical-reference
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-automation-overview#answer-files-named-autounattendxml-are-automatically-discovered-by-windows-setup
@@ -41,7 +43,7 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/co
 
 In order of processing, when a component exists. 
 
-[windowsPE](windowsPE.md) Windows Preinstallation Environment (Windows PE) is a small operating system where settings for the installation and WinPE are set, like display resolutions, disk partitions, installation partition, licence keys and specific commands.
+[windowsPE](windowsPE.md) Windows Preinstallation Environment (Windows PE) is a small operating system where settings for the installation and WinPE are set, like display resolutions, disk partitions, installation partition, licence keys and specific commands. P
 
 [offlineServicing](offlineServicing.md)  Apply unattended Setup setting to an offline Microsoft Windows image, like drivers, language packs, update packages and other packages.
 
