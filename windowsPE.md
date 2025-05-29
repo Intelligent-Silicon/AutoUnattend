@@ -20,3 +20,5 @@ windowsPE Components
 [Microsoft-Windows-International-Core-WinPE](Microsoft-Windows-International-Core-WinPE.md) 
 
 [Microsoft-Windows-Setup](Microsoft-Windows-Setup.md) 
+
+[Microsoft-Windows-PnpCustomizationsWinPE](Microsoft-Windows-PnpCustomizationsWinPE.md)
