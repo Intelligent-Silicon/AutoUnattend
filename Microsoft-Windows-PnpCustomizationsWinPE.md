@@ -7,7 +7,7 @@ This is where the drivers are added to the windows driver store and the drivers 
 
 https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store
 
-To install drivers during an offline installation, first you need to create a folder called ```$WinpeDriver$``` on the USB stick used by the Windows Media Creation program to copy the windows installation files. Next copy the extracted drivers into their own subfolders inside the $WinpeDriver$ eg.
+To install drivers during an offline installation, first you need to create a folder called ```$WinpeDriver$``` on the USB stick used by the Windows Media Creation program to copy the windows installation files. Next copy the extracted drivers into their own subfolders inside the ```$WinpeDriver$``` eg.
 
 ```
 USB Memory Stick\$WinpeDriver$\audio\
@@ -16,6 +16,7 @@ USB Memory Stick\$WinpeDriver$\wlan\
 USB Memory Stick\$WinpeDriver$\motherboard\
 ```
  
+In order to do this, you will need to logon on to your computer manufacturers website and download the drivers specifically for you computer. Some driver installation programs offer the option to install or extract the drivers when running the driver installation program. Others have a command line switch which can extract the drivers, that needs to be run from the DOS command window or powershell window. Other manufacturers will provide a CAB or the newer DUP file where it can be extracted 
 
 
 
