@@ -12,12 +12,33 @@ To install drivers during an offline installation, first you need to create a fo
 ```
 USB Memory Stick\$WinpeDriver$\audio\
 USB Memory Stick\$WinpeDriver$\graphics\
-USB Memory Stick\$WinpeDriver$\wlan\
 USB Memory Stick\$WinpeDriver$\motherboard\
+USB Memory Stick\$WinpeDriver$\wlan\
 ```
  
-In order to do this, you will need to logon on to your computer manufacturers website and download the drivers specifically for you computer. Some driver installation programs offer the option to install or extract the drivers when running the driver installation program. Others have a command line switch which can extract the drivers, that needs to be run from the DOS command window or powershell window. Other manufacturers will provide a CAB or the newer DUP file where it can be extracted 
+In order to do this, you will need to logon on to your computer manufacturers website and download the drivers specifically for your computer. Some driver installation programs offer the option to install or extract the drivers when running the driver installation program. Others have a command line switch which can extract the drivers, that needs to be run from the DOS command window or powershell window. Other manufacturers will provide a CAB or the newer DUP file where it can be extracted.
 
+Its important to have all the latest drivers your computer needs in order for the installation process to work smoothly as missing drivers can make it impossible to get online without the use of another device to download missing drivers. When its impossible to get online with missing drivers, windows will gnerally offer the option to install missing drivers to resolve the situation. Likewise the manufacturer may also have a program which can detect and install any missing drivers, but these remedies rely on being able to get online.
+
+```%configsetroot%``` is a placeholder variable that represents the root directory where Windows Setup's configuration set is located.
+
+The next stage is to list the drivers that are available using the ```Microsoft-Windows-PnpCustomizationsWinPE``` section in the autounattend.xml file.
+
+```
+<settings pass="windowsPE">
+	<component name="Microsoft-Windows-PnpCustomizationsWinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<DriverPaths>
+			<PathAndCredentials wcm:keyValue="1" wcm:action="add">
+				<Path>%configsetroot%\audio</Path>
+				<Path>%configsetroot%\graphics</Path>
+				<Path>%configsetroot%\motherboard</Path>
+				<Path>%configsetroot%\wlan</Path>
+				<Credentials></Credentials>
+			</PathAndCredentials>
+		</DriverPaths>
+	</component>
+</settings>
+```
 
 
 
