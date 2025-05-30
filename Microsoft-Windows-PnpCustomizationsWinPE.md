@@ -3,7 +3,7 @@
 
 This is the first opportunity in the autounattend.xml process where you can create the ```$WinpeDriver$``` folder and subfolders containing drivers on the memory stick to install during the windowsPE pass and use during the installation process.
 
-This is where the drivers are added to the windows driver store and the drivers available on the memorystick can also be used to for such things as installing RAID controller drivers to access the raid drive in order to install windows; raid drives are typically used in servers or high end desktops, but involve two or more drives which is beyond the scope of this repo.
+This is where the drivers are added to the windows driver store and the drivers available on the memory stick can also be used to for such things as installing RAID controller drivers to access the raid drive in order to install windows; raid drives are typically used in servers or high end desktops, but involve two or more drives which is beyond the scope of this repo.
 
 https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store
 
