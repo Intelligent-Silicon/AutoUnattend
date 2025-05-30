@@ -1,7 +1,7 @@
 # windowsPE Component
 # Microsoft-Windows-PnpCustomizationsWinPE
 
-This is the first section  in the autounattend.xml process where you can create subfolders folders on the memory stick that contain driver files to install during the windowsPE pass and use during the installation process.
+This is the first opportunity in the autounattend.xml process where you can create subfolders folders on the memory stick that contain driver files to install during the windowsPE pass and use during the installation process.
 
 This is where the drivers are added to the windows driver store during the installation process and the drivers available here can also be used to for such things as installing RAID controller drivers to access and install windows on a raid drive typically used in servers.
 
