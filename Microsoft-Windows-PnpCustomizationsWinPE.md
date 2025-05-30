@@ -18,11 +18,15 @@ USB Memory Stick\$WinpeDriver$\wlan\
  
 In order to do this, you will need to logon on to your computer manufacturers website and download the drivers specifically for your computer. Some driver installation programs offer the option to install or extract the drivers when running the driver installation program. Others have a command line switch which can extract the drivers, that needs to be run from the DOS command window or powershell window. Other manufacturers will provide a CAB or the newer DUP file where it can be extracted.
 
-Its important to have all the latest drivers your computer needs in order for the installation process to work smoothly as missing drivers can make it impossible to get online without the use of another device to download missing drivers. When its impossible to get online with missing drivers, windows will gnerally offer the option to install missing drivers to resolve the situation. Likewise the manufacturer may also have a program which can detect and install any missing drivers, but these remedies rely on being able to get online.
+Its important to have all the latest drivers your computer needs in order for the installation process to work smoothly as missing drivers can make it impossible to get online without the use of another device to download missing drivers. 
 
-```%configsetroot%``` is a placeholder variable that represents the root directory where Windows Setup's configuration set is located.
+When its possible to get online despite having missing drivers, windows will generally offer the option to install missing drivers to resolve the situation when using the windows update process. Likewise the manufacturer may also have a program which can detect and install any missing drivers, but these remedies rely on being able to get online.
 
-The next stage is to list the drivers that are available using the ```Microsoft-Windows-PnpCustomizationsWinPE``` section in the autounattend.xml file.
+```%configsetroot%``` is a placeholder variable that represents the root directory of the USB Memory stick.
+
+The next stage is to list the drivers that are copied onto the USB memory stick using the ```Microsoft-Windows-PnpCustomizationsWinPE``` section in the autounattend.xml file.
+
+eg.
 
 ```
 <settings pass="windowsPE">
