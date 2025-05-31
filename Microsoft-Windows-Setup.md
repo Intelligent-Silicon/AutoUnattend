@@ -136,7 +136,7 @@ A file with the file extension ```.cmd``` and ```.bat``` are script files that u
 </RunSynchronousCommand>
 ```
 
-These commands will run a program, which can be most types and shows how to pass command line switches to the program. This is where boot-critical drivers and programs can be but the windowsPE pass is too early for installing programs like Notepad++ you want in the final windows installation.
+These commands will run a program, which can be most types and shows how to pass command line switches to the program. This is where boot-critical drivers and software can be installed.
 
 ```
 <RunSynchronousCommand wcm:action="add">
