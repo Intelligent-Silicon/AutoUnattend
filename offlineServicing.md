@@ -1,104 +1,56 @@
-# <offlineServicing>
+# offlineServicing Component
 
-Packages listed in the <servicing> section and settings in the <offlineServicing> section of the answer file are applied to the offline Windows image.
-The offlineServicing pass is where you can add language packs, update packages, device drivers, or other packages to the offline image.
+This pass can be used to install setup programs which accept command line switches to an offline Windows image.
 
+These can include language packs, windows update packages, drivers, and programs for users.
 
-Update Windows faster by using DISM to make your changes without ever booting Windows. Mount an image to a temporary location, install apps, drivers, languages, and more, and then commit the changes so they can be applied to new devices. DISM requires an elevated command-line or from PowerShell, which makes it easier to automate your changes with scripts.
+This pass runs during the windowsPE Microsoft-Windows-Setup pass, by extracting and installing windows, and the runs the DISM (Deployment Image Servicing and Management) program. 
 
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism
 
+The full technical detail of the WIM file can be found at this link. https://go.microsoft.com/fwlink/?LinkId=92227
 
-https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlineservicing
+WindowsPE will only mount an image, which means it will be offline only and never online because its never booted up at this stage. 
 
+If you want to use the ```%configsetroot%``` with DISM, make sure the below ```<UseConfigurationSet>``` line is added to ```<component name="Microsoft-Windows-Setup"``` as seen in the example below.
 
-# ```<DriverPaths>```
-
-```<DriverPaths>``` is where you can specify one or more paths to folders that can contain out of the box drivers aka drivers extracted from their setup installer program. These are copied to the driver store of the windows image during the windowsPE pass.
-
-# ```<Path>```
-```<Path>``` is the local or UNC (Universal Naming Convention) path to the location that contains out of the box drivers. It does not look in subfolders of the specified path. 
-
-```<Path>\\myUNCdriverpath\aDriverFolder</Path>```
-```<Path>C:\Drivers</Path>```
-```<Path>\Drivers</Path>```
-
-
-$OEM$ folder must be created under the ISO's \sources directory.
-
-For me, I put unattend.xml and $oem$ in sources folders.
-
-- sources \ $oem$ \ $1 \ FileWillBeAtRoot.txt
-
-\sources\$OEM$
-\sources\$OEM$\$$\file1
-\sources\$OEM$\$1\file2
-
-Don't expect Driver's to work from $oem$ copy because here as I've noticed by looking at the drive i'm installing to, $oem$ don't get copied till right after it does the update thing and right before doing the Performance check
-Driver's are working here but you have to point to them.
-Note: Driver's are done early on, PE is looking for them or right after if you are pointing otherwise an error.
-
-https://www.tenforums.com/installation-upgrade/178735-answer-file-autounattend-xml-diskid-changes-after-loading-drivers.html
-
-https://www.tenforums.com/general-support/203561-add-applications-answer-file-windows-10-a-2.html
-
-https://www.tenforums.com/tutorials/96683-create-media-automated-unattended-install-windows-10-a-91.html
-
-https://pastebin.com/KJB1agCZ
-
-https://brookspeppin.com/2022/01/29/build-a-fast-diy-usb-zero-touch-provisioning-process-for-dell/
-
-https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-pnpcustomizationswinpe-driverpaths
-
-
-
-<settings pass="offlineServicing">
-        <component name="Microsoft-Windows-LUA-Settings" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <EnableLUA>false</EnableLUA>
-        </component>
-    </settings>
-	
-	<settings pass="offlineServicing">
-<component name="Microsoft-Windows-LUA-Settings" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<EnableLUA>true</EnableLUA>
+```
+<component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+	<UseConfigurationSet>true</UseConfigurationSet>
 </component>
-</settings>
+```
 
-windowsPE and offlineServicing configuration passes:
+DISM command to mount the windows WIM file on the USB stick. This assumes a subfolder call mount exists. If you use a folder name with spaces, make sure paths are encapsulated with quotes as seen below, but using quotes is a good habit to have. 
+```
+Dism /Image:"%configsetroot%\sources\install.wim":\offline /Source:"%configsetroot%\mount\windows"
+```
 
-\Sources directory in a Windows distribution
+The USB stick created by the Media Creation tool contains a folder called ```\sources```. There will be two WIM files. ```Boot.WIM``` is the windowsPE operating system and ```Install.WIM``` is is the copy of windows which will be installed. 
+Once ```Install.WIM``` is mounted to a subfolder on the usb stick, you can then run other DISM commands to customise the windows which will be installed. 
 
-All other passes:
+For more information on mounting and customising the installation version of windows, see this link.
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-mount-and-customize
 
-%WINDIR%\System32\Sysprep
+
+# ```/commit```
+
+Remember to use the ```/commit``` option when unmounting the ```Install.WIM``` in order to save your changes before its installed on the computer.
+
+# DISM windowsPE command reference
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deployment-image-servicing-and-management--dism--command-line-options?view=windows-11
 
 
-<settings pass="offlineServicing">
-		<component name="Microsoft-Windows-PnpCustomizationsNonWinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-			<DriverPaths>
-				<PathAndCredentials wcm:keyValue="1" wcm:action="add">
-					<Path>\Drivers</Path>
-				</PathAndCredentials>
-			</DriverPaths>
-		</component>
-	</settings>
-	
-	
-	<settings pass="offlineServicing">
-    <component name="Microsoft-Windows-PnpCustomizationsNonWinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <DriverPaths>
-            <PathAndCredentials wcm:keyValue="1" wcm:action="add">
-                <Path>C:\Drivers</Path>
-            </PathAndCredentials>
-        </DriverPaths>
-    </component>
-</settings>
 
-<settings pass="offlineServicing">
-    <component name="Microsoft-Windows-PnpCustomizationsNonWinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <DriverPaths>
-            <PathAndCredentials wcm:keyValue="1" wcm:action="add">
-                <Path>C:\Drivers</Path>
-            </PathAndCredentials>
-        </DriverPaths>
-    </component>
-</settings>
+# Add driver
+
+```
+Dism /Add-Driver /Image:"%configsetroot%\mount" /Driver:"%configsetroot%:\SomeSubFolder\driver.inf"
+```
+The .INF file contains a list of additional files which are needed for the device driver to work, so those files will be copied onto the mount automatically for you.
+
+If copying user programs onto the mounted Install.WIM, remember this may need more than just files copied across to the mount.  These files could also be located in other folders, like ```.ini``` files in ```C:\Windows```, and config or data files in %USERPROFILE% folders and %appdata% folders, as well as also having registry settings in a variety of registry hives like HKLM, HKU and HKCU. 
+
+This can be more work generally unless the program is a simple standalone program, and its generally best, if the setup program accepts command line switches, to install the program using its setup program with the neccessary command line switches.
+  
+
