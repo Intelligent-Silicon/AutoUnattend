@@ -85,13 +85,13 @@ Workarounds for the wrong drive letter include listing all the driver letters fr
 <Path>I:\Drivers</Path>
 ```
 
-Its worth pointing out that a UNC path whilst not being a web address like the type used in web browsers, it can still refer to a server that is online in another location. This situation requires the network the machine connects to, being setup in such a way as to access servers, typically through switch based vpn's and/or private networks going to different locations around the world. 
+Its worth pointing out that a UNC path whilst not being a web address like the type used in web browsers, can still refer to a server that is online in another location around the world. This situation requires the network the computer connects to, being setup in such a way as to access the UNC network share, either directly over the internet, using a VPN running over the internet or a private WAN. 
 				
 
 
 # ```<Credentials>```
 
-For network shares or servers and used in conjunction with network shares and sites.
+For network shares or servers that are password protected.
 
 ```
 <Credentials>
