@@ -120,7 +120,7 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 
 ### ```<RunSynchronousCommand>```
 
-```<RunSynchronousCommand>``` is where you can run additional commands or scripts to perform additional functions. These run one after the after unlike ```<RunAsynchronousCommand>``` which run all at the same time and cant be relied upon by commands in later orders. These run as User in the auditUser pass and as System in the specialise pass.
+```<RunSynchronousCommand>``` is where you can run additional commands or scripts to perform additional functions. These run one after the after unlike ```<RunAsynchronousCommand>``` which run all at the same time and cant be relied upon by commands later in the orders to have completed. These run as User in the auditUser pass and as System in the specialise pass.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-runsynchronous-runsynchronouscommand
 
