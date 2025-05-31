@@ -172,7 +172,7 @@ Other ways to copy files to the root drive of the windows installation is to use
 \sources\$OEM$ Folders\[drive letter]\[subfolder name]		A subfolder of the drive that contains files that Windows Setup copies to the subfolder during installation. Multiple instances of this type of folder can exist under the $OEM$ Folders\drive_letter folder, for example, $OEM$ Folders\D\MyFolder\MySubfolder.
 ```
 
-More information on these ```$OEM$ Folders``` can be see at this link.
+More information on these ```$OEM$ Folders``` can be see at this link. Please note, this link suggests it might be deprecated in the future.
 
 https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-8.1-and-8/hh825027%28v%3dwin.10%29#folders-in-a-distribution-share
 
