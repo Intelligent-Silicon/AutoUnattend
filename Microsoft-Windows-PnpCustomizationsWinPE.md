@@ -18,7 +18,7 @@ USB Memory Stick\$WinpeDriver$\wlan\
  
 In order to do this, you will need to logon on to your computer manufacturers website and download the current drivers specifically for your computer. 
 
-Some driver installation programs offer the option to install or extract the drivers when running the driver installation program. Others have a command line switch which can extract the drivers, that needs to be run from the DOS command window or powershell window. Other manufacturers will provide one or a few CAB (Window's Cabinet) files or in the case of Dell a DUP (Dell Update Package) file where the required driver files can be extracted, typically using something 7zip.
+Some driver installation programs offer the option to install or extract the drivers when running the driver installation program. Others have a command line switch which can extract the drivers, that needs to be run from the DOS command window or powershell window. Other manufacturers will provide one or a few CAB (Window's Cabinet) files or in the case of Dell, a DUP (Dell Update Package) file where the required driver files can be extracted, typically using something 7zip if they are not already self extracting.
 
 Its important to have all the latest drivers your computer needs in order for the installation process to work smoothly as missing drivers or older drivers can make it impossible to get online without the use of a second device to download missing drivers for copying across. 
 
