@@ -156,7 +156,7 @@ These commands will run a program, which can be most types and shows how to pass
 </RunSynchronousCommand>
 ```
 
-Other ways to copy files to the root drive of the windows installation is to use the ```$OEM$ Folders``` and sub folders. This can be handy for copying user programs to be installed later on in the installation process. On the USB memory stick after using the windows media creation tool to copy the windows installation files onto the USB stick, there will be a ```sources``` folder in the root folder. Under the ```sources``` folder, add a subfolder called ```$OEM$ Folders```. Below are the subfolder options that can exist. 
+Other ways to copy files to the root drive of the windows installation is to use the ```$OEM$ Folders``` and sub folders. This can be handy for copying user programs like Clarion, Firefox, MS Office, Notepad++ to be installed later on in the installation process. On the USB memory stick after using the windows media creation tool to copy the windows installation files onto the USB stick, there will be a ```sources``` folder in the root folder. Under the ```sources``` folder, add a subfolder called ```$OEM$ Folders```. Below are the subfolder options that can exist. 
 
 ```
 \sources\$OEM$ Folders\Textmode					Contains updated mass-storage drivers and hardware abstraction layer (HAL) files that the text-mode part of Setup requires.
@@ -169,10 +169,11 @@ Other ways to copy files to the root drive of the windows installation is to use
 \sources\$OEM$ Folders\$Docs					Contains files that Windows Setup copies to %DOCUMENTS_AND_SETTINGS% during installation.
 \sources\$OEM$ Folders\$Progs					Contains programs that Windows Setup copies to the %PROGRAM_FILES% folder during installation.
 \sources\$OEM$ Folders\$Progs\Internet Explorer			Contains the settings file to customize Windows Internet Explorer®.
-\sources\$OEM$ Folders\[drive letter]\[subfolder name]		A subfolder of the drive that contains files that Windows Setup copies to the subfolder during installation. Multiple instances of this type of folder can exist under the $OEM$ Folders\drive_letter folder, for example, $OEM$ Folders\D\MyFolder.
+\sources\$OEM$ Folders\[drive letter]\[subfolder name]		A subfolder of the drive that contains files that Windows Setup copies to the subfolder during installation. Multiple instances of this type of folder can exist under the $OEM$ Folders\drive_letter folder, for example, $OEM$ Folders\D\MyFolder\MySubfolder.
 ```
 
-More information can be see at this link.
+More information on these ```$OEM$ Folders``` can be see at this link.
+
 https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-8.1-and-8/hh825027%28v%3dwin.10%29#folders-in-a-distribution-share
 
 If you choose to copy files over to the windows hard drive, you can run a script to perform some action with the files at a later stage of the autounattend.xml. 
