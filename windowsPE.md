@@ -26,4 +26,4 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-int
 [Microsoft-Windows-Setup](Microsoft-Windows-Setup.md) Configuring the hard disk partitions and some settings for the installation process. 
 
 
-[Microsoft-Windows-PnpCustomizationsWinPE](Microsoft-Windows-PnpCustomizationsWinPE.md) Configuring and installing drivers to be include in the windows driver store.
+[Microsoft-Windows-PnpCustomizationsWinPE](Microsoft-Windows-PnpCustomizationsWinPE.md) Configuring and installing drivers to be include in the windows driver store for the windows installation and windowsPE boot-critical drivers.
