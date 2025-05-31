@@ -5,11 +5,13 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 
 This is the section where you can choose the version of windows you want to install, configure the partition drives on the hard disk and configure the windowsPE operating system further.
 
-### ```<ImageInstall>```
+# ```<ImageInstall>```
 
 ```<OSImage>``` specifies the path and the destination of a Windows image (.wim) file that contains the image to install.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/capture-and-apply-windows-using-a-single-wim
 
 
 ```<Compact>``` Compact OS allows you to run the operating system from compressed files. This will result in a slower experience because files have to be decompressed before they can be used, but enables devices with small storage drives to run windows from. Works best with a fast cpu and plenty of fast ram.
@@ -71,7 +73,7 @@ DISKPART> exit
 </ImageInstall>
 ```
 
-### ```<UserData>```
+# ```<UserData>```
 
 This is the section where you specify the user settings to install the version of windows. 
 
@@ -107,7 +109,7 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 </UserData>
 ```
 
-### ```<UseConfigurationSet>```
+# ```<UseConfigurationSet>```
 
 ```<UseConfigurationSet>``` sets whether to use a configuration set or not. Options are true or false, the latter being the default option.
 A configuration set is a variable called ```%configsetroot%``` that enables you to refer to the root drive/folder of the USB memory stick, for such things like additional drivers, packages and/or software. This is useful and required for installing in offline circumstances.
@@ -118,7 +120,7 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 <UseConfigurationSet>true</UseConfigurationSet>
 ```
 
-### ```<RunSynchronousCommand>```
+# ```<RunSynchronousCommand>```
 
 ```<RunSynchronousCommand>``` is where you can run additional commands or scripts to perform additional functions. These run one after the after unlike ```<RunAsynchronousCommand>``` which run all at the same time and cant be relied upon by commands later in the orders to have completed. These run as User in the auditUser pass and as System in the specialise pass.
 
@@ -336,7 +338,7 @@ diskpart /s X:\diskpart.txt > X:\diskpart.log
 ```
 
 
-### ```<Display>```
+# ```<Display>```
 
 This setting is only relevant to older computers using a BIOS and not the current UEFI bios.
 
