@@ -168,7 +168,7 @@ Other ways to copy files to the root drive of the windows installation is to use
 \sources\$OEM$ Folders\$1\SysPrep				Contains files that are used for Sysprep-based installation.
 \sources\$OEM$ Folders\$Docs					Contains files that Windows Setup copies to %DOCUMENTS_AND_SETTINGS% during installation.
 \sources\$OEM$ Folders\$Progs					Contains programs that Windows Setup copies to the %PROGRAM_FILES% folder during installation.
-\sources\$OEM$ Folders\$Progs\Internet Explorer		Contains the settings file to customize Windows Internet Explorer®.
+\sources\$OEM$ Folders\$Progs\Internet Explorer			Contains the settings file to customize Windows Internet Explorer®.
 \sources\$OEM$ Folders\[drive letter]\[subfolder name]		A subfolder of the drive that contains files that Windows Setup copies to the subfolder during installation. Multiple instances of this type of folder can exist under the $OEM$ Folders\drive_letter folder, for example, $OEM$ Folders\D\MyFolder.
 ```
 
