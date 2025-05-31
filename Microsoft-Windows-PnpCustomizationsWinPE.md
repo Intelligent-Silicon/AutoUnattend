@@ -31,7 +31,7 @@ When its possible to get online despite having missing drivers, windows will gen
 ```
 <UseConfigurationSet>true</UseConfigurationSet>
 ```
-to the to the 
+to the
 ```
 <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
 </component>
