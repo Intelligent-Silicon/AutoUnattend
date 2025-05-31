@@ -25,9 +25,11 @@ Configuring the locale settings like timezone, keyboard layout for use during in
 [Microsoft-Windows-International-Core-WinPE](Microsoft-Windows-International-Core-WinPE.md) 
 
 
+
 Configuring the hard disk partitions and some settings for the installation process.
 
 [Microsoft-Windows-Setup](Microsoft-Windows-Setup.md) 
+
 
 
 configuring and installing drivers to be include in the windows driver store. 
