@@ -24,7 +24,7 @@ Its important to have all the latest drivers your computer needs in order for th
 
 When its possible to get online despite having missing drivers, windows will generally offer the option to install missing drivers to resolve the situation when using the windows update process. Likewise the manufacturer may also have a program which can detect and install any missing drivers, but these remedies rely on being able to get online.
 
-There are limitations for "injecting" drivers which are explained in the link.
+There are limitations for "injecting" drivers which are explained in this link.
 https://learn.microsoft.com/en-us/troubleshoot/windows-client/setup-upgrade-and-drivers/limitations-dollar-sign-winpedriver-dollar-sign
 
 
@@ -69,7 +69,7 @@ eg.
 </settings>
 ```
 
-Other variations are shown below, but you increase the risk of failure when drive letters are pointing to the wrong drive or the network share is not accessible because network drivers are missing or the network share login credentials are missing from the AutoUnattend.xml file preventing windowsPE from connecting to password protected network shares.
+Other variations are shown below, but you increase the risk of failure when drive letters are pointing to the wrong drive or the network share is not accessible because network drivers are missing or the network share login credentials are missing from the AutoUnattend.xml file preventing windowsPE from connecting to password protected network shares. 
 
 ```
 <Path>C:\Drivers</Path>

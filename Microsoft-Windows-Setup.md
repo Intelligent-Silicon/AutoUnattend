@@ -125,6 +125,36 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-runsynchronous-runsynchronouscommand
 
 
+A file with the file extension ```.cmd``` and ```.bat``` are script files that using the Windows command prompt. ```.cmd``` files are used for scripts that run on Windows NT-based operating systems (like Windows 2000, XP, Vista, 7, 8, 10,11), while ```.bat``` are script files that run on MS-DOS, Windows 9x (95, 98, ME) or the command window on NT based operating systems like the one's mentioned above. This functionality is where commands can perform those tasks where you would normally need to type stuff in the command window like loading up Raid Controller software, or starting the wifi and getting it to login into a known wifi SSID.
+
+```
+<RunSynchronous>
+    <RunSynchronousCommand wcm:action="add">
+    <Description>Start Wireless Networking</Description>
+    <Order>1</Order>
+	<Path>wlan.cmd</Path>
+</RunSynchronousCommand>
+```
+
+These commands will run a program, which can be most types and shows how to pass command line switches to the program. This is where boot-critical drivers and programs can be but the windowsPE pass is too early for installing programs like Notepad++ you want in the final windows installation.
+
+```
+<RunSynchronousCommand wcm:action="add">
+	<Description>A sample Program with command line switches </Description>
+    <Order>1</Order>
+    <Path>aSampleProgram.exe /d:%ProgramFiles%\MyCommandLineAlteredInstallationFolder /f /s</Path>
+</RunSynchronousCommand>
+```
+
+```
+<RunSynchronousCommand wcm:action="add">
+	<Description>Another sample Program with no command line switches</Description>
+    <Order>1</Order>
+    <Path>anotherSampleProgram.exe</Path>
+</RunSynchronousCommand>
+```
+
+
 These examples create hard drive partitions. When copying commands that use symbols like >> encoding them as ```&gt;``` reduces errors with commands when stored in a file.
 
 ```
@@ -304,3 +334,23 @@ diskpart /s X:\diskpart.txt > X:\diskpart.log
 	</ModifyPartitions>
 </Disk>
 ```
+
+
+### ```<Display>```
+
+This setting is only relevant to older computers using a BIOS and not the current UEFI bios.
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-display
+
+```
+<Display>
+	<ColorDepth>32</ColorDepth>
+    <HorizontalResolution>1024</HorizontalResolution>
+    <RefreshRate>60</RefreshRate>
+    <VerticalResolution>768</VerticalResolution>
+</Display>
+```
+
+
+
+ 

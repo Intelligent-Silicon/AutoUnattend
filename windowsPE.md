@@ -2,7 +2,7 @@
 
 ## Overview
 
-Windows Preinstallation Environment (Windows PE) is a small operating system where settings for the installed copy of Windows and WinPE are set, like display resolutions, disk partitions, installation partition, licence keys and specific commands.
+Windows Preinstallation Environment (Windows PE) is a small operating system where settings for the installed copy of Windows and WinPE are set, like display resolutions, disk partitions, installation partition, licence keys and specific commands, although some settings are only applicable to computers using the older BIOS and not the newer UEFI bios.
 
 To add out-of-box, boot-critical drivers during an unattended installation, you must make sure that the boot-critical driver is available on preinstallation media. Boot-critical drivers will include drivers for Raid controllers, to configure the Raid drives before windows can be installed. In practice, this is typically needed for servers and high end desktops which is beyond the scope of this repo. 
 
@@ -27,3 +27,6 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-int
 
 
 [Microsoft-Windows-PnpCustomizationsWinPE](Microsoft-Windows-PnpCustomizationsWinPE.md) Configuring and installing drivers to be include in the windows driver store for the windows installation and windowsPE boot-critical drivers.
+
+
+
