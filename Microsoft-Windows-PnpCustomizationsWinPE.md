@@ -54,10 +54,10 @@ eg.
 	<component name="Microsoft-Windows-PnpCustomizationsWinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<DriverPaths>
 			<PathAndCredentials wcm:keyValue="1" wcm:action="add">
-				<Path>%configsetroot%\audio</Path>
-				<Path>%configsetroot%\graphics</Path>
-				<Path>%configsetroot%\motherboard</Path>
-				<Path>%configsetroot%\wlan</Path>
+				<Path>%configsetroot%\AudioDriverFolder</Path>
+				<Path>%configsetroot%\GraphicsDriverFolder</Path>
+				<Path>%configsetroot%\MotherboardDriverFolder</Path>
+				<Path>%configsetroot%\WlanDriverFolder</Path>
 				<Credentials></Credentials>
 			</PathAndCredentials>
 		</DriverPaths>
@@ -65,11 +65,24 @@ eg.
 </settings>
 ```
 
-Other variations include
+Other variations are shown below, but you increase the risk of failure when drive letters are pointing to the wrong drive or the network share is not accessible because network drivers are missing or the network share login credentials are missing from the AutoUnattend.xml file preventing windowsPE from connecting to password protected network shares.
 
 ```
 <Path>C:\Drivers</Path>
 <Path>\\MyUNC\Path\to\Drivers</Path>
+```
+
+Workarounds for the wrong drive letter include listing all the driver letters from A to Z in the ```<Path>``` section as seen below, but this approach also requires the drivers folder name not being used elsewhere on the computer or USB memory stick.
+```
+<Path>A:\Drivers123</Path>
+<Path>B:\Drivers123</Path>
+<Path>C:\Drivers123</Path>
+<Path>D:\Drivers123</Path>
+<Path>E:\Drivers123</Path>
+<Path>F:\Drivers123</Path>
+<Path>G:\Drivers123</Path>
+<Path>H:\Drivers</Path>
+<Path>I:\Drivers</Path>
 ```
 
 Its worth pointing out that a UNC path whilst not being a web address like the type used in web browsers, it can still refer to a server that is online in another location. This situation requires the network the machine connects to, being setup in such a way as to access servers, typically through switch based vpn's and/or private networks going to different locations around the world. 
