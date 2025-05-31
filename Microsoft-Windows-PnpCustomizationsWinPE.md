@@ -45,7 +45,7 @@ eg
 </component>
 ```
 
-The next stage is to list the drivers that are copied onto the USB memory stick using the ```Microsoft-Windows-PnpCustomizationsWinPE``` section in the autounattend.xml file.
+The next stage is to list the driver folders that are copied onto the USB memory stick using the ```Microsoft-Windows-PnpCustomizationsWinPE``` section in the autounattend.xml file.
 
 eg.
 
