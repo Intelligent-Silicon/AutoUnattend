@@ -74,13 +74,13 @@ Other variations are shown below, but you increase the risk of failure when driv
 
 Workarounds for the wrong drive letter include listing all the driver letters from A to Z in the ```<Path>``` section as seen below, but this approach also requires the drivers folder name not being used elsewhere on the computer or USB memory stick.
 ```
-<Path>A:\Drivers123</Path>
-<Path>B:\Drivers123</Path>
-<Path>C:\Drivers123</Path>
-<Path>D:\Drivers123</Path>
-<Path>E:\Drivers123</Path>
-<Path>F:\Drivers123</Path>
-<Path>G:\Drivers123</Path>
+<Path>A:\Drivers</Path>
+<Path>B:\Drivers</Path>
+<Path>C:\Drivers</Path>
+<Path>D:\Drivers</Path>
+<Path>E:\Drivers</Path>
+<Path>F:\Drivers</Path>
+<Path>G:\Drivers</Path>
 <Path>H:\Drivers</Path>
 <Path>I:\Drivers</Path>
 ```
