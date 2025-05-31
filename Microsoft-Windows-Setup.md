@@ -110,7 +110,7 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 ### ```<UseConfigurationSet>```
 
 ```<UseConfigurationSet>``` sets whether to use a configuration set or not. Options are true or false, the latter being the default option.
-A configuration set is a folder that contains additional drivers, packages and/or software. This is useful for installing in offline circumstances.
+A configuration set is a variable called ```%configsetroot%``` that enables you to refer to the root drive/folder of the USB memory stick, for such things like additional drivers, packages and/or software. This is useful and required for installing in offline circumstances.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-useconfigurationset
 

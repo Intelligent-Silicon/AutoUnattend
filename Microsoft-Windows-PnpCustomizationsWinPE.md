@@ -1,9 +1,9 @@
 # windowsPE Component
 # Microsoft-Windows-PnpCustomizationsWinPE
 
-This is the first opportunity in the autounattend.xml process where you can create the ```$WinpeDriver$``` folder and subfolders containing drivers on the memory stick to install during the windowsPE pass and use during the installation process.
+This is the first opportunity in the autounattend.xml process where you can create the ```$WinpeDriver$``` folder and subfolders containing drivers on the memory stick for installation during the windowsPE pass and other passes in the autounattend.xml .
 
-This is where the drivers are added to the windows driver store and the drivers available on the memory stick can also be used to for such things as installing RAID controller drivers to access the raid drive in order to install windows; raid drives are typically used in servers or high end desktops, but involve two or more drives which is beyond the scope of this repo.
+The windowsPE conponent pass is where the drivers are added to the windows driver store during the installation process and for the windowsPE installation process to gain additional specialist functionality. Such nd the drivers available on the memory stick can also be used to for such things as installing RAID controller drivers to access the raid drive in order to install windows; raid drives are typically used in servers or high end desktops, but involve two or more drives which is beyond the scope of this repo.
 
 https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store
 
@@ -22,7 +22,26 @@ Its important to have all the latest drivers your computer needs in order for th
 
 When its possible to get online despite having missing drivers, windows will generally offer the option to install missing drivers to resolve the situation when using the windows update process. Likewise the manufacturer may also have a program which can detect and install any missing drivers, but these remedies rely on being able to get online.
 
-```%configsetroot%``` is a placeholder variable that represents the root directory of the USB Memory stick.
+
+# ```<Path>```
+
+```%configsetroot%``` is a placeholder variable that represents the root drive/folder of the USB Memory stick. In order to use this variable you need to add
+```
+<UseConfigurationSet>true</UseConfigurationSet>
+```
+to the to the 
+```
+<component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+</component>
+``` 
+section.
+
+eg 
+```
+<component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+	<UseConfigurationSet>true</UseConfigurationSet>
+</component>
+```
 
 The next stage is to list the drivers that are copied onto the USB memory stick using the ```Microsoft-Windows-PnpCustomizationsWinPE``` section in the autounattend.xml file.
 
@@ -44,6 +63,36 @@ eg.
 </settings>
 ```
 
+Other variations include
+
+```
+<Path>C:\Drivers</Path>
+<Path>\\MyUNC\Path\to\Drivers</Path>
+```
+
+Its worth pointing out that a UNC path whilst not being a web address like the type used in web browsers, it can still refer to a server that is online in another location. This situation requires the network the machine connects to, being setup in such a way as to access servers, typically through switch based vpn's and/or private networks going to different locations around the world. 
+				
+
+
+# ```<Credentials>```
+
+For network shares or servers and used in conjunction with network shares and sites.
+
+```
+<Credentials>
+	<Domain>MyDomain.local</Domain>
+    <Username>MyAdministratorUsername</Username>
+    <Password>MyAdministratorPassword</Password>
+</Credentials>
+```
+
+```
+<Credentials>
+	<Domain>MyDomain.com</Domain>
+    <Username>MyOnlineUsername</Username>
+    <Password>MyOnlinePassword</Password>
+</Credentials>
+```
 
 
 https://learn.microsoft.com/en-us/troubleshoot/windows-client/setup-upgrade-and-drivers/limitations-dollar-sign-winpedriver-dollar-sign
@@ -52,6 +101,22 @@ https://learn.microsoft.com/en-us/troubleshoot/windows-client/setup-upgrade-and-
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-pnpcustomizationswinpe
 
 
+
+```
+<settings pass="windowsPE">
+	<component name="Microsoft-Windows-PnpCustomizationsWinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<DriverPaths>
+			<PathAndCredentials wcm:keyValue="1" wcm:action="add">
+				<Path>%configsetroot%\audio</Path>
+				<Path>%configsetroot%\graphics</Path>
+				<Path>%configsetroot%\motherboard</Path>
+				<Path>%configsetroot%\wlan</Path>
+				<Credentials></Credentials>
+			</PathAndCredentials>
+		</DriverPaths>
+	</component>
+</settings>
+```
 
 <DriverPaths>
 <!-- First PathAndCredentials list item -->
