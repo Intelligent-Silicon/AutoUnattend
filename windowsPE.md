@@ -25,7 +25,7 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wpeinit-a
 [Microsoft-Windows-International-Core-WinPE](Microsoft-Windows-International-Core-WinPE.md) Configuring the locale settings like timezone, keyboard layout for use during installation and after installation.
 
 
-[Microsoft-Windows-Setup](Microsoft-Windows-Setup.md) Configuring the hard disk partitions, run boot-critical drivers and other programs for the installation process. 
+[Microsoft-Windows-Setup](Microsoft-Windows-Setup.md) Configure the hard disk partitions, run boot-critical drivers and other programs for the installation process. 
 
 
 [Microsoft-Windows-PnpCustomizationsWinPE](Microsoft-Windows-PnpCustomizationsWinPE.md) Configuring and installing drivers to be include in the windows driver store for the windows installation and windowsPE boot-critical drivers.
