@@ -24,6 +24,10 @@ Its important to have all the latest drivers your computer needs in order for th
 
 When its possible to get online despite having missing drivers, windows will generally offer the option to install missing drivers to resolve the situation when using the windows update process. Likewise the manufacturer may also have a program which can detect and install any missing drivers, but these remedies rely on being able to get online.
 
+There are limitations for "injecting" drivers which are explained in the link.
+https://learn.microsoft.com/en-us/troubleshoot/windows-client/setup-upgrade-and-drivers/limitations-dollar-sign-winpedriver-dollar-sign
+
+
 
 # ```<Path>```
 
@@ -110,7 +114,7 @@ For network shares or servers that are password protected.
 ```
 
 
-https://learn.microsoft.com/en-us/troubleshoot/windows-client/setup-upgrade-and-drivers/limitations-dollar-sign-winpedriver-dollar-sign
+
 
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-pnpcustomizationswinpe
