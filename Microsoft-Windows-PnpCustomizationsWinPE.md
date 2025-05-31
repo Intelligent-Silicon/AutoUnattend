@@ -69,7 +69,9 @@ eg.
 </settings>
 ```
 
-Other variations are shown below, but you increase the risk of failure when drive letters are pointing to the wrong drive or the network share is not accessible because network drivers are missing or the network share login credentials are missing from the AutoUnattend.xml file preventing windowsPE from connecting to password protected network shares. 
+Other variations are shown below, but you increase the risk of failure when drive letters are pointing to the wrong drive or the network share is not accessible because network drivers are missing or the network share login credentials are missing from the AutoUnattend.xml file preventing windowsPE from connecting to password protected network shares.
+
+More information on Network shares, their limitations and how to enable them for use in the autoUnattend.xml file can be found in this link. https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-network-drivers-initializing-and-adding-drivers
 
 ```
 <Path>C:\Drivers</Path>
@@ -90,6 +92,10 @@ Workarounds for the wrong drive letter include listing all the driver letters fr
 ```
 
 Its worth pointing out that a UNC path whilst not being a web address like the type used in web browsers, can still refer to a server that is online in another location around the world. This situation requires the network the computer connects to, being setup in such a way as to access the UNC network share, either directly over the internet, using a VPN running over the internet or a private WAN. 
+
+A script based solution to finding the correct drive is shown in this link. https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-identify-drive-letters
+
+Drives which are not accessed via network shares but but the Storage Area Policy (SAN) is shown in this link. https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-storage-area-network--san--policy
 				
 
 

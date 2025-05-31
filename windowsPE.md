@@ -15,6 +15,8 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windowspe
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-intro
 
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wpeinit-and-startnetcmd-using-winpe-startup-scripts#supported-unattend-settings
+
 
 [windowsPE AutoUnattend.xml](windowsPE-AutoUnattend.md)
 
