@@ -20,18 +20,10 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-int
 
 # windowsPE Components
 
-Configuring the locale settings like timezone, keyboard layout for use during installation and after installation.
-
-[Microsoft-Windows-International-Core-WinPE](Microsoft-Windows-International-Core-WinPE.md) 
+[Microsoft-Windows-International-Core-WinPE](Microsoft-Windows-International-Core-WinPE.md) Configuring the locale settings like timezone, keyboard layout for use during installation and after installation.
 
 
-
-Configuring the hard disk partitions and some settings for the installation process.
-
-[Microsoft-Windows-Setup](Microsoft-Windows-Setup.md) 
+[Microsoft-Windows-Setup](Microsoft-Windows-Setup.md) Configuring the hard disk partitions and some settings for the installation process. 
 
 
-
-configuring and installing drivers to be include in the windows driver store. 
-
-[Microsoft-Windows-PnpCustomizationsWinPE](Microsoft-Windows-PnpCustomizationsWinPE.md)
+[Microsoft-Windows-PnpCustomizationsWinPE](Microsoft-Windows-PnpCustomizationsWinPE.md) Configuring and installing drivers to be include in the windows driver store.
