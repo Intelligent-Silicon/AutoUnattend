@@ -5,6 +5,10 @@
 
 The auditSystem and auditUser configuration passes only run when you configure Windows Setup to boot into audit mode using the methods below.
 
+
+
+# auditMode methods
+
 ```
 <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
 	<Reseal>
