@@ -14,7 +14,7 @@ During the oobeSystem configuration pass, if ```<Mode>``` is not specified, then
 
 # auditMode methods
 
-### ```<Microsoft-Windows-Deployment>```
+### ```<Microsoft-Windows-Deployment> component```
 
 ```
 <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
