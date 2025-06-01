@@ -3,7 +3,24 @@
 
 
 
-The auditSystem and auditUser configuration passes only run when you configure Windows Setup to boot into audit mode using the command below.
+The auditSystem and auditUser configuration passes only run when you configure Windows Setup to boot into audit mode using the methods below.
+
+```
+<component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+	<Reseal>
+		<Mode>Audit</Mode>
+	</Reseal>
+</component>
+```
+```
+<component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+	<Reseal>
+		<Mode>OOBE</Mode>
+	</Reseal>
+</component>
+```
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-reseal
+
 
 ```
 { auditpol.exe /set /subcategory:"{0CCE922B-69AE-11D9-BED3-505054503030}" /success:enable /failure:enable; }
@@ -15,15 +32,11 @@ https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gpac/77878370-0
 
 or from the presence of the ```reseal``` element in the ```Microsoft-Windows-Deployment``` section in the answer file, see link below,
 
-```
-<component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
-<Reseal></Reseal>
-</component>
-```
+
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment
 
-https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-reseal
+
 
 ```
 </reseal>Audit</settings>
