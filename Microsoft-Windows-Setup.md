@@ -202,7 +202,7 @@ https://www.seagate.com/gb/en/support/kb/firmware-update-utility-instructions-an
 Some manufacturers may not release utility software as noted here https://support-en.wd.com/app/answers/detailweb/a_id/50745/~/firmware-download-and-updates-for-western-digital-internal-and-external-drives
 but drives supplied to PC manufacters may have their own firmware that could enable firmware updates from the operating systems like windows and thus creates an attack vector for persistance. 
 
-An example of gaining firmware persistance using an offline method which can in itself be useful for discovery of firmware abilities and attack vectors can be see here. https://spritesmods.com/?art=hddhack
+An example of gaining firmware persistance using an offline JTAG method which can in itself be useful for discovery of firmware abilities and attack vectors can be see here. https://spritesmods.com/?art=hddhack
 
 This is by no means the only attack vector that can exist. Bugs in software can also be a backdoor waiting for hackers to exploit! You have been warned! 
 
