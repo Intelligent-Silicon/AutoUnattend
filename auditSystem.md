@@ -9,6 +9,8 @@ The auditSystem and auditUser configuration passes only run when you configure W
 
 # auditMode methods
 
+### ```<Microsoft-Windows-Deployment>```
+
 ```
 <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
 	<Reseal>
@@ -25,6 +27,7 @@ The auditSystem and auditUser configuration passes only run when you configure W
 ```
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-reseal
 
+### Command line
 
 This command can be used in the ```specialize``` configuration pass from a ```RunSynchronousCommand``` either as a command or from within a script stored in ```<Extensions>```. It uses the auditpol program to set the mode.
 
