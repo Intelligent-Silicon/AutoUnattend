@@ -2,7 +2,7 @@
 
 The generalize configuration pass of Windows Setup is used to create a Windows Reference image that can be used throughout an organization.
 
-This pass is geared towards big business with a fleet of identical computers that would typically be deployed to a department. This section is beyond the scope of this repo which is aimed for individual pc's and small businesses.
+This pass is geared towards big business with a fleet of identical computers that would typically be deployed across the business or to a department or two when used in conjunction with the ```specialize``` pass. This section is beyond the scope of this repo which is aimed for individual pc's and small businesses.
 
 However, developing the Reference Image is primarily developed on a virtual pc like VMWare, VirtualBox or others, before being run through the System Preparation (Sysprep) tool and saved as a Windows IMage (WIM) file. The Reference Image will not only contain windows, the correct device drivers, but also user programs which the organisation allows their users to use like MS Office, custom built programs pertinent to their department tasks or business functions and access to other resources like network printer's and other devices, and even restrict access to certain websites.
 

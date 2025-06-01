@@ -1,4 +1,4 @@
-### specialize
+# specialize
 
 During the specialize configuration pass of Windows Setup, computer-specific information for the image is applied. For example, you can configure network settings, international settings, and domain information.
 
