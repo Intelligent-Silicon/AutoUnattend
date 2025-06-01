@@ -32,7 +32,7 @@ auditpol command line switches.
 
 https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/auditpol
 
-auditpol SubcategoryGUID
+auditpol SubcategoryGUID {0CCE922B-69AE-11D9-BED3-505054503030}
 
 https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gpac/77878370-0712-47cd-997d-b07053429f6d
 
