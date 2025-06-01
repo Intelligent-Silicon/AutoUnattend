@@ -205,7 +205,7 @@ but drives supplied to PC manufacters may have their own firmware that could ena
 An example of gaining firmware persistance using an offline method which can in itself be useful for discovery of firmware abilities and attack vectors can be see here. https://spritesmods.com/?art=hddhack
 
 
-
+# ```<RunSynchronousCommand> continued...```
 
 This example creates the following:
 ```
