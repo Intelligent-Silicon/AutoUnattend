@@ -1,24 +1,24 @@
 # generalize
 
-The generalize configuration pass of Windows Setup is used to create a Windows Reference Image that can be used throughout an organization.
+The generalize configuration pass of Windows Setup is used to create a Windows Reference image that can be used throughout an organization.
 
-Developing the Reference Image is primarily developed on a virtual pc like VMWare, VirtualBox or others, before being run through the System Preparation (Sysprep) tool and saved as a Windows Imaging (WIM) file.
+This pass is geared towards big business with a fleet of identical computers that would typically be deployed to a department. This section is beyond the scope of this repo which is aimed for individual pc's and small businesses.
 
-Developing a Reference Image on a virtual pc brings these 
+However, developing the Reference Image is primarily developed on a virtual pc like VMWare, VirtualBox or others, before being run through the System Preparation (Sysprep) tool and saved as a Windows Imaging (WIM) file. The Reference Image will not only contain windows, the correct device drivers, but also user programs which the organisation allows their users to use like MS Office, custom built programs pertinent to their dept tasks and network printer's and other devices.
 
+Developing a Reference Image on a virtual pc has these advantages:
+```
+	It reduces the time spent developing the Reference Image because you can use different virtual pc snapshots to test different configurations.
+	Using a virtual pc removes hardware issues because millions or even billions of virtual pc's exist and run with standardised hardware and drivers removing some problems. 
+	You can remove unwanted applications that might be installed as part of the device driver install that is not removed by the Sysprep program.
+	You can copy, move and duplicate virtual pc's for lab's, testing and production.
+```
 
-    To reduce development time and can use snapshots to test different configurations quickly.
-    To rule out hardware issues. You get the best possible image, and if you've a problem, it's not likely to be hardware related.
-    To ensure that you won't have unwanted applications that could be installed as part of a driver install but not removed by the Sysprep process.
-    The image is easy to move between lab, test, and production.
-  
-
-
-Settings in the generalize configuration pass enable you to automate the behavior for all deployments of this reference image. In comparison, settings applied in the specialize configuration pass enable you to override behavior for a single, specific deployment.
-
+To develop a Reference Image visit these links.
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/generalize
 
 https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/deployment/deploy-windows-mdt/create-a-windows-10-reference-image
 
-The reference image described in this guide is designed primarily for deployment to physical devices. However, the reference image is typically created on a virtual platform, before being automatically run through the System Preparation (Sysprep) tool process and captured to a Windows Imaging (WIM) file. The reasons for creating the reference image on a virtual platform are:
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation
+	
