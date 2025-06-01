@@ -11,7 +11,7 @@ Developing a Reference Image on a virtual pc has these advantages:
 	It reduces the time spent developing the Reference Image because you can use different virtual pc snapshots to test different configurations.
 	Using a virtual pc removes hardware issues because millions or even billions of virtual pc's exist and run with standardised hardware and drivers removing some problems. 
 	You can remove unwanted applications that might be installed as part of the device driver install that is not removed by the Sysprep program.
-	You can copy, move and duplicate virtual pc's for lab's, testing and production.
+	You can copy, move and duplicate virtual pc's easily for lab's, testing and production.
 ```
 
 To develop a Reference Image visit these links.
