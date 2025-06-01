@@ -192,10 +192,20 @@ These examples create hard drive partitions. When copying commands that use symb
 ```
 
 
+## Hacking and malware/virus/ransomware persistance
+
 To quick wipe the hard drive keep ```QUICK``` in the partition commands eg ```FORMAT QUICK FS=FAT32```.
 To wipe the hard drive and wipe every sector which will take longer, anything from 10-15minutes to hours depending on disk size and if its a slow spin disk or not, remove ```QUICK``` from the partition commands eg ```FORMAT FS=FAT32``` 
 
-If you have been hacked, removing the ```QUICK``` option is generally the best as it will wipe malware stored on the drive that is not removed by simply removing the index of disk files which is what the ```QUICK``` does.
+If you have been or suspect have been hacked in some way, removing the ```QUICK``` option is generally the best as it will wipe malware stored on the drive that is not removed by simply removing the index of disk files which is what the ```QUICK``` does. This can help remove malware/virus/ransomware that has gained persistance by altering firmware (code that runs on chips). Firmware can sometimes be updated from windows, as seen with UEFI bios updates, and other device manufacters like printers or monitors. Some hard drives can have their firmware updated using utility software, as seen here.
+https://www.seagate.com/gb/en/support/kb/firmware-update-utility-instructions-and-faq-004559en/
+Some manufacturers may not release utility software as noted here https://support-en.wd.com/app/answers/detailweb/a_id/50745/~/firmware-download-and-updates-for-western-digital-internal-and-external-drives
+but drives supplied to PC manufacters may have their own firmware that could enable firmware updates from the operating systems like windows and thus creates an attack vector for persistance. 
+
+An example of gaining firmware persistance using an offline method which can in itself be useful for discovery of firmware abilities and attack vectors can be see here. https://spritesmods.com/?art=hddhack
+
+
+
 
 This example creates the following:
 ```
