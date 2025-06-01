@@ -28,7 +28,14 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 
 This command can be used in the ```specialize``` configuration pass from a ```RunSynchronousCommand``` either as a command or from within a script stored in ```<Extensions>```. It uses the auditpol program to set the mode.
 
+auditpol command line switches.
+
 https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/auditpol
+
+auditpol SubcategoryGUID
+
+https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-gpac/77878370-0712-47cd-997d-b07053429f6d
+
 
 ```  
 <settings pass="specialize">
