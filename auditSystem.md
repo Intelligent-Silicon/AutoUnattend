@@ -22,6 +22,23 @@ The auditSystem and auditUser configuration passes only run when you configure W
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-reseal
 
 
+This command can be used in the ```specialize``` configuration pass from a ```RunSynchronousCommand``` either as a command or from within a script stored in the ```<Extensions>```
+```  
+<settings pass="specialize">
+	<component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+		<RunSynchronousCommand wcm:action="add">
+			<Order>1</Order>
+			<Path>
+			powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\Specialize.ps1' -Raw | Invoke-Expression;"
+			</Path>
+		</RunSynchronous>
+	</component>
+</settings>
+```
+
+
+
+
 ```
 { auditpol.exe /set /subcategory:"{0CCE922B-69AE-11D9-BED3-505054503030}" /success:enable /failure:enable; }
 ```
