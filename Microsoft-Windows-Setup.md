@@ -204,6 +204,8 @@ but drives supplied to PC manufacters may have their own firmware that could ena
 
 An example of gaining firmware persistance using an offline method which can in itself be useful for discovery of firmware abilities and attack vectors can be see here. https://spritesmods.com/?art=hddhack
 
+This is by no means the only attack vector that can exist. Bugs in software can also be a backdoor waiting for hackers to exploit.
+
 
 # ```<RunSynchronousCommand> continued...```
 
