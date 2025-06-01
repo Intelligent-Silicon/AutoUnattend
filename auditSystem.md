@@ -22,7 +22,8 @@ The auditSystem and auditUser configuration passes only run when you configure W
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-reseal
 
 
-This command can be used in the ```specialize``` configuration pass from a ```RunSynchronousCommand``` either as a command or from within a script stored in the ```<Extensions>```
+This command can be used in the ```specialize``` configuration pass from a ```RunSynchronousCommand``` either as a command or from within a script stored in ```<Extensions>```
+
 ```  
 <settings pass="specialize">
 	<component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
