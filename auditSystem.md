@@ -29,6 +29,19 @@ This command can be used in the ```specialize``` configuration pass from a ```Ru
 		<RunSynchronousCommand wcm:action="add">
 			<Order>1</Order>
 			<Path>
+			 auditpol.exe /set /subcategory:"{0CCE922B-69AE-11D9-BED3-505054503030}" /success:enable /failure:enable
+			</Path>
+		</RunSynchronous>
+	</component>
+</settings>
+```
+
+```  
+<settings pass="specialize">
+	<component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+		<RunSynchronousCommand wcm:action="add">
+			<Order>1</Order>
+			<Path>
 			powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\Specialize.ps1' -Raw | Invoke-Expression;"
 			</Path>
 		</RunSynchronous>
