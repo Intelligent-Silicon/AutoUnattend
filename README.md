@@ -72,3 +72,7 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/add-a-
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image#add-driver-packages-to-an-offline-windows-image-by-using-an-unattended-answer-file
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-command-line-options
+
+### How to validate an answer file
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/validate-an-answer-file
