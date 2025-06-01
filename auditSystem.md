@@ -5,11 +5,11 @@
 
 The auditSystem and auditUser configuration passes only run when you configure Windows Setup to boot into audit mode using the methods below.
 
-During the auditSystem configuration pass, if ```<Mode>``` is not specified, then Mode defaults to Audit.
+During the auditSystem configuration pass, if ```<Mode>``` is not specified, then ```<Mode>``` defaults to Audit.
 
 During the auditUser configuration pass, if ```<Mode>``` is not specified, then the computer shows the Sysprep tool's user interface (UI), prompting the user to select between Audit or OOBE mode.
 
-During the oobeSystem configuration pass, if ```<Mode>``` is not specified, then Mode defaults to OOBE.
+During the oobeSystem configuration pass, if ```<Mode>``` is not specified, then ```<Mode>``` defaults to OOBE.
 
 
 # auditMode methods
