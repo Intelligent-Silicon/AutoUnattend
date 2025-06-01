@@ -26,7 +26,9 @@ The auditSystem and auditUser configuration passes only run when you configure W
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-reseal
 
 
-This command can be used in the ```specialize``` configuration pass from a ```RunSynchronousCommand``` either as a command or from within a script stored in ```<Extensions>```
+This command can be used in the ```specialize``` configuration pass from a ```RunSynchronousCommand``` either as a command or from within a script stored in ```<Extensions>```. It uses the auditpol program to set the mode.
+
+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/auditpol
 
 ```  
 <settings pass="specialize">
