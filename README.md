@@ -1,6 +1,8 @@
 # AutoUnattend.xml
 Auto Unattend Notes and Examples.
 
+# Not Finished....
+
 This is predominantly geared towards single computers with a UEFIbios and a single hard drive used in a home or small business settings without being connected a domain server.
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-technical-reference
