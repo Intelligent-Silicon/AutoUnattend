@@ -39,7 +39,7 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/co
 
 ### Overview of the AutoUnattend.xml file
 
-Configurations Passes run in order and where applicable if enabled. Components are added to a configuration pass and can be added to more than one Configuration Pass for those instances where another Configuration Pass is not enabled. For a more detailed overview visit the link below.
+Configurations Passes run in order and where applicable if enabled. Components are added to a configuration pass and can be added to more than one Configuration Pass for those instances where another Configuration Pass is not enabled or required. For a more detailed overview visit the link below.
 
 
 [How Configuration Passes Work](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work)
