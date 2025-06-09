@@ -44,9 +44,13 @@ Configurations Passes run in order and where applicable if enabled. Components a
 
 [How Configuration Passes Work](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work)
 
-In order of processing, when a pass exists. 
+In order of processing, when a pass exists. AuditMode determines whether the auditSystem and auditUser configuration pass runs or the oobeSystem configuration pass runs.  
 
-[windowsPE](windowsPE.md) Windows Preinstallation Environment (Windows PE) is a small operating system where settings for the installation and WinPE are set, like display resolutions, disk partitions, installation partition, licence keys and specific commands. P
+[windowsPE](windowsPE.md) Windows Preinstallation Environment (Windows PE) is a small operating system where settings for the installation and WinPE are set, like display resolutions, disk partitions, installation partition, licence keys and specific commands.
+
+	Windows PE Settings
+
+	Windows Setup Settings
 
 [offlineServicing](offlineServicing.md)  Apply unattended Setup setting to an offline Microsoft Windows image, like drivers, language packs, update packages and other packages.
 
@@ -58,7 +62,7 @@ In order of processing, when a pass exists.
 
 [auditUser](auditUser.md)  IF the optional auditMode is activated, the auditUser pass runs after login as User immediately after auditSystem and is used to execute RunSynchronous or RunAsynchronous commands for the default user profile which is used to configure and personalise all subsequent user accounts. This includes HKEY_USERS\DefaultUser\
 
-[oobeSystem](oobeSystem.md)  The oobeSystem pass is where the settings for the users first login are processed. OOBE is the users first boot experience.
+[oobeSystem](oobeSystem.md)  The oobeSystem (Out-Of-Box-Experience) pass is where the settings for the users first login are processed. OOBE is the users first boot experience.
 
 [Extensions](Extensions.md) Where files and scripts can be stored in the AutoUnattend.xml before being extracted to specific locations typically on the windows partition.
 
