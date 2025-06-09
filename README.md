@@ -43,7 +43,7 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/co
 
 [How Configuration Passes Work](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work)
 
-In order of processing, when a component exists. 
+In order of processing, when a pass exists. 
 
 [windowsPE](windowsPE.md) Windows Preinstallation Environment (Windows PE) is a small operating system where settings for the installation and WinPE are set, like display resolutions, disk partitions, installation partition, licence keys and specific commands. P
 
@@ -62,6 +62,10 @@ In order of processing, when a component exists.
 [Extensions](Extensions.md) Where files and scripts can be stored in the AutoUnattend.xml before being extracted to specific locations typically on the windows partition.
 
 
+Components can be added to one or more configuration passes, check the specific component webpage to see what configurations passes it can be added to. For a list of the latest components, visit the link below.
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/components-b-unattend
+
 ### How to for AutoUnattend.xml answer file
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/windows-system-image-manager-how-to-topics
@@ -78,3 +82,4 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-s
 ### How to validate an answer file
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/validate-an-answer-file
+

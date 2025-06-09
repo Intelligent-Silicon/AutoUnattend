@@ -1,4 +1,4 @@
-# offlineServicing Component
+# offlineServicing Pass
 
 This pass can be used to install setup programs which accept command line switches to an offline Windows image.
 
