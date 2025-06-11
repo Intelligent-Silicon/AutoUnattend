@@ -34,6 +34,7 @@ The Configuration Passes are:
 The Microsoft webpage detailing the Component will list what Configuration Passes it can run in and what version of Windows it works with. Look for [Valid Configuration Passes](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-display#valid-configuration-passes)
 
 A Component could contain multiple [Child Elements](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-display#child-elements) and when required, because some could be optional child elements, would be listed in the XML file as listed [here](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-display#xml-example) or seen below, demonstrating the use of 
+
 ```<Settings pass="[Pass Name]"></Settings>``` and ```<Component name="[Component Name]"></Component>```.
 
 ```
