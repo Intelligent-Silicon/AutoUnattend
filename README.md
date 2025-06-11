@@ -1,13 +1,13 @@
 # AutoUnattend.xml
 
-AutoUnattend.xml is an answer file which can control and configure the installation of windows 10 (version 1607) or Windows Server 2016 and windows 11 or Windows Server 2025, along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
+AutoUnattend.xml is an answer file which can control and configure the installation of windows 10 (version 1607 and onwards) or Windows Server 2016 and windows 11 or Windows Server 2025, along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
 
 
-The AutoUnattend.xml can be used with the Windows 10 and Windows 11 media creation tool by adding the file to the USB memory stick or the ISO aka DVD (image) file.
+The AutoUnattend.xml can be used with the Windows 10 and Windows 11 Media Creation Tool by adding the file to the USB memory stick or the ISO aka DVD (image) file created by the Media Creation Tool.
 
 Device Drivers pertinent for the computer and/or network devices like printers can be installed and configured using the answer file.
 
-3rd Party User software can be installed and configured after windows has been installed, provided the installation software allows command line switches (commands).
+3rd Party User software can be installed and configured after windows has been installed, provided the 3rd Party User installation software allows command line switches (commands).
 
 Windows can be configured to work just the way you like it after windows has been installed, using a variety of means to alter the registry or group policy settings.
 
@@ -15,7 +15,8 @@ Windows can be configured to work just the way you like it after windows has bee
 
 TLDR.
 
-Download the Windows 10 or 11 Media Creation Tool, or the Windows Server ISO.
+Download the [Windows 10](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) Media Creation Tool, or [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025).
+
 
 Download the 
 
