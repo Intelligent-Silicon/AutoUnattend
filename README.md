@@ -55,7 +55,7 @@ These options include: processorArchitecture, publicKeyToken, language, and vers
 ```
 processorArchitecture="x86" represents 32bit CPU's.
 processorArchitecture="amd64" represents 64bit CPU's.
-publicKeyToken="31bf3856ad364e35" represents the "token" for a public key used to sign a dll or .net assembly by Microsoft to help mitigate dll/assembly hijacking during the installation process as described here: https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security
+publicKeyToken="31bf3856ad364e35" represents the "token" for a public key used to sign a dll or .net assembly by Microsoft to help mitigate dll/assembly hijacking during the installation process similar to the dwflag LOAD_LIBRARY_REQUIRE_SIGNED_TARGET used here: https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa and other ways to hijack dll's/assembly's here: https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security
 ```
 	
 31bf3856ad364e35" is a PublicKeyToken used by Microsoft to sign assemblies in the .NET Framework. It's a 16-character hexadecimal string that identifies a particular key pair used for digital signatures. This key pair is used to ensure the integrity and authenticity of the assemblies
