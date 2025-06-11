@@ -1,6 +1,6 @@
 # AutoUnattend.xml
 
-AutoUnattend.xml is an answer file which can control and configure the installation of windows 10 (version 1607 and onwards) or Windows Server 2016 and windows 11 or Windows Server 2025, along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
+AutoUnattend.xml is an answer file which can control and configure the installation of windows 10 (version 1607 and onwards) or Windows Server 2016, 2019, 2022 and windows 11 or Windows Server 2025, along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
 
 
 The AutoUnattend.xml can be used with the Windows 10 and Windows 11 Media Creation Tool by adding the file to the USB memory stick or the ISO aka DVD (image) file created by the Media Creation Tool.
@@ -17,15 +17,12 @@ TLDR.
 
 Download the [Windows 10](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) Media Creation Tool, or [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025).
 
-
-Download the 
-
 [Configuration Passes run in a predefined order, some are mandatory, some are optional removing the ability to use other Configuration Passes.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-configuration-passes)
 
 
-Components can be added to one or more Configuration Passes to control and configure the installation process.
+[Components can be added to one or more Configuration Passes to control and configure the installation process.](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/components-b-unattend)
 
-The Microsoft webpage detailing the Component will list what Configuration Passes it can run in and what version of Windows it works with, including deprecated Components.
+The Microsoft webpage detailing the Component will list what Configuration Passes it can run in and what version of Windows it works with. Look for [Valid Configuration Passes](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-bluetoothtaskbariconenabled#valid-configuration-passes)
 
 
 
