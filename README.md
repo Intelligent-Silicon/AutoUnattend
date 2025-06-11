@@ -1,4 +1,37 @@
 # AutoUnattend.xml
+
+AutoUnattend.xml is an answer file which can control and configure the installation of windows 10 (version 1607) or Windows Server 2016 and windows 11 or Windows Server 2025, along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
+
+
+The AutoUnattend.xml can be used with the Windows 10 and Windows 11 media creation tool by adding the file to the USB memory stick or the ISO aka DVD (image) file.
+
+Device Drivers pertinent for the computer and/or network devices like printers can be installed and configured using the answer file.
+
+3rd Party User software can be installed and configured after windows has been installed, provided the installation software allows command line switches (commands).
+
+Windows can be configured to work just the way you like it after windows has been installed, using a variety of means to alter the registry or group policy settings.
+
+
+
+TLDR.
+
+Download the Windows 10 or 11 Media Creation Tool, or the Windows Server ISO.
+
+Download the 
+
+[Configuration Passes run in a predefined order, some are mandatory, some are optional removing the ability to use other Configuration Passes.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-configuration-passes)
+
+
+Components can be added to one or more Configuration Passes to control and configure the installation process.
+
+The Microsoft webpage detailing the Component will list what Configuration Passes it can run in and what version of Windows it works with, including deprecated Components.
+
+
+
+
+
+
+ 
 Auto Unattend Notes and Examples.
 
 This is predominantly geared towards single computers with a UEFIbios and a single hard drive used in a home or small business settings without being connected a domain server.
