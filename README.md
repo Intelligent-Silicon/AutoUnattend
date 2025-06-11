@@ -40,7 +40,7 @@ A Component could contain multiple [Child Elements](https://learn.microsoft.com/
 ```
 <Settings pass="windowsPE">
 	<Component name="Display">
-		<ColorDepth>32</ColorDepth>
+		<ColorDepth>32</ColorDepth> !
 		<DPI>120</DPI>
 		<HorizontalResolution>1024</HorizontalResolution>
 		<RefreshRate>72</RefreshRate>
@@ -49,6 +49,19 @@ A Component could contain multiple [Child Elements](https://learn.microsoft.com/
 </Settings>
 ```
 
+Multiple Components of the same name can exist within a Configuration Pass because it can contain additional information to further restrict the use of the Component to specific situations which can be detected and/or specified at the time the AutoUnAttend.xml is called.
+
+These options include: processorArchitecture, publicKeyToken, language, and versionScope.
+```
+processorArchitecture="x86" represents 32bit CPU's.
+processorArchitecture="amd64" represents 64bit CPU's.
+publicKeyToken="31bf3856ad364e35" represents the "token" for a public key used to sign a dll or .net assembly by Microsoft to help mitigate dll/assembly hijacking during the installation process as described here: https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security
+```
+	
+31bf3856ad364e35" is a PublicKeyToken used by Microsoft to sign assemblies in the .NET Framework. It's a 16-character hexadecimal string that identifies a particular key pair used for digital signatures. This key pair is used to ensure the integrity and authenticity of the assemblies
+
+
+    
 
 
 
