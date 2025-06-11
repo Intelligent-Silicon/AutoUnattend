@@ -55,10 +55,13 @@ These options include: processorArchitecture, publicKeyToken, language, and vers
 ```
 processorArchitecture="x86" represents 32bit CPU's.
 processorArchitecture="amd64" represents 64bit CPU's.
-publicKeyToken="31bf3856ad364e35" represents the "token" for a public key used to sign a dll or .net assembly by Microsoft to help mitigate dll/assembly hijacking during the installation process similar to the dwflag LOAD_LIBRARY_REQUIRE_SIGNED_TARGET used here: https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa and other ways to carryout dll's/assembly's as described here: https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security
+publicKeyToken="31bf3856ad364e35" represents the "token" for a public key used to sign a dll or .net assembly by Microsoft to help mitigate dll/assembly hijacking during the Windows installation process similar.
 ```
 	
-31bf3856ad364e35" is a PublicKeyToken used by Microsoft to sign assemblies in the .NET Framework. It's a 16-character hexadecimal string that identifies a particular key pair used for digital signatures. This key pair is used to ensure the integrity and authenticity of the assemblies
+"31bf3856ad364e35" is a 16-character hexadecimal PublicKeyToken string used by Microsoft to sign dll's and assemblies in the .NET Framework. It's similiar to the dwflag ```LOAD_LIBRARY_REQUIRE_SIGNED_TARGET``` used with the [LoadLibraryEx Windows API (Application Programmer Interface)](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa) in an attempt to mitigate the hijacking 0f dll's and assemblies as described [here](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security) 
+
+
+a 16-character hexadecimal string that identifies a particular key pair used for digital signatures. This key pair is used to ensure the integrity and authenticity of the assemblies
 
 
     
