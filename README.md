@@ -53,12 +53,16 @@ Multiple Components of the same name can exist within a Configuration Pass becau
 
 These options include: processorArchitecture, publicKeyToken, language, and versionScope.
 ```
-processorArchitecture="x86" represents 32bit CPU's.
-processorArchitecture="amd64" represents 64bit CPU's.
-publicKeyToken="31bf3856ad364e35" represents the "token" for a public key used to sign a dll or .net assembly by Microsoft to help mitigate dll/assembly hijacking during the Windows installation process similar.
+processorArchitecture="x86" represents 32bit CPU's made by Intel and AMD.
+processorArchitecture="amd64" represents 64bit CPU's made by Intel and AMD.
+publicKeyToken="31bf3856ad364e35" represents the "token" for a public key used to sign a dll or .net assembly by Microsoft to help mitigate dll/assembly hijacking during the Windows installation process.
+language="neutral" indicates that the UI (User Interface) language should be determined by the system's default language settings specified in the Component "Microsoft-Windows-International-Core-WinPE"
+versionScope="nonSxS" refers to "Non-SxS" aka Non Side-by-Side DLLs, which is another attempt to mitigate the effects of dll/assembly hijacking during the Windows installation process. refer to DLLs that are loaded into a memory space without the use of the Windows Side-by-Side technology, helping to maintain 
 ```
 	
-"31bf3856ad364e35" is a 16-character hexadecimal PublicKeyToken string used by Microsoft to sign dll's and assemblies in the .NET Framework. It's similiar to the dwflag ```LOAD_LIBRARY_REQUIRE_SIGNED_TARGET``` used with the [LoadLibraryEx Windows API (Application Programmer Interface)](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa) in an attempt to mitigate the hijacking 0f dll's and assemblies as described [here](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security) 
+"31bf3856ad364e35" is a 16-character hexadecimal PublicKeyToken string used by Microsoft to sign dll's and assemblies in the .NET Framework. It's similiar to the dwflag ```LOAD_LIBRARY_REQUIRE_SIGNED_TARGET``` used with the [LoadLibraryEx Windows API (Application Programmer Interface)](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa) in an attempt to mitigate the hijacking of dll's and assemblies as described [here](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security).
+
+"nonSxS" is a switch to force dll's or .net assemblies to be loaded in an exclusive manner similar to the dwflag ```LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE``` used with the [LoadLibraryEx Windows API (Application Programmer Interface)](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa) in an attempt to mitigate the hijacking of dll's and assemblies as described [here](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security). After Windows installation, SXS dll's can be found in the ```%systemroot%\WinSxS``` folder. An application's Manifest can control the use of SXS dll's and assemblies. More information [here](https://en.wikipedia.org/wiki/Side-by-side_assembly)
 
 
 a 16-character hexadecimal string that identifies a particular key pair used for digital signatures. This key pair is used to ensure the integrity and authenticity of the assemblies
