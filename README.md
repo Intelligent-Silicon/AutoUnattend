@@ -49,7 +49,7 @@ A Component could contain multiple [Child Elements](https://learn.microsoft.com/
 </Settings>
 ```
 
-Multiple Components of the same name can exist within a Configuration Pass because it can contain additional information to further restrict the use of the Component to specific situations which can be detected and/or specified at the time the AutoUnAttend.xml is called.
+Multiple Components of the same name can exist within a Configuration Pass because it can contain additional information to further restrict the use of the Component to specific situations which can be detected and/or specified at the time the AutoUnAttend.xml is used.
 
 These options include: processorArchitecture, publicKeyToken, language, and versionScope.
 ```
