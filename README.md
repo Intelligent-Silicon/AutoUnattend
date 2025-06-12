@@ -9,17 +9,17 @@ Device Drivers pertinent for the computer and/or network devices like printers c
 
 3rd Party User software can be installed and configured after windows has been installed, provided the 3rd Party User installation software allows command line switches (commands).
 
-Windows can be configured to work just the way you like it after windows has been installed, using a variety of means to alter the registry or group policy settings.
+Windows can be configured to work just the way you like it after windows has been installed, using a variety of means to alter the registry or group policy settings (where applicable).
 
 
 
 # TLDR
 
-Download the [Windows 10](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) Media Creation Tool, or [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025).
+### Basic Layout of the AutoUnattend.xml file
 
 [Configuration Passes run in a predefined order, some are mandatory, some are optional.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work#understanding-configuration-passes)
 
-The Configuration Passes are:
+The Configuration Passes, in order, are:
 [windowsPE](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windowspe)
 [offlineServicing](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlineservicing)
 [generalize](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/generalize)
@@ -67,9 +67,9 @@ versionScope="nonSxS" refers to "Non-SxS" aka Non Side-by-Side dll's or assembli
 "nonSxS" is a switch to force dll's or .net assemblies to be loaded in an exclusive manner similar to those described in the [remarks section concerning the Search Path](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa#searching-for-dlls-and-dependencies) used with the [LoadLibraryEx Windows API (Application Programmer Interface)](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa) in an attempt to mitigate the hijacking of dll's and assemblies as described [here](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security). After Windows installation, SXS dll's can be found in the ```%systemroot%\WinSxS``` folder. An application's Manifest can control the use of SXS dll's and assemblies. More information [here](https://learn.microsoft.com/en-us/windows/win32/sbscs/application-manifests#assemblyIdentity)
 
 
+### Creating a USB memory stick or ISO image file or DVD. 
 
-    
-
+Download the [Windows 10](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) Media Creation Tool, or [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025).
 
 
 
