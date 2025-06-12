@@ -80,7 +80,10 @@ There are a few ways to create the AutoUnAttend.xml file, [an online generator c
 
 
 
-Windows Media Creation Tool creates WIM's (Windows IMage).
+Windows Media Creation Tool (MCT) creates a ```rootfolder\sources\install.wim``` file, later versions of MCT create a ```rootfolder\sources\install.esd``` file.
+Early versions of ISO image files contain ```rootfolder\sources\install.wim``` file, later versions of ISO image files contain ```rootfolder\sources\install.esd```
+
+The .ESD file is not selectable in the Windows System Image Manager so change the file extension from .ESD to .WIM, and then you can select the .WIM file before selecting the version of Windows you want to create an AutoUnAttend.xml file for. The .ESD file is a highly compressed version of .WIM files.
 
 Windows System Image Manager creates 
 
