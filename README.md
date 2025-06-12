@@ -7,7 +7,7 @@ The AutoUnattend.xml file can be used with the Windows 10 and Windows 11 Media C
 
 Device Drivers pertinent for the computer and/or network device(s) like printer's, scanner's or camera's can be installed and configured using the answer file.
 
-3rd Party User software like [Softvelocity's Clarion](https://www.softvelocity.com/), [Visual Studio](https://visualstudio.microsoft.com/), [Notepad++](https://notepad-plus-plus.org/) and more, can be installed and configured after windows has been installed, provided the 3rd Party User installation software allows command line switches (commands).
+3rd Party User software like [Softvelocity's Clarion](https://www.softvelocity.com/), [Visual Studio](https://visualstudio.microsoft.com/), [Notepad++](https://notepad-plus-plus.org/) and more, can be installed and configured after windows has been installed, provided the 3rd party user installation software allows command line switches (commands).
 
 Windows can be configured to work just the way you like it after windows has been installed, using a variety of methods to alter the registry or group policy settings (where applicable).
 
