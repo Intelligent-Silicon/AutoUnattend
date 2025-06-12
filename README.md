@@ -17,6 +17,8 @@ Windows can be configured to work just the way you like it after windows has bee
 
 ### Basic Layout of the AutoUnattend.xml file
 
+Configuration Pass sections contain one or more Components sections.
+
 [Configuration Passes run in a predefined order, some are mandatory, some are optional.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work#understanding-configuration-passes)
 
 The Configuration Passes, in order, are:
