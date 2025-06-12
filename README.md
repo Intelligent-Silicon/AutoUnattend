@@ -3,13 +3,13 @@
 AutoUnattend.xml is an answer file which can control and configure the installation of windows 10 (version 1607 and onwards) or Windows Server 2016, 2019, 2022 and windows 11 or Windows Server 2025, along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
 
 
-The AutoUnattend.xml can be used with the Windows 10 and Windows 11 Media Creation Tool by adding the file to the USB memory stick or the ISO aka DVD (image) file created by the Media Creation Tool.
+The AutoUnattend.xml can be used with the Windows 10 and Windows 11 Media Creation Tool (MCT) by adding the file to the USB memory stick or the ISO aka DVD (image) file created by the MCT.
 
-Device Drivers pertinent for the computer and/or network devices like printers can be installed and configured using the answer file.
+Device Drivers pertinent for the computer and/or network device(s) like printer's, scanner's or camera's can be installed and configured using the answer file.
 
-3rd Party User software can be installed and configured after windows has been installed, provided the 3rd Party User installation software allows command line switches (commands).
+3rd Party User software Like Softvelocity's Clarion, Visual Studio, Notepad++ and more, can be installed and configured after windows has been installed, provided the 3rd Party User installation software allows command line switches (commands).
 
-Windows can be configured to work just the way you like it after windows has been installed, using a variety of means to alter the registry or group policy settings (where applicable).
+Windows can be configured to work just the way you like it after windows has been installed, using a variety of methods to alter the registry or group policy settings (where applicable).
 
 
 
@@ -17,7 +17,7 @@ Windows can be configured to work just the way you like it after windows has bee
 
 ### Basic Layout of the AutoUnattend.xml file
 
-Configuration Pass sections contain one or more Components sections.
+Configuration Pass sections contain zero, one or more Components sections.
 
 [Configuration Passes run in a predefined order, some are mandatory, some are optional.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work#understanding-configuration-passes)
 
@@ -51,7 +51,7 @@ A Component could contain multiple [Child Elements](https://learn.microsoft.com/
 </Settings>
 ```
 
-Multiple Components of the same name can exist within a Configuration Pass because it can contain additional information to further restrict the use of the Component to specific situations which can be detected and/or specified at the time the AutoUnAttend.xml is used.
+Multiple Components of the same name can exist within a Configuration Pass because it can contain additional information to further restrict the use of the Component to specific situations which can be detected and/or [specified at the time the AutoUnAttend.xml](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-automation-overview) is used.
 
 These options include: processorArchitecture, publicKeyToken, language, and versionScope.
 ```
@@ -76,11 +76,28 @@ There are a few ways to create the AutoUnAttend.xml file, [an online generator c
 
 ### Creating a USB memory stick or ISO image file or DVD. 
 
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats?view=windows-11
+
+
+
 Download the [Windows 10](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) Media Creation Tool, or [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025).
 
-Copy the AutoUnAttend.xml to the root folder of the USB Memory Stick or ISO image file, before optionally burning the latter to a DVD.
- 
+Copy the AutoUnAttend.xml to the root folder of the USB Memory Stick or ISO image file, before optionally burning the latter to a DVD, and you are good to go.
 
+Mount an ISO image file in order to copy the AutoUnAttend.xml to the root of the ISO image file.
+```
+Using File Explorer.
+Navigate to the folder containing the ISO image file in File Explorer. Right mouse click on the ISO image file, from the popup menu choose "Mount" if Win11, or "Mount as Virtual Drive" if Win10. 
+Navigate to the newly mounted ISO drive in File Explorer, and copy the AutoUnAttend.xml file to the root folder of the mounted ISO drive.
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-setup-automation-overview?view=windows-11#replace-the-answer-file-in-an-offline-image
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/mount-and-modify-a-windows-image-using-dism?view=windows-11
+
+
+Dism /Mount-Image /ImageFile:"C:\images\CustomImage.wim" /Index:1 /MountDir:C:\mount
+Copy CustomAnswerFile.xml C:\mount\Windows\Panther\unattend.xml
+Dism /Unmount-Image /MountDir:C:\mount /Commit
 
 
 
