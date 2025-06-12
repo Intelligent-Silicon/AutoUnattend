@@ -74,7 +74,16 @@ versionScope="nonSxS" refers to "Non-SxS" aka Non Side-by-Side dll's or assembli
 There are a few ways to create the AutoUnAttend.xml file, [an online generator can be found at schneegans.de](https://schneegans.de/windows/unattend-generator/), Microsoft provides the [Windows System Image Manager (Windows SIM)](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/windows-system-image-manager-technical-reference) found in the [Windows Assessment and Deployment Kit (Windows ADK)](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install), or modifying [various AutoUnAttend.xml files on Github](https://github.com/search?q=autounattend.xml&type=repositories) and elsewhere can be modified using a [text editor](https://notepad-plus-plus.org/) or [XML editor](https://microsoft.github.io/XmlNotepad/).  
 
 
-### Creating a USB memory stick or ISO image file or DVD. 
+### Creating a Windows installer
+
+[Windows Image (.WIM) vs Virtual Hard Disk (.VHD/.VHDX) vs Full Flash Update (.FFU)](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats)
+
+
+
+Windows Media Creation Tool creates WIM's (Windows IMage).
+
+Windows System Image Manager creates 
+
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats?view=windows-11
 
