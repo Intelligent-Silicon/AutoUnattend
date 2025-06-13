@@ -38,6 +38,7 @@ The Microsoft webpage detailing the Component will list what Configuration Passe
 A Component could contain multiple [Child Elements](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-display#child-elements) and when required, because some could be optional child elements, would be listed in the XML file as seen [here](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-display#xml-example) or seen below, demonstrating the use of 
 
 ```<Settings pass="[Pass Name]"></Settings>``` and ```<Component name="[Component Name]"></Component>```.
+
 Also note ```DPI``` is not listed as a child element, but is shown in the 2nd XML example on the Microsoft webpage.
 
 ```
