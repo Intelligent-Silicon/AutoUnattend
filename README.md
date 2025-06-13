@@ -39,7 +39,7 @@ A Component could contain multiple [Child Elements](https://learn.microsoft.com/
 
 ```<Settings pass="[Pass Name]"></Settings>``` and ```<Component name="[Component Name]"></Component>```.
 
-Also note ```DPI``` is not listed as a child element, but is shown in the 2nd XML example on the Microsoft webpage.
+As at 20250613:YYYYMMDD, also note ```DPI``` is not listed as a child element, but is shown in the 2nd XML example on the Microsoft webpage.
 
 ```
 <Settings pass="windowsPE">
