@@ -86,7 +86,11 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 
 
 
-Windows Media Creation Tool (MCT) and ISO image files use ```install.wim``` and ```install.esd``` files. The .ESD file is a more highly compressed version of the .WIM file. The .ESD file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager, but you can rename the .ESD file to .WIM and can subsequently be selected as the install.wim file as the windows image in the Windows System Image Manager.
+The Windows Media Creation Tool (MCT) and server ISO image files use ```install.wim``` and the ```install.esd``` files. 
+
+The .ESD file is a more recently introduced, more highly compressed version of the .WIM file. 
+
+The .ESD file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager, but you can rename the .ESD file to .WIM and can subsequently be selected as the install.wim file as the windows image in the Windows System Image Manager.
 
 creates a ```rootfolder\sources\install.wim``` file, later versions of MCT create a ```rootfolder\sources\install.esd``` file.
 Early versions of ISO image files contain ```rootfolder\sources\install.wim``` file, later versions of ISO image files contain ```rootfolder\sources\install.esd```
