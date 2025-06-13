@@ -92,7 +92,7 @@ The Windows Media Creation Tool (MCT) and server ISO image files use ```install.
 
 The .ESD file is a more recently introduced, more highly compressed version of the .WIM file. 
 
-As at 20250613:YYYYMMDD, the .ESD file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager [10.0.26100.2454], but you can rename the .ESD file to .WIM and can then select the ```install.wim``` file to work with in the Windows System Image Manager.
+As at 20250613:YYYYMMDD, the .ESD file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager [10.0.26100.2454], but you can rename the .ESD file to .WIM and can then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
 
 The MCT and ISO image files, store the ```install.wim``` and ```install.esd``` in ```rootfolder\sources```. 
 
