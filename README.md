@@ -80,11 +80,15 @@ There are a few different ways to install Windows.
 
 Most members of the public and businesses will use the [Windows 10](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) Media Creation Tool (MCT) to download Windows onto a USB memory stick to boot from and install windows, or use MCT to create an ISO image file which can be used to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO form and are not included as an option in the MCT.
 
-Other methods exist for installing Windows 10/11/Server which are more technical and/or have specialist reasons for existing. The [Windows Image (.WIM) vs Virtual Hard Disk (.VHD/.VHDX) vs Full Flash Update (.FFU) pro's and con's can be seen here.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats)
+Other methods exist for installing Windows 10/11/Server which are more technical and/or have specialist reasons for existing.
+
+[The Windows Image (.WIM) vs Virtual Hard Disk (.VHD/.VHDX) vs Full Flash Update (.FFU) pro's and con's can be seen here.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats)
 
 
 
-Windows Media Creation Tool (MCT) creates a ```rootfolder\sources\install.wim``` file, later versions of MCT create a ```rootfolder\sources\install.esd``` file.
+Windows Media Creation Tool (MCT) and ISO image files use ```install.wim``` and ```install.esd``` files. The .ESD file is a more highly compressed version of the .WIM file. The .ESD file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager, but you can rename the .ESD file to .WIM and can subsequently be selected as the install.wim file as the windows image in the Windows System Image Manager.
+
+creates a ```rootfolder\sources\install.wim``` file, later versions of MCT create a ```rootfolder\sources\install.esd``` file.
 Early versions of ISO image files contain ```rootfolder\sources\install.wim``` file, later versions of ISO image files contain ```rootfolder\sources\install.esd```
 
 The .ESD file is not selectable in the Windows System Image Manager so change the file extension from .ESD to .WIM, and then you can select the .WIM file before selecting the version of Windows you want to create an AutoUnAttend.xml file for. The .ESD file is a highly compressed version of .WIM files.
