@@ -154,7 +154,7 @@ PS C:\WINDOWS\system32>
 ``` 
 
 
-# DISM, Add-Driver, Get-Drivers, Remove-Driver, ForceUnsigned , Recurse
+# DISM packages & drivers
 
 [DISM Packages in general](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-packages)
 
