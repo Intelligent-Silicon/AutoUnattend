@@ -165,6 +165,8 @@ Less programs & packages installed to a Windows Image ```install.wim``` or ```in
 [Add and Remove packages to a mounted offline install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
 
 
+
+
 The N versions stand for "Not with Windows Media Player" and related Media Player apps.
 
 
