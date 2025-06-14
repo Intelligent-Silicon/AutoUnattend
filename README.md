@@ -84,12 +84,7 @@ There are a few different ways to install Windows.
 
 The finished AutoUnattend.xml file is added to the root folder of the Media Creation Tool (MCT) created USB memory stick or ISO image file, or Windows Server ISO, before burning to DVD where applicable.
 
-Most members of the public and businesses will use the [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO form and are not included as an option in the MCT. Server ISO's can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism), where the ISO image file can be altered including adding the AutoUnattend.xml file to the root of the ISO, before committing and unmounting.
-
-```
-dism /mount-image /imagefile:"<path_to_WIM_or_ESD_image_file>" /mountdir:"<mount_directory>" /index:<WIM_or_ESD_Version_Of_Windows_image_index>
-dism /unmount-image /mountdir:"<mount_directory>" /commit
-``` 
+Most members of the public and businesses will use the [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO form and are not included as an option in the MCT. 
 
 Other methods exist for installing Windows 10/11/Server which are more technical and/or have specialist reasons for existing.
 
@@ -99,15 +94,40 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 
 The Windows Media Creation Tool (MCT) and server ISO image files use ```install.wim``` and the ```install.esd``` files to contain the different versions of  Windows & packages for installation. 
 
-The ```.ESD``` file is a more recently introduced, more highly compressed version of the ```.WIM``` file to install Windows. 
+The ```.ESD``` file is a more recently introduced, more highly compressed version of the ```.WIM``` file to install Windows used with the MCT. 
 
 As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager [10.0.26100.2454], but you can rename the ```install.esd``` file to ```install.wim``` and then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
 
-The MCT and ISO image files, store the ```install.wim``` and ```install.esd``` in ```rootfolder\sources```. 
+The MCT created USB stick and (Windows Server) ISO image files, store the ```install.wim``` and ```install.esd``` in ```rootfolder\sources```. 
 
-The ```boot.wim``` found in ```rootfolder\sources``` contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly. This version of windows may be different to the version of Windows found in the ```install.wim``` and ```install.esd```.
+The Windows Installer uses ```boot.wim``` also found in ```rootfolder\sources``` which contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly. This version of windows will be different to the version of Windows found in the ```install.wim``` and ```install.esd``` file and subsequently installed.
 
-The Windows 10 (22H2) and Windows 11 MCT contains the following versions of Windows: Home, Home N, Home Single Language, Education, Education N, Pro & Pro N.
+```
+MCT Windows 10 (22H2) and Windows 11 MCT contains the following versions of Windows (in index order): Home, Home N, Home Single Language, Education, Education N, Pro & Pro N.
+
+Server 2016 ISO contains the following versions of Windows (in index order): Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
+
+```
+
+
+
+
+MCT and Server ISO ```.WIM``` and ```.ESD``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```.WIM``` or ```.ESD``` image file can be altered including adding the AutoUnattend.xml file to the root of the ISO, before committing and unmounting.
+
+```
+dism /mount-image /imagefile:"<path_to_WIM_or_ESD_image_file>" /mountdir:"<folder_that_exists>" /index:<WIM_or_ESD_Version_Of_Windows_image_index>
+dism /mount-image /imagefile:"D:\Sources\install.esd" /mountdir:"C:\mount" /index:2
+dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\mount" /index:7
+dism /mount-image /imagefile:"E:\x86\sources\install.esd" /mountdir:"C:\mount" /index:1
+
+dism /unmount-image /mountdir:"<mount_directory>" /commit
+dism /unmount-image /mountdir:"C:\mount" /commit
+
+dism /unmount-image /mountdir:"<mount_directory>" /discard
+dism /unmount-image /mountdir:"C:\mount" /discard
+``` 
+
+
 
 Servicing Stack Updates (SSU) are updates for the Windows Update component.
 The N versions stand for "Not with Windows Media Player" and related Media Player apps.
