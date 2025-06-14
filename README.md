@@ -91,14 +91,22 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 [The Windows Image (.WIM/.ESD) vs Virtual Hard Disk (.VHD/.VHDX) vs Full Flash Update (.FFU) pro's and con's can be seen here.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats)
 
 
+# ```boot.wim```, ```install.wim```& ```install.esd```
 
-The Windows Media Creation Tool (MCT) and server ISO image files use ```install.wim``` and the ```install.esd``` files to contain the different versions of  Windows & packages for installation. 
 
-The ```.ESD``` file is a more recently introduced, more highly compressed version of the ```.WIM``` file to install Windows used with the MCT. 
+The ```boot.wim```, ```install.wim```& ```install.esd``` are contained in ```rootfolder\sources```, or ```rootfolder\x64\sources``` & ```rootfolder\x86\sources``` when both 32bit (x86) and 64bit (x64) are selected in the MCT.
 
-As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager [10.0.26100.2454], but you can rename the ```install.esd``` file to ```install.wim``` and then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
+```boot.wim``` contains the Windows Installer software Windows PE and Windows Setup. Packages & drivers can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install Windows onto the computer.
 
-The MCT created USB stick and (Windows Server) ISO image files, store the ```install.wim``` and ```install.esd``` in ```rootfolder\sources```. 
+```install.wim``` & ```install.esd``` contains the different bitness (x86, x64) & editions (Home, Education, Pro, Data Centre, Core) of Windows. Packages and drivers to activate specialist hardware like RAID controllers or additional networking functionality added to ```boot.wim``` are typically added here as well, along with Packages and drivers for the computer to use on a day to day basis after installation.
+
+The ```install.esd``` file is a more recently introduced, more highly compressed version of the ```install.wim``` file to install Windows used with the MCT. 
+
+As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager [10.0.26100.2454] program, but you can rename the ```install.esd``` file to ```install.wim``` and then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
+  
+  
+  
+The MCT created USB stick and (Windows Server) ISO image files, store the ```install.wim``` and ```install.esd``` in ```rootfolder\x64\sources``` . 
 
 The Windows Installer uses ```boot.wim``` also found in ```rootfolder\sources``` which contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly. This version of windows will be different to the version of Windows found in the ```install.wim``` and ```install.esd``` file and subsequently installed.
 
