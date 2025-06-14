@@ -168,7 +168,7 @@ Less programs & packages installed to a Windows Image ```install.wim``` or ```in
 [Add and Remove packages to a mounted offline boot.wim, install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
 
 
-The ```.INF``` file contains all a list of the files it needs to function properly and is added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store) automatically, ready for installation when Windows is installed.
+The ```.INF``` file contains all a list of the files the driver package needs to function properly and is added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store) automatically, ready for installation when Windows is installed. This may exclude additional software which would have been installed using the users "manual" installation program. 
 
 The below example, in order, mounts, adds a single signed driver, all drivers, a driver that is signed or unsigned, all drivers signed or unsigned, unmounts.
 ```
