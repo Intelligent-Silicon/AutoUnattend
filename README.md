@@ -105,21 +105,10 @@ The ```install.esd``` file is a more recently introduced, more highly compressed
 As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected as a Windows Image in the Windows System Image Manager [10.0.26100.2454] program, but you can rename the ```install.esd``` file to ```install.wim``` and then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
   
   
-  
-The MCT created USB stick and (Windows Server) ISO image files, store the ```install.wim``` and ```install.esd``` in ```rootfolder\x64\sources``` . 
-
-The Windows Installer uses ```boot.wim``` also found in ```rootfolder\sources``` which contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly. This version of windows will be different to the version of Windows found in the ```install.wim``` and ```install.esd``` file and subsequently installed.
-
 ```
 In Windows Edition Order:
-MCT Windows 10 (22H2) install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
-MCT Windows 11 install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
-
-In  Windows Edition Order:
-Server 2016 ISO: Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
-Server 2019 ISO: Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
-Server 2022 ISO:
-
+MCT Windows 10 (22H2)/11 install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
+Server 2016/2019/2022/2025 ISO/VHD install.wim : Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
 ```
 
 
