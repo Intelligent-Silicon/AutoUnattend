@@ -94,7 +94,7 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 # ```boot.wim```, ```install.wim```& ```install.esd```
 
 
-The ```boot.wim```, ```install.wim```& ```install.esd``` are contained in ```rootfolder\sources```, or ```rootfolder\x64\sources``` & ```rootfolder\x86\sources``` when both 32bit (x86) and 64bit (x64) are selected in the MCT.
+The ```boot.wim```, ```install.wim```& ```install.esd``` are contained in ```rootfolder\sources```, or ```rootfolder\x86\sources``` & ```rootfolder\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected in the MCT.
 
 ```boot.wim``` contains the Windows Installer software Windows PE and Windows Setup. Packages & drivers can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install Windows onto the computer.
 
