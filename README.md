@@ -102,7 +102,7 @@ The ```boot.wim```, ```install.wim```& ```install.esd``` are contained in ```roo
 
 The ```install.esd``` file is a more recently introduced, more highly compressed version of the ```install.wim``` file to install Windows used with the MCT. 
 
-As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager [10.0.26100.2454] program, but you can rename the ```install.esd``` file to ```install.wim``` and then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
+As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected as a Windows Image in the Windows System Image Manager [10.0.26100.2454] program, but you can rename the ```install.esd``` file to ```install.wim``` and then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
   
   
   
