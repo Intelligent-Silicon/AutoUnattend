@@ -117,7 +117,7 @@ Server 2022 ISO:
 
 
 
-MCT and Server ISO ```.WIM``` and ```.ESD``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```.WIM``` or ```.ESD``` image file can be altered including adding the AutoUnattend.xml file to the root of the ISO, before committing and unmounting.
+MCT and Server ISO ```install.wim``` and ```install.esd``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```install.wim``` or ```install.esd``` image file can be altered. Drivers and Packages can be added or removed. 
 
 ```
 dism /mount-image /imagefile:"<path_to_WIM_or_ESD_image_file>" /mountdir:"<folder_that_exists>" /index:<Windows_Edition_Order>
@@ -125,7 +125,7 @@ dism /mount-image /imagefile:"D:\Sources\install.esd" /mountdir:"C:\mount" /inde
 dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\mount" /index:7
 dism /mount-image /imagefile:"E:\x86\sources\install.esd" /mountdir:"C:\mount" /index:1
 
-PS C:\WINDOWS\system32> dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\mount" /index:7
+PS C:\WINDOWS\system32> dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\Win10_Pro_N_x64bit" /index:7
 
 Deployment Image Servicing and Management tool
 Version: 10.0.26100.1150
@@ -142,6 +142,16 @@ dism /unmount-image /mountdir:"C:\mount" /commit
 
 dism /unmount-image /mountdir:"<mount_directory>" /discard
 dism /unmount-image /mountdir:"C:\mount" /discard
+
+PS C:\WINDOWS\system32> dism /unmount-image /mountdir:"C:\mount" /discard
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.1150
+
+Unmounting image
+[==========================100.0%==========================]
+The operation completed successfully.
+PS C:\WINDOWS\system32>
 ``` 
 
 
