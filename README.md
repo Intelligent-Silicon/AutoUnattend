@@ -90,15 +90,15 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 
 
 
-The Windows Media Creation Tool (MCT) and server ISO image files use ```install.wim``` and the ```install.esd``` files to contain the different versions of  Windows & packages. 
+The Windows Media Creation Tool (MCT) and server ISO image files use ```install.wim``` and the ```install.esd``` files to contain the different versions of  Windows & packages for installation. 
 
 The ```.ESD``` file is a more recently introduced, more highly compressed version of the ```.WIM``` file to install Windows. 
 
-As at 20250613:YYYYMMDD, the ```.ESD``` file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager [10.0.26100.2454], but you can rename the ```.ESD``` file to ```.WIM``` and can then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
+As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager [10.0.26100.2454], but you can rename the ```install.esd``` file to ```install.wim``` and then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
 
 The MCT and ISO image files, store the ```install.wim``` and ```install.esd``` in ```rootfolder\sources```. 
 
-The ```boot.wim``` found in ```rootfolder\sources``` contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly.
+The ```boot.wim``` found in ```rootfolder\sources``` contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly. This version of windows may be different to the version of Windows found in the ```install.wim``` and ```install.esd``.
 
 
 
