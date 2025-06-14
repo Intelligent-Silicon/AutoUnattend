@@ -173,7 +173,10 @@ The ```.INF``` file contains all a list of the files it needs to function proper
 The below example adds a single signed driver to the Windows Store.
 ```
 Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
-Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\mydriver.inf"
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\myWlanDriver.inf" # add a single signed driver to the driver store
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers" /Recurse # adds all the driver packages (.INF files) including subfolders where necessary.
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\myBluetoothDriver.inf" /ForceUnsigned # adds a single driver regardless of if its signed or unsigned
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers" /Recurse /ForceUnsigned # adds all driver packages regardless of if the driver is signed or unsigned
 Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
 ```
 
