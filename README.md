@@ -142,7 +142,7 @@ dism /unmount-image /mountdir:"C:\Win11_Pro_N_64bit" /commit
 dism /unmount-image /mountdir:"<folder_that_exists>" /discard
 dism /unmount-image /mountdir:"C:\Win10_Education_32bit" /discard
 
-PS C:\WINDOWS\system32> dism /unmount-image /mountdir:"C:\Win11_Pro_N_64bit" /discard
+PS C:\WINDOWS\system32> dism /unmount-image /mountdir:"C:\Win11_Pro_N_64bit" /commit
 
 Deployment Image Servicing and Management tool
 Version: 10.0.26100.1150
@@ -160,12 +160,14 @@ PS C:\WINDOWS\system32>
 
 [Components of a driver package, INF file, catalog file, driver files & other files](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/components-of-a-driver-package)
 
+Less programs & packages installed to a Windows Image ```install.wim``` or ```install.esd``` file means a reduced [Attack Vector](https://en.wikipedia.org/wiki/Attack_vector) which helps improve [Computer Security](https://en.wikipedia.org/wiki/Computer_security).
+
 [Add and Remove packages to a mounted offline install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
 
 
 The N versions stand for "Not with Windows Media Player" and related Media Player apps.
 
-Less programs & packages installed means a reduced Attack Vector which helps improve Computer Security.
+
 
 
 
