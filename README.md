@@ -106,8 +106,8 @@ As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected 
   
   
 ```
-Windows Edition Order:							   1                      2				        3				    4 					5		  6		7
-MCT Windows 10 (22H2)/11 install.esd : 			 Home, 				   Home N, 			Home Single Language, 	 Education, 		Education N, Pro, Pro N
+Windows Edition Order (in ascending order starting from 1):
+MCT Windows 10 (22H2)/11 install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
 Server 2016/2019/2022/2025 ISO/VHD install.wim : Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
 ```
 The N versions stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
