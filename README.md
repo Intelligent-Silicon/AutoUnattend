@@ -176,7 +176,7 @@ Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64
 Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\mySignedWlanDriver.inf" # add a single signed driver to the driver store
 Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\AllSignedDrivers" /Recurse # adds all the driver packages (.INF files) including subfolders where necessary.
 Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\myUnsignedBluetoothDriver.inf" /ForceUnsigned # adds a single driver regardless of if its signed or unsigned
-Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\AllSignedAndUnsignedDrivers" /Recurse /ForceUnsigned # adds all driver packages regardless of if the driver is signed or unsigned
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\AllSignedAndUnsignedDrivers" /Recurse /ForceUnsigned # adds all driver packages including subfolders, regardless of if the driver is signed or unsigned
 Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
 ```
 
