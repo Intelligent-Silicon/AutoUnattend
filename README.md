@@ -15,7 +15,7 @@ Windows can then be configured to work just the way you like it after windows ha
 
 # TLDR
 
-### Basic Layout of the AutoUnattend.xml file
+# Basic Layout of the AutoUnattend.xml file
 
 Configuration Pass sections contain zero, one or more Component sections.
 
@@ -71,14 +71,14 @@ versionScope="nonSxS" refers to "Non-SxS" aka Non Side-by-Side dll's or assembli
 "nonSxS" is a switch to force dll's or .net assemblies to be loaded in an exclusive manner similar to those described in the [remarks section concerning the Search Path](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa#searching-for-dlls-and-dependencies) used with the [LoadLibraryEx Windows API (Application Programmer Interface)](https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa) in an attempt to mitigate the hijacking of dll's and assemblies as described [here](https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security). After Windows installation, SXS dll's can be found in the ```%systemroot%\WinSxS``` folder. An application's Manifest can control the use of SXS dll's and assemblies. More information [here](https://learn.microsoft.com/en-us/windows/win32/sbscs/application-manifests#assemblyIdentity)
 
 
-### Creating the AutoUnAttend.xml file
+# Creating the AutoUnAttend.xml file
 
 There are a few ways to create/modify the AutoUnAttend.xml file, [an online generator can be found at schneegans.de](https://schneegans.de/windows/unattend-generator/), Microsoft provides the [Windows System Image Manager (Windows SIM)](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/windows-system-image-manager-technical-reference) found in the [Windows Assessment and Deployment Kit (Windows ADK)](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install), or modifying [various AutoUnAttend.xml files on Github](https://github.com/search?q=autounattend.xml&type=repositories) and elsewhere which can be modified using a [text editor](https://notepad-plus-plus.org/) or [XML editor](https://microsoft.github.io/XmlNotepad/).  
 
 Explanations and examples of the Configuration Passes and Components are explored in greater detail below and on other pages in this repo.
 
 
-### Creating a Windows installer
+# Creating a Windows installer
 
 There are a few different ways to install Windows. 
 
@@ -155,8 +155,8 @@ PS C:\WINDOWS\system32>
 
 # DISM, Add-Driver, Get-Drivers, Remove-Driver, ForceUnsigned , Recurse
 
-To add 
-[Add Packages to a mounted offline install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
+
+[Add and Remove packages to a mounted offline install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
 
 
 The N versions stand for "Not with Windows Media Player" and related Media Player apps.
