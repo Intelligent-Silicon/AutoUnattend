@@ -114,6 +114,8 @@ Server 2016/2019/2022/2025 ISO/VHD install.wim : Server Standard Core, Server St
 
 
 
+# DISM, mount, unmount, commit, discard
+
 MCT and Server ISO ```install.wim``` and ```install.esd``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```install.wim``` or ```install.esd``` image file can be altered. Drivers and Packages can be added or removed. 
 
 ```
