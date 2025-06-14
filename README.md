@@ -110,7 +110,7 @@ In Windows Edition Order:
 MCT Windows 10 (22H2)/11 install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
 Server 2016/2019/2022/2025 ISO/VHD install.wim : Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
 ```
-
+The N versions stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 
 
 
@@ -153,9 +153,12 @@ The operation completed successfully.
 PS C:\WINDOWS\system32>
 ``` 
 
+# DISM, Add-Driver, Get-Drivers, Remove-Driver, ForceUnsigned , Recurse
+
+To add 
+[Add Packages to a mounted offline install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
 
 
-Servicing Stack Updates (SSU) are updates for the Windows Update component.
 The N versions stand for "Not with Windows Media Player" and related Media Player apps.
 
 Less programs & packages installed means a reduced Attack Vector which helps improve Computer Security.
