@@ -157,7 +157,7 @@ PS C:\WINDOWS\system32>
 ``` 
 [For more information on Modifying a Windows image using DISM] (https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/mount-and-modify-a-windows-image-using-dism)
 
-# DISM packages & drivers
+# DISM Driver Packages
 
 [DISM Packages in general](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-packages)
 
