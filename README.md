@@ -84,7 +84,7 @@ There are a few different ways to install Windows.
 
 The finished AutoUnattend.xml file is added to the root folder of the Media Creation Tool (MCT) created USB memory stick or ISO image file, or Windows Server ISO, before burning to DVD where applicable.
 
-Most members of the public and businesses will use the [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO form and are not included as an option in the MCT. 
+Most members of the public and businesses will use the [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO & VHD forms and are not included as an option in the MCT. 
 
 Other methods exist for installing Windows 10/11/Server which are more technical and/or have specialist reasons for existing.
 
@@ -103,9 +103,14 @@ The MCT created USB stick and (Windows Server) ISO image files, store the ```ins
 The Windows Installer uses ```boot.wim``` also found in ```rootfolder\sources``` which contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly. This version of windows will be different to the version of Windows found in the ```install.wim``` and ```install.esd``` file and subsequently installed.
 
 ```
-MCT Windows 10 (22H2) and Windows 11 MCT contains the following versions of Windows (in index order): Home, Home N, Home Single Language, Education, Education N, Pro & Pro N.
+In Windows Edition Order:
+MCT Windows 10 (22H2) install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
+MCT Windows 11 install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
 
-Server 2016 ISO contains the following versions of Windows (in index order): Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
+In  Windows Edition Order:
+Server 2016 ISO: Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
+Server 2019 ISO: Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
+Server 2022 ISO:
 
 ```
 
@@ -115,10 +120,22 @@ Server 2016 ISO contains the following versions of Windows (in index order): Ser
 MCT and Server ISO ```.WIM``` and ```.ESD``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```.WIM``` or ```.ESD``` image file can be altered including adding the AutoUnattend.xml file to the root of the ISO, before committing and unmounting.
 
 ```
-dism /mount-image /imagefile:"<path_to_WIM_or_ESD_image_file>" /mountdir:"<folder_that_exists>" /index:<WIM_or_ESD_Version_Of_Windows_image_index>
+dism /mount-image /imagefile:"<path_to_WIM_or_ESD_image_file>" /mountdir:"<folder_that_exists>" /index:<Windows_Edition_Order>
 dism /mount-image /imagefile:"D:\Sources\install.esd" /mountdir:"C:\mount" /index:2
 dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\mount" /index:7
 dism /mount-image /imagefile:"E:\x86\sources\install.esd" /mountdir:"C:\mount" /index:1
+
+PS C:\WINDOWS\system32> dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\mount" /index:7
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.1150
+
+Mounting image
+[==========================100.0%==========================]
+The operation completed successfully.
+PS C:\WINDOWS\system32>
+
+
 
 dism /unmount-image /mountdir:"<mount_directory>" /commit
 dism /unmount-image /mountdir:"C:\mount" /commit
