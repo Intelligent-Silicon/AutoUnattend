@@ -163,7 +163,7 @@ PS C:\WINDOWS\system32>
 
 [Components of a driver package, INF file, catalog file, driver files & other files](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/components-of-a-driver-package)
 
-Less programs & packages installed to a Windows Image ```install.wim``` or ```install.esd``` file means a reduced [Attack Vector](https://en.wikipedia.org/wiki/Attack_vector) which helps improve [Computer Security](https://en.wikipedia.org/wiki/Computer_security) and the responsiveness of the computer.
+Less programs & packages installed to a Windows Image ```install.wim``` or ```install.esd``` file and thus a Windows installation means a reduced [Attack Vector](https://en.wikipedia.org/wiki/Attack_vector) which helps improve [Computer Security](https://en.wikipedia.org/wiki/Computer_security) and the responsiveness of the computer.
 
 [Add and Remove packages to a mounted offline boot.wim, install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
 
