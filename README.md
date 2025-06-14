@@ -80,9 +80,16 @@ Explanations and examples of the Configuration Passes and Components are explore
 
 ### Creating a Windows installer
 
-There are a few different ways to install Windows. The finished AutoUnattend.xml file is added to the root folder of the Media Creation Tool (MCT) created USB memory stick or ISO image file, before burning to DVD where applicable.
+There are a few different ways to install Windows. 
 
-Most members of the public and businesses will use the [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO form and are not included as an option in the MCT. Server ISO's can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism), where the ISO image file can be altered including adding the AutoUnattend.xml file to the root of the ISO, before unmounting.
+The finished AutoUnattend.xml file is added to the root folder of the Media Creation Tool (MCT) created USB memory stick or ISO image file, before burning to DVD where applicable.
+
+Most members of the public and businesses will use the [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO form and are not included as an option in the MCT. Server ISO's can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism), where the ISO image file can be altered including adding the AutoUnattend.xml file to the root of the ISO, before committing and unmounting.
+
+```
+dism /mount-image /imagefile:"<path_to_WIM_or_ESD_image_file>" /mountdir:"<mount_directory>" /index:<WIM_or_ESD_Version_Of_Windows_image_index>
+dism /unmount-image /mountdir:"<mount_directory>" /commit
+``` 
 
 Other methods exist for installing Windows 10/11/Server which are more technical and/or have specialist reasons for existing.
 
@@ -100,6 +107,38 @@ The MCT and ISO image files, store the ```install.wim``` and ```install.esd``` i
 
 The ```boot.wim``` found in ```rootfolder\sources``` contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly. This version of windows may be different to the version of Windows found in the ```install.wim``` and ```install.esd```.
 
+The Windows 10 (22H2) and Windows 11 MCT contains the following versions of Windows: Home, Home N, Home Single Language, Education, Education N, Pro & Pro N.
+
+Servicing Stack Updates (SSU) are updates for the Windows Update component.
+The N versions stand for "Not with Windows Media Player" and related Media Player apps.
+
+Less programs & packages installed means a reduced Attack Vector which helps improve Computer Security.
+
+
+
+
+
+Windows 10 (22H2) contains
+Windows 10 Home
+Windows 10 Home N
+Windows 10 Home Single language
+Windows 10 Education 
+Windows 10 Education N
+Windows 10 Pro
+Windows 10 Pro N
+
+Windows 11 contains
+Windows 11 Home
+Windows 11 Home N
+Windows 11 Home Single language
+Windows 11 Education 
+Windows 11 Education N
+Windows 11 Pro
+Windows 11 Pro N
+
+
+
+Servicing Stack Updates (SSU) are updates for the Windows updates component. 
 
 
 ```boot.wim``` contains Windows PE and Windows Setup which are cut down version of Windows for installing Windows. They contain a limited number of Components which are most likely to be required for installing Windows, things like Networking & BlueTooth packages and a few others. 
