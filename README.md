@@ -96,9 +96,9 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 
 The ```boot.wim```, ```install.wim```& ```install.esd``` are contained in ```rootfolder\sources```, or ```rootfolder\x86\sources``` & ```rootfolder\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
 
-```boot.wim``` contains the Windows Installer software Windows PE and Windows Setup. Packages & drivers can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install Windows onto the computer.
+```boot.wim``` contains the Windows Installer software Windows PE and Windows Setup. Packages & drivers can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
 
-```install.wim``` & ```install.esd``` contains the different bitness (x86, x64) & editions (Home, Education, Pro, Data Centre, Core) of Windows. Packages and drivers to activate specialist hardware like RAID controllers or additional networking functionality added to ```boot.wim``` are typically added here as well, along with Packages and drivers for the computer to use on a day to day basis after installation.
+```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core) of Windows. Packages and drivers to activate specialist hardware like RAID controllers or additional networking functionality added to ```boot.wim``` are typically added here as well, along with Packages and drivers for the computer to use on a day to day basis after installation.
 
 The ```install.esd``` file is a more recently introduced, more highly compressed version of the ```install.wim``` file to install Windows used with the MCT. 
 
