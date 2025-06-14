@@ -169,15 +169,33 @@ Less programs & packages installed to a Windows Image ```install.wim``` or ```in
 
 
 The ```.INF``` file contains all a list of the files it needs to function properly and is added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store) automatically, ready for installation when Windows is installed.
+
+The below example adds a single signed driver to the Windows Store.
 ```
 Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
 Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\mydriver.inf"
+Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
 ```
 
+The below example adds all the driver packages (.INF files) found in the folder ```C:\drivers```, including subfolders where necessary.
+```
+Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers" /Recurse
+Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
+```
 
+The below example adds all the driver packages (.INF files) found in the folder ```C:\drivers```, including subfolders where necessary regardless of if they are signed or unsigned. Although rare nowadays, some drivers are still not signed event today.
+```
+Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers" /Recurse /ForceUnsigned
+Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
+```
 
-The N versions stand for "Not with Windows Media Player" and related Media Player apps.
+Drivers are installed into the Windows Driver Store on the image and named ```OEMnnn.inf``` where nnn starts at 1 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM1.inf```, ```MyBlueTooth.inf``` becomes ```OEM2.inf```, ```MyRaidController.inf``` becomes ```OEM3.inf``` and so on. This is how you check the drivers have been installed, although to be fair the OEMnnn.inf is not a brilliant naming scheme.
 
+```
+Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
+```
 
 
 
