@@ -82,7 +82,7 @@ Explanations and examples of the Configuration Passes and Components are explore
 
 There are a few different ways to install Windows. The finished AutoUnattend.xml file is added to the root folder of the Media Creation Tool (MCT) created USB memory stick or ISO image file, before burning to DVD where applicable.
 
-Most members of the public and businesses will use the [Windows 10](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO form and are not included as an option in the MCT. Server ISO's can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism), where the ISO image file can be altered including adding the AutoUnattend.xml file to the root of the ISO, before unmounting.
+Most members of the public and businesses will use the [Windows 10(22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO form and are not included as an option in the MCT. Server ISO's can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism), where the ISO image file can be altered including adding the AutoUnattend.xml file to the root of the ISO, before unmounting.
 
 Other methods exist for installing Windows 10/11/Server which are more technical and/or have specialist reasons for existing.
 
@@ -90,15 +90,18 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 
 
 
-The Windows Media Creation Tool (MCT) and server ISO image files use ```install.wim``` and the ```install.esd``` files. 
+The Windows Media Creation Tool (MCT) and server ISO image files use ```install.wim``` and the ```install.esd``` files to install Windows. 
 
-The .ESD file is a more recently introduced, more highly compressed version of the .WIM file. 
+The ```.ESD``` file is a more recently introduced, more highly compressed version of the ```.WIM``` file to install Windows. 
 
-As at 20250613:YYYYMMDD, the .ESD file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager [10.0.26100.2454], but you can rename the .ESD file to .WIM and can then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
+As at 20250613:YYYYMMDD, the ```.ESD``` file can not be seen or selected in the Windows Image pane found in the bottom left of the Windows System Image Manager [10.0.26100.2454], but you can rename the ```.ESD``` file to ```.WIM``` and can then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
 
 The MCT and ISO image files, store the ```install.wim``` and ```install.esd``` in ```rootfolder\sources```. 
 
-The ```boot.wim``` which is used by the configuration pass ```windowsPE``` is also found in ```rootfolder\sources```.
+The ```boot.wim``` found in ```rootfolder\sources``` contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly.
+
+
+
 ```boot.wim``` contains Windows PE and Windows Setup which are cut down version of Windows for installing Windows. They contain a limited number of Components which are most likely to be required for installing Windows, things like Networking & BlueTooth packages and a few others. 
 
 .WIM files can contain one or more versions of Windows, like Home, both 32bit and 64bit and contain packages pertinent 
