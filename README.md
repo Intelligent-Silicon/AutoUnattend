@@ -120,11 +120,11 @@ MCT and Server ISO ```install.wim``` and ```install.esd``` files can be mounted 
 
 ```
 dism /mount-image /imagefile:"<path_to_WIM_or_ESD_image_file>" /mountdir:"<folder_that_exists>" /index:<Windows_Edition_Order>
-dism /mount-image /imagefile:"D:\Sources\install.esd" /mountdir:"C:\mount" /index:2
-dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\mount" /index:7
-dism /mount-image /imagefile:"E:\x86\sources\install.esd" /mountdir:"C:\mount" /index:1
+dism /mount-image /imagefile:"D:\Sources\install.esd" /mountdir:"C:\Win10_Home_N_64bit" /index:2
+dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\Win11_Education_64bit" /index:4
+dism /mount-image /imagefile:"E:\x86\sources\install.esd" /mountdir:"C:\Win10_Home_32bit" /index:1
 
-PS C:\WINDOWS\system32> dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\Win10_Pro_N_x64bit" /index:7
+PS C:\WINDOWS\system32> dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\Win10_Pro_N_64bit" /index:7
 
 Deployment Image Servicing and Management tool
 Version: 10.0.26100.1150
@@ -136,13 +136,13 @@ PS C:\WINDOWS\system32>
 
 
 
-dism /unmount-image /mountdir:"<mount_directory>" /commit
-dism /unmount-image /mountdir:"C:\mount" /commit
+dism /unmount-image /mountdir:"<folder_that_exists>" /commit
+dism /unmount-image /mountdir:"C:\Win11_Pro_N_64bit" /commit
 
-dism /unmount-image /mountdir:"<mount_directory>" /discard
-dism /unmount-image /mountdir:"C:\mount" /discard
+dism /unmount-image /mountdir:"<folder_that_exists>" /discard
+dism /unmount-image /mountdir:"C:\Win10_Education_32bit" /discard
 
-PS C:\WINDOWS\system32> dism /unmount-image /mountdir:"C:\mount" /discard
+PS C:\WINDOWS\system32> dism /unmount-image /mountdir:"C:\Win11_Pro_N_64bit" /discard
 
 Deployment Image Servicing and Management tool
 Version: 10.0.26100.1150
