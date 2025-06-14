@@ -183,7 +183,7 @@ Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
 Drivers are installed into the Windows Driver Store on the image and named ```OEMnnn.inf``` where nnn starts at 1 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM1.inf```, ```MyBlueTooth.inf``` becomes ```OEM2.inf```, ```MyRaidController.inf``` becomes ```OEM3.inf``` and so on. 
 
 
-This is how you check the drivers have been installed, although to be fair the OEMnnn.inf is not a brilliant naming scheme BUT the original name can be seen. [See this example](DismDriverPackagesExample.md)
+Below is the command to check the drivers have been installed properly, although to be fair the OEMnnn.inf is not a brilliant naming scheme BUT the original name can be seen in [this example.](DismDriverPackagesExample.md)
 ```
 Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
 ```
