@@ -90,7 +90,7 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 
 
 
-The Windows Media Creation Tool (MCT) and server ISO image files use ```install.wim``` and the ```install.esd``` files to install Windows. 
+The Windows Media Creation Tool (MCT) and server ISO image files use ```install.wim``` and the ```install.esd``` files to contain the different versions of  Windows & packages. 
 
 The ```.ESD``` file is a more recently introduced, more highly compressed version of the ```.WIM``` file to install Windows. 
 
