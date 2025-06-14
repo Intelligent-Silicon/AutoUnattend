@@ -158,6 +158,8 @@ PS C:\WINDOWS\system32>
 
 [DISM Packages in general](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-packages)
 
+[Components of a driver package, INF file, catalog file, driver files & other files](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/components-of-a-driver-package)
+
 [Add and Remove packages to a mounted offline install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
 
 
