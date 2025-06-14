@@ -180,14 +180,20 @@ Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\AllSignedAndUnsignedDri
 Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
 ```
 
-Drivers are installed into the Windows Driver Store on the image and named ```OEMnnn.inf``` where nnn starts at 1 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM1.inf```, ```MyBlueTooth.inf``` becomes ```OEM2.inf```, ```MyRaidController.inf``` becomes ```OEM3.inf``` and so on. This is how you check the drivers have been installed, although to be fair the OEMnnn.inf is not a brilliant naming scheme.
+Drivers are installed into the Windows Driver Store on the image and named ```OEMnnn.inf``` where nnn starts at 1 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM1.inf```, ```MyBlueTooth.inf``` becomes ```OEM2.inf```, ```MyRaidController.inf``` becomes ```OEM3.inf``` and so on. This is how you check the drivers have been installed, although to be fair the OEMnnn.inf is not a brilliant naming scheme BUT the original name can be seen. [See this example](DismDriverPackagesExample.md)
+
+```
+
 
 ```
 Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
 ```
 
 
-
+Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim" /mountdir:"C:\mount" /index:7
+Dism /Image:"C:\mount" /Get-Drivers
+Dism /Image:"C:\mount" /Add-Driver /Driver:"C:\drivers\Netwtw08.INF"
+Dism /Image:"C:\mount" /Add-Driver /Driver:"C:\AllSignedDrivers" /Recurse
 
 
 
