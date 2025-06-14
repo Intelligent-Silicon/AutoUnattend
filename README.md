@@ -155,7 +155,7 @@ Unmounting image
 The operation completed successfully.
 PS C:\WINDOWS\system32>
 ``` 
-
+[For more information on Modifying a Windows image using DISM] (https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/mount-and-modify-a-windows-image-using-dism)
 
 # DISM packages & drivers
 
@@ -165,8 +165,14 @@ PS C:\WINDOWS\system32>
 
 Less programs & packages installed to a Windows Image ```install.wim``` or ```install.esd``` file means a reduced [Attack Vector](https://en.wikipedia.org/wiki/Attack_vector) which helps improve [Computer Security](https://en.wikipedia.org/wiki/Computer_security) and the responsiveness of the computer.
 
-[Add and Remove packages to a mounted offline install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
+[Add and Remove packages to a mounted offline boot.wim, install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
 
+
+The ```.INF``` file contains all a list of the files it needs to function properly and is added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store) automatically, ready for installation when Windows is installed.
+```
+Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\mydriver.inf"
+```
 
 
 
