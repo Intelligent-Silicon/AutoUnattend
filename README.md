@@ -170,27 +170,13 @@ Less programs & packages installed to a Windows Image ```install.wim``` or ```in
 
 The ```.INF``` file contains all a list of the files it needs to function properly and is added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store) automatically, ready for installation when Windows is installed.
 
-The below example adds a single signed driver to the Windows Store.
+The below example, in order, mounts, adds a single signed driver, all drivers, a driver that is signed or unsigned, all drivers signed or unsigned, unmounts.
 ```
 Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
 Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\myWlanDriver.inf" # add a single signed driver to the driver store
-Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers" /Recurse # adds all the driver packages (.INF files) including subfolders where necessary.
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\mydrivers" /Recurse # adds all the driver packages (.INF files) including subfolders where necessary.
 Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\myBluetoothDriver.inf" /ForceUnsigned # adds a single driver regardless of if its signed or unsigned
-Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers" /Recurse /ForceUnsigned # adds all driver packages regardless of if the driver is signed or unsigned
-Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
-```
-
-The below example adds all the driver packages (.INF files) found in the folder ```C:\drivers```, including subfolders where necessary.
-```
-Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
-Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers" /Recurse
-Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
-```
-
-The below example adds all the driver packages (.INF files) found in the folder ```C:\drivers```, including subfolders where necessary regardless of if they are signed or unsigned. Although rare nowadays, some drivers are still not signed event today.
-```
-Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
-Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers" /Recurse /ForceUnsigned
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\alldrivers" /Recurse /ForceUnsigned # adds all driver packages regardless of if the driver is signed or unsigned
 Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
 ```
 
