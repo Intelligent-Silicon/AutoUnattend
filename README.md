@@ -98,7 +98,7 @@ As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected 
 
 The MCT and ISO image files, store the ```install.wim``` and ```install.esd``` in ```rootfolder\sources```. 
 
-The ```boot.wim``` found in ```rootfolder\sources``` contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly. This version of windows may be different to the version of Windows found in the ```install.wim``` and ```install.esd``.
+The ```boot.wim``` found in ```rootfolder\sources``` contains the cut down version of Windows "Windows PE" and "Windows Setup" to install Windows. This file is where you added specific packages to "Windows PE" and/or "Windows Setup", and drivers like Networking & RAID controller drivers to activate specific hardware which may be required in order to install Windows properly. This version of windows may be different to the version of Windows found in the ```install.wim``` and ```install.esd```.
 
 
 
