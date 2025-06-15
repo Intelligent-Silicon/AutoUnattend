@@ -177,16 +177,16 @@ The ```.INF``` file contains all a list of the files the driver package needs to
 
 This method can exclude additional software which would have been installed using the User's "manually operated" installation program. 
 
-Drivers are installed into the Windows Driver Store in the ```install.wim``` or ```install.esd``` and named ```OEMnnn.inf``` where nnn starts at 1 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM1.inf```, ```myUnsignedBluetoothDriver.inf``` becomes ```OEM2.inf```, ```MyRaidController.inf``` becomes ```OEM3.inf``` and so on. 
+Drivers are installed into the Windows Driver Store in the ```install.wim``` or ```install.esd``` and named ```OEMnnn.inf``` where nnn starts at 0 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM0.inf```, ```myUnsignedBluetoothDriver.inf``` becomes ```OEM1.inf```, ```MyRaidController.inf``` becomes ```OEM2.inf``` and so on. 
 
 The below example, in order, mounts, adds a single signed driver, all signed drivers, a signed or unsigned driver, all signed or unsigned drivers, removes first and second OEMnnn.inf drivers, unmounts.
 ```
 Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
-Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\mySignedWlanDriver.inf" # OEM1.inf - add a single signed driver to the driver store
-Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\AllSignedDrivers" /Recurse # OME2.inf to OEM7.inf - adds all the driver packages (.INF files) including subfolders where necessary.
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\mySignedWlanDriver.inf" # OEM0.inf - add a single signed driver to the driver store
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\AllSignedDrivers" /Recurse # OME1.inf to OEM7.inf - adds all the driver packages (.INF files) including subfolders where necessary.
 Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\myUnsignedBluetoothDriver.inf" /ForceUnsigned # OEM8.inf - adds a single driver regardless of if its signed or unsigned
 Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\AllSignedAndUnsignedDrivers" /Recurse /ForceUnsigned # OEM9.inf to OEM15.inf - adds all driver packages including subfolders, regardless of if the driver is signed or unsigned
-Dism /Image:"C:\Win11_Pro_64bit" /Remove-Driver /Driver:OEM1.inf /Driver:OEM8.inf # remove mySignedWlanDriver.inf and myUnsignedBluetoothDriver.inf
+Dism /Image:"C:\Win11_Pro_64bit" /Remove-Driver /Driver:OEM0.inf /Driver:OEM8.inf # remove mySignedWlanDriver.inf and myUnsignedBluetoothDriver.inf
 Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
 ```
 
