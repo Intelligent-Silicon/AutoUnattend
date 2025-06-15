@@ -203,7 +203,7 @@ Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
 
 # DISM App Packages & Windows Update (```.CAB``` & ```.MSU```) Packages
 
-The ```install.wim``` and ```install.esd``` starts off with a selection of App & Window Update packages. Adding required packages and removing unneccesary packages is a good way to reduce the attack vector by reducing the number of services and apps which are installed in a default installation of Windows.
+The ```install.wim``` and ```install.esd``` starts off with a selection of App & Window Update packages. Adding required packages and removing unnecessary packages is a good way to reduce the attack vector by reducing the number of unnecessary services and apps which are installed in a default installation of Windows.
 
 You can search for the latest Window's Updates on the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%2024h2%20%202025-06%20x64-based%20) and add them to the ```install.wim``` and ```install.esd```. You can also remove packages you dont want installed at this stage, instead of writing a Powershell script to remove them after Windows has been installed using the AutoUnattend.xml file.
 
