@@ -5,11 +5,11 @@ AutoUnattend.xml is an answer file which can control and configure the installat
 
 The AutoUnattend.xml file can be used with the Windows 10 and Windows 11 Media Creation Tool (MCT) by adding the file to the USB memory stick or the ISO aka DVD (image) file created by the MCT, or by adding it to the Windows Server ISO files and VHD/VHDX (Virtual Hard Disk) and FFU (Full FlashUpdate) files.
 
-Device Drivers pertinent for the computer and/or network device(s) like printer's, scanner's or camera's can be installed and configured using the answer file or added to the ```install.wim```, ```install.esd``` image files using DISM.
+Device Drivers pertinent for the computer and/or network device(s) like printer's, scanner's or camera's can be installed and configured using the answer file or added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store) in the ```install.wim```, ```install.esd``` image files using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism).
 
 3rd Party User software like [Softvelocity's Clarion](https://www.softvelocity.com/), [Visual Studio](https://visualstudio.microsoft.com/), [Notepad++](https://notepad-plus-plus.org/) and more, can be installed and configured after windows has been installed, provided the 3rd party user installation software allows command line switches (flags).
 
-Windows can then be configured to work just the way you like it after windows has been installed, using a variety of methods like .BAT (Batch), .CMD (Command), .PS1 (Powershell) script files, to alter the registry or group policy settings (where applicable).
+Windows can then be configured to work just the way you like it after windows has been installed, using a variety of methods like ```.BAT``` (Batch), ```.CMD``` (Command), ```.PS1``` ([Powershell](https://learn.microsoft.com/en-us/powershell/)) script files, to alter the [Windows Registry](https://learn.microsoft.com/en-us/windows/win32/sysinfo/registry) or [Windows Group Policy](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/group-policy/group-policy-overview) settings (where applicable).
 
 
 
