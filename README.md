@@ -179,7 +179,7 @@ This method can exclude additional software which would have been installed usin
 
 Drivers are installed into the Windows Driver Store in the ```install.wim``` or ```install.esd``` and named ```OEMnnn.inf``` where nnn starts at 0 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM0.inf```, ```myUnsignedBluetoothDriver.inf``` becomes ```OEM1.inf```, ```MyRaidController.inf``` becomes ```OEM2.inf``` and so on. 
 
-The below example, in order, mounts, adds a single signed driver, all signed drivers, a signed or unsigned driver, all signed or unsigned drivers, removes first and second OEMnnn.inf drivers, unmounts.
+The below example, in order, mounts, adds a single signed driver, all signed drivers, a signed or unsigned driver, all signed or unsigned drivers, removes OEM0.inf and OEM8.inf drivers, commits & unmounts.
 ```
 Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
 Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\drivers\mySignedWlanDriver.inf" # OEM0.inf - add a single signed driver to the driver store
