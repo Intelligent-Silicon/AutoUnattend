@@ -15,6 +15,10 @@ Windows can then be configured to work just the way you like it after windows ha
 
 # TLDR
 
+# Less is More 
+
+Less programs & packages installed to a Windows Image ```install.wim``` or ```install.esd``` file and thus a Windows installation means a reduced [Attack Vector](https://en.wikipedia.org/wiki/Attack_vector) which helps improve [Computer Security](https://en.wikipedia.org/wiki/Computer_security) and helps keep the computer responsive.
+
 # Basic Layout of the AutoUnattend.xml file
 
 Configuration Pass sections contain zero, one or more Component sections.
@@ -112,10 +116,6 @@ Server 2016/2019/2022/2025 ISO/VHD install.wim : Server Standard Core, Server St
 ```
 The N versions stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 
-
-# Less is More 
-
-Less programs & packages installed to a Windows Image ```install.wim``` or ```install.esd``` file and thus a Windows installation means a reduced [Attack Vector](https://en.wikipedia.org/wiki/Attack_vector) which helps improve [Computer Security](https://en.wikipedia.org/wiki/Computer_security) and helps keep the computer responsive.
 
 
 # DISM, mount, unmount, commit, discard
