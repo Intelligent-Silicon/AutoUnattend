@@ -183,7 +183,7 @@ The ```.INF``` file contains all a list of the files the driver package needs to
 
 This method can exclude additional software which would have been installed using the User's "manually operated" installation program. 
 
-Drivers are installed into the Windows Driver Store in the ```install.wim``` or ```install.esd``` and named ```OEMnnn.inf``` where nnn starts at 0 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM0.inf```, ```myUnsignedBluetoothDriver.inf``` becomes ```OEM1.inf```, ```MyRaidController.inf``` becomes ```OEM2.inf``` and so on. 
+Drivers are installed into the Windows Driver Store in the ```install.wim``` or ```install.esd``` image file and named ```OEMnnn.inf``` where nnn starts at 0 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM0.inf```, ```myUnsignedBluetoothDriver.inf``` becomes ```OEM1.inf```, ```MyRaidController.inf``` becomes ```OEM2.inf``` and so on. 
 
 The below example, in order, mounts, adds a single signed driver, all signed drivers, a signed or unsigned driver, all signed or unsigned drivers, removes OEM0.inf and OEM8.inf drivers, commits & unmounts.
 ```
@@ -203,11 +203,11 @@ Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
 
 # DISM App Packages & Windows Update (```.CAB``` & ```.MSU```) Packages
 
-The ```install.wim``` and ```install.esd``` starts off with a selection of App & Window Update packages. 
+The ```install.wim``` and ```install.esd``` starts off with a selection of App & Window Update packages. Adding required packages and removing unneccesary packages is a good way to reduce the attack vector by reducing the number of services and apps which are installed in a default installation of Windows.
 
-You can search for the latest Window's Updates on the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%202025-06) and add them to the ```install.wim``` and ```install.esd```. You can also remove packages you dont want installed at this stage, instead of writing a Powershell script to remove them using the AutoUnattend.xml file.
+You can search for the latest Window's Updates on the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%2024h2%20%202025-06%20x64-based%20) and add them to the ```install.wim``` and ```install.esd```. You can also remove packages you dont want installed at this stage, instead of writing a Powershell script to remove them after Windows has been installed using the AutoUnattend.xml file.
 
-When adding Windows Update packages from the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%202025-06), the latest package will replace earlier monthly Windows Update packages, but the Window Update package may also list other prerequisite dependency packages that need to be installed before the latest Windows Update package. 
+When adding Windows Update packages from the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%2024h2%20%202025-06%20x64-based%20), the latest package will replace earlier monthly Windows Update packages, but the Window Update package may also list other prerequisite dependency packages that need to be installed before the latest Windows Update package. 
 
 For example, [Windows 11 2025-06 Windows Update package KB5063060 for x64 based systems](https://www.catalog.update.microsoft.com/Search.aspx?q=2025-06%20Cumulative%20Update%20for%20Windows%2011%20Version%2024H2%20for%20x64-based%20Systems%20(KB5063060)%20) requires KB5043080 to be added as a prerequiste dependency. To see KB5043080 and its download link, click the Download button in the above link. 
 
