@@ -203,6 +203,10 @@ Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
 
 # DISM App Packages & Windows Update (```.CAB``` & ```.MSU```) Packages
 
+The ```install.wim``` and ```install.esd``` starts off with a selection of App & Window Update packages. 
+
+You can search for the latest Window's Updates on the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%202025-06) and add them to the ```install.wim``` and ```install.esd```. You can also remove packages you dont want installed at this stage, instead of writing a Powershell script to remove them using the AutoUnattend.xml file.
+
 When adding Windows Update packages from the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%202025-06), the latest package will replace earlier monthly Windows Update packages, but the Window Update package may also list other prerequisite dependency packages that need to be installed before the latest Windows Update package. 
 
 For example, [Windows 11 2025-06 Windows Update package KB5063060 for x64 based systems](https://www.catalog.update.microsoft.com/Search.aspx?q=2025-06%20Cumulative%20Update%20for%20Windows%2011%20Version%2024H2%20for%20x64-based%20Systems%20(KB5063060)%20) requires KB5043080 to be added as a prerequiste dependency. To see KB5043080 and its download link, click the Download button in the above link. 
