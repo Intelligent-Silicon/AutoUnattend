@@ -120,7 +120,9 @@ The N versions stand for "Not with Windows Media Player" and related Media Playe
 
 # DISM, mount, unmount, commit, discard
 
-MCT and Server ISO ```install.wim``` and ```install.esd``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```install.wim``` or ```install.esd``` image file can be altered. Drivers and Packages can be added or removed. VHD files should only use ```/index:1```. [DISM Image related commands].(https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-image-management-command-line-options-s14) 
+MCT and Server ISO ```install.wim``` and ```install.esd``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```install.wim``` or ```install.esd``` image file can be altered. Drivers and Packages can be added or removed. VHD files should only use ```/index:1```. 
+
+[DISM Image related commands](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-image-management-command-line-options-s14).
 
 ```
 dism /mount-image /imagefile:"<path_to_WIM_or_ESD_image_file>" /mountdir:"<folder_that_exists>" /index:<Windows_Edition_Order>
@@ -132,6 +134,8 @@ dism /mount-image /imagefile:"F:\sources\install.wim" /mountdir:"C:\Server2025_D
 dism /mount-image /imagefile:"G:\sources\install.vhd" /mountdir:"C:\Server2025_VHD_Only_Uses_Index1" /index:1
 
 dism /get-mountedwiminfo # lists mounted images and shows their status
+
+dism /remount-image /MountDir:"C:\mount"
 
 PS C:\WINDOWS\system32> dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\Win10_Pro_N_64bit" /index:7
 
@@ -199,16 +203,11 @@ Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
 
 # DISM App Packages & Windows Update (```.CAB``` & ```.MSU```) Packages
 
-```
-Dism /mount-image /imagefile:"D:\sources\install.esd" /mountdir:"C:\Win11_Pro_64bit" /index:7
-DISM.exe /Image:"C:\Win11_Pro_64bit" [/Get-Packages | /Get-PackageInfo | /Add-Package | /Remove-Package ] [/Get-Features | /Get-FeatureInfo | /Enable-Feature | /Disable-Feature ] [/Cleanup-Image]
-```
+When adding Windows Update packages from the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%202025-06), the latest package will replace earlier monthly Windows Update packages, but the Window Update package may also list other prerequisite dependency packages that need to be installed before the latest Windows Update package. 
 
-https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%202025-06
+For example, [Windows 11 2025-06 Windows Update package KB5063060 for x64 based systems](https://www.catalog.update.microsoft.com/Search.aspx?q=2025-06%20Cumulative%20Update%20for%20Windows%2011%20Version%2024H2%20for%20x64-based%20Systems%20(KB5063060)%20) requires KB5043080 to be added as a prerequiste dependency. To see KB5043080 and its download link, click the Download button in the above link. 
 
-When adding Windows Update packages from the Microsoft Catalogue, the latest package will replace earlier monthly Windows Update packages, but the Window Update package may also list other prerequisite packages that need to be installed before the latest Windows Update package. 
-
-For example, Windows 11 2025-06 Windows Update package KB5063060 for x64 based systems requires KB5043080 to be added as a prerequiste dependency. In the example below the prereuisite dependancy file KB5043080 .MSU file is added first, and then the latest as at 2025-06 Windows Update for x64bit Windows 11 KB5063060 .MSU package is added. This is because DISM will check for prequisite files first unless the command flag/switch ```/IgnoreCheck``` is used.
+In this example the prerequiste dependancy file KB5043080 .MSU file is added first, and then the latest as at 2025-06 Windows Update for x64bit Windows 11 KB5063060 .MSU package is added second. This is because DISM will check the prequisite files exist in the packages first unless the command flag/switch ```/IgnoreCheck``` is used.
 
 
 ```
@@ -223,11 +222,14 @@ Dism /Image:"C:\mount" /Get-Packages /Format:Table
 Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\WIM files\windows11.0-kb5043080-x64_953449672073f8fb99badb4cc6d5d7849b9c83e8.msu"
 Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\WIM files\windows11.0-kb5063060-x64_96be31e3e3e1cbc216229abb83e5be9da4e08496.msu"
 Dism /Image:"C:\mount" /Get-Packages /Format:Table
+Dism /Image:"C:\mount" /Get-PackageInfo /PackageName:"Microsoft-Windows-Foundation-Package~31bf3856ad364e35~amd64~~10.0.26100.1"
 Dism /Image:"C:\mount" /Remove-Package /PackagePath:"C:\Users\Admin1\Documents\WIM files\windows11.0-kb5063060-x64_96be31e3e3e1cbc216229abb83e5be9da4e08496.msu"
 Dism /Image:"C:\mount" /Remove-Package /PackagePath:"C:\Users\Admin1\Documents\WIM files\windows11.0-kb5043080-x64_953449672073f8fb99badb4cc6d5d7849b9c83e8.msu"
  
 Dism /unmount-image /mountdir:"C:\mount" /commit
 ```
+
+[Windows DISM Package States](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism/dismpackagefeaturestate-enumeration)
 
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options?view=windows-11
