@@ -9,7 +9,7 @@ Device Drivers pertinent for the computer and/or network device(s) like printer'
 
 3rd Party User software like [Softvelocity's Clarion](https://www.softvelocity.com/), [Visual Studio](https://visualstudio.microsoft.com/), [Notepad++](https://notepad-plus-plus.org/) and more, can be installed and configured after windows has been installed, provided the 3rd party user installation software allows command line switches (flags).
 
-Windows can then be configured to work just the way you like it after windows has been installed, using a variety of methods to alter the registry or group policy settings (where applicable).
+Windows can then be configured to work just the way you like it after windows has been installed, using a variety of methods like .BAT (Batch), .CMD (Command), .PS1 (Powershell) script files, to alter the registry or group policy settings (where applicable).
 
 
 
