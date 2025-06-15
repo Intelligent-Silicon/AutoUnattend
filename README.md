@@ -113,6 +113,10 @@ Server 2016/2019/2022/2025 ISO/VHD install.wim : Server Standard Core, Server St
 The N versions stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 
 
+# Less is More 
+
+Less programs & packages installed to a Windows Image ```install.wim``` or ```install.esd``` file and thus a Windows installation means a reduced [Attack Vector](https://en.wikipedia.org/wiki/Attack_vector) which helps improve [Computer Security](https://en.wikipedia.org/wiki/Computer_security) and helps keep the computer responsive.
+
 
 # DISM, mount, unmount, commit, discard
 
@@ -159,16 +163,19 @@ PS C:\WINDOWS\system32>
 
 # DISM Driver Packages
 
+The ```install.wim``` and ```install.esd``` starts off with an empty driver store.
+
 [DISM Packages in general](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-packages)
 
 [Components of a driver package, INF file, catalog file, driver files & other files](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/components-of-a-driver-package)
 
-Less programs & packages installed to a Windows Image ```install.wim``` or ```install.esd``` file and thus a Windows installation means a reduced [Attack Vector](https://en.wikipedia.org/wiki/Attack_vector) which helps improve [Computer Security](https://en.wikipedia.org/wiki/Computer_security) and the responsiveness of the computer.
 
 [Add and Remove packages to a mounted offline boot.wim, install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
 
 
-The ```.INF``` file contains all a list of the files the driver package needs to function properly and is added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store) automatically, ready for automatic installation when Windows is installed. This method can exclude additional software which would have been installed using the User's "manually operated" installation program. 
+The ```.INF``` file contains all a list of the files the driver package needs to function properly and is added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store), ready for automatic installation when Windows is installed. 
+
+This method can exclude additional software which would have been installed using the User's "manually operated" installation program. 
 
 The below example, in order, mounts, adds a single signed driver, all signed drivers, a signed or unsigned driver, all signed or unsigned drivers, unmounts.
 ```
@@ -180,7 +187,7 @@ Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\AllSignedAndUnsignedDri
 Dism /unmount-image /mountdir:"C:\Win11_Pro_64bit" /commit
 ```
 
-Drivers are installed into the Windows Driver Store on the image and named ```OEMnnn.inf``` where nnn starts at 1 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM1.inf```, ```MyBlueTooth.inf``` becomes ```OEM2.inf```, ```MyRaidController.inf``` becomes ```OEM3.inf``` and so on. 
+Drivers are installed into the Windows Driver Store in the ```install.wim``` or ```install.esd``` and named ```OEMnnn.inf``` where nnn starts at 1 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM1.inf```, ```MyBlueTooth.inf``` becomes ```OEM2.inf```, ```MyRaidController.inf``` becomes ```OEM3.inf``` and so on. 
 
 
 Below is the command to check the drivers have been installed properly, although to be fair the OEMnnn.inf is not a brilliant naming scheme BUT the original name can be seen in [this example.](DismDriverPackagesExample.md)
