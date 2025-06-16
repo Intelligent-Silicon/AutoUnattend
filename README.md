@@ -122,7 +122,11 @@ The N variants stand for "Not with Windows Media Player" and related Media Playe
 
 # DISM, mount, unmount, commit, discard
 
-MCT and Server ISO ```install.wim``` and ```install.esd``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```install.wim``` or ```install.esd``` image file can be altered. [App|Driver] Packages can be added or removed. VHD files should only use ```/index:1```. 
+MCT and Server ISO ```install.wim``` and ```install.esd``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```install.wim``` or ```install.esd``` image file can be altered. 
+
+[App|Driver] Packages can be added or removed. 
+
+VHD files should only use ```/index:1```. 
 
 [DISM Image related commands](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-image-management-command-line-options-s14).
 
