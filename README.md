@@ -240,7 +240,11 @@ The KB5063060 update currently can not be installed to the Windows ```install.wi
 The Security Update [KB5060842](https://support.microsoft.com/help/5060842#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) can be installed to the Windows Image using DISM. 
 
 Download the KB5060842 update and add it to the install ```install.esd``` image file using the following DISM command.
-
+```
+Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim" /mountdir:"C:\mount" /index:7   # If not already Mounted
+Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Downloads\windows11.0-kb5060842-x64_07871bda98c444c14691e0a90560306703b739cf.msu"
+Dism /unmount-image /mountdir:"C:\mount" /commit # Commit (Save) and Unmount
+```
 
 
 
