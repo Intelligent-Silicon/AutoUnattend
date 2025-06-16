@@ -137,7 +137,12 @@ dism /mount-image /imagefile:"G:\sources\install.vhd" /mountdir:"C:\Server2025_V
 
 dism /get-mountedwiminfo # lists mounted images and shows their status
 
-dism /remount-image /MountDir:"C:\mount"
+dism /remount-image /MountDir:"C:\mount" # remount the image file
+
+DISM /Image:"C:\mount" /Cleanup-image /Restorehealth # cleanup and repair using online Windows Update Servers
+DISM /Image:"C:\mount" /Online /Cleanup-Image /RestoreHealth /Source:\\<computername>\c$\winsxs /LimitAccess # Use a running version of windows to clean up & repair. /Online refers to a Running instance of windows. 
+
+
 
 PS C:\WINDOWS\system32> dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\Win10_Pro_N_64bit" /index:7
 
