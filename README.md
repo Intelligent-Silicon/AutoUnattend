@@ -246,38 +246,12 @@ Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Downloads\wind
 Dism /unmount-image /mountdir:"C:\mount" /commit # Commit (Save) and Unmount
 ```
 
-
-
-
-In order to check if the update can be installed using DISM, click on the weblink for KB5063060 which opens a popup window. Click on the Support URL for the KB which looks like ```https://support.microsoft.com/help/5063060```. Scroll down the Support URL webpage until you can see Catalogue
-
-
-the latest Windows Update file for Windows 11 x64 systems is 
-
-and check to see if they can be added to add to the ```install.wim``` and ```install.esd``` image file.
-
-In order to find out if a ```.MSU``` or ```.CAB``` file can be added to the image file,
-
-
-You can also remove packages you dont want installed at this stage, instead of writing a Powershell script to remove them after Windows has been installed using the AutoUnattend.xml file.
-
-When adding Windows Update packages from the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%2024h2%20%202025-06%20x64-based%20), first make sure the KB (Knowledge Base) update can be installed using DISM. To do this, check the details of the KB update and look for "How to get this update" midway down the webpage. Click on Catalog and see if it can be installed using DISM. 
-[kb5063060](https://support.microsoft.com/en-gb/topic/june-11-2025-kb5063060-os-build-26100-4351-out-of-band-b1746442-8c6c-425d-ac5a-3a8f51e372f3#id0elbd=windows_update)
-
-https://support.microsoft.com/en-gb/topic/june-10-2025-kb5060842-os-build-26100-4349-47ff300b-2a04-440c-9476-2860d04fce8d#id0enbd=catalog
-
-the latest package will replace earlier monthly Windows Update packages, but the Window Update package may also list other prerequisite dependency packages that need to be installed before the latest Windows Update package. 
-
-For example, [Windows 11 2025-06 Windows Update package KB5063060 for x64 based systems](https://www.catalog.update.microsoft.com/Search.aspx?q=2025-06%20Cumulative%20Update%20for%20Windows%2011%20Version%2024H2%20for%20x64-based%20Systems%20(KB5063060)%20) requires KB5043080 to be added as a prerequiste dependency. To see KB5043080 and its download link, click the Download button in the above link. 
-
-In this example the prerequiste dependancy file KB5043080 .MSU file is added first, and then the latest as at 2025-06 Windows Update for x64bit Windows 11 KB5063060 .MSU package is added second. This is because DISM will check the prequisite files exist in the packages first unless the command flag/switch ```/IgnoreCheck``` is used.
-
-
+Below is a list of the commands to 
 ```
-Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim" /mountdir:"C:\mount" /index:7
-Dism /Image:"C:\mount" /Get-Packages /Format:Table
-Dism /Image:"C:\mount" /Get-PackageInfo /PackageName:"Microsoft-Windows-Foundation-Package~31bf3856ad364e35~amd64~~10.0.26100.1"
-Dism /Image:"C:\mount" /Get-Features /Format:Table
+Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim" /mountdir:"C:\mount" /index:7 # If not already Mounted
+Dism /Image:"C:\mount" /Get-Packages /Format:Table # list packages installed in the install.wim or install.esd image file.
+Dism /Image:"C:\mount" /Get-PackageInfo /PackageName:"Microsoft-Windows-Foundation-Package~31bf3856ad364e35~amd64~~10.0.26100.1" # get slighty more info than what is displayed using the /Get-Packages /Format:Table command.
+Dism /Image:"C:\mount" /Get-Features /Format:Table # list features of windows 
 Dism /Image:"C:\mount" /Get-FeatureInfo /FeatureName:"Windows-Defender-Default-Definitions"
 Dism /Image:"C:\mount" /Get-PackageInfo /PackagePath:"C:\Users\Admin1\Documents\WIM files\windows11.0-kb5063060-x64_96be31e3e3e1cbc216229abb83e5be9da4e08496.msu"
 Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\WIM files\windows11.0-kb5063060-x64_96be31e3e3e1cbc216229abb83e5be9da4e08496.msu"
@@ -294,56 +268,10 @@ Dism /unmount-image /mountdir:"C:\mount" /commit
 
 [Windows DISM Package States](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism/dismpackagefeaturestate-enumeration)
 
-
-https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-operating-system-package-servicing-command-line-options?view=windows-11
-
-
-Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim" /mountdir:"C:\mount" /index:7
-Dism /Image:"C:\mount" /Get-Drivers
-Dism /Image:"C:\mount" /Add-Driver /Driver:"C:\drivers\Netwtw08.INF"
-Dism /Image:"C:\mount" /Add-Driver /Driver:"C:\AllSignedDrivers" /Recurse
+Servicing Stack Updates (SSU) are updates for the Windows updates component of Windows Server.  
 
 
-
-Windows 10 (22H2) contains
-Windows 10 Home
-Windows 10 Home N
-Windows 10 Home Single language
-Windows 10 Education 
-Windows 10 Education N
-Windows 10 Pro
-Windows 10 Pro N
-
-Windows 11 contains
-Windows 11 Home
-Windows 11 Home N
-Windows 11 Home Single language
-Windows 11 Education 
-Windows 11 Education N
-Windows 11 Pro
-Windows 11 Pro N
-
-
-
-Servicing Stack Updates (SSU) are updates for the Windows updates component. 
-
-
-```boot.wim``` contains Windows PE and Windows Setup which are cut down version of Windows for installing Windows. They contain a limited number of Components which are most likely to be required for installing Windows, things like Networking & BlueTooth packages and a few others. 
-
-.WIM files can contain one or more versions of Windows, like Home, both 32bit and 64bit and contain packages pertinent 
-
-
-
-creates a ```rootfolder\sources\install.wim``` file, later versions of MCT create a ```rootfolder\sources\install.esd``` file.
-Early versions of ISO image files contain ```rootfolder\sources\install.wim``` file, later versions of ISO image files contain ```rootfolder\sources\install.esd```
-
-The .ESD file is not selectable in the Windows System Image Manager so change the file extension from .ESD to .WIM, and then you can select the .WIM file before selecting the version of Windows you want to create an AutoUnAttend.xml file for. The .ESD file is a highly compressed version of .WIM files.
-
-Windows System Image Manager creates 
-
-
-https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats?view=windows-11
-
+# Components
 
 
 Download the [Windows 10](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) Media Creation Tool, or [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025).
