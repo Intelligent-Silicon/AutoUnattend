@@ -95,7 +95,7 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 [The Windows Image (.WIM/.ESD) vs Virtual Hard Disk (.VHD/.VHDX) vs Full Flash Update (.FFU) pro's and con's can be seen here.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats)
 
 
-# ```boot.wim```, ```install.wim```& ```install.esd```
+# ```boot.wim```, ```install.wim``` or ```install.esd```
 
 
 The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[USB stick|mounted ISO image file] Drive Letter:\sources```, or ```[USB stick|mounted ISO image file] Drive Letter:\x86\sources``` & ```[USB stick|mounted ISO image file] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
@@ -121,6 +121,30 @@ MCT Windows 10 (22H2)/11 install.esd : Home, Home N, Home Single Language, Educa
 Server 2016/2019/2022/2025 ISO install.wim : Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
 ```
 The N variants stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
+
+# Powershell Mount, Unmount ```.ISO``` and ```.vhd``` files
+
+Windows Server installation's come in ```.ISO``` and ```.VHD``` image files, and there is an option in the Windows MCT to save the desktop version of Window's to a ```.ISO``` file.
+
+Once you have downloaded the image file, it needs to be mounted before you can modify it. Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.wim```, ```install.esd```) can contain other image files, like [Russian Matryoshka Dolls](https://en.wikipedia.org/wiki/Matryoshka_doll).
+
+
+
+
+
+https://learn.microsoft.com/en-us/powershell/module/storage/mount-diskimage
+https://learn.microsoft.com/en-us/powershell/module/storage/dismount-diskimage
+https://learn.microsoft.com/en-us/powershell/module/storage/get-diskimage
+
+https://powershellmagazine.com/2013/01/02/pstip-working-with-iso-files/
+
+PS> Mount-DiskImage -ImagePath 'D:\ISO\en_windows_8_ent_x64.iso' -PassThru
+
+https://www.idera.com/blogs/creating-iso-files/
+
+https://www.thelowercasew.com/create-an-iso-file-with-powershell#comment-225101
+
+https://c-nergy.be/blog/?p=17341
 
 
 
