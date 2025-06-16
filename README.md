@@ -250,7 +250,7 @@ Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Downloads\wind
 Dism /unmount-image /mountdir:"C:\mount" /commit # Commit (Save) and Unmount
 ```
 
-Below is a list of the commands to 
+Below is a list of the main commands for package and feature maintainence. 
 ```
 Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim" /mountdir:"C:\mount" /index:7 # If not already Mounted
 Dism /Image:"C:\mount" /Get-Packages /Format:Table # list packages installed in the install.wim or install.esd image file.
