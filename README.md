@@ -283,7 +283,7 @@ Servicing Stack Updates (SSU) are updates for the Windows Updates part of Window
 
 Below are the Configuration Passes in order of processing when it exists or is enabled. 
 
-[Audit Mode and ForceShutdownNow](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/boot-windows-to-audit-mode-or-oobe) determines whether the ```auditSystem``` and ```auditUser``` configuration passes run or the ```oobeSystem``` configuration pass runs or all of them. 
+[Audit Mode and ForceShutdownNow](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/boot-windows-to-audit-mode-or-oobe) determines whether the ```auditSystem``` and ```auditUser``` configuration passes run or the ```oobeSystem``` configuration pass runs, or, all of them run. 
 
 For a table detailing the different Configuration Passes ```Mode``` and ```ForceShutdownNow``` combination click [here](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-reseal-mode).
 
