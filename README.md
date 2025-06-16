@@ -98,11 +98,15 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 # ```boot.wim```, ```install.wim```& ```install.esd```
 
 
-The ```boot.wim```, ```install.wim```& ```install.esd``` are contained in ```[USB stick|mounted ISO image file] Drive Letter:\sources```, or ```[USB stick|mounted ISO image file] Drive Letter:\x86\sources``` & ```[USB stick|mounted ISO image file] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
+The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[USB stick|mounted ISO image file] Drive Letter:\sources```, or ```[USB stick|mounted ISO image file] Drive Letter:\x86\sources``` & ```[USB stick|mounted ISO image file] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
 
 ```boot.wim``` contains the Windows Installer software that is the Windows PE and Windows Setup software used to install Windows. [App|Driver] Packages can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
 
 ```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core) and their variants of Windows which is used to install on the computer. [App|Driver] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or additional networking functionality are typically added to ```install.wim``` & ```install.esd``` as well, along with [App|Driver] Packages for the computer & user to use on a day to day basis after installation which is not required by the Windows Setup installation process. 
+
+```install.esd``` is typically found when using the Windows Media Creation Tool.
+
+```install.wim``` is typically found in the Window's Server ISO image file and VHD file.
 
 User App installation software can also be added to ```install.wim```& ```install.esd``` for installation after Windows is installed, which can help with building an offline USB mem stick or ISO image file installation, to minimise downtime for such scenerios like working remotely or in locations without internet access, but still need ALL software to be configured to run out-of-the-box when internet access becomes available or return to work occurs. This also assumes User App software is programmed to work in offline/online/network connected situations.
 
@@ -235,7 +239,7 @@ The Support URL format is ```https://support.microsoft.com/help/[Number of the K
 
 Scroll down to the [Install this update](https://support.microsoft.com/help/5063060#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) section, click the ```Catalog``` tab and see if it can be installed using DISM. 
 
-The KB5063060 update currently can not be installed to the Windows ```install.esd``` image file using DISM.
+The KB5063060 update at the time of writing (20250613:YYYYMMDD) can not be added to the Windows ```install.esd``` image file using DISM.
 
 The Security Update [KB5060842](https://support.microsoft.com/help/5060842#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) can be installed to the Windows ```install.esd``` image file using DISM because it displays the instructions to do so. 
 
