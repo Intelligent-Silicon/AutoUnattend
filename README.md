@@ -237,7 +237,7 @@ Scroll down to the [Install this update](https://support.microsoft.com/help/5063
 
 The KB5063060 update currently can not be installed to the Windows ```install.esd``` image file using DISM.
 
-The Security Update [KB5060842](https://support.microsoft.com/help/5060842#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) can be installed to the Windows Image using DISM. 
+The Security Update [KB5060842](https://support.microsoft.com/help/5060842#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) can be installed to the Windows ```install.esd``` image file using DISM because it displays the instructions to do so. 
 
 Download the KB5060842 update and add it to the install ```install.esd``` image file using the following DISM command.
 ```
