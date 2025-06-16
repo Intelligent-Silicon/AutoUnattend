@@ -112,7 +112,7 @@ As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected 
 ```
 Windows Edition Order (in ascending order starting from 1):
 MCT Windows 10 (22H2)/11 install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
-Server 2016/2019/2022/2025 ISO/VHD install.wim : Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
+Server 2016/2019/2022/2025 ISO install.wim : Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
 ```
 The N versions stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 
@@ -120,7 +120,7 @@ The N versions stand for "Not with Windows Media Player" and related Media Playe
 
 # DISM, mount, unmount, commit, discard
 
-MCT and Server ISO ```install.wim``` and ```install.esd``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```install.wim``` or ```install.esd``` image file can be altered. Drivers and Packages can be added or removed. VHD files should only use ```/index:1```. 
+MCT and Server ISO ```install.wim``` and ```install.esd``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```install.wim``` or ```install.esd``` image file can be altered. [App|Driver] Packages can be added or removed. VHD files should only use ```/index:1```. 
 
 [DISM Image related commands](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-image-management-command-line-options-s14).
 
