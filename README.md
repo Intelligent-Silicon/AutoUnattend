@@ -192,7 +192,7 @@ The ```install.wim``` and ```install.esd``` starts off with an empty driver stor
 
 The ```.INF``` file contains a list of the files the driver package needs to function properly and is added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store), ready for automatic installation when Windows is installed. 
 
-This method can exclude additional software which would have been installed using the User's "manually operated" installation program. 
+This method can exclude additional software which would have been installed using the user's "manually operated" driver installation program. 
 
 Drivers are installed into the Windows Driver Store in the ```install.wim``` or ```install.esd``` image file and named ```OEMnnn.inf``` where nnn starts at 0 and increments by 1, eg ```MyWlan.inf``` becomes ```OEM0.inf```, ```myUnsignedBluetoothDriver.inf``` becomes ```OEM1.inf```, ```MyRaidController.inf``` becomes ```OEM2.inf``` and so on. 
 
