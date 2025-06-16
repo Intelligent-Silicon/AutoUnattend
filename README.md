@@ -100,9 +100,9 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 
 The ```boot.wim```, ```install.wim```& ```install.esd``` are contained in ```rootfolder\sources```, or ```rootfolder\x86\sources``` & ```rootfolder\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
 
-```boot.wim``` contains the Windows Installer software Windows PE and Windows Setup. Packages & drivers can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
+```boot.wim``` contains the Windows Installer software that is the Windows PE and Windows Setup software. Packages & drivers can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
 
-```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core) of Windows. Packages and drivers to activate specialist hardware like RAID controllers or additional networking functionality added to ```boot.wim``` are typically added here as well, along with Packages and drivers for the computer to use on a day to day basis after installation.
+```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core) of Windows which is used to install on the computer or server. Packages and drivers to activate specialist hardware like RAID controllers or additional networking functionality added to ```boot.wim``` are typically added here as well, along with Packages and drivers for the computer to use on a day to day basis after installation.
 
 The ```install.esd``` file is a more recently introduced, more highly compressed version of the ```install.wim``` file to install Windows used with the MCT. 
 
@@ -179,7 +179,7 @@ The ```install.wim``` and ```install.esd``` starts off with an empty driver stor
 [Add and Remove packages to a mounted offline (not running) boot.wim, install.wim or install.esd file](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-and-remove-drivers-to-an-offline-windows-image)
 
 
-The ```.INF``` file contains all a list of the files the driver package needs to function properly and is added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store), ready for automatic installation when Windows is installed. 
+The ```.INF``` file contains a list of the files the driver package needs to function properly and is added to the [Windows Driver Store](https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store), ready for automatic installation when Windows is installed. 
 
 This method can exclude additional software which would have been installed using the User's "manually operated" installation program. 
 
