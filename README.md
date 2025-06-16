@@ -227,8 +227,10 @@ At the time of writing, 2 updates exist:
 2025-06 Cumulative Update for Windows 11 Version 24H2 for x64-based Systems (KB5063060) Classification: Updates
 2025-06 Cumulative Update for Windows 11 Version 24H2 for x64-based Systems (KB5060842) Classification: Security Updates
 ```  
+Before downloading the update, you need to check that it can be installed using DISM.
 
- 
+Click on the update's weblink to get a popup window which shows the Support URL. The Support URL format is ```https://support.microsoft.com/help/[Number of the KB]``` eg ```https://support.microsoft.com/help/5063060```. Scroll down to the [Install this update](https://support.microsoft.com/help/5063060#:~:text=Install%20this%20update&text=Catalog&text=Next%20Step) section,
+In order to check if the update can be installed using DISM, click on the weblink for KB5063060 which opens a popup window. Click on the Support URL for the KB which looks like ```https://support.microsoft.com/help/5063060```. Scroll down the Support URL webpage until you can see Catalogue
 
 
 the latest Windows Update file for Windows 11 x64 systems is 
