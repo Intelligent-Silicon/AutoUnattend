@@ -281,7 +281,7 @@ Servicing Stack Updates (SSU) are updates for the Windows updates component of W
 
 Below are the Configuration Passes in order of processing when it exists or is enabled. 
 
-```AuditMode``` determines whether the ```auditSystem``` and ```auditUser``` configuration pass runs or the oobeSystem configuration pass runs.  
+[Audit Mode and Reseal](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment-reseal-mode) determines whether the ```auditSystem``` and ```auditUser``` configuration pass runs or the oobeSystem configuration pass runs.  
 
 [windowsPE](windowsPE.md) Windows Preinstallation Environment (Windows PE) is a small operating system where settings for the installation and WinPE are set, like display resolutions, disk partitions, installation partition, [licence keys](https://www.elevenforum.com/t/generic-product-keys-to-install-or-upgrade-windows-11-editions.3713/) and specific commands or scripts.
 
