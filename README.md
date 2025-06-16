@@ -98,7 +98,7 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 # ```boot.wim```, ```install.wim```& ```install.esd```
 
 
-The ```boot.wim```, ```install.wim```& ```install.esd``` are contained in ```[USB stick|ISO image file]Drive Letter:\sources```, or ```[USB stick|ISO image file]Drive Letter:\x86\sources``` & ```[USB stick|ISO image file]Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
+The ```boot.wim```, ```install.wim```& ```install.esd``` are contained in ```[USB stick|mounted ISO image file] Drive Letter:\sources```, or ```[USB stick|mounted ISO image file] Drive Letter:\x86\sources``` & ```[USB stick|mounted ISO image file] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
 
 ```boot.wim``` contains the Windows Installer software that is the Windows PE and Windows Setup software used to install Windows. Packages & drivers can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
 
