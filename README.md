@@ -214,11 +214,32 @@ Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
 
 # DISM App Packages & Windows Update (```.CAB``` & ```.MSU```) Packages
 
-The ```install.wim``` and ```install.esd``` starts off with a selection of App & Window Update packages. Adding required packages and removing unnecessary packages is a good way to reduce the attack vector by reducing the number of unnecessary services and apps which are installed in a default installation of Windows.
+The ```install.wim``` and ```install.esd``` image file starts off with a selection of App & Window Update packages to bring them upto a certain release. Adding required packages and removing unnecessary packages is a good way to reduce the attack vector by reducing the number of unnecessary services and apps which are installed in a default installation of Windows.
 
-You can search for the latest Window's Updates on the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%2024h2%20%202025-06%20x64-based%20) and add them to the ```install.wim``` and ```install.esd```. You can also remove packages you dont want installed at this stage, instead of writing a Powershell script to remove them after Windows has been installed using the AutoUnattend.xml file.
+You can search for the latest Window's Updates on the [Microsoft Catalogue](https://www.catalog.update.microsoft.com) website but you need to check they can be installed from the Catalogue.
 
-When adding Windows Update packages from the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%2024h2%20%202025-06%20x64-based%20), the latest package will replace earlier monthly Windows Update packages, but the Window Update package may also list other prerequisite dependency packages that need to be installed before the latest Windows Update package. 
+As at 20250613:YYYYMMDD, using the Windows Media Creation Tool for Windows 11, the current release for ```install.esd``` is ```Windows 11 2024 Update l Version 24H2```.
+
+The [Microsoft Catalogue](https://www.catalog.update.microsoft.com) using ```windows 11```, ```24h2```, ```x64``` and ISO Date format ```YYYY-MM``` ```2025-06``` to search for the latest Windows Update files returns 2 items as seen [here](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%2024h2%20x64%202025-06%20%20) 
+
+ 
+
+
+the latest Windows Update file for Windows 11 x64 systems is 
+
+and check to see if they can be added to add to the ```install.wim``` and ```install.esd``` image file.
+
+In order to find out if a ```.MSU``` or ```.CAB``` file can be added to the image file,
+
+
+You can also remove packages you dont want installed at this stage, instead of writing a Powershell script to remove them after Windows has been installed using the AutoUnattend.xml file.
+
+When adding Windows Update packages from the [Microsoft Catalogue](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%2024h2%20%202025-06%20x64-based%20), first make sure the KB (Knowledge Base) update can be installed using DISM. To do this, check the details of the KB update and look for "How to get this update" midway down the webpage. Click on Catalog and see if it can be installed using DISM. 
+[kb5063060](https://support.microsoft.com/en-gb/topic/june-11-2025-kb5063060-os-build-26100-4351-out-of-band-b1746442-8c6c-425d-ac5a-3a8f51e372f3#id0elbd=windows_update)
+
+https://support.microsoft.com/en-gb/topic/june-10-2025-kb5060842-os-build-26100-4349-47ff300b-2a04-440c-9476-2860d04fce8d#id0enbd=catalog
+
+the latest package will replace earlier monthly Windows Update packages, but the Window Update package may also list other prerequisite dependency packages that need to be installed before the latest Windows Update package. 
 
 For example, [Windows 11 2025-06 Windows Update package KB5063060 for x64 based systems](https://www.catalog.update.microsoft.com/Search.aspx?q=2025-06%20Cumulative%20Update%20for%20Windows%2011%20Version%2024H2%20for%20x64-based%20Systems%20(KB5063060)%20) requires KB5043080 to be added as a prerequiste dependency. To see KB5043080 and its download link, click the Download button in the above link. 
 
