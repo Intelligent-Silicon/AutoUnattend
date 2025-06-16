@@ -220,7 +220,7 @@ You can search for the latest Window's Updates on the [Microsoft Catalogue](http
 
 As at 20250613:YYYYMMDD, using the Windows Media Creation Tool for Windows 11, the current release for ```install.esd``` is ```Windows 11 2024 Update l Version 24H2```.
 
-The [Microsoft Catalogue](https://www.catalog.update.microsoft.com) using ```windows 11```, ```24h2```, ```x64``` and ISO Date format ```YYYY-MM``` ```2025-06``` to search for the latest Windows Update files returns 2 items as seen [here](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%2024h2%20x64%202025-06%20%20) 
+The [Microsoft Catalogue](https://www.catalog.update.microsoft.com) using ```windows 11```, ```24h2```, ```x64``` and ISO Date format ```YYYY-MM``` ```2025-06``` as the search term for the latest Windows Update files returns 2 items as seen [here](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2011%2024h2%20x64%202025-06%20%20) 
 
 At the time of writing, 2 updates exist:
 ```
