@@ -104,7 +104,7 @@ The ```boot.wim```, ```install.wim```& ```install.esd``` are contained in ```[US
 
 ```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core) and their variants of Windows which is used to install on the computer. [App|Driver] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or additional networking functionality are typically added to ```install.wim``` & ```install.esd``` as well, along with [App|Driver] Packages for the computer & user to use on a day to day basis after installation which is not required by the Windows Setup installation process. 
 
-User App installation software can also be added to ```install.wim```& ```install.esd``` for installation after Windows is installed, which can help with building an offline USB mem stick or ISO image file installation, to minimise downtime for such scenerios like working remotely or in locations without internet access, but still need ALL software to be configured to run out-of-the-box when internet access or return to work occurs.
+User App installation software can also be added to ```install.wim```& ```install.esd``` for installation after Windows is installed, which can help with building an offline USB mem stick or ISO image file installation, to minimise downtime for such scenerios like working remotely or in locations without internet access, but still need ALL software to be configured to run out-of-the-box when internet access or return to work occurs. This also assumes User App software is programmed to work in offline situations.
 
 The ```install.esd``` file is a more recently introduced, more highly compressed version of the ```install.wim``` file to install Windows used with the MCT. 
 
