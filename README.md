@@ -216,7 +216,7 @@ Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
 
 The ```install.wim``` and ```install.esd``` image file starts off with a selection of App & Window Update packages to bring them upto a certain release. Adding required packages and removing unnecessary packages is a good way to reduce the attack vector by reducing the number of unnecessary apps & services which are installed in a default installation of Windows.
 
-You can search for the latest Window's Updates on the [Microsoft Catalogue](https://www.catalog.update.microsoft.com) website but you need to check they can be installed from the Catalogue.
+You can search for the latest Window's Updates on the [Microsoft Catalogue](https://www.catalog.update.microsoft.com) website but you need to check they can be installed from the Catalogue using DISM.
 
 As at 20250613:YYYYMMDD, using the Windows Media Creation Tool for Windows 11, the current release for ```install.esd``` is ```Windows 11 2024 Update l Version 24H2```.
 
@@ -235,7 +235,7 @@ The Support URL format is ```https://support.microsoft.com/help/[Number of the K
 
 Scroll down to the [Install this update](https://support.microsoft.com/help/5063060#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) section, click the ```Catalog``` tab and see if it can be installed using DISM. 
 
-The KB5063060 update currently can not be installed to the Windows ```install.wim``` and ```install.esd``` image file using DISM.
+The KB5063060 update currently can not be installed to the Windows ```install.esd``` image file using DISM.
 
 The Security Update [KB5060842](https://support.microsoft.com/help/5060842#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) can be installed to the Windows Image using DISM. 
 
