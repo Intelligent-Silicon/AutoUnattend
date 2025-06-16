@@ -229,7 +229,7 @@ At the time of writing, 2 updates exist:
 ```  
 Before downloading the update, you need to check that it can be installed using DISM.
 
-Click on the update's weblink to get a popup window which shows the Support URL. 
+Click on the KB Update's weblink to get a popup window which shows the Support URL. 
 
 The Support URL format is ```https://support.microsoft.com/help/[Number of the KB]``` eg ```https://support.microsoft.com/help/5063060```. 
 
