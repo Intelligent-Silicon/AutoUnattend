@@ -148,7 +148,7 @@ https://c-nergy.be/blog/?p=17341
 
 
 
-# DISM, mount, unmount, commit, discard
+# DISM, mount, unmount, commit, discard ```boot.wim```, ```install.wim```, ```install.esd``` files
 
 MCT and Server ISO ```boot.wim```, ```install.wim``` or ```install.esd``` files can be mounted using [DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism) from [Powershell](https://learn.microsoft.com/en-us/powershell/), where the ```install.wim``` or ```install.esd``` image file can be altered. 
 
