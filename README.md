@@ -243,7 +243,7 @@ The KB5063060 update at the time of writing (20250613:YYYYMMDD) can not be added
 
 The Security Update [KB5060842](https://support.microsoft.com/help/5060842#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) can be installed to the Windows ```install.esd``` image file using DISM because it displays the instructions to do so. 
 
-Below, the example mounts the Window 24H2 image file, renamed from ```install.wim``` to ```installWin11.esd```, adds the KB5060842 Security Update package and then unmounts the image file.
+Below, the example mounts the Window 24H2 image file, renamed from ```install.esd``` to ```installWin11.wim```, adds the KB5060842 Security Update package and then unmounts the image file.
 ```
 Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim" /mountdir:"C:\mount" /index:7   # If not already Mounted
 Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Downloads\windows11.0-kb5060842-x64_07871bda98c444c14691e0a90560306703b739cf.msu"
