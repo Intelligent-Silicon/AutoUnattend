@@ -279,6 +279,8 @@ Servicing Stack Updates (SSU) are updates for the Windows updates component of W
 
 [How Configuration Passes Work](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work)
 
+[Unattended Windows Setup Reference](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/)
+
 Below are the Configuration Passes in order of processing when it exists or is enabled. 
 
 [Audit Mode and ForceShutdownNow](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/boot-windows-to-audit-mode-or-oobe) determines whether the ```auditSystem``` and ```auditUser``` configuration passes run or the ```oobeSystem``` configuration pass runs or all of them. 
