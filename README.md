@@ -148,7 +148,44 @@ Size              : 6972221440
 StorageType       : 1
 PSComputerName    :
 
+PS C:\WINDOWS\system32> $DiskImageResult = Mount-DiskImage "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO" -PassThru
+PS C:\WINDOWS\system32> echo $DiskImageResult
+
+
+Attached          : True
+BlockSize         : 0
+DevicePath        : \\.\CDROM0
+FileSize          : 6972221440
+ImagePath         : C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO
+LogicalSectorSize : 2048
+Number            : 0
+Size              : 6972221440
+StorageType       : 1
+PSComputerName    :
+
+PS C:\WINDOWS\system32> $DiskImageResult | Get-Volume
+
+DriveLetter FriendlyName          FileSystemType DriveType HealthStatus OperationalStatus SizeRemaining    Size
+----------- ------------          -------------- --------- ------------ ----------------- -------------    ----
+D           SSS_X64FREE_EN-US_DV9 Unknown        CD-ROM    Healthy      OK                          0 B 6.49 GB
+
+
+PS C:\WINDOWS\system32> $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter # for ISO
+PS C:\WINDOWS\system32> $DiskImageDriveLetter = ($DiskImageResult | Get-Partition).DriveLetter # for VHD
+
+PS C:\WINDOWS\system32> echo $DiskImageDriveLetter
+D
+PS C:\WINDOWS\system32> Copy-Item -Path "D:\*" -Destination "C:\mount" -Recurse # This can take some time.
 PS C:\WINDOWS\system32>
+
+
+
+$DiskImageResult = Mount-DiskImage "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO" -PassThru
+$DiskImageResult | Get-Volume
+$DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter # for ISO
+$DiskImageDriveLetter = (Get-Disk | Get-Partition).DriveLetter # for VHD
+
+Copy-Item -Path "D:\*" -Destination "C:\mount" -Recurse # This can take some time. 
 ```
 
 https://stackoverflow.com/questions/16452901/how-do-i-get-the-drive-letter-for-the-iso-i-mounted-with-mount-diskimage
@@ -158,6 +195,10 @@ $DiskImageResult = Mount-DiskImage "C:\Users\Admin1\Documents\ISO Files\WS_2016_
 $DiskImageResult | Get-Volume
 $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter # for ISO
 $DiskImageDriveLetter = (Get-Disk | Get-Partition).DriveLetter # for VHD
+
+Copy-Item -Path "D:\*" -Destination "C:\mount" -Recurse # This can take some time. 
+
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name LongPathsEnabled -Type DWord -Value 1
 
 
 
@@ -171,6 +212,7 @@ https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.managem
 https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/copy-item?view=powershell-7.5
 
 
+https://rcmtech.wordpress.com/2012/12/07/powershell-mounting-and-dismounting-iso-images-on-windows-server-2012-and-windows-8/
 
 
 https://learn.microsoft.com/en-us/powershell/module/storage/mount-diskimage
@@ -246,6 +288,10 @@ The operation completed successfully.
 PS C:\WINDOWS\system32>
 ``` 
 [More information on Modifying a Windows image using DISM](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/mount-and-modify-a-windows-image-using-dism)
+
+If you are having problems getting DISM to unmount an image file, check to make sure the folder used to mount the image file to is empty, and then check the registry ```Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WIMMount\Mounted Images```. 
+This assumes you only have one image file loaded, but if you dont, make sure the GUID in the registry key that needs to be removed is the correct one.
+
 
 # DISM Driver Packages
 
