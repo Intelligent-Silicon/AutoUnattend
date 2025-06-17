@@ -128,10 +128,14 @@ Windows Server installation's come in ```.ISO``` and ```.VHD``` image files, and
 
 Once you have downloaded the image file, it needs to be mounted before you can modify it. Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.wim```, ```install.esd```) can contain other image files, like [Russian Matryoshka Dolls](https://en.wikipedia.org/wiki/Matryoshka_doll).
 
-Mounting a disk image file like ```.ISO``` and ```.VHD``` are fixed in size, 
+```.ISO``` image files are mounted as Fixed Sized Read-only drives where nothing can be added or changed to the mounted drive.
+
+```.VHD``` image files can be mounted as Fixed Sized, Resizable Read-Write drives, where files can be added or removed from the mounted drive.
+
+With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file is to mount it, copy the ```.ISO``` contents to another folder on the hard drive, work on that folder, and then save it all to a new ```.ISO``` or ```.VHD``` image file.
 
 ```
-PS C:\WINDOWS\system32> Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
+PS C:\WINDOWS\system32> Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO" -PassThru
 
 Attached          : True
 BlockSize         : 0
@@ -147,6 +151,24 @@ PSComputerName    :
 PS C:\WINDOWS\system32>
 ```
 
+https://stackoverflow.com/questions/16452901/how-do-i-get-the-drive-letter-for-the-iso-i-mounted-with-mount-diskimage
+
+
+$DiskImageResult = Mount-DiskImage "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO" -PassThru
+$DiskImageResult | Get-Volume
+$DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter # for ISO
+$DiskImageDriveLetter = (Get-Disk | Get-Partition).DriveLetter # for VHD
+
+
+
+( Mount-DiskImage -ImagePath $ImagePath | Get-Volume ).DriveLetter
+
+
+https://gist.github.com/jonathanelbailey/c021fe5791d8baf42e7924215f2502cd
+
+https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/join-path?view=powershell-7.5
+
+https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/copy-item?view=powershell-7.5
 
 
 
