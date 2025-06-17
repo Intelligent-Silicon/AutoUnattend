@@ -135,6 +135,11 @@ Once you have downloaded the image file, it needs to be mounted before you can m
 With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file is to mount it, copy the ```.ISO``` contents to another folder on the hard drive, work on that folder, and then save it all to a new ```.ISO``` or ```.VHD``` image file.
 
 ```
+$DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
+$DiskImageResult | Get-Volume 
+$DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter
+Copy-Item -Path $DiskImageDriveLetter & ":\*" -Destination "C:\mount" -Recurse
+```
 PS C:\WINDOWS\system32> Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO" -PassThru
 
 Attached          : True
