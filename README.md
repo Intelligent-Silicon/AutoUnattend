@@ -88,7 +88,7 @@ There are a few different ways to install Windows.
 
 The finished AutoUnattend.xml file is added to the root folder of the Media Creation Tool (MCT) created USB memory stick or ISO image file, or Windows Server ISO, before burning to DVD where applicable.
 
-Most members of the public and businesses will use the [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO & VHD forms and are not included as an option in the MCT. 
+Most members of the public and businesses will use the [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows (Home, Education, & Pro) variants onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO & VHD forms and are not included as an option in the MCT. The Windows Server versions installs Data Centre, Core & NanoSever variants.
 
 Other methods exist for installing Windows 10/11/Server which are more technical and/or have specialist reasons for existing.
 
@@ -102,7 +102,7 @@ The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[
 
 ```boot.wim``` contains the Windows Installer software that is the Windows PE and Windows Setup software used to install Windows. [App|Driver] Packages can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
 
-```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core) and their variants of Windows which is used to install the version and variant of Window's on the computer. [App|Driver] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or additional networking functionality are typically added to ```install.wim``` & ```install.esd``` as well, along with [App|Driver] Packages for the computer & user to use on a day to day basis after Window's is installed, which is not required by the Windows Setup installation process. 
+```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core & NanoSever) and their variants of Windows which is used to install the version and variant of Window's on the computer. [App|Driver] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or additional networking functionality are typically added to ```install.wim``` & ```install.esd``` as well, along with [App|Driver] Packages for the computer & user to use on a day to day basis after Window's is installed, which is not required by the Windows Setup installation process. 
 
 ```install.esd``` is the image file typically used when using the Windows Media Creation Tool.
 
@@ -122,11 +122,30 @@ Server 2016/2019/2022/2025 ISO install.wim : Server Standard Core, Server Standa
 ```
 The N variants stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 
-# Powershell Mount, Unmount ```.ISO``` and ```.vhd``` files
+# Powershell Mount, Unmount ```.ISO``` and ```.VHD``` files
 
 Windows Server installation's come in ```.ISO``` and ```.VHD``` image files, and there is an option in the Windows MCT to save the desktop version of Window's to a ```.ISO``` file.
 
 Once you have downloaded the image file, it needs to be mounted before you can modify it. Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.wim```, ```install.esd```) can contain other image files, like [Russian Matryoshka Dolls](https://en.wikipedia.org/wiki/Matryoshka_doll).
+
+Mounting a disk image file like ```.ISO``` and ```.VHD``` are fixed in size, 
+
+```
+PS C:\WINDOWS\system32> Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
+
+Attached          : True
+BlockSize         : 0
+DevicePath        : \\.\CDROM0
+FileSize          : 6972221440
+ImagePath         : C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO
+LogicalSectorSize : 2048
+Number            : 0
+Size              : 6972221440
+StorageType       : 1
+PSComputerName    :
+
+PS C:\WINDOWS\system32>
+```
 
 
 
