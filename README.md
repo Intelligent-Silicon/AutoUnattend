@@ -133,9 +133,30 @@ https://learn.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=net-9
 https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.comtypes.istream?view=net-9.0
 
 
+dir c:\WinPE | New-IsoFile -Path c:\temp\WinPE.iso -BootFile "${env:ProgramFiles(x86)}\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\efisys.bin" -Media DVDPLUSR -Title "WinPE"
+
+https://stackoverflow.com/questions/27138483/how-can-i-re-use-import-script-code-in-powershell-scripts
+
+Set-ExecutionPolicy bypass
+
+dir "C:\mount" | . "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.ps1" -Path "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso" -Media DVDPLUSR -Title "Test"
+  
+  
+import-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
+
+dir "C:\mount" | New-ISOFile -Path "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso" -Media DVDPLUSR -Title "Test"
+
+New-ISOFile "C:\mount" "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso"  
+
+PS C:\Users\Admin1\Documents\ISO Files> New-ISOFile "C:\mount" "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso"
 
 
+    Directory: C:\Users\Admin1\Documents\ISO Files
 
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        18/06/2025     17:25     6971064320 WS2016test.iso
   
 ```
 Windows Edition Order (in ascending order starting from 1):
