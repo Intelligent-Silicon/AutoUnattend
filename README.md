@@ -128,6 +128,10 @@ https://github.com/TheDotSource/New-ISOFile
 
 https://github.com/TheDotSource/New-ISOFile/blob/main/New-ISOFile.ps1
 
+https://learn.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=net-9.0
+
+https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.comtypes.istream?view=net-9.0
+
 
 
 
