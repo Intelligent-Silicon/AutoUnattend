@@ -138,36 +138,14 @@ With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file
 $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 $DiskImageResult | Get-Volume 
 $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter
-Copy-Item -Path $DiskImageDriveLetter & ":\*" -Destination "C:\mount" -Recurse
+Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destination "C:\mount" -Recurse
+Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
+OR
+Dismount-DiskImage -DevicePath \\.\CDROM1
 ```
-PS C:\WINDOWS\system32> Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO" -PassThru
 
-Attached          : True
-BlockSize         : 0
-DevicePath        : \\.\CDROM0
-FileSize          : 6972221440
-ImagePath         : C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO
-LogicalSectorSize : 2048
-Number            : 0
-Size              : 6972221440
-StorageType       : 1
-PSComputerName    :
-
-PS C:\WINDOWS\system32> $DiskImageResult = Mount-DiskImage "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO" -PassThru
-PS C:\WINDOWS\system32> echo $DiskImageResult
-
-
-Attached          : True
-BlockSize         : 0
-DevicePath        : \\.\CDROM0
-FileSize          : 6972221440
-ImagePath         : C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO
-LogicalSectorSize : 2048
-Number            : 0
-Size              : 6972221440
-StorageType       : 1
-PSComputerName    :
-
+```
+PS C:\WINDOWS\system32> $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 PS C:\WINDOWS\system32> $DiskImageResult | Get-Volume
 
 DriveLetter FriendlyName          FileSystemType DriveType HealthStatus OperationalStatus SizeRemaining    Size
@@ -175,23 +153,28 @@ DriveLetter FriendlyName          FileSystemType DriveType HealthStatus Operatio
 D           SSS_X64FREE_EN-US_DV9 Unknown        CD-ROM    Healthy      OK                          0 B 6.49 GB
 
 
-PS C:\WINDOWS\system32> $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter # for ISO
-PS C:\WINDOWS\system32> $DiskImageDriveLetter = ($DiskImageResult | Get-Partition).DriveLetter # for VHD
-
-PS C:\WINDOWS\system32> echo $DiskImageDriveLetter
-D
-PS C:\WINDOWS\system32> Copy-Item -Path "D:\*" -Destination "C:\mount" -Recurse # This can take some time.
-PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32> $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter
+PS C:\WINDOWS\system32> Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destination "C:\mount" -Recurse
+PS C:\WINDOWS\system32> Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 
 
-
-$DiskImageResult = Mount-DiskImage "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO" -PassThru
-$DiskImageResult | Get-Volume
-$DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter # for ISO
-$DiskImageDriveLetter = (Get-Disk | Get-Partition).DriveLetter # for VHD
-
-Copy-Item -Path "D:\*" -Destination "C:\mount" -Recurse # This can take some time. 
+Attached          : False
+BlockSize         : 0
+DevicePath        :
+FileSize          : 6972221440
+ImagePath         : C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO
+LogicalSectorSize : 2048
+Number            :
+Size              : 6972221440
+StorageType       : 1
+PSComputerName    :
 ```
+
+Edit the image file in C:\mount, then save C:\mount to a new ISO file image.
+
+
+
+
 
 https://stackoverflow.com/questions/16452901/how-do-i-get-the-drive-letter-for-the-iso-i-mounted-with-mount-diskimage
 
