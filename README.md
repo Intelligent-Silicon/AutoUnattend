@@ -172,7 +172,23 @@ PSComputerName    :
 
 Edit the image file in C:\mount, then save C:\mount to a new ISO file image.
 
+https://www.powershellgallery.com/packages/Cloud.Ready.Software.Windows/1.0.3.8/Content/New-ISOFileFromFolder.ps1
 
+
+https://c-nergy.be/blog/?p=17341
+
+
+https://learn.microsoft.com/en-us/windows/win32/imapi/adding-a-boot-image
+
+https://learn.microsoft.com/en-us/windows/win32/api/imapi2fs/nn-imapi2fs-ifilesystemimage
+
+https://gist.github.com/sayurin/ea78ece46350214f8773
+
+https://learn.microsoft.com/en-us/windows/win32/imapi/burning-a-disc
+
+https://learn.microsoft.com/en-us/windows/win32/imapi/using-imapi
+
+https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/imapi/creating-a-multisession-disc.md
 
 
 
