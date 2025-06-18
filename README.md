@@ -114,6 +114,24 @@ The ```install.esd``` file is a more recently introduced, more highly compressed
 
 As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected as a Windows Image in the Windows System Image Manager [10.0.26100.2454] program, but you can rename the ```install.esd``` file to ```install.wim``` and then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
   
+https://www.tenforums.com/tutorials/2570-esd-iso-create-bootable-iso-windows-10-esd-file-73.html#post886726
+https://blogs.windows.com/windows-insider/2016/11/03/introducing-unified-update-platform-uup/#GtlbtH7IpP05HLo8.97
+https://www.tenforums.com/tutorials/72031-create-windows-10-iso-image-existing-installation.html
+https://www.tenforums.com/tutorials/2570-esd-iso-create-bootable-iso-windows-10-esd-file.html
+https://github.com/gus33000/ESD-Decrypter
+
+https://github.com/gus33000/ESD-Decrypter/blob/master/bin/ESDISO.ps1
+
+https://thedotsource.com/2021/03/16/building-iso-files-with-powershell-7/
+
+https://github.com/TheDotSource/New-ISOFile
+
+https://github.com/TheDotSource/New-ISOFile/blob/main/New-ISOFile.ps1
+
+
+
+
+
   
 ```
 Windows Edition Order (in ascending order starting from 1):
@@ -170,7 +188,223 @@ StorageType       : 1
 PSComputerName    :
 ```
 
-Edit the image file in C:\mount, then save C:\mount to a new ISO file image.
+Edit the image file in C:\mount as if you were editting the USB mem stick created by the Windows Media Creation Tool, eg load the ```.WIM``` and ```.ESD``` files using DISM, add the ```AutoUnattend.xml``` file, and other software before then saving ```C:\mount``` to a new ```.ISO``` file image.
+
+To save the ```C:\mount``` folder along with its files and subfolders, use the following script to create the resultant ```.ISO``` file, before optionally burning it to DVD.
+
+https://www.powershellgallery.com/packages/Cloud.Ready.Software.Windows/1.0.3.8/Content/New-ISOFileFromFolder.ps1
+https://community.dynamics.com/blogs/post/?postid=14372ffa-66b6-4520-890c-b577e4840b98
+https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/imapi/creating-a-multisession-disc.md
+https://learn.microsoft.com/en-gb/windows/win32/imapi/portal
+
+```
+$VolumeName 				= "C:\mount"
+$fsi 						= New-Object -ComObject IMAPI2FS.MsftFileSystemImage # https://learn.microsoft.com/en-us/windows/win32/api/imapi2fs/nn-imapi2fs-ifilesystemimage
+$fsi.FileSystemsToCreate 	= 7 # This "7"7 appears to be a default value, for the $fsi object, but its worth setting.
+$fsi.VolumeName 			= "Test_FileSystem"
+$fsi.FreeMediaBlocks 		= 0  #default = 332800 / 512 = 650MB. 0 = infinity and is needed otherwise it throws an error msg complaining about the WIM files.
+$fsi.Root.AddTreeWithNamedStreams("C:\mount",65535) # AddTreeWithNamedStreams https://learn.microsoft.com/en-us/windows/win32/api/imapi2fs/nf-imapi2fs-ifsidirectoryitem2-addtreewithnamedstreams
+													# VARIANT_BOOL 0xFFFF = 65535 https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-oaut/7b39eb24-9d39-498a-bcd8-75c38e5823d0
+```
+
+```
+PS C:\WINDOWS\system32> $fsi = New-Object -ComObject IMAPI2FS.MsftFileSystemImage
+PS C:\WINDOWS\system32> echo $fsi
+			
+
+Root                              : System.__ComObject
+SessionStartBlock                 : 0
+FreeMediaBlocks                   : 332800
+UsedBlocks                        : 528
+VolumeName                        :
+ImportedVolumeName                :
+BootImageOptions                  :
+FileCount                         : 0
+DirectoryCount                    : 1
+WorkingDirectory                  : C:\Users\Admin1\AppData\Local\Temp\
+ChangePoint                       : 0
+StrictFileSystemCompliance        : False
+UseRestrictedCharacterSet         : False
+FileSystemsToCreate               : 7
+FileSystemsSupported              : 7
+UDFRevision                       : 258
+UDFRevisionsSupported             : {258, 336, 512, 513...}
+ISO9660InterchangeLevel           : 1
+ISO9660InterchangeLevelsSupported : {1, 2}
+VolumeNameUDF                     :
+VolumeNameJoliet                  :
+VolumeNameISO9660                 :
+StageFiles                        : False
+MultisessionInterfaces            : {}
+BootImageOptionsArray             : {}
+CreateRedundantUdfMetadataFiles   : True
+
+# https://learn.microsoft.com/en-us/windows/win32/api/imapi2fs/ne-imapi2fs-fsifilesystems
+# https://learn.microsoft.com/en-us/windows/win32/api/imapi2/ne-imapi2-imapi_cd_sector_type
+
+PS C:\WINDOWS\system32> $fsi.FileSystemsToCreate = 4 # There is no change in this object
+PS C:\WINDOWS\system32> echo $fsi
+
+
+Root                              : System.__ComObject
+SessionStartBlock                 : 0
+FreeMediaBlocks                   : 332800
+UsedBlocks                        : 528
+VolumeName                        :
+ImportedVolumeName                :
+BootImageOptions                  :
+FileCount                         : 0
+DirectoryCount                    : 1
+WorkingDirectory                  : C:\Users\Admin1\AppData\Local\Temp\
+ChangePoint                       : 0
+StrictFileSystemCompliance        : False
+UseRestrictedCharacterSet         : False
+FileSystemsToCreate               : 4
+FileSystemsSupported              : 7
+UDFRevision                       : 258
+UDFRevisionsSupported             : {258, 336, 512, 513...}
+ISO9660InterchangeLevel           : 1
+ISO9660InterchangeLevelsSupported : {1, 2}
+VolumeNameUDF                     :
+VolumeNameJoliet                  :
+VolumeNameISO9660                 :
+StageFiles                        : False
+MultisessionInterfaces            : {}
+BootImageOptionsArray             : {}
+CreateRedundantUdfMetadataFiles   : True
+
+# https://learn.microsoft.com/en-us/windows/win32/api/imapi2fs/nf-imapi2fs-ifilesystemimage-put_volumename
+# The string is limited to 15 characters. 
+# For ISO 9660 discs, the volume name can use A-Z, 0-9 & "_" (underscore)
+# For Joliet and UDF discs, the volume name can use a-z, A-Z, 0-9, "." (period), & "_" (underscore)
+
+PS C:\WINDOWS\system32> $fsi.VolumeName = "Test_FileSystem"	# $fsi.VolumeName, VolumeNameUDF, VolumeNameJoliet & VolumeNameISO9660 is set						
+PS C:\WINDOWS\system32> echo $fsi
+
+Root                              : System.__ComObject
+SessionStartBlock                 : 0
+FreeMediaBlocks                   : 332800
+UsedBlocks                        : 528
+VolumeName                        : Test_FileSystem
+ImportedVolumeName                :
+BootImageOptions                  :
+FileCount                         : 0
+DirectoryCount                    : 1
+WorkingDirectory                  : C:\Users\Admin1\AppData\Local\Temp\
+ChangePoint                       : 0
+StrictFileSystemCompliance        : False
+UseRestrictedCharacterSet         : False
+FileSystemsToCreate               : 7
+FileSystemsSupported              : 7
+UDFRevision                       : 258
+UDFRevisionsSupported             : {258, 336, 512, 513...}
+ISO9660InterchangeLevel           : 1
+ISO9660InterchangeLevelsSupported : {1, 2}
+VolumeNameUDF                     : Test_FileSystem
+VolumeNameJoliet                  : Test_FileSystem
+VolumeNameISO9660                 : TEST_FILESYSTEM
+StageFiles                        : False
+MultisessionInterfaces            : {}
+BootImageOptionsArray             : {}
+CreateRedundantUdfMetadataFiles   : True
+
+PS C:\WINDOWS\system32> $fsi.FreeMediaBlocks = 0
+PS C:\WINDOWS\system32> echo $fsi
+
+
+Root                              : System.__ComObject
+SessionStartBlock                 : 0
+FreeMediaBlocks                   : 0
+UsedBlocks                        : 528
+VolumeName                        : Test_FileSystem
+ImportedVolumeName                :
+BootImageOptions                  :
+FileCount                         : 0
+DirectoryCount                    : 1
+WorkingDirectory                  : C:\Users\Admin1\AppData\Local\Temp\
+ChangePoint                       : 0
+StrictFileSystemCompliance        : False
+UseRestrictedCharacterSet         : False
+FileSystemsToCreate               : 7
+FileSystemsSupported              : 7
+UDFRevision                       : 258
+UDFRevisionsSupported             : {258, 336, 512, 513...}
+ISO9660InterchangeLevel           : 1
+ISO9660InterchangeLevelsSupported : {1, 2}
+VolumeNameUDF                     : Test_FileSystem
+VolumeNameJoliet                  : Test_FileSystem
+VolumeNameISO9660                 : TEST_FILESYSTEM
+StageFiles                        : False
+MultisessionInterfaces            : {}
+BootImageOptionsArray             : {}
+CreateRedundantUdfMetadataFiles   : True
+
+
+PS C:\WINDOWS\system32> echo $fsi.root
+
+
+Name             :
+FullPath         :
+CreationTime     : 30/12/1899 00:00:00
+LastAccessedTime : 30/12/1899 00:00:00
+LastModifiedTime : 30/12/1899 00:00:00
+IsHidden         : False
+Count            : 0
+
+PS C:\WINDOWS\system32> $fsi.Root.AddTreeWithNamedStreams("C:\mount",65535)
+PS C:\WINDOWS\system32> echo $fsi.root
+
+
+Name             :
+FullPath         :
+CreationTime     : 30/12/1899 00:00:00
+LastAccessedTime : 30/12/1899 00:00:00
+LastModifiedTime : 30/12/1899 00:00:00
+IsHidden         : False
+Count            : 10
+
+PS C:\WINDOWS\system32> $dftd = New-Object -ComObject IMAPI2.MsftDiscFormat2Data
+PS C:\WINDOWS\system32> $resultimage = $fsi.CreateResultImage()
+PS C:\WINDOWS\system32> echo $resultimage
+
+
+ImageStream    : System.__ComObject
+ProgressItems  : System.__ComObject
+TotalBlocks    : 6807104
+BlockSize      : 2048
+DiscId         : 0000000000000000
+ModifiedBlocks :
+
+PS C:\WINDOWS\system32> $resultStream = $resultimage.ImageStream
+PS C:\WINDOWS\system32> Write-IStreamToFile $resultStream "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us_v2.ISO"
+
+PS C:\WINDOWS\system32> $resultimage = $fsi.CreateResultImage()
+Data file is too large for 'ISO9660/Joliet' file system.
+
+
+Name             :
+FullPath         :
+CreationTime     : 30/12/1899 00:00:00
+LastAccessedTime : 30/12/1899 00:00:00
+LastModifiedTime : 30/12/1899 00:00:00
+IsHidden         : False
+Count            : 9
+
+    
+    $fsi.Root.AddTreeWithNamedStreams($FilePath,$false)
+
+	$dftd 		= New-Object -ComObject IMAPI2.MsftDiscFormat2Data
+	$Recorder 	= New-Object -ComObject IMAPI2.MsftDiscRecorder2
+    
+    $resultimage = $fsi.CreateResultImage()
+    $resultStream = $resultimage.ImageStream
+
+
+    Write-IStreamToFile $resultStream $ResultFullFileName
+
+
+
+```
 
 https://www.powershellgallery.com/packages/Cloud.Ready.Software.Windows/1.0.3.8/Content/New-ISOFileFromFolder.ps1
 
