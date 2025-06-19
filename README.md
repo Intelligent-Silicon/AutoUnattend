@@ -493,9 +493,8 @@ This assumes you have downloaded the Drivers for your computer to function prope
 | git diff | Show file differences that haven't been staged |
 
 | Configuration Pass | Component | Notes |
-| :---         |     :---:      |          ---: |
-| windowsPE   | Microsoft-Windows-Setup     | This is the section where you can choose the version of windows you want to install, configure the partition drives on the hard disk and configure the windowsPE operating system further.    |
-| windowsPE     | Microsoft-Windows-International-Core-WinPE       | The Microsoft-Windows-International-Core-WinPE component is the section that specifies the default language during installation, the keyboard locale, and other international settings to use during Windows Setup or Windows Deployment Services installations.      |
+| windowsPE | Microsoft-Windows-Setup | This is the section where you can choose the version of windows you want to install, configure the partition drives on the hard disk and configure the windowsPE operating system further. |
+| windowsPE | Microsoft-Windows-International-Core-WinPE | The Microsoft-Windows-International-Core-WinPE component is the section that specifies the default language during installation, the keyboard locale, and other international settings to use during Windows Setup or Windows Deployment Services installations. |
 
 
 
