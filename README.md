@@ -477,6 +477,19 @@ Components can be added to one or more configuration passes, check the specific 
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/components-b-unattend
 
+The minimum configuration for ```AutoUnattend.xml``` to install Windows Desktop using components. 
+
+This assumes you have downloaded the Drivers for your computer to function properly from the Manufacturers website, extracted them to a folder and added them to the Windows DriverStore on the ```install.wim``` or ```install.esd``` file.
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+
+
+
+# Install User software
 
 
 
