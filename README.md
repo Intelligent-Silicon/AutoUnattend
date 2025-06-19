@@ -217,6 +217,42 @@ Edit the image file in C:\mount as if you were editting the USB mem stick create
 
 To save the ```C:\mount``` folder along with its files and subfolders, use the following script to create the resultant ```.ISO``` file, before optionally burning it to DVD.
 
+```
+PS C:\WINDOWS\system32> import-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
+PS C:\WINDOWS\system32> New-ISOFile "C:\mount" "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso" -verbose
+VERBOSE: Function start.
+VERBOSE: Processing nested system
+VERBOSE: Adding ISOFile type.
+VERBOSE: Adding type for PowerShell 5.
+VERBOSE: Selected media type is DVDPLUSRW_DUALLAYER with value 13
+VERBOSE: Initialising image object.
+VERBOSE: initialised.
+VERBOSE: Performing the operation "New-ISOFile" on target "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso".
+VERBOSE: Fetching items from source directory.
+VERBOSE: Got source items.
+VERBOSE: Adding items to image.
+VERBOSE: Writing out ISO file to C:\Users\Admin1\Documents\ISO Files\WS2016test.iso
+VERBOSE: File complete.
+
+
+    Directory: C:\Users\Admin1\Documents\ISO Files
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        18/06/2025     20:59     6971064320 WS2016test.iso
+VERBOSE: Function complete.
+
+Remove-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
+Get-Module -ListAvailable -Name AudioDeviceCmdlets`
+Uninstall-Module
+https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/remove-module?view=powershell-7.5
+https://github.com/PowerShell/PowerShell/issues/6698
+https://www.reddit.com/r/PowerShell/comments/ao72r0/removemodule_fails_to_remove_module_that_was/
+```
+
+
+
 https://www.powershellgallery.com/packages/Cloud.Ready.Software.Windows/1.0.3.8/Content/New-ISOFileFromFolder.ps1
 https://community.dynamics.com/blogs/post/?postid=14372ffa-66b6-4520-890c-b577e4840b98
 https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/imapi/creating-a-multisession-disc.md
