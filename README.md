@@ -198,11 +198,18 @@ StorageType       : 1
 PSComputerName    :
 ```
 
-Edit the image file in C:\mount as if you were editting the USB mem stick created by the Windows Media Creation Tool, eg load the ```.WIM``` and ```.ESD``` files using DISM, add the ```AutoUnattend.xml``` file, and other software before then saving ```C:\mount``` to a new ```.ISO``` file image. For more info, see below.
+Edit the image file in ```C:\mount``` as if you were editting the USB mem stick created by the Windows Media Creation Tool, eg load the ```.WIM``` and ```.ESD``` files using DISM, add the ```AutoUnattend.xml``` file, drivers that are not driver packages, and other software before then saving ```C:\mount``` to a new ```.ISO``` file image. For more info, see below.
 
 
 # Powershell Save to ISO
-To save the ```C:\mount``` folder along with its files and subfolders, use the following script to create the resultant ```.ISO``` file, before optionally burning it to DVD.
+
+To save the ```C:\mount``` folder along with its files and subfolders, use the following script to create the resultant ```.ISO``` file, before optionally burning it to DVD. The Powershell Module ```.PSM1``` needs to be downloaded from [here](New-ISOFile.psm1). Its a modified version of this [one](https://thedotsource.com/2021/03/16/building-iso-files-with-powershell-7/), I've added a couple of extra ```-verbose``` messages for extra feedback for slow computers. 
+The import-Module installs the ```New-ISOFile.psm1``` module for the duration of the powershell session only. Its unloaded when the Powershell window is closed. If you start additional Powershell windows whilst the Powershell window which ran the ```import-module``` command is still running, it wont be available to use, you need to run the ```import-module``` command for the newly opened Powershell window.
+
+```
+import-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
+New-ISOFile "C:\mount" "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso" -verbose
+```
 
 ```
 PS C:\WINDOWS\system32> import-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
@@ -217,8 +224,20 @@ VERBOSE: initialised.
 VERBOSE: Performing the operation "New-ISOFile" on target "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso".
 VERBOSE: Fetching items from source directory.
 VERBOSE: Got source items.
-VERBOSE: Adding items to image.
+VERBOSE: Adding items to image. Wait at least 1 min, then if new lines below dont appear press Enter - It sometimes hangs.
+VERBOSE: Adding boot
+VERBOSE: Adding efi
+VERBOSE: Adding NanoServer
+VERBOSE: Adding sources
+VERBOSE: Adding support
+VERBOSE: Adding test
+VERBOSE: Adding autorun.inf
+VERBOSE: Adding bootmgr
+VERBOSE: Adding bootmgr.efi
+VERBOSE: Adding setup.exe
 VERBOSE: Writing out ISO file to C:\Users\Admin1\Documents\ISO Files\WS2016test.iso
+VERBOSE: Target File Created:C:\Users\Admin1\Documents\ISO Files\WS2016test.iso Starting to write contents, this can take several minutes... Press Enter to update in case it hangs.
+VERBOSE: Writing out to ISO file:C:\Users\Admin1\Documents\ISO Files\WS2016test.iso completed.
 VERBOSE: File complete.
 
 
@@ -227,15 +246,19 @@ VERBOSE: File complete.
 
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
--a----        18/06/2025     20:59     6971064320 WS2016test.iso
+-a----        19/06/2025     14:40     6971064320 WS2016test.iso
 VERBOSE: Function complete.
 
+
+PS C:\WINDOWS\system32>
+```
+
+To check to make sure the New-ISOFile.psm1 has not installed, you can check the physical folder ```C:\Program Files\WindowsPowerShell\Modules``` or use the following self explanatory commands.
+
+```
+Get-Module -ListAvailable -Name New-ISOFile
 Remove-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
-Get-Module -ListAvailable -Name AudioDeviceCmdlets`
-Uninstall-Module
-https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/remove-module?view=powershell-7.5
-https://github.com/PowerShell/PowerShell/issues/6698
-https://www.reddit.com/r/PowerShell/comments/ao72r0/removemodule_fails_to_remove_module_that_was/
+Uninstall-Module New-ISOFile
 ```
 
 
