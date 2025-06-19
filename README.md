@@ -81,21 +81,7 @@ There are a few ways to create/modify the AutoUnAttend.xml file, [an online gene
 
 Explanations and examples of the Configuration Passes and Components are explored in greater detail below and on other pages in this repo.
 
-<details>
 
-<summary># Tips for collapsed sections</summary>
-
-### You can add a header
-
-You can add text within a collapsed section.
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
-```
-
-</details>
 
 
 # Creating a Windows installer
@@ -151,7 +137,12 @@ Once you have downloaded the image file, it needs to be mounted before you can m
 
 With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file is to mount it, copy the ```.ISO``` contents to another folder on the hard drive, work on that folder and its subfolders & files, and then save it all to a new ```.ISO``` or ```.VHD``` image file.
 
-# Powershell Mount ISO
+
+<details>
+
+<summary>Powershell [Get|Set]-ExecutionPolicy</summary>
+
+# Powershell [Get|Set]-ExecutionPolicy
 
 Powershell checks. You will need to be able to execute (run) powershell scripts; a new windows installation that installs Powershell will have execution disabled.
 
@@ -172,6 +163,13 @@ Afterwards, remember to set the Execution Policy back using the commands below, 
 Set-ExecutionPolicy Undefined
 Get-ExecutionPolicy -list
 ```
+</details>
+
+<details>
+
+<summary>Powershell Mount ISO</summary>
+
+# Powershell Mount ISO
 
 Next we need to mount the ```ISO``` or ```VHD``` file, copy its contents to a folder that already exists. In this example the ```mount``` folder is a newly created folder with nothing in it. The mount folder needs to be empty. Finally the ```ISO``` or ```VHD``` file is unmounted.
 
