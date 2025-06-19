@@ -487,6 +487,12 @@ This assumes you have downloaded the Drivers for your computer to function prope
 | Content Cell  | Content Cell  |
 
 
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
+
+
 
 
 # Install User software
