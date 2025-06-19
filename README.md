@@ -171,7 +171,7 @@ OR
 Dismount-DiskImage -DevicePath \\.\CDROM1
 ```
 
-#
+
 ```
 PS C:\WINDOWS\system32> $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 PS C:\WINDOWS\system32> $DiskImageResult | Get-Volume
@@ -198,8 +198,10 @@ StorageType       : 1
 PSComputerName    :
 ```
 
-Edit the image file in C:\mount as if you were editting the USB mem stick created by the Windows Media Creation Tool, eg load the ```.WIM``` and ```.ESD``` files using DISM, add the ```AutoUnattend.xml``` file, and other software before then saving ```C:\mount``` to a new ```.ISO``` file image.
+Edit the image file in C:\mount as if you were editting the USB mem stick created by the Windows Media Creation Tool, eg load the ```.WIM``` and ```.ESD``` files using DISM, add the ```AutoUnattend.xml``` file, and other software before then saving ```C:\mount``` to a new ```.ISO``` file image. For more info, see below.
 
+
+# Powershell Save to ISO
 To save the ```C:\mount``` folder along with its files and subfolders, use the following script to create the resultant ```.ISO``` file, before optionally burning it to DVD.
 
 ```
