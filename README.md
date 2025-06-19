@@ -485,7 +485,7 @@ This assumes you have downloaded the Drivers for your computer to function prope
 | --- | --- | --- |
 | windowsPE | Microsoft-Windows-Setup | This is the section where you can choose the version of windows you want to install, configure the partition drives on the hard disk and configure the windowsPE operating system further. |
 | windowsPE | Microsoft-Windows-International-Core-WinPE | The Microsoft-Windows-International-Core-WinPE component is the section that specifies the default language during installation, the keyboard locale, and other international settings to use during Windows Setup or Windows Deployment Services installations. |
-| windowsPE | Microsoft-Windows-PnpCustomizationsWinPE | This is the first opportunity in the autounattend.xml process where you can create the $WinpeDriver$ folder and subfolders containing drivers on the memory stick for installation during the windowsPE pass and other passes in the autounattend.xml. |
+| windowsPE | Microsoft-Windows-PnpCustomizationsWinPE | This is the first opportunity in the autounattend.xml process where you can create the ```$WinpeDriver$``` folder and subfolders containing drivers on the memory stick for installation during the windowsPE pass and other passes in the autounattend.xml. |
 
 
 
