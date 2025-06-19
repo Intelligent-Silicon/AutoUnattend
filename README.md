@@ -481,9 +481,11 @@ The minimum configuration for ```AutoUnattend.xml``` to install Windows Desktop 
 
 This assumes you have downloaded the Drivers for your computer to function properly from the Manufacturers website, extracted them to a folder and added them to the Windows DriverStore on the ```install.wim``` or ```install.esd``` file.
 
-| Configuration Pass | Component | Notes |
-| --- | --- | --- |
-| windowsPE | Microsoft-Windows-Setup | This is the section where you can choose the version of windows you want to install, configure the partition drives on the hard disk and configure the windowsPE operating system further. |
+| Configuration Pass | Component | Setting Name | Notes |
+| --- | --- | --- | --- |
+| windowsPE | Microsoft-Windows-Setup | ImageInstall | ImageInstall specifies the Windows image or secondary data image to install and the location to which the image is to be installed. |
+| windowsPE | Microsoft-Windows-Setup | UserData | This is the section where you specify the user settings to install the version of windows. |
+| windowsPE | Microsoft-Windows-Setup | UseConfigurationSet | UseConfigurationSet specifies whether to use a configuration set for Windows Setup. |
 | windowsPE | Microsoft-Windows-International-Core-WinPE | The Microsoft-Windows-International-Core-WinPE component is the section that specifies the default language during installation, the keyboard locale, and other international settings to use during Windows Setup or Windows Deployment Services installations. |
 | windowsPE | Microsoft-Windows-PnpCustomizationsWinPE | This is the first opportunity in the autounattend.xml process where you can create the ```$WinpeDriver$``` folder and subfolders containing drivers on the memory stick for installation during the windowsPE pass and other passes in the autounattend.xml. |
 
