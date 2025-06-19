@@ -479,8 +479,6 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/co
 
 The minimum configuration for ```AutoUnattend.xml``` to install Windows Desktop using components. 
 
-This assumes you have downloaded the Drivers for your computer to function properly from the Manufacturers website, extracted them to a folder and added them to the Windows DriverStore on the ```install.wim``` or ```install.esd``` file.
-
 | Configuration Pass | Component | Setting Name | Notes |
 | --- | --- | --- | --- |
 | [windowsPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/windowsPE.md) | [Microsoft-Windows-Setup](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/Microsoft-Windows-Setup.md) | [ImageInstall](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/Microsoft-Windows-Setup.md#imageinstall) | ImageInstall specifies the Windows image or secondary data image to install and the location to which the image is to be installed. |
