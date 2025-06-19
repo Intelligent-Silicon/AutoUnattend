@@ -114,50 +114,6 @@ The ```install.esd``` file is a more recently introduced, more highly compressed
 
 As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected as a Windows Image in the Windows System Image Manager [10.0.26100.2454] program, but you can rename the ```install.esd``` file to ```install.wim``` and then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
   
-https://www.tenforums.com/tutorials/2570-esd-iso-create-bootable-iso-windows-10-esd-file-73.html#post886726
-https://blogs.windows.com/windows-insider/2016/11/03/introducing-unified-update-platform-uup/#GtlbtH7IpP05HLo8.97
-https://www.tenforums.com/tutorials/72031-create-windows-10-iso-image-existing-installation.html
-https://www.tenforums.com/tutorials/2570-esd-iso-create-bootable-iso-windows-10-esd-file.html
-https://github.com/gus33000/ESD-Decrypter
-
-https://github.com/gus33000/ESD-Decrypter/blob/master/bin/ESDISO.ps1
-
-https://thedotsource.com/2021/03/16/building-iso-files-with-powershell-7/
-
-https://github.com/TheDotSource/New-ISOFile
-
-https://github.com/TheDotSource/New-ISOFile/blob/main/New-ISOFile.ps1
-
-https://learn.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=net-9.0
-
-https://learn.microsoft.com/en-us/dotnet/api/system.runtime.interopservices.comtypes.istream?view=net-9.0
-
-
-dir c:\WinPE | New-IsoFile -Path c:\temp\WinPE.iso -BootFile "${env:ProgramFiles(x86)}\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\efisys.bin" -Media DVDPLUSR -Title "WinPE"
-
-https://stackoverflow.com/questions/27138483/how-can-i-re-use-import-script-code-in-powershell-scripts
-
-Set-ExecutionPolicy bypass
-
-dir "C:\mount" | . "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.ps1" -Path "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso" -Media DVDPLUSR -Title "Test"
-  
-  
-import-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
-
-dir "C:\mount" | New-ISOFile -Path "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso" -Media DVDPLUSR -Title "Test"
-
-New-ISOFile "C:\mount" "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso"  
-
-PS C:\Users\Admin1\Documents\ISO Files> New-ISOFile "C:\mount" "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso"
-
-
-    Directory: C:\Users\Admin1\Documents\ISO Files
-
-
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
--a----        18/06/2025     17:25     6971064320 WS2016test.iso
-  
 ```
 Windows Edition Order (in ascending order starting from 1):
 MCT Windows 10 (22H2)/11 install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
@@ -175,18 +131,47 @@ Once you have downloaded the image file, it needs to be mounted before you can m
 
 ```.VHD``` image files can be mounted as Fixed Sized, Resizable Read-Write drives, where files can be added or removed from the mounted drive.
 
-With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file is to mount it, copy the ```.ISO``` contents to another folder on the hard drive, work on that folder, and then save it all to a new ```.ISO``` or ```.VHD``` image file.
+With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file is to mount it, copy the ```.ISO``` contents to another folder on the hard drive, work on that folder and its subfolders & files, and then save it all to a new ```.ISO``` or ```.VHD``` image file.
+
+# Powershell Mount ISO
+
+Powershell checks. You will need to be able to execute (run) powershell scripts; a new windows installation that installs Powershell will have execution disabled.
+
+To check the Execution status and change it if need be, load powershell as administrator.
+
+```
+Get-ExecutionPolicy -list
+```
+
+IF LocalMachine is set to ```Undefined```, or anything else other than ```RemoteSigned``` or ```ByPass``` run the following command.
+
+```
+Set-ExecutionPolicy Bypass
+```
+
+Afterwards, remember to set the Execution Policy back using the commands below, to help "lock down" the machine.
+```
+Set-ExecutionPolicy Undefined
+Get-ExecutionPolicy -list
+```
+
+Next we need to mount the ```ISO``` or ```VHD``` file, copy its contents to a folder that already exists. In this example the ```mount``` folder is a newly created folder with nothing in it. The mount folder needs to be empty. Finally the ```ISO``` or ```VHD``` file is unmounted.
 
 ```
 $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 $DiskImageResult | Get-Volume 
 $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter
 Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destination "C:\mount" -Recurse
+```
+```
 Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
+```
 OR
+```
 Dismount-DiskImage -DevicePath \\.\CDROM1
 ```
 
+#
 ```
 PS C:\WINDOWS\system32> $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 PS C:\WINDOWS\system32> $DiskImageResult | Get-Volume
