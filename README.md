@@ -218,6 +218,9 @@ PSComputerName    :
 
 Edit the image file in ```C:\mount``` as if you were editting the USB mem stick created by the Windows Media Creation Tool, eg load the ```.WIM``` and ```.ESD``` files using DISM, add the ```AutoUnattend.xml``` file, drivers that are not driver packages, and other software before then saving ```C:\mount``` to a new ```.ISO``` file image. For more info, see below.
 
+<details>
+
+<summary>Powershell Save to ISO</summary>
 
 # Powershell Save to ISO
 
@@ -270,6 +273,7 @@ VERBOSE: Function complete.
 
 PS C:\WINDOWS\system32>
 ```
+</details>
 
 To check to make sure the New-ISOFile.psm1 has not installed, you can check the physical folder ```C:\Program Files\WindowsPowerShell\Modules``` or use the following self explanatory commands.
 
