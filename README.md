@@ -491,7 +491,9 @@ The minimum configuration for ```AutoUnattend.xml``` to install Windows Desktop 
 | [windowsPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/windowsPE.md) | [Microsoft-Windows-International-Core-WinPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/Microsoft-Windows-International-Core-WinPE.md) | [UILanguage](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-international-core-winpe-uilanguage) | |
 | [windowsPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/windowsPE.md) | [Microsoft-Windows-International-Core-WinPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/Microsoft-Windows-International-Core-WinPE.md) | [UserLocale](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-international-core-winpe-userlocale) | |
 | [windowsPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/windowsPE.md) | [Microsoft-Windows-PnpCustomizationsWinPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/Microsoft-Windows-PnpCustomizationsWinPE.md) | [DriverPaths](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/Microsoft-Windows-PnpCustomizationsWinPE.md#path) | This is the first opportunity in the autounattend.xml process where you can create the ```$WinpeDriver$``` folder and subfolders containing drivers on the memory stick for installation during the windowsPE pass and other passes in the autounattend.xml. |
+| [windowsPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/windowsPE.md) | [auditSystem](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/auditSystem.md) | [Microsoft-Windows-Deployment](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/auditSystem.md#microsoft-windows-deployment-component) | |
 
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment
 
 
 
