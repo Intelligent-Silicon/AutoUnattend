@@ -81,6 +81,22 @@ There are a few ways to create/modify the AutoUnAttend.xml file, [an online gene
 
 Explanations and examples of the Configuration Passes and Components are explored in greater detail below and on other pages in this repo.
 
+<details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section.
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details>
+
 
 # Creating a Windows installer
 
@@ -89,6 +105,8 @@ There are a few different ways to install Windows.
 The finished AutoUnattend.xml file is added to the root folder of the Media Creation Tool (MCT) created USB memory stick or ISO image file, or Windows Server ISO, before burning to DVD where applicable.
 
 Most members of the public and businesses will use the [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows (Home, Education, & Pro) variants onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO & VHD forms and are not included as an option in the MCT. The Windows Server versions installs Data Centre, Core & NanoSever variants.
+
+[Operating Systems Direct official/No Official (Trusted) Download Links](https://github.com/mrrobot1o1/OS-Downloads)
 
 Other methods exist for installing Windows 10/11/Server which are more technical and/or have specialist reasons for existing.
 
