@@ -477,7 +477,7 @@ Components can be added to one or more configuration passes, check the specific 
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/components-b-unattend
 
-The minimum configuration for ```AutoUnattend.xml``` to install Windows Desktop using components. 
+The minimum configuration for ```AutoUnattend.xml``` to install Windows Desktop using components, without user input using a USB mem stick. 
 
 | Configuration Pass | Component | Setting Name | Notes |
 | --- | --- | --- | --- |
