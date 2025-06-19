@@ -414,7 +414,7 @@ Dism /unmount-image /mountdir:"C:\mount" /commit # Commit (Save) and Unmount
 ```
 
 Below is a list of the main commands for package and feature maintainence. 
-``` dism
+```powershell
 Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim" /mountdir:"C:\mount" /index:7 # If not already Mounted
 Dism /Image:"C:\mount" /Get-Packages /Format:Table # list packages installed in the install.wim or install.esd image file.
 Dism /Image:"C:\mount" /Get-PackageInfo /PackageName:"Microsoft-Windows-Foundation-Package~31bf3856ad364e35~amd64~~10.0.26100.1" # get slighty more info than what is displayed using the /Get-Packages /Format:Table command.
