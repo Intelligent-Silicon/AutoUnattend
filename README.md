@@ -83,7 +83,7 @@ Explanations and examples of the Configuration Passes and Components are explore
 
 <details>
 
-<summary>Tips for collapsed sections</summary>
+<summary># Tips for collapsed sections</summary>
 
 ### You can add a header
 
