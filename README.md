@@ -113,9 +113,9 @@ The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[
 
 ```install.esd``` is the image file typically found in the USB memory stick when using the Windows Media Creation Tool.
 
-```install.wim``` is typically found in the Window's Server [ ISO | VHD ] image file and VHD file.
+```install.wim``` is typically found in the Window's Server [ ISO | VHD ] image file.
 
-User App installation software can also be added to ```install.wim```& ```install.esd``` for installation after Windows is installed, which can help with building an offline USB mem stick or ISO image file installation, to minimise downtime for such scenerios like working remotely or in locations without internet access, but still need ALL software to be configured to run out-of-the-box when internet access becomes available or return to work occurs. This also assumes User App software is programmed to work in offline/online/network connected situations.
+User App installation software can also be added to ```install.[wim|esd]``` for installation after Windows is installed, which can help with building an offline USB mem stick or ISO image file installation, to minimise downtime for such scenerios like working remotely or in locations without internet access, but still need ALL software to be configured to run out-of-the-box when internet access becomes available or return to work occurs. This also assumes User App software is programmed to work in offline/online/network connected situations.
 
 The ```install.esd``` file is a more recently introduced, more highly compressed version of the ```install.wim``` file to install Windows used with the MCT. 
 
