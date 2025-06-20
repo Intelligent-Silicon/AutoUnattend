@@ -130,7 +130,7 @@ The N variants stand for "Not with Windows Media Player" and related Media Playe
 
 Windows Server installation's come in ```.ISO``` and ```.VHD``` image files, and there is an option in the Windows MCT to save the desktop version of Window's to a ```.ISO``` file.
 
-Once you have downloaded the image file, it needs to be mounted before you can modify it. Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.wim```, ```install.esd```) can contain other image files, like [Russian Matryoshka Dolls](https://en.wikipedia.org/wiki/Matryoshka_doll).
+Once you have downloaded the image file, it needs to be [mounted](https://learn.microsoft.com/en-us/powershell/module/storage/mount-diskimage) (loaded to a drive letter) using [Powershell](https://learn.microsoft.com/en-us/powershell/scripting/overview) before you can modify it. Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.wim```, ```install.esd```) can contain other image files, like [Russian Matryoshka Dolls](https://en.wikipedia.org/wiki/Matryoshka_doll).
 
 ```.ISO``` image files are mounted as Fixed Sized Read-only drives where nothing can be added or changed to the mounted drive.
 
