@@ -99,11 +99,14 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 
 [The Windows Image (.WIM/.ESD) vs Virtual Hard Disk (.VHD/.VHDX) vs Full Flash Update (.FFU) pro's and con's can be seen here.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats)
 
+Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) can contain other image files, like [Russian Matryoshka Dolls](https://en.wikipedia.org/wiki/Matryoshka_doll).
+
 
 # ```boot.wim```, ```install.wim``` and ```install.esd```
 
 
 The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[ USB stick | mounted ISO image file ] Drive Letter:\sources```, or ```[ USB stick | mounted ISO image file ] Drive Letter:\x86\sources``` & ```[ USB stick | mounted ISO image file ] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
+
 
 ```.WIM``` files only [capture/contain a single partition, typically the Windows partition](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/capture-and-apply-windows-using-a-single-wim), whereby other partitions are then configured and setup with data, like the Recovery partition containing the [Windows RE (Recovery Environment)](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference?view=windows-11). Full Flash Update aka ```FFU``` [captures the entire hard disk and all partitions on the hard disk](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/capture-and-apply-windows-system-and-recovery-partitions). 
 
@@ -130,7 +133,7 @@ The N variants stand for "Not with Windows Media Player" and related Media Playe
 
 [Windows Server](https://en.wikipedia.org/wiki/Windows_Server) installation's come in ```.ISO``` and ```.VHD``` image files, and there is an option in the Windows MCT to save the desktop version of Window's to a ```.ISO``` file.
 
-Once you have downloaded the image file, it needs to be [mounted](https://learn.microsoft.com/en-us/powershell/module/storage/mount-diskimage) (loaded to a drive letter) using [Powershell](https://learn.microsoft.com/en-us/powershell/scripting/overview) before you can modify it. Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) can contain other image files, like [Russian Matryoshka Dolls](https://en.wikipedia.org/wiki/Matryoshka_doll).
+Once you have downloaded the image file, it needs to be [mounted](https://learn.microsoft.com/en-us/powershell/module/storage/mount-diskimage) (loaded to a drive letter) using [Powershell](https://learn.microsoft.com/en-us/powershell/scripting/overview) before you can modify it. 
 
 ```.ISO``` image files are mounted as Fixed Sized Read-only drives where nothing can be added or changed to the mounted drive.
 
