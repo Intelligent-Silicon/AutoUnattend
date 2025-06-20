@@ -282,6 +282,10 @@ Get-Module -ListAvailable -Name New-ISOFile
 Remove-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
 Uninstall-Module New-ISOFile
 ```
+# OSCDImg
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/oscdimg-command-line-options
+
 
 # DISM, mount, unmount, commit, discard ```boot.wim```, ```install.wim```, ```install.esd``` files
 
@@ -505,7 +509,18 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/mi
 
 # Install User software
 
+## SetupComplete.cmd
 
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-a-custom-script-to-windows-setup?view=windows-11
+
+
+# ErrorHandler.cmd
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-a-custom-script-to-windows-setup#run-a-script-if-windowssetup-encounters-a-fatal-error-errorhandlercmd
+
+# FirstLogonCommands
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-firstlogoncommands
 
 ### How to for AutoUnattend.xml answer file
 
