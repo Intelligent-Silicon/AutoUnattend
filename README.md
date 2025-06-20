@@ -1,7 +1,7 @@
 # Automatic Windows Installation 
 # AutoUnattend.xml Answer File
 
-AutoUnattend.xml is an answer file which can control and configure the installation of windows 10 ([version 1607](https://en.wikipedia.org/wiki/Windows_10,_version_1607) and onwards) or Windows Server 2016, 2019, 2022 and windows 11 or Windows Server 2025, along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
+AutoUnattend.xml is an answer file that can control and configure the installation of windows 10 ([version 1607](https://en.wikipedia.org/wiki/Windows_10,_version_1607) and onwards) or Windows Server 2016, 2019, 2022 and windows 11 or Windows Server 2025, along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
 
 
 The AutoUnattend.xml file can be used with the Windows 10 and Windows 11 Media Creation Tool (MCT) by adding the file to the USB memory stick or the ISO aka DVD (image) file created by the MCT, or by adding it to the Windows Server ISO files and VHD/VHDX (Virtual Hard Disk) and FFU (Full FlashUpdate) files.
