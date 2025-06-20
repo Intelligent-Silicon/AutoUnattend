@@ -100,7 +100,7 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 [The Windows Image (.WIM/.ESD) vs Virtual Hard Disk (.VHD/.VHDX) vs Full Flash Update (.FFU) pro's and con's can be seen here.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats)
 
 
-# ```boot.wim```, ```install.wim``` or ```install.esd```
+# ```boot.wim```, ```install.wim``` and ```install.esd```
 
 
 The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[ USB stick | mounted ISO image file ] Drive Letter:\sources```, or ```[ USB stick | mounted ISO image file ] Drive Letter:\x86\sources``` & ```[ USB stick | mounted ISO image file ] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
@@ -508,7 +508,11 @@ The minimum configuration for ```AutoUnattend.xml``` to install a single hard dr
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deployment
 
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-folderlocations-profilesdirectory
 
+https://learn.microsoft.com/en-us/troubleshoot/windows-server/user-profiles-and-logon/relocation-of-users-and-programdata-directories
+
+https://superuser.com/questions/1577924/can-i-move-the-c-users-folder-to-d-drive
 
 # Install User software
 
