@@ -117,7 +117,7 @@ The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[
 
 User App installation software can also be added to ```install.[wim|esd]``` for installation after Windows is installed, which can help with building an offline USB mem stick or ISO image file installation, to minimise downtime for such scenerios like working remotely or in locations without internet access, but still need ALL software to be configured to run out-of-the-box when internet access becomes available or return to work occurs. This also assumes User App software is programmed to work in offline/online/network connected situations because not all User App software does.
 
-As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected as a Windows Image in the Windows System Image Manager [10.0.26100.2454] program, but you can rename the ```install.esd``` file to ```install.wim``` and then select the subsequent ```install.wim``` file to work in the Windows System Image Manager.
+As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected as a Windows Image file in the WindowsSIM (System Image Manager) [10.0.26100.2454] program, but you can rename the ```install.esd``` file to ```install.wim``` and then work with the subsequent ```install.wim``` image file in WindowsSIM.
   
 ```
 Windows Edition Order (in ascending order starting from 1):
