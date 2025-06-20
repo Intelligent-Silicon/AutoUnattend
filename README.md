@@ -109,7 +109,7 @@ The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[
 
 ```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core & NanoSever) and their variants of Windows which is used to install the version and variant of Window's on the computer.<br/>[ App | Driver ] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or additional networking functionality are typically added to ```install.wim``` & ```install.esd``` as well, along with [ App | Driver ] Packages for the computer & user to use on a day to day basis after Window's is installed, which is not required by the Windows Setup installation process. 
 
-```install.esd``` is the image file typically found in the USB memory stick when using the Windows Media Creation Tool. Its a more highly compressed version of ```install.wim```.
+```install.esd``` is the image file typically found in the USB memory stick when using the Windows Media Creation Tool.
 
 ```install.wim``` is typically found in the Window's Server [ ISO | VHD ] image file and VHD file.
 
