@@ -20,7 +20,7 @@ Windows can then be configured to work just the way you like, using a variety of
 
 Less or essential only programs & packages installed to a Windows Image ```install.wim``` or ```install.esd``` file and/or a Windows installation means a reduced [Attack Vector](https://en.wikipedia.org/wiki/Attack_vector) which helps improve [Computer Security](https://en.wikipedia.org/wiki/Computer_security) and helps keep the computer responsive. 
 
-Likewise a [ laptop \| desktop ] computer hard disk configured for forensic data recovery also helps for those times when spooky hackers strike, and you dont have adequate backups or a [RAID setup](https://en.wikipedia.org/wiki/RAID#Overview).
+Likewise a [ laptop \| desktop ] computer hard disk configured for forensic data recovery also helps for those times when spooky hackers strike, and you dont have adequate backups or a hard disk [RAID setup](https://en.wikipedia.org/wiki/RAID#Overview).
 
 # Basic Layout of the AutoUnattend.xml file
 
@@ -46,7 +46,7 @@ A Component could contain multiple [Child Elements](https://learn.microsoft.com/
 
 ```<Settings pass="[Pass Name]"></Settings>``` and ```<Component name="[Component Name]"></Component>```.
 
-As at 20250613:YYYYMMDD, also note ```DPI``` is not listed as a child element, but is shown in the 2nd XML example on the Microsoft [webpage](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-display#xml-example).
+As at 20250613:YYYYMMDD, also note ```DPI``` is not listed as a child element, but is shown in the 2nd XML example on the Microsoft [webpage](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-display#xml-example). Not the only one either.
 
 ```
 <Settings pass="windowsPE">
@@ -95,8 +95,6 @@ The finished AutoUnattend.xml file is added to the root folder of the Media Crea
 
 Most members of the public and businesses will use the [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) MCT to download Windows (Home, Education, & Pro) variants onto a USB memory stick to boot from and install Windows, or use MCT to create an ISO image file which can be used with [virtualisation software](https://en.wikipedia.org/wiki/Virtual_machine) like [VMware Workstation](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or to burn a DVD capable of installing Windows. [Windows Server 2016 ISO](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [Windows Server 2019 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [Windows Server 2022 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) or [Windows Server 2025 ISO/VHD](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025) only exist in ISO & VHD forms and are not included as an option in the MCT. The Windows Server versions installs Data Centre, Core & NanoSever variants.
 
-[Operating Systems Direct official/No Official (Trusted) Download Links](https://github.com/mrrobot1o1/OS-Downloads)
-
 Other methods exist for installing Windows 10/11/Server which are more technical and/or have specialist reasons for existing.
 
 [The Windows Image (.WIM/.ESD) vs Virtual Hard Disk (.VHD/.VHDX) vs Full Flash Update (.FFU) pro's and con's can be seen here.](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/wim-vs-ffu-image-file-formats)
@@ -105,15 +103,15 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 # ```boot.wim```, ```install.wim``` or ```install.esd```
 
 
-The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[USB stick|mounted ISO image file] Drive Letter:\sources```, or ```[USB stick|mounted ISO image file] Drive Letter:\x86\sources``` & ```[USB stick|mounted ISO image file] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
+The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[ USB stick \| mounted ISO image file ] Drive Letter:\sources```, or ```[ USB stick | mounted ISO image file ] Drive Letter:\x86\sources``` & ```[ USB stick \| mounted ISO image file ] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
 
-```boot.wim``` contains the Windows Installer software that is the Windows PE and Windows Setup software used to install Windows. [App|Driver] Packages can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
+```boot.wim``` contains the Windows Installer software that is the Windows PE and Windows Setup software used to install Windows. [ App \| Driver ] Packages can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
 
-```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core & NanoSever) and their variants of Windows which is used to install the version and variant of Window's on the computer. [App|Driver] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or additional networking functionality are typically added to ```install.wim``` & ```install.esd``` as well, along with [App|Driver] Packages for the computer & user to use on a day to day basis after Window's is installed, which is not required by the Windows Setup installation process. 
+```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core & NanoSever) and their variants of Windows which is used to install the version and variant of Window's on the computer. [ App \| Driver ] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or additional networking functionality are typically added to ```install.wim``` & ```install.esd``` as well, along with [ App \| Driver ] Packages for the computer & user to use on a day to day basis after Window's is installed, which is not required by the Windows Setup installation process. 
 
-```install.esd``` is the image file typically used when using the Windows Media Creation Tool.
+```install.esd``` is the image file typically found in the USB memory stick when using the Windows Media Creation Tool. Its a more highly compressed version of ```install.wim```.
 
-```install.wim``` is typically found in the Window's Server ISO image file and VHD file.
+```install.wim``` is typically found in the Window's Server [ ISO \| VHD ] image file and VHD file.
 
 User App installation software can also be added to ```install.wim```& ```install.esd``` for installation after Windows is installed, which can help with building an offline USB mem stick or ISO image file installation, to minimise downtime for such scenerios like working remotely or in locations without internet access, but still need ALL software to be configured to run out-of-the-box when internet access becomes available or return to work occurs. This also assumes User App software is programmed to work in offline/online/network connected situations.
 
