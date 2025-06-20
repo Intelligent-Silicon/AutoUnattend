@@ -20,7 +20,7 @@ Windows can then be configured to work just the way you like, using a variety of
 
 Less or essential only programs & packages installed to a Windows Image ```install.wim``` or ```install.esd``` file and/or a Windows installation means a reduced [Attack Vector](https://en.wikipedia.org/wiki/Attack_vector) which helps improve [Computer Security](https://en.wikipedia.org/wiki/Computer_security) and helps keep the computer responsive. 
 
-Likewise a computer configured for forensic data recovery also helps for those times when spooky hackers strike.
+Likewise a [desktop\|laptop] computer hard disk configured for forensic data recovery also helps for those times when spooky hackers strike.
 
 # Basic Layout of the AutoUnattend.xml file
 
