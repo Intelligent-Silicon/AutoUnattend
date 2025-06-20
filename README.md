@@ -105,7 +105,7 @@ Other methods exist for installing Windows 10/11/Server which are more technical
 
 The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[ USB stick | mounted ISO image file ] Drive Letter:\sources```, or ```[ USB stick | mounted ISO image file ] Drive Letter:\x86\sources``` & ```[ USB stick | mounted ISO image file ] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
 
-```boot.wim``` contains the Windows Installer software that is the Windows PE and Windows Setup software used to install Windows. [ App | Driver ] Packages can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
+```boot.wim``` contains the Windows Installer software that is the Windows PE and Windows Setup software used to install Windows.<br/> [ App | Driver ] Packages can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
 
 ```install.wim``` & ```install.esd``` contains the different editions (Home, Education, Pro, Data Centre, Core & NanoSever) and their variants of Windows which is used to install the version and variant of Window's on the computer. [ App | Driver ] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or additional networking functionality are typically added to ```install.wim``` & ```install.esd``` as well, along with [ App | Driver ] Packages for the computer & user to use on a day to day basis after Window's is installed, which is not required by the Windows Setup installation process. 
 
