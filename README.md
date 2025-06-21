@@ -146,10 +146,6 @@ Once you have downloaded the image file, it needs to be [mounted](https://learn.
 With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file is to mount it, copy the ```.ISO``` contents to another folder on the hard drive, work on that folder and its subfolders & files, and then save it all to a new ```.ISO``` or ```.VHD``` image file.
 
 
-<details>
-
-<summary>Powershell [Get|Set]-ExecutionPolicy</summary>
-
 # Powershell [Get|Set]-ExecutionPolicy
 
 Powershell checks. You will need to be able to execute (run) powershell scripts; a new windows installation that installs Powershell will have execution disabled.
@@ -171,11 +167,6 @@ Afterwards, remember to set the Execution Policy back using the commands below, 
 Set-ExecutionPolicy Undefined
 Get-ExecutionPolicy -list
 ```
-</details>
-
-<details>
-
-<summary>Powershell Mount ISO</summary>
 
 # Powershell Mount ISO
 
@@ -221,14 +212,10 @@ Size              : 6972221440
 StorageType       : 1
 PSComputerName    :
 ```
-</details>
 
 
 Edit the image file in ```C:\mount``` as if you were editting the USB mem stick created by the Windows Media Creation Tool, eg load the ```.WIM``` and ```.ESD``` files using DISM, add the ```AutoUnattend.xml``` file, drivers that are not driver packages, and other software before then saving ```C:\mount``` to a new ```.ISO``` file image. For more info, see below.
 
-<details>
-
-<summary>Powershell Save to ISO</summary>
 
 # Powershell Save to ISO
 
@@ -281,7 +268,6 @@ VERBOSE: Function complete.
 
 PS C:\WINDOWS\system32>
 ```
-</details>
 
 To check to make sure the New-ISOFile.psm1 has not installed, you can check the physical folder ```C:\Program Files\WindowsPowerShell\Modules``` or use the following self explanatory commands.
 
