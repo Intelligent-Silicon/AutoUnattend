@@ -155,10 +155,10 @@ To check the Execution Policy status and change it if need be, [load Powershell 
 ```
 Get-ExecutionPolicy -list
 ```
-Example output of [Get-ExecutionPolicy -List on a default installation](Powershell_Get-ExecutionPolicy_example.md) of Powershell.
+Example output of [Get-ExecutionPolicy -List on a default installation](Powershell_Get-ExecutionPolicy_example.md).
 
 
-If LocalMachine is set to ```Undefined```, or anything else other than ```RemoteSigned``` or ```ByPass``` run the following command to change the ExecutionPolicy.
+If LocalMachine is set to ```Undefined```, or anything else other than ```RemoteSigned``` or ```ByPass``` run the following command to change the Execution Policy.
 
 ```
 Set-ExecutionPolicy Bypass
@@ -172,14 +172,15 @@ Get-ExecutionPolicy -list
 
 ### Powershell Mount ISO
 
-Next we need to mount the ```ISO``` or ```VHD``` file, copy its contents to a folder that already exists. In this example the ```mount``` folder is a newly created folder with nothing in it. The mount folder needs to be empty. Finally the ```ISO``` or ```VHD``` file is unmounted.
+[Load Powershell as Administrator](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell#run-from-the-start-menu)  then [mount](https://learn.microsoft.com/en-us/powershell/module/storage/mount-diskimage) the ```ISO``` or ```VHD``` file. In the example below, the ```.ISO``` is mounted, with the result being saved in a new object called ```$DiskImageResult```. The object ```$DiskImageResult``` is piped to the ```Get-Volume``` command. The Drive letter of the ```$DiskImageResult``` is saved to a new object called ```$DiskImageDriveLetter```. Finally the mounted drive path is copied to a blank folder.
 
 ```
 $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
-$DiskImageResult | Get-Volume 
 $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter
-Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destination "C:\mount" -Recurse
+Copy-Item -Path "$($DiskImageDriveLetter):\" -Destination "C:\mount" -Recurse
 ```
+Example output of the above [Mount & Copy Powershell commands](Powershell_Mount-DiskImage_Copy-Item_example.md).
+
 ```
 Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 ```
