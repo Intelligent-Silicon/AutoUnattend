@@ -181,13 +181,15 @@ Copy-Item -Path "$($DiskImageDriveLetter):\" -Destination "C:\mount" -Recurse
 ```
 Example output of the above [Mount & Copy Powershell commands](Powershell_Mount-DiskImage_Copy-Item_example.md).
 
+### Powershell Dismount ISO
+
+[Load Powershell as Administrator](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell#run-from-the-start-menu)  then [dismount](https://learn.microsoft.com/en-us/powershell/module/storage/dismount-diskimage) the ```ISO``` or ```VHD``` file.
+
 ```
 Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 ```
-OR
-```
-Dismount-DiskImage -DevicePath \\.\CDROM1
-```
+Example output of the [dismount](https://learn.microsoft.com/en-us/powershell/module/storage/dismount-diskimage) powershell command.
+
 
 
 ```
