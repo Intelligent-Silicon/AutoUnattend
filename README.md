@@ -177,7 +177,7 @@ Get-ExecutionPolicy -list
 ```
 $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter
-Copy-Item -Path "$($DiskImageDriveLetter):\" -Destination "C:\mount" -Recurse
+Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destination "C:\mount" -Recurse
 ```
 Example output of the above [Mount & Copy Powershell commands](Powershell_Mount-DiskImage_Copy-Item_example.md).
 
@@ -211,6 +211,9 @@ Additional command like switches can be found by reading the source code of the 
 import-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
 New-ISOFile "C:\mount" "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso" -verbose
 ```
+
+Example output of the import module and new-isofile output.
+
 
 , before optionally burning it to DVD. The Powershell Module ```.PSM1``` needs to be downloaded from [here](New-ISOFile.psm1). Its a modified version of this [one](https://thedotsource.com/2021/03/16/building-iso-files-with-powershell-7/), I've added a couple of extra ```-verbose``` messages for extra feedback for slow computers. 
 The import-Module installs the ```New-ISOFile.psm1``` module for the duration of the powershell session only. Its unloaded when the Powershell window is closed. If you start additional Powershell windows whilst the Powershell window which ran the ```import-module``` command is still running, it wont be available to use, you need to run the ```import-module``` command for the newly opened Powershell window.
