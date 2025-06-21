@@ -6,7 +6,7 @@ Install the latest PowerShell for new features and improvements! https://aka.ms/
 PS C:\WINDOWS\system32> Get-ExecutionPolicy -list
 
         Scope ExecutionPolicy
-        ----- ---------------
+        \----- ---------------
 MachinePolicy       Undefined
    UserPolicy       Undefined
       Process       Undefined
