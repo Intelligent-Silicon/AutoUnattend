@@ -203,7 +203,7 @@ In the example below, the powershell module is imported for use before being exe
 
 The command line format is ```New-ISOFile "Path\To\Source\Folder" "Path\To\Destination\Imagefilename.iso"
 
-```-Verbose``` switches on extra messages in order to monitor the progress of the process. This is useful for older and/or slower computers.
+```-Verbose``` switches on extra messages in order to monitor the progress of the process. This is useful for older and/or slower computers to make sure its not hung.
 
 Additional command like switches can be found by reading the source code of the ```New-ISOFile.psm1``` file. 
 
