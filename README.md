@@ -201,7 +201,7 @@ To save the finished ```C:\mount``` folder along with its files and subfolders, 
 
 In the example below, the powershell module is imported for use before being executed in order to make the ```ISO``` image file. The module is only available for the lifetime of the session (powershell window) it was imported into and is not available in new powershell windows afterwards, unless imported again.
 
-The command line format is ```New-ISOFile "Path\To\Source\Folder" "Path\to\destination\imagefilename.iso"
+The command line format is ```New-ISOFile "Path\To\Source\Folder" "Path\To\Destination\Imagefilename.iso"
 ```-Verbose``` switches on extra messages in order to monitor the progress of the process. This is useful for older and/or slower computers.
 
 Additional command like switches can be found by reading the source code of the ```New-ISOFile.psm1``` file. 
