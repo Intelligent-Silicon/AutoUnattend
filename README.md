@@ -351,7 +351,7 @@ Scroll down to the [Install this update](https://support.microsoft.com/help/5063
 
 The KB5063060 update at the time of writing (20250613:YYYYMMDD) can not be added to the Windows ```install.esd``` image file using DISM.
 
-The Security Update [KB5060842](https://support.microsoft.com/help/5060842#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) can be installed to the Windows ```install.esd``` image file using DISM because it displays the instructions to do so. Scroll down to Install Update to see. 
+The Security Update [KB5060842](https://support.microsoft.com/help/5060842#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) can be installed to the Windows ```install.esd``` image file using DISM because it displays the instructions to do so. Scroll down to [Install Update](https://support.microsoft.com/help/5060842#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) to see. 
 
 Below, the example mounts the Window 24H2 image file, renamed from ```install.esd``` to ```installWin11.wim```, adds the KB5060842 Security Update package and then unmounts the image file.
 ```
