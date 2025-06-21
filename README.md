@@ -212,7 +212,7 @@ In the example below, the powershell module is imported for use before being exe
 
 The command line format is :<br/>```New-ISOFile "Path\To\Source\Folder" "Path\To\Destination\Imagefilename.iso" -verbose```
 
-```-Verbose``` switches on extra messages in order to monitor the progress of the process. This is useful for older and/or slower computers to make sure its not hung. An example of the output with ```-Verbose``` can be seen [here](Powershell_New-ISOFile_example.md).
+```-Verbose``` switches on extra messages in order to monitor the progress of the process. This is useful for older and/or slower computers to make sure its not hung. 
 
 Additional command like switches can be found by reading the source code of the ```New-ISOFile.psm1``` file. 
 
@@ -223,7 +223,7 @@ import-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
 New-ISOFile "C:\mount" "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso" -verbose
 ```
 
-Example output of the import module and new-isofile output.
+Example output of the [import module and new-isofile output](Powershell_New-ISOFile_example.md).
 
 
 , before optionally burning it to DVD. The Powershell Module ```.PSM1``` needs to be downloaded from [here](New-ISOFile.psm1). Its a modified version of this [one](https://thedotsource.com/2021/03/16/building-iso-files-with-powershell-7/), I've added a couple of extra ```-verbose``` messages for extra feedback for slow computers. 
