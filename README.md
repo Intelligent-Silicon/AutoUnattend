@@ -174,11 +174,17 @@ Get-ExecutionPolicy -list
 
 [Load Powershell as Administrator](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell#run-from-the-start-menu)  then [mount](https://learn.microsoft.com/en-us/powershell/module/storage/mount-diskimage) the ```ISO``` or ```VHD``` file. In the example below, the ```.ISO``` is mounted, with the result being saved in a new object called ```$DiskImageResult```. The object ```$DiskImageResult``` is piped to the ```Get-Volume``` command. The Drive letter of the ```$DiskImageResult``` is saved to a new object called ```$DiskImageDriveLetter```. Finally the mounted drive path is copied to a blank folder, in this example ```c:\mount```.
 
-```$DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"```
+```
+$DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
+```
 
-```$DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter```
+```
+$DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter
+```
 
-```Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destination "C:\mount" -Recurse```
+```
+Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destination "C:\mount" -Recurse
+```
 
 Example output of the above [Mount & Copy Powershell commands](Powershell_Mount-DiskImage_Copy-Item_example.md).
 
