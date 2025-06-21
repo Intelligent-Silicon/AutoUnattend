@@ -155,7 +155,7 @@ To check the Execution Policy status and change it if need be, [load Powershell 
 ```
 Get-ExecutionPolicy -list
 ```
-Example output of [Get-ExecutionPolicy -List on a default installation](.\Powershell_Get-ExecutionPolicy_example.md) of Powershell.
+Example output of [Get-ExecutionPolicy -List on a default installation](Powershell_Get-ExecutionPolicy_example.md) of Powershell.
 
 
 If LocalMachine is set to ```Undefined```, or anything else other than ```RemoteSigned``` or ```ByPass``` run the following command to change the ExecutionPolicy.
