@@ -112,7 +112,11 @@ The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[
 
 ```boot.wim``` is a special cut down version of Windows called [Windows PE](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-intro) for installing/repairing a version of Windows onto a computer. [App|Driver] Packages can be added to activate specialist hardware like RAID controllers or additional networking functionality in order to install a Windows edition onto the computer.
 
-```install.wim``` & ```install.esd``` are essentially the same ```.WIM``` image file. ```.ESD``` image files are a more highly compressed version of the ```.WIM``` image file. The ```install.[wim|esd]``` image file contains the different editions (Home, Education, Pro, Data Centre, Core & NanoSever) and their variants of Windows which is used to install the version and variant of Window's on the computer. [App|Driver] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or other hardware are typically added to ```install.[wim|esd]```, along with [App|Driver] Packages for the computer & user to use on a daily basis after Window's is installed, which is not required by the WindowsPE Setup process. 
+```install.wim``` & ```install.esd``` are essentially the same ```.WIM``` image file. 
+
+```.ESD``` image files are a more highly compressed version of the ```.WIM``` image file. 
+
+The ```install.[wim|esd]``` image file contains the different editions (Home, Education, Pro, Data Centre, Core & NanoSever) and their variants of Windows which is used to install the version and variant of Window's on the computer. [App|Driver] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or other hardware are typically added to ```install.[wim|esd]```, along with [App|Driver] Packages for the computer & user to use on a daily basis after Window's is installed, which is not required by the WindowsPE Setup process. 
 
 ```install.esd``` is the image file typically found in the USB memory stick when using the Windows Media Creation Tool.
 
