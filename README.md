@@ -167,6 +167,8 @@ Set-ExecutionPolicy Bypass
 Afterwards, remember to set the Execution Policy back using the commands below, to help "lock down" the machine.
 ```
 Set-ExecutionPolicy Undefined
+```
+```
 Get-ExecutionPolicy -list
 ```
 
@@ -216,6 +218,8 @@ Additional command like switches can be found by reading the source code of the 
 
 ```
 import-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
+```
+```
 New-ISOFile "C:\mount" "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso" -verbose
 ```
 
