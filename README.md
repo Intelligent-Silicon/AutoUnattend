@@ -336,6 +336,7 @@ The [Microsoft Catalogue](https://www.catalog.update.microsoft.com) using ```win
 At the time of writing, 2 updates exist:
 
 ```2025-06 Cumulative Update for Windows 11 Version 24H2 for x64-based Systems (KB5063060) Classification: Updates```
+
 ```2025-06 Cumulative Update for Windows 11 Version 24H2 for x64-based Systems (KB5060842) Classification: Security Updates```
   
 Before downloading the update(s), you need to check that they can be installed using DISM.
