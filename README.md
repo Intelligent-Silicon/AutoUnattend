@@ -172,7 +172,7 @@ Get-ExecutionPolicy -list
 
 ### Powershell Mount & Copy ISO
 
-[Load Powershell as Administrator](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell#run-from-the-start-menu)  then [mount](https://learn.microsoft.com/en-us/powershell/module/storage/mount-diskimage) the ```ISO``` or ```VHD``` file. In the example below, the ```.ISO``` is mounted, with the result being saved in a new object called ```$DiskImageResult```. The object ```$DiskImageResult``` is piped to the ```Get-Volume``` command. The Drive letter of the ```$DiskImageResult``` is saved to a new object called ```$DiskImageDriveLetter```. Finally the mounted drive path is copied to a blank folder.
+[Load Powershell as Administrator](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell#run-from-the-start-menu)  then [mount](https://learn.microsoft.com/en-us/powershell/module/storage/mount-diskimage) the ```ISO``` or ```VHD``` file. In the example below, the ```.ISO``` is mounted, with the result being saved in a new object called ```$DiskImageResult```. The object ```$DiskImageResult``` is piped to the ```Get-Volume``` command. The Drive letter of the ```$DiskImageResult``` is saved to a new object called ```$DiskImageDriveLetter```. Finally the mounted drive path is copied to a blank folder, in this example ```c:\mount```.
 
 ```
 $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
@@ -180,9 +180,6 @@ $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter
 Copy-Item -Path "$($DiskImageDriveLetter):\" -Destination "C:\mount" -Recurse
 ```
 Example output of the above [Mount & Copy Powershell commands](Powershell_Mount-DiskImage_Copy-Item_example.md).
-
-Edit the image file in ```C:\mount``` as if you were editing the USB mem stick created by the [Windows Media Creation Tool](https://support.microsoft.com/en-gb/windows/create-installation-media-for-windows-99a58364-8c02-206f-aa6f-40c3b507420d), eg load the ```.WIM``` or  ```.ESD``` files using DISM, add the ```AutoUnattend.xml``` file, optionally add drivers to the image files, and other software before then saving ```C:\mount``` to a new ```.ISO``` file. For more info, see below.
-
 
 
 ### Powershell Dismount ISO
@@ -193,6 +190,9 @@ Edit the image file in ```C:\mount``` as if you were editing the USB mem stick c
 Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 ```
 Example output of the [dismount](Powershell_Dismount-DiskImage_example.md) powershell command.
+
+
+Edit the image file in ```C:\mount``` as if you were editing the USB mem stick created by the [Windows Media Creation Tool](https://support.microsoft.com/en-gb/windows/create-installation-media-for-windows-99a58364-8c02-206f-aa6f-40c3b507420d), eg load the ```.WIM``` or  ```.ESD``` files using DISM, add the ```AutoUnattend.xml``` file, optionally add drivers to the image files, and other software before then saving ```C:\mount``` to a new ```.ISO``` file. For more info, see below.
 
 
 ### Powershell Save to ISO
