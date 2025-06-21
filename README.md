@@ -146,7 +146,7 @@ Once you have downloaded the image file, it needs to be [mounted](https://learn.
 With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file is to mount it, copy the ```.ISO``` contents to another folder on the hard drive, work on that folder and its subfolders & files, and then save it all to a new ```.ISO``` or ```.VHD``` image file.
 
 
-# Powershell [Get|Set]-ExecutionPolicy
+### Powershell [Get|Set]-ExecutionPolicy
 
 Powershell checks. You will need to be able to execute (run) powershell scripts; a new windows installation that installs Powershell will have execution disabled.
 
@@ -168,7 +168,7 @@ Set-ExecutionPolicy Undefined
 Get-ExecutionPolicy -list
 ```
 
-# Powershell Mount ISO
+### Powershell Mount ISO
 
 Next we need to mount the ```ISO``` or ```VHD``` file, copy its contents to a folder that already exists. In this example the ```mount``` folder is a newly created folder with nothing in it. The mount folder needs to be empty. Finally the ```ISO``` or ```VHD``` file is unmounted.
 
@@ -217,7 +217,7 @@ PSComputerName    :
 Edit the image file in ```C:\mount``` as if you were editting the USB mem stick created by the Windows Media Creation Tool, eg load the ```.WIM``` and ```.ESD``` files using DISM, add the ```AutoUnattend.xml``` file, drivers that are not driver packages, and other software before then saving ```C:\mount``` to a new ```.ISO``` file image. For more info, see below.
 
 
-# Powershell Save to ISO
+### Powershell Save to ISO
 
 To save the ```C:\mount``` folder along with its files and subfolders, use the following script to create the resultant ```.ISO``` file, before optionally burning it to DVD. The Powershell Module ```.PSM1``` needs to be downloaded from [here](New-ISOFile.psm1). Its a modified version of this [one](https://thedotsource.com/2021/03/16/building-iso-files-with-powershell-7/), I've added a couple of extra ```-verbose``` messages for extra feedback for slow computers. 
 The import-Module installs the ```New-ISOFile.psm1``` module for the duration of the powershell session only. Its unloaded when the Powershell window is closed. If you start additional Powershell windows whilst the Powershell window which ran the ```import-module``` command is still running, it wont be available to use, you need to run the ```import-module``` command for the newly opened Powershell window.
