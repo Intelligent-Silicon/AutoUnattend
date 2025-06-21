@@ -206,7 +206,7 @@ Edit the ```.ISO``` or ```.VHD``` image file in ```C:\mount```. Treat this as if
 
 ### Powershell Save to ISO
 
-To save the finished ```C:\mount``` folder along with its files and subfolders, in order to make it a Windows installation ```.ISO``` or ```.VHD``` image file, download and run the [New-ISOFile powershell module script](New-ISOFile.psm1)(To Fork Properly) to create the resultant ```.ISO``` file. 
+To save the finished ```C:\mount``` folder along with its files and subfolders, in order to make it a Windows installation ```.ISO``` or ```.VHD``` image file, download and run the [New-ISOFile powershell module script](New-ISOFile.psm1) (To Fork Properly) to create the resultant ```.ISO``` file. 
 
 In the example below, the powershell module is imported for use before being executed in order to make the ```ISO``` image file. The module is only available for the lifetime of the session (powershell window) it was imported into and is not available in new powershell windows afterwards, unless imported again.
 
