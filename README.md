@@ -192,7 +192,7 @@ Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us
 Example output of the [dismount](Powershell_Dismount-DiskImage_example.md) powershell command.
 
 
-Edit the ```.ISO``` or ```.VHD``` image file in ```C:\mount```. Treat this as if you were editing the USB mem stick created by the [Windows Media Creation Tool](https://support.microsoft.com/en-gb/windows/create-installation-media-for-windows-99a58364-8c02-206f-aa6f-40c3b507420d), eg load the ```boot.wim``` and ```install.[wim|esd]``` files using DISM to add driver packages, add the ```AutoUnattend.xml``` file and optionally add drivers or software  and other software before then saving ```C:\mount``` to a new ```.ISO``` or ```.VHD``` file.
+Edit the ```.ISO``` or ```.VHD``` image file in ```C:\mount```. Treat this as if you were editing the USB mem stick created by the [Windows Media Creation Tool](https://support.microsoft.com/en-gb/windows/create-installation-media-for-windows-99a58364-8c02-206f-aa6f-40c3b507420d), eg load the ```boot.wim``` and ```install.[wim|esd]``` files using DISM to add driver packages, add the ```AutoUnattend.xml``` file and optionally add drivers or software before then saving ```C:\mount``` to a new ```.ISO``` or ```.VHD``` file.
 
 
 ### Powershell Save to ISO
