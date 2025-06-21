@@ -197,7 +197,21 @@ Edit the ```.ISO``` or ```.VHD``` image file in ```C:\mount```. Treat this as if
 
 ### Powershell Save to ISO
 
-To save the ```C:\mount``` folder along with its files and subfolders, use the following script to create the resultant ```.ISO``` file, before optionally burning it to DVD. The Powershell Module ```.PSM1``` needs to be downloaded from [here](New-ISOFile.psm1). Its a modified version of this [one](https://thedotsource.com/2021/03/16/building-iso-files-with-powershell-7/), I've added a couple of extra ```-verbose``` messages for extra feedback for slow computers. 
+To save the finished ```C:\mount``` folder along with its files and subfolders, to make it a Windows installation ```.ISO``` or ```.VHD``` image file, download and run the [New-ISOFile powershell module script](New-ISOFile.psm1) to create the resultant ```.ISO``` file. 
+
+In the example below, the powershell module is imported for use before being executed in order to make the ```ISO``` image file. 
+
+The command line format is ```New-ISOFile "Path\To\Source\Folder" "Path\to\destination\imagefilename.iso"
+```-Verbose``` switches on extra messages in order to monitor the progress of the process. This is useful for older and/or slower computers.
+
+Additional command like switches can be found by reading the source code of the ```New-ISOFile.psm1``` file. 
+
+```
+import-Module "C:\Users\Admin1\Documents\ISO Files\New-ISOFile.psm1"
+New-ISOFile "C:\mount" "C:\Users\Admin1\Documents\ISO Files\WS2016test.iso" -verbose
+```
+
+, before optionally burning it to DVD. The Powershell Module ```.PSM1``` needs to be downloaded from [here](New-ISOFile.psm1). Its a modified version of this [one](https://thedotsource.com/2021/03/16/building-iso-files-with-powershell-7/), I've added a couple of extra ```-verbose``` messages for extra feedback for slow computers. 
 The import-Module installs the ```New-ISOFile.psm1``` module for the duration of the powershell session only. Its unloaded when the Powershell window is closed. If you start additional Powershell windows whilst the Powershell window which ran the ```import-module``` command is still running, it wont be available to use, you need to run the ```import-module``` command for the newly opened Powershell window.
 
 ```
