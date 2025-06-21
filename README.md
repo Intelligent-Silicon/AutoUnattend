@@ -359,6 +359,10 @@ Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim
 Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\WIM files\windows11.0-kb5060842-x64_07871bda98c444c14691e0a90560306703b739cf.msu"
 Dism /unmount-image /mountdir:"C:\mount" /commit # Commit (Save) and Unmount
 ```
+If you run Windows Defender, you may want to switch off Real-Time Protection. This is because it will scan the MSU which can take along time > 20minutes to see any progress.
+
+
+
 
 Below is a list of the main commands for package and feature maintainence. 
 ```powershell
