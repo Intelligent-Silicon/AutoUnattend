@@ -363,6 +363,8 @@ Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\WIM 
 Dism /unmount-image /mountdir:"C:\mount" /commit # Commit (Save) and Unmount
 ```
 
+An example of what to expect can be seen [here](Dism_Add-Package_example.md).
+
 
 
 
