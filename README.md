@@ -148,7 +148,7 @@ With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file
 
 ### Powershell [Get|Set]-ExecutionPolicy
 
-The default installation of Powershell prevents scripts and modules from running. In order to run a script or external aka not built in module, you need to change the Execution Policy.
+The default installation of Powershell prevents scripts and modules from running. In order to run a script ```,ps1``` ormodule `.psm1``` that's not a built in module, you need to change the Execution Policy.
 
 To check the Execution Policy status and change it if need be, [load Powershell as Administrator](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell#run-from-the-start-menu) and then type:
 
