@@ -344,7 +344,8 @@ Before downloading the update(s), you need to check that they can be installed u
 
 Click on the KB Update's weblink to get a popup window which shows the Support URL. 
 
-The Support URL format is ```https://support.microsoft.com/help/[Number of the KB]``` eg ```https://support.microsoft.com/help/5063060```. 
+The Support URL format is ```https://support.microsoft.com/help/[Number of the KB]``` eg
+[https://support.microsoft.com/help/5063060](https://support.microsoft.com/help/5063060)
 
 Scroll down to the [Install this update](https://support.microsoft.com/help/5063060#:~:text=To%20install%20this%20update,%20use%20one%20of%20the%20following%20Windows%20and%20Microsoft%20release%20channels.&text=Catalog) section, click the ```Catalog``` tab and see if it can be installed using DISM. 
 
