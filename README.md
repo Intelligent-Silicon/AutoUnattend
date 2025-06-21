@@ -188,7 +188,7 @@ Example output of the above [Mount & Copy Powershell commands](Powershell_Mount-
 ```
 Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\WS_2016_en-us.ISO"
 ```
-Example output of the [dismount](https://learn.microsoft.com/en-us/powershell/module/storage/dismount-diskimage) powershell command.
+Example output of the [dismount](Powershell_Dismount-DiskImage_example.md) powershell command.
 
 
 
