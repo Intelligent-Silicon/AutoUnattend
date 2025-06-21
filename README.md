@@ -143,20 +143,20 @@ Once you have downloaded the image file, it needs to be [mounted](https://learn.
 
 ```.VHD``` image files can be mounted as Fixed Sized, Resizable Read-Write drives, where files can be added or removed from the mounted drive.
 
-With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file is to mount it, copy the ```.ISO``` contents to another folder on the hard drive, work on that folder and its subfolders & files, and then save it all to a new ```.ISO``` or ```.VHD``` image file.
+With this in mind, the best way to modify an ```.ISO``` or ```.VHD``` image file is to mount it, copy the ```.ISO``` contents to another empty folder on the hard drive, work on that folder and its subfolders & files, and then save it all to a new ```.ISO``` or ```.VHD``` image file.
 
 
 ### Powershell [Get|Set]-ExecutionPolicy
 
-Powershell checks. You will need to be able to execute (run) powershell scripts; a new windows installation that installs Powershell will have execution disabled.
+The default installation of Powershell prevents scripts and modules from running. In order to run a script or external aka not built in module, you need to change the Execution Policy.
 
-To check the Execution status and change it if need be, load powershell as administrator.
+To check the Execution Policy status and change it if need be, [load Powershell as Administrator](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.5#run-from-the-start-menu_ and then type:
 
 ```
 Get-ExecutionPolicy -list
 ```
 
-IF LocalMachine is set to ```Undefined```, or anything else other than ```RemoteSigned``` or ```ByPass``` run the following command.
+If LocalMachine is set to ```Undefined```, or anything else other than ```RemoteSigned``` or ```ByPass``` run the following command to change the ExecutionPolicy.
 
 ```
 Set-ExecutionPolicy Bypass
