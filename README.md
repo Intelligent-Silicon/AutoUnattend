@@ -472,7 +472,7 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/co
 
 The minimum configuration for ```AutoUnattend.xml``` to install a single hard drive Windows Desktop using components, without user input using a USB mem stick aka a fully automated installation of windows. 
 
-
+# Components to install Windows
 
 | Configuration Pass | Component | Setting Name | Notes |
 | --- | --- | --- | --- |
