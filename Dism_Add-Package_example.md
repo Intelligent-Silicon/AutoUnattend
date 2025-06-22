@@ -1,4 +1,19 @@
 ```
+PS C:\WINDOWS\system32> Dism /Image:"C:\mountwim" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\WIM files\windows11.0-kb5060842-x64_07871bda98c444c14691e0a90560306703b739cf.msu"
+
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.1150
+
+Image Version: 10.0.26100.1742
+
+Processing 1 of 1 -
+[==========================100.0%==========================]
+[==========================100.0%==========================] 
+The operation completed successfully.
+PS C:\WINDOWS\system32>
+```
+
+```
 PS C:\WINDOWS\system32> Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\WIM files\windows11.0-kb5060842-x64_07871bda98c444c14691e0a90560306703b739cf.msu"
 
 Deployment Image Servicing and Management tool
