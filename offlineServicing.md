@@ -2,6 +2,8 @@
 
 This pass can be used to install setup programs which accept command line switches to an offline Windows image.
 
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlineservicing
+
 These can include language packs, windows update packages, drivers, and programs for users.
 
 This pass runs during the windowsPE Microsoft-Windows-Setup pass, by extracting and installing windows, and the runs the DISM (Deployment Image Servicing and Management) program. 
