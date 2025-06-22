@@ -1,6 +1,8 @@
-# generalize
+# generalize Pass
 
 The generalize configuration pass of Windows Setup is used to create a Windows Reference image that can be used throughout an organization.
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/generalize?view=windows-11
 
 This pass is geared towards big business with a fleet of identical computers that would typically be deployed across the business or to a department or two when used in conjunction with the ```specialize``` pass. This section is beyond the scope of this repo which is aimed for individual pc's and small businesses.
 

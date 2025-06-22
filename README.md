@@ -432,13 +432,13 @@ For a table detailing the different Configuration Passes ```Mode``` and ```Force
 
 [windowsPE](windowsPE.md) Windows Preinstallation Environment (Windows PE) is a small operating system where [Components](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/components-b-unattend) for the Windows installation and WinPE are set, like [Display resolutions](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-display), [Disk partitions](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-disk-createpartitions-createpartition), [Product Keys](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-productkey) & [generic product keys](https://www.elevenforum.com/t/generic-product-keys-to-install-or-upgrade-windows-11-editions.3713/) and specific commands or scripts.
 
-[offlineServicing](offlineServicing.md)  Apply unattended Setup setting to an offline Microsoft Windows image, like drivers, language packs, update packages and other packages.
+[offlineServicing](offlineServicing.md)  Apply unattended Setup setting to an offline Microsoft Windows image, like drivers, language packs, update packages and other packages. This process is an alternative automatic way to customise the ```install.wim``` image file found on Windows ```.ISO``` image files.
 
 As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command ```Dism /add-package``` used in ```offlineServicing``` fails to add Window's Update .MSU packages to the ```.ESD``` windows image file format.
 
-[generalize](generalize.md) The generalize pass is used to create a reference or master image that can be used throughout an organisation. Its the master image before department customisations take place in the specialize pass.
+[generalize](generalize.md) The generalize pass is used to create a reference or master image from the computer its run on, that can then be used throughout an organisation. Its the master image before department customisations take place in the specialize pass. This process removes computer-specific information such as installed drivers and the computer security identifier (SID).
 
-[specialize](specialize.md) The specialize pass is where machine specific settings are processed, like domain information, wifi, network, international settings, department webpages. It runs on the next reboot after the generalize pass. 
+[specialize](specialize.md) The specialize pass is where machine specific settings are processed, like hardware drivers, domain information, wifi, network, international settings, department webpages. It runs on the next reboot after the generalize pass. 
 
 [auditSystem](auditSystem.md)  IF the optional auditMode is activated, the auditSystem pass runs as System immediately before login and auditUser and is where OEM's can install device drivers, applications and other updates.
 
