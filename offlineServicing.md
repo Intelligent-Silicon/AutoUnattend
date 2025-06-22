@@ -8,7 +8,7 @@ These can include language packs, windows update packages, drivers, and programs
 
 This pass runs during the windowsPE Microsoft-Windows-Setup pass, by extracting and installing windows, and the runs the DISM (Deployment Image Servicing and Management) program. 
 
-As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command Dism /add-package used in ```offlineServicing``` fails to add Window's Update .MSU packages to the ```.ESD``` windows image file format.
+As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command ```Dism /add-package``` used in ```offlineServicing``` fails to add Window's Update .MSU packages to the ```.ESD``` windows image file format.
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism
 
