@@ -6,7 +6,7 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlinese
 
 These can include language packs, windows update packages, drivers, and programs for users.
 
-This pass runs during the windowsPE Microsoft-Windows-Setup pass, by extracting and installing windows, and the runs the DISM (Deployment Image Servicing and Management) program. 
+This pass runs during the windowsPE Microsoft-Windows-Setup pass, by extracting and installing windows, and the runs the DISM (Deployment Image Servicing and Management) program. It probably doesnt work with ```.ESD``` files though.?
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/what-is-dism
 
