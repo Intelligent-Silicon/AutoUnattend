@@ -107,6 +107,8 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 
 The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[USB stick|mounted ISO image file] Drive Letter:\sources```, or ```[USB stick|mounted ISO image file] Drive Letter:\x86\sources``` & ```[USB stick|mounted ISO image file] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
 
+The ```.WIM``` white paper can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=13096)
+
 
 ```.WIM``` files only [capture/contain a single partition, typically the Windows partition](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/capture-and-apply-windows-using-a-single-wim), whereby other partitions are then configured and setup with data, like the Recovery partition containing the [Windows RE (Recovery Environment)](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference?view=windows-11). Full Flash Update aka ```FFU``` [captures the entire hard disk and all partitions on the hard disk](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/capture-and-apply-windows-system-and-recovery-partitions). 
 
@@ -431,6 +433,8 @@ For a table detailing the different Configuration Passes ```Mode``` and ```Force
 [windowsPE](windowsPE.md) Windows Preinstallation Environment (Windows PE) is a small operating system where [Components](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/components-b-unattend) for the Windows installation and WinPE are set, like [Display resolutions](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-display), [Disk partitions](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-disk-createpartitions-createpartition), [Product Keys](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-productkey) & [generic product keys](https://www.elevenforum.com/t/generic-product-keys-to-install-or-upgrade-windows-11-editions.3713/) and specific commands or scripts.
 
 [offlineServicing](offlineServicing.md)  Apply unattended Setup setting to an offline Microsoft Windows image, like drivers, language packs, update packages and other packages.
+
+As at 20250613:YYYYMMDD, DISM using WimFltr v2 extractor, with the command Dism /add-package used in ```offlineServicing``` fails to add Window's Update .MSU packages to the ```.ESD``` windows image file format.
 
 [generalize](generalize.md) The generalize pass is used to create a reference or master image that can be used throughout an organisation. Its the master image before department customisations take place in the specialize pass.
 
