@@ -114,9 +114,9 @@ The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[
 
 ```install.wim``` & ```install.esd``` are essentially the same ```.WIM``` image file. 
 
-```.ESD``` image files are a more highly compressed version of the ```.WIM``` image file. 
+```.ESD``` image files is a encrypted version the ```.WIM``` image file. 
 
-The ```install.[wim|esd]``` image file contains the different editions (Home, Education, Pro, Data Centre, Core & NanoSever) and their variants of Windows which is used to install the version and variant of Window's on the computer. [App|Driver] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or other hardware are typically added to ```install.[wim|esd]```, along with [App|Driver] Packages for the computer & user to use on a daily basis after Window's is installed, which is not required by the WindowsPE Setup process. 
+The ```install.[wim|esd]``` image file contains the different editions (Home, Education, Pro, Data Centre, Core & NanoSever) and their variants of Windows which is used to install the version and variant of Window's on the computer. [App|Driver] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or other hardware are typically added to ```install.wim```, along with [App|Driver] Packages for the computer & user to use on a daily basis after Window's is installed, which is not required by the WindowsPE Setup process. 
 
 ```install.esd``` is the image file typically found in the USB memory stick when using the Windows Media Creation Tool.
 
@@ -124,8 +124,9 @@ The ```install.[wim|esd]``` image file contains the different editions (Home, Ed
 
 User App installation software can also be added to ```install.[wim|esd]``` for installation after Windows is installed, which can help with building an offline USB mem stick or ISO image file installation, to minimise downtime for such scenerios like working remotely, work-from-home or in locations without internet access, but where you still need ALL your software to be installed, configured and running in order to be able to carry on working.
 
-As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected as a Windows Image file in the WindowsSIM (System Image Manager) [10.0.26100.2454] program, but you can rename the ```install.esd``` file to ```install.wim``` and then work with the subsequent ```install.wim``` image file in WindowsSIM.
-  
+The ```install.esd``` file can not be seen or selected as a Windows Image file in the WindowsSIM (System Image Manager) [10.0.26100.2454] program or used with DISM WIM related commands.
+
+ 
 ```
 Windows Edition Order (in ascending order starting from 1):
 MCT Windows 10 (22H2)/11 install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
@@ -328,7 +329,7 @@ Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
 
 # DISM App Packages & Windows Update (```.CAB``` & ```.MSU```) Packages
 
-The ```install.wim``` and ```install.esd``` image file starts off with a selection of App & Window Update packages to bring them upto a certain release. Adding required packages and removing unnecessary packages is a good way to reduce the attack vector by reducing the number of unnecessary apps & services which are installed in a default installation of Windows.
+The ```install.wim``` image file starts off with a selection of App & Window Update packages to bring them upto a certain release. Adding required packages and removing unnecessary packages is a good way to reduce the attack vector by reducing the number of unnecessary apps & services which are installed in a default installation of Windows.
 
 You can search for the latest Window's Updates on the [Microsoft Catalogue](https://www.catalog.update.microsoft.com) website but you need to check they can be installed from the Catalogue using DISM.
 
