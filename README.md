@@ -416,7 +416,7 @@ Dism /unmount-image /mountdir:"C:\mount" /commit
 Servicing Stack Updates (SSU) are updates for the Windows Updates part of Windows Server. SSU's are only available for Window's Server and are built into Window Desktop Updates.  
 
 
-# AutoUnAttend Configuration Passes
+# AutoUnAttend.xml Configuration Passes
 
 [How Configuration Passes Work](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work)
 
