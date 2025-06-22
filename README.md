@@ -107,7 +107,7 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 
 The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[USB stick|mounted ISO image file] Drive Letter:\sources```, or ```[USB stick|mounted ISO image file] Drive Letter:\x86\sources``` & ```[USB stick|mounted ISO image file] Drive Letter:\x64\sources``` when both 32bit (x86) and 64bit (x64) are selected for optional installation using the MCT.
 
-The ```.WIM``` white paper can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=13096)
+The ```.WIM``` technical white paper can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=13096)
 
 
 ```.WIM``` files only [capture/contain a single partition, typically the Windows partition](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/capture-and-apply-windows-using-a-single-wim), whereby other partitions are then configured and setup with data, like the Recovery partition containing the [Windows RE (Recovery Environment)](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference?view=windows-11). Full Flash Update aka ```FFU``` [captures the entire hard disk and all partitions on the hard disk](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/capture-and-apply-windows-system-and-recovery-partitions). 
