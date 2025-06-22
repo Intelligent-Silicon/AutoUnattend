@@ -120,7 +120,7 @@ The ```install.[wim|esd]``` image file contains the different editions (Home, Ed
 
 ```install.esd``` is the image file typically found in the USB memory stick when using the Windows Media Creation Tool.
 
-```install.wim``` is typically found in the Window's Server [ ISO | VHD ] image file.
+```install.wim``` is typically found in the Window's [Desktop|Server] [ISO|VHD] image file.
 
 User App installation software can also be added to ```install.[wim|esd]``` for installation after Windows is installed, which can help with building an offline USB mem stick or ISO image file installation, to minimise downtime for such scenerios like working remotely, work-from-home or in locations without internet access, but where you still need ALL your software to be installed, configured and running in order to be able to carry on working.
 
