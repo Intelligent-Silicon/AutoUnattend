@@ -434,7 +434,7 @@ For a table detailing the different Configuration Passes ```Mode``` and ```Force
 
 [offlineServicing](offlineServicing.md)  Apply unattended Setup setting to an offline Microsoft Windows image, like drivers, language packs, update packages and other packages.
 
-As at 20250613:YYYYMMDD, DISM using WimFltr v2 extractor, with the command Dism /add-package used in ```offlineServicing``` fails to add Window's Update .MSU packages to the ```.ESD``` windows image file format.
+As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command Dism /add-package used in ```offlineServicing``` fails to add Window's Update .MSU packages to the ```.ESD``` windows image file format.
 
 [generalize](generalize.md) The generalize pass is used to create a reference or master image that can be used throughout an organisation. Its the master image before department customisations take place in the specialize pass.
 
