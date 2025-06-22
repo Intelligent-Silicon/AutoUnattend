@@ -238,6 +238,9 @@ VHD files should only use ```/index:1```.
 [DISM Image related commands](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-image-management-command-line-options-s14).
 
 ```
+dism /Get-WimInfo /WimFile:"<path_to_WIM_or_ESD_image_file>" # Index in the output is Windows_Edition_Order number
+
+
 dism /mount-image /imagefile:"<path_to_WIM_or_ESD_image_file>" /mountdir:"<folder_that_exists>" /index:<Windows_Edition_Order>
 dism /mount-image /imagefile:"D:\Sources\install.esd" /mountdir:"C:\Win10_Home_N_64bit" /index:2
 dism /mount-image /imagefile:"E:\x64\sources\install.esd" /mountdir:"C:\Win11_Education_64bit" /index:4
