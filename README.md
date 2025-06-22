@@ -114,7 +114,7 @@ The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[
 
 ```install.wim``` & ```install.esd``` are essentially the same ```.WIM``` image file. 
 
-```.ESD``` image files are an encrypted version of the ```.WIM``` image file. 
+```.ESD``` image files are an encrypted version of the ```.WIM``` image file used with the Windows Media Creation Tool (MCT). 
 
 As at 20250613:YYYYMMDD, DISM using "WimFltr v2 extractor", with the command ```Dism /add-package``` still fails to add Window's Update ```.MSU``` packages to the ```.ESD``` windows image file format. 
 
