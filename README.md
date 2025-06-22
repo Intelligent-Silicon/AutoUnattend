@@ -127,7 +127,7 @@ User App installation software can also be added to ```install.[wim|esd]``` for 
 As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected as a Windows Image file in the WindowsSIM (System Image Manager) [10.0.26100.2454] program or used with DISM WIM related commands.
 
 
-To find out what version of Windows and its variants are stored in a ```.WIM``` or ```.ESD``` file, using powershell type the following: 
+To find out what version of Windows and its variants are stored in a ```.WIM``` or ```.ESD``` file, using [Powershell](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.5#run-from-the-start-menu) type the following: 
 
 ```
 Dism /Get-ImageInfo /ImageFile:"Drive:\Path\To\install.esd"
