@@ -369,7 +369,7 @@ The Security Update [KB5060842](https://support.microsoft.com/help/5060842#:~:te
 
 Below, the example mounts the Window 24H2 image file, renamed from ```install.esd``` to ```installWin11.wim```, adds the KB5060842 Security Update package and then unmounts the image file.
 
-Before you run the ```/Add-Package``` command, you would be advised to disconnect from the internet, switch off your Anti-Virus like Windows Defender's realtime protection to reduce the time spent waiting for the ```WIM``` to update. This is because ```/Add-Package``` is an extremely CPU intensive process and will take easily more than hour on slow or low power computers. Likewise closing down app's showing on the Taskbar will also help free up the CPU resource's to speed up the ```/Add-Package``` process.
+Before you run the ```/Add-Package``` command, you would be advised to disconnect from the internet, switch off your Anti-Virus like Windows Defender's realtime protection to reduce the time spent waiting for the ```.WIM``` or ```.ESD``` to update. This is because ```/Add-Package``` is an extremely CPU intensive process and will take easily more than hour on slow or low power computers. Likewise closing down app's showing on the Taskbar will also help free up the CPU resource's to speed up the ```/Add-Package``` process.
 
 ```
 Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim" /mountdir:"C:\mount" /index:7   # If not already Mounted
