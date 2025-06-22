@@ -140,7 +140,7 @@ Dism /Get-ImageInfo /ImageFile:"C:\Users\Admin1\Documents\WIM files\installw10.e
 ```
 Examples of the output can be see [here](Powershell_Get-ImageInfo_example.md)
 
-The Index number seen in the ```/Get-PackageInfo``` is then used as the Windows_Edition_Order referred to later on in this document.
+The Index number seen in the ```/Get-PackageInfo``` output is then used as the ```Windows_Edition_Order``` referred to later on in this document.
 
 The N variants stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 
