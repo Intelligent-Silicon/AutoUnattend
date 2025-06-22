@@ -452,13 +452,13 @@ As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command
 
 | Configuration Pass | USB (.ESD) | ISO (.WIM) | VHD | FFU | Comment |
 | --- | --- | --- | --- | --- | --- |
-| [windowsPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/windowsPE.md) | 1 | 1 | x | x | |
-| [offlineServicing](offlineServicing.md) | 2 | 2 | x | x | |
+| [windowsPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/windowsPE.md) | x | x | x | x | |
+| [offlineServicing](offlineServicing.md) | x | x | x | x | |
 | [generalize](generalize.md) | | | x | | |
 | [specialize](specialize.md) | | | | | |
 | [auditSystem](auditSystem.md) | | | | | |
 | [auditUser](auditUser.md) | | | | | |
-| [oobeSystem](oobeSystem.md) | 3 | 3 | | | |
+| [oobeSystem](oobeSystem.md) | x | x | | | |
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/components-b-unattend
 
