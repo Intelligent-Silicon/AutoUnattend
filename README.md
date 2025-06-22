@@ -124,14 +124,24 @@ The ```install.[wim|esd]``` image file contains the different editions (Home, Ed
 
 User App installation software can also be added to ```install.[wim|esd]``` for installation after Windows is installed, which can help with building an offline USB mem stick or ISO image file installation, to minimise downtime for such scenerios like working remotely, work-from-home or in locations without internet access, but where you still need ALL your software to be installed, configured and running in order to be able to carry on working.
 
-The ```install.esd``` file can not be seen or selected as a Windows Image file in the WindowsSIM (System Image Manager) [10.0.26100.2454] program or used with DISM WIM related commands.
+As at 20250613:YYYYMMDD, the ```install.esd``` file can not be seen or selected as a Windows Image file in the WindowsSIM (System Image Manager) [10.0.26100.2454] program or used with DISM WIM related commands.
 
- 
+
+To find out what version of Windows and its variants are stored in a ```.WIM``` or ```.ESD``` file, using powershell type the following: 
+
 ```
-Windows Edition Order (in ascending order starting from 1):
-MCT Windows 10 (22H2)/11 install.esd : Home, Home N, Home Single Language, Education, Education N, Pro, Pro N
-Server 2016/2019/2022/2025 ISO install.wim : Server Standard Core, Server Standard, Server Data Centre Core, Server Data Centre
+Dism /Get-ImageInfo /ImageFile:"Drive:\Path\To\install.esd"
 ```
+```
+Dism /Get-ImageInfo /ImageFile:"Drive:\Path\To\install.wim"
+```
+```
+Dism /Get-ImageInfo /ImageFile:"C:\Users\Admin1\Documents\WIM files\installw10.esd"
+```
+Examples of the output can be see [here](Powershell_Get-ImageInfo_example.md)
+
+The Index number seen in the ```/Get-PackageInfo``` is then used as the Windows_Edition_Order referred to later on in this document.
+
 The N variants stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 
 # Powershell Mount, Unmount ```.ISO``` and ```.VHD``` files
