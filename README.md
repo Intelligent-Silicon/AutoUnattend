@@ -449,6 +449,16 @@ As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command
 [Extensions](Extensions.md) Where files and scripts can be stored in the AutoUnattend.xml before being extracted to specific locations typically on the windows partition.
 
 
+| Configuration Pass | USB | ISO | VHD |
+| --- | --- | --- | --- |
+| [windowsPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/windowsPE.md) | | | |
+| [offlineServicing](offlineServicing.md) | | | |
+| [generalize](generalize.md) | | | |
+| [specialize](specialize.md) | | | |
+| [auditSystem](auditSystem.md) | | | |
+| [auditUser](auditUser.md) | | | |
+| [oobeSystem](oobeSystem.md) | | | |
+
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/components-b-unattend
 
 
