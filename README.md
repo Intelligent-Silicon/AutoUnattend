@@ -362,7 +362,11 @@ Before you run the /Add-Package command, you would be advised to switch off your
 
 ```
 Dism /mount-image /imagefile:"C:\Users\Admin1\Documents\WIM files\installW11.wim" /mountdir:"C:\mount" /index:7   # If not already Mounted
+```
+```
 Dism /Image:"C:\mount" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\WIM files\windows11.0-kb5060842-x64_07871bda98c444c14691e0a90560306703b739cf.msu"
+```
+```
 Dism /unmount-image /mountdir:"C:\mount" /commit # Commit (Save) and Unmount
 ```
 
