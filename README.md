@@ -116,7 +116,7 @@ The ```boot.wim```, ```install.esd``` or ```install.wim``` are contained in ```[
 
 ```.ESD``` image files are an encrypted version of the ```.WIM``` image file used with the Windows Media Creation Tool (MCT). 
 
-As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command ```Dism /add-package``` still fails to add Window's Update ```.MSU``` packages to the ```.ESD``` windows image file format. 
+As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command ```Dism /add-package``` fails to add Window's Update ```.MSU``` packages to the ```.ESD``` windows image file format. 
 
 The ```install.[wim|esd]``` image file contains the different editions (Home, Education, Pro, Data Centre, Core & NanoSever) and their variants of Windows which is used to install the version and variant of Window's on the computer. [App|Driver] Packages added to ```boot.wim``` to activate specialist hardware like RAID controllers or other hardware are typically added to ```install.wim```, along with [App|Driver] Packages for the computer & user to use on a daily basis after Window's is installed, which is not required by the WindowsPE Setup process. 
 
@@ -342,6 +342,8 @@ Dism /Image:"C:\Win11_Pro_64bit" /Get-Drivers
 # DISM App Packages & Windows Update (```.CAB``` & ```.MSU```) Packages
 
 The ```install.wim``` and ```install.esd``` image files starts off with a selection of App & Window Update packages to bring them upto a certain release. Adding required packages and removing unnecessary packages is a good way to reduce the attack vector by reducing the number of unnecessary apps & services which are installed in a default installation of Windows.
+
+As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command ```Dism /add-package``` fails to add Window's Update ```.MSU``` packages to the ```.ESD``` windows image file format.
 
 You can search for the latest Window's Updates on the [Microsoft Catalogue](https://www.catalog.update.microsoft.com) website but you need to check they can be installed from the Catalogue using DISM.
 
