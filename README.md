@@ -450,7 +450,7 @@ As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command
 
 # Configuration Passes
 
-| Configuration Pass | USB (.ESD) | ISO (.WIM) | VHD | FFU | Comment |
+| | Install Windows | | | | |
 | --- | --- | --- | --- | --- | --- |
 | Configuration Pass | USB (.ESD) | ISO (.WIM) | VHD | FFU | Comment |
 | --- | --- | --- | --- | --- | --- |
