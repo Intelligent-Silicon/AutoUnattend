@@ -47,9 +47,6 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"D:\sources\install.esd" 
 
 
 
-
-
-
 ```
 <component name="Microsoft-Windows-Setup">
 ```
@@ -137,36 +134,70 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"D:\sources\install.esd" 
 	</DiskConfiguration> 
 ```
 
+[UseConfigurationSet](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-useconfigurationset)
+
+```
+<UseConfigurationSet>true</UseConfigurationSet>  /// %configsetroot%
+```
+
 [ImageInstall](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall)
 [OSImage](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage)
 [InstallFrom](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage-installfrom)
 [Path](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage-installfrom-path)
 [MetaData](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage-installfrom-metadata)
+[Key](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-dataimage-installfrom-metadata-key)
 [InstallToAvailablePartition](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage-installtoavailablepartition?source=recommendations)
+[InstallTo](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-imageinstall-osimage-installto)
+
+
 
 ```	
 	<ImageInstall>
 		<OSImage>
 			<InstallFrom>
-				<Path>\\networkshare\share\install.wim</Path>
+				<Path>%configsetroot%\sources\install.esd</Path>
 				<MetaData wcm:action="add">
 					<Key>/IMAGE/INDEX</Key>
-					<Value>2</Value>
+					<Value>7</Value>
 				</MetaData>
 			</InstallFrom>
+			<InstallToAvailablePartition>false</InstallToAvailablePartition>
 			<InstallTo>
 				<DiskID>0</DiskID> 
 				<PartitionID>3</PartitionID> 
 			</InstallTo>
-			<WillShowUI>OnError</WillShowUI>
-			<InstallToAvailablePartition>false</InstallToAvailablePartition>
+			<WillShowUI>OnError</WillShowUI>		
 		</OSImage>
 	</ImageInstall>  
 </component>
 ```
 
+To install drivers during an offline installation, first you need to create a folder called $WinpeDriver$ on the USB stick used by the Windows Media Creation program to copy the windows installation files. Next copy the extracted drivers into their own subfolders inside/below the $WinpeDriver$ eg.
+```
+USB Memory Stick\$WinpeDriver$\audio\
+USB Memory Stick\$WinpeDriver$\graphics\
+USB Memory Stick\$WinpeDriver$\motherboard\
+USB Memory Stick\$WinpeDriver$\wlan\
+```
 
 [Component - Microsoft-Windows-PnpCustomizationsWinPE](AutoUnattend-WindowsPE-Microsoft-Windows-PnpCustomizationsWinPE.md)
+
+[DriverPaths](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-pnpcustomizationswinpe-driverpaths)
+[PathAndCredentials](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-pnpcustomizationswinpe-driverpaths-pathandcredentials)
+
+```
+<settings pass="windowsPE">
+	<component name="Microsoft-Windows-PnpCustomizationsWinPE">
+		<DriverPaths>
+			<PathAndCredentials wcm:action="add" wcm:keyValue="1">
+				<Path>%configsetroot%\Drivers</Path> /// <UseConfigurationSet>true</UseConfigurationSet> %configsetroot%
+				<Credentials></Credentials>
+			</PathAndCredentials>
+		</DriverPaths>
+	</component>
+</settings>
+```
+
 
 ## offlineServicing
 
@@ -178,7 +209,13 @@ Not Used
 
 ## specialize
 
-Not Used
+[Microsoft-Windows-Shell-Setup](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup)
+[ProductKey](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-productkey)
+[Generic Product Keys](https://www.elevenforum.com/t/generic-product-keys-to-install-or-upgrade-windows-11-editions.3713/)
+
+
+Microsoft-Windows-Shell-Setup
+<ProductKey>AAAAA-BBBBB-CCCCC-DDDDD-EEEEE</ProductKey>
 
 ## auditSystem
 
