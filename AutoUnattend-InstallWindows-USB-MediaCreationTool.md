@@ -1,27 +1,36 @@
 # Install Windows
-# Windows Media Creation Tool 
+
+## Windows Media Creation Tool 
 
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work
 
-# WindowsPE - WindowsPE Settings
-
-## Component - Microsoft-Windows-International-Core-WinPE
-
+Lists Window's 10 variants to txt. Both x86 (32bit) and x64 (64bit) versions on the USB stick. 
 ```
-<component name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
-	<SetupUILanguage>
-	<UILanguage>en-GB</UILanguage> /// English International
-	</SetupUILanguage>
-	<InputLocale>0809:00000809</InputLocale> /// https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-input-locales-for-windows-language-packs
-	<SystemLocale>en-GB</SystemLocale>
-	<UILanguage>en-GB</UILanguage>
-	<UserLocale>en-GB</UserLocale>
-</component>
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"D:\x64\sources\install.esd" | Out-File -FilePath "D:\x64\sources\install.esd.txt"
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"D:\x86\sources\install.esd" | Out-File -FilePath "D:\x86\sources\install.esd.txt"
 ```
 
-# WindowsPE - Windows Setup Settings
+Lists Window's 11 variants to txt. Windows 11 only comes in 64bit versions.
+```
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"D:\sources\install.esd" | Out-File -FilePath "D:\sources\install.esd.txt"
+```
 
 
-# offlineServicing
+
+## WindowsPE - WindowsPE Settings
+
+[Component - Microsoft-Windows-International-Core-WinPE](AutoUnattend-WindowPE-Microsoft-Windows-International-Core-WinPE.md)
+
+## WindowsPE - Windows Setup Settings
+
+[Component - Microsoft-Windows-Setup](AutoUnattend-WindowsPE-Microsoft-Windows-Setup.md)
+
+[Component - Microsoft-Windows-PnpCustomizationsWinPE](AutoUnattend-WindowsPE-Microsoft-Windows-PnpCustomizationsWinPE.md)
+
+## offlineServicing
+
+
+
+
 
