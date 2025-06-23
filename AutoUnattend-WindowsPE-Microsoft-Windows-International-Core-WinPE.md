@@ -10,10 +10,10 @@ The Microsoft-Windows-International-Core sets the same settings for the system a
 
 ```
 <component name="Microsoft-Windows-International-Core-WinPE">
+	<InputLocale>0809:00000809</InputLocale>
 	<SetupUILanguage>
-		<UILanguage>en-GB</UILanguage> /// English International
+		<UILanguage>en-GB</UILanguage>
 	</SetupUILanguage>
-	<InputLocale>0809:00000809</InputLocale> /// https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-input-locales-for-windows-language-packs
 	<SystemLocale>en-GB</SystemLocale>
 	<UILanguage>en-GB</UILanguage>
 	<UserLocale>en-GB</UserLocale>
