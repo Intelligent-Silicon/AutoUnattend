@@ -451,7 +451,7 @@ As at 20250613:YYYYMMDD, DISM using ```WimFltr v2 extractor```, with the command
 # Configuration Passes
 
 | | Install Windows | | | | |
-| --- | --- | --- | --- | --- | --- |
+| --- | ------ | --- | --- | --- |
 | Configuration Pass | USB (.ESD) | ISO (.WIM) | VHD | FFU | Comment |
 | --- | --- | --- | --- | --- | --- |
 | [windowsPE](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/windowsPE.md) | x | x | x | x | |
