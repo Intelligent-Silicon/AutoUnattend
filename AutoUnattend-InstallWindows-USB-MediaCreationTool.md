@@ -200,6 +200,41 @@ USB Memory Stick\$WinpeDriver$\Drivers\
 ```
 
 
+[DynamicUpdate]](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-dynamicupdate)
+[Enable](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-dynamicupdate-enable)
+
+```
+<DynamicUpdate>
+     <Enable>true</Enable>
+     <WillShowUI>OnError</WillShowUI>
+</DynamicUpdate>
+```
+
+[RunSynchronous](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-runsynchronous)
+
+```
+<RunSynchronous>
+   <!-- First synchronous command to run -->
+   <RunSynchronousCommand>
+      <Order>1</Order>
+      <Path>\\MyNetworkShare\MyApplication.exe</Path>
+      <Description>DescriptionOfMyApplication</Description>
+      <Credentials>
+         <Domain>FabrikamDomain</Domain>
+         <UserName>MyUserName</UserName>
+         <Password>MyPassword</Password>
+      </Credentials>
+   </RunSynchronousCommand>
+<!-- Second synchronous command to run -->
+   <RunSynchronousCommand>
+      <Order>2</Order>
+      <Path>C:\AnotherApplication.exe</Path>
+      <Description>DescriptionOfMyApplication</Description>
+   </RunSynchronousCommand>
+</RunSynchronous>
+```
+
+
 [Component - Microsoft-Windows-PnpCustomizationsWinPE](AutoUnattend-WindowsPE-Microsoft-Windows-PnpCustomizationsWinPE.md)
 
 ```
@@ -218,8 +253,6 @@ USB Memory Stick\$WinpeDriver$\Drivers\
 			</PathAndCredentials>
 		</DriverPaths>
 ```
-
-
 
 
 
@@ -288,9 +321,46 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlinese
 ```
 
 
-## generailize
+[Microsoft-Windows-Embedded-KeyboardFilterService](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-embedded-keyboardfilterservice)
 
-Not Used
+[Shift](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-embedded-keyboardfilterservice-shift)
+
+/// Disable Shift keys and get a new laptop from Lenovo courtesy of spooky hackers because Lenovo's diagnostic software doesnt pick this up and windows doesnt block this properly!
+
+
+[Microsoft-Windows-DeviceGuard-Unattend](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deviceguard-unattend)
+
+[EnableVirtualizationBasedSecurity](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deviceguard-unattend-enablevirtualizationbasedsecurity)
+
+```
+<EnableVirtualizationBasedSecurity>1</EnableVirtualizationBasedSecurity>
+```
+
+[HypervisorEnforcedCodeIntegrity](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deviceguard-unattend-hypervisorenforcedcodeintegrity)
+
+```
+<HypervisorEnforcedCodeIntegrity>1</HypervisorEnforcedCodeIntegrity>
+```
+
+[LsaCfgFlags](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-deviceguard-unattend-lsacfgflags)
+
+```
+<LsaCfgFlags>1</LsaCfgFlags>
+```
+
+
+## generalize
+
+
+[Microsoft-Windows-BrowserService](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-browserservice)
+
+[MaintainServerList](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-browserservice-maintainserverlist)
+
+```
+<MaintainServerList>No</MaintainServerList
+```
+
+
 
 ## specialize
 
@@ -329,6 +399,39 @@ Not Used
 ```
 <TimeZone>Greenwich Mean Time (GMT)</TimeZone>
 ```
+
+
+[Microsoft-Windows-STObject](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-stobject-flyoutautopowerscheme)
+
+```
+	<component name="Microsoft-Windows-STObject">
+	</component>
+```
+
+
+
+[FlyoutAutoPowerScheme](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-stobject-flyoutautopowerscheme)
+
+```
+<FlyoutAutoPowerScheme>8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c</FlyoutAutoPowerScheme> /// High performance
+```
+
+[Microsoft-Windows-ErrorReportingCore](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-errorreportingcore)
+
+
+[DefaultConsent](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-errorreportingcore-defaultconsent)
+
+```
+<DefaultConsent>0</DefaultConsent> /// 0 is not listed, but it might prevent sending any error report
+```
+
+[DisableWER](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-errorreportingcore-disablewer)
+
+```
+<DisableWER>1</DisableWER> /// Disables Windows Error Reporting
+```
+
+
 
 ## auditSystem
 
@@ -433,4 +536,34 @@ Not Used
 
 
 [VisualEffects](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-visualeffects)
+
+
+[Component - Microsoft-Windows-Sensors-Core](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-sensors-core-humanpresencesetting)
+
+```
+	<component name="Microsoft-Windows-Sensors-Core">
+	</component>
+```
+
+[Dim Supported](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-sensors-core-humanpresencesetting-allowdimcapable)
+
+```
+<Dim Supported>0</Dim Supported>
+```
+
+[Adaptive Dimming](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-sensors-core-humanpresencesetting-defaultinstantdim)
+
+```
+<Adaptive Dimming>0</Adaptive Dimming>
+```
+
+Kiosk Mode Settings
+
+[Microsoft-Windows-Embedded-ShellLauncher](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-embedded-shelllauncher)
+
+[Shell](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-embedded-shelllauncher-shell)
+
+[DefaultReturnCodeAction](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-embedded-shelllauncher-defaultreturncodeaction)
+
+[UserSettings](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-embedded-shelllauncher-usersettings)
 
