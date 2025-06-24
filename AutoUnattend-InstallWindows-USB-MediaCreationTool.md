@@ -317,6 +317,18 @@ Not Used
 
 [NotificationArea](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-notificationarea)
 
+[ShowPowerButtonOnStartScreen](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-showpowerbuttononstartscreen)
+
+```
+<ShowPowerButtonOnStartScreen>true</ShowPowerButtonOnStartScreen>
+```
+
+
+[TimeZone](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-timezone)
+
+```
+<TimeZone>Greenwich Mean Time (GMT)</TimeZone>
+```
 
 ## auditSystem
 
@@ -374,5 +386,51 @@ Not Used
 </VMModeOptimizations>
 ```
 
+[TaskbarLinks](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-taskbarlinks)
 
+[Themes](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-themes)
+[UWPAppsUseLightTheme](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-themes-uwpappsuselighttheme)
+
+```
+<Themes>
+	<UWPAppsUseLightTheme>false</UWPAppsUseLightTheme> /// Dark Mode
+</Themes>
+```
+
+[WindowColor](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-themes-windowcolor)
+
+
+[UserAccounts](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-useraccounts)
+[LocalAccounts](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-useraccounts-localaccounts)
+[LocalAccount](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-useraccounts-localaccounts-localaccount)
+
+```
+<UserAccounts>
+   <LocalAccounts>
+      <LocalAccount wcm:action="add">
+         <Password>
+            <Value>cAB3AFAAYQBzAHMAdwBvAHIAZAA</Value>
+            <PlainText>false</PlainText>
+         </Password>
+         <Description>Test account</Description>
+         <DisplayName>Admin/Power User Account</DisplayName>
+         <Group>Administrators;Power Users</Group>
+         <Name>Test1</Name>
+      </LocalAccount>
+      <LocalAccount wcm:action="add">
+         <Password>
+            <Value>cABhAHMAcwB3AG8AcgBkAFAAYQBzAHMAdwBvAHIAZAA=</Value>
+            <PlainText>false</PlainText>
+         </Password>
+         <Description>For testing</Description>
+         <DisplayName>Admin Account</DisplayName>
+         <Group>Administrators</Group>
+         <Name>Test2</Name>
+      </LocalAccount>
+   </LocalAccounts>
+</UserAccounts>
+```
+
+
+[VisualEffects](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-visualeffects)
 
