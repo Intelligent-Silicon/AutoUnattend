@@ -142,6 +142,62 @@ Create AutoUnattend.xml file and save it to C:\mount.
 		</DynamicUpdate>		
 	</component>
 </settings>
+<settings pass="offlineServicing">
+	<component name="Microsoft-Windows-Shell-Setup">
+		<ComputerName>""</ComputerName>
+		<BluetoothTaskbarIconEnabled>false</BluetoothTaskbarIconEnabled>
+	</component>
+</settings>
+<settings pass="specialize">
+	<component name="Microsoft-Windows-Shell-Setup">
+		<ProductKey>VK7JG-NPHTM-C97JM-9MPGT-3V66T</ProductKey> /// Windows 10/11 Pro
+		<ShowPowerButtonOnStartScreen>false</ShowPowerButtonOnStartScreen>
+		<TimeZone>GMT Standard Time</TimeZone>
+	</component>
+	<component name="Microsoft-Windows-STObject">
+		<FlyoutAutoPowerScheme>8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c</FlyoutAutoPowerScheme> /// High performance
+	</component>
+	<component name="Microsoft-Windows-ErrorReportingCore">
+		<DefaultConsent>0</DefaultConsent>
+		<DisableWER>1</DisableWER>
+	</component>
+</settings>
+<settings pass="oobe">
+	<component name="Microsoft-Windows-Shell-Setup">
+		<HideEULAPage>true</HideEULAPage>
+		<HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+		<HideOnlineAccountScreens>true</HideOnlineAccountScreens>
+		<HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+		<ProtectYourPC>3</ProtectYourPC>
+		<Themes>
+			<UWPAppsUseLightTheme>false</UWPAppsUseLightTheme> /// Dark Mode
+		</Themes>
+		<UserAccounts>
+			<LocalAccounts>
+				<LocalAccount wcm:action="add">
+					<Password>
+						<Value>cAB3AFAAYQBzAHMAdwBvAHIAZAA</Value>
+						<PlainText>false</PlainText>
+					</Password>
+					<Description>Test account</Description>
+					<DisplayName>Admin/Power User Account</DisplayName>
+					<Group>Administrators;Power Users</Group>
+					<Name>Test1</Name>
+				</LocalAccount>
+				<LocalAccount wcm:action="add">
+					<Password>
+						<Value>cABhAHMAcwB3AG8AcgBkAFAAYQBzAHMAdwBvAHIAZAA=</Value>
+						<PlainText>false</PlainText>
+					</Password>
+					<Description>For testing</Description>
+					<DisplayName>Admin Account</DisplayName>
+					<Group>Administrators</Group>
+					<Name>Test2</Name>
+				</LocalAccount>
+			</LocalAccounts>
+		</UserAccounts>
+	</component>
+</settings>
 
 
 
