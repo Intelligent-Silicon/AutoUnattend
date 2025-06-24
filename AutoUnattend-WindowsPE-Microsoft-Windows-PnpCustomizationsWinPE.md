@@ -4,7 +4,7 @@
 
 This is the first opportunity in the autounattend.xml process where you can create the $WinpeDriver$ folder and subfolders containing drivers on the memory stick for installation during the windowsPE pass and other passes in the autounattend.xml .
 
-The windowsPE conponent pass is where the drivers are added to the windows driver store during the installation process and for the windowsPE installation process to gain additional boot-critical driver functionality.
+The windowsPE component pass is where the drivers are added to the windows driver store during the installation process and for the windowsPE installation process to gain additional boot-critical driver functionality.
 
 https://learn.microsoft.com/en-us/windows-hardware/drivers/install/driver-store
 
