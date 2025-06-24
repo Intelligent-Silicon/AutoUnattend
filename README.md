@@ -1,7 +1,7 @@
 # Automatic Windows Installation 
 # AutoUnattend.xml Answer File
 
-[AutoUnattend.xml aka Unattend.xml](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/update-windows-settings-and-scripts-create-your-own-answer-file-sxs?view=windows-11) is an answer file that can control and configure the installation of [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) ([version 1607](https://en.wikipedia.org/wiki/Windows_10,_version_1607) and onwards) or Windows Server [2016](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [2019](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) and [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) or Windows Server [2025](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025), along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
+[AutoUnattend.xml aka Unattend.xml](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/update-windows-settings-and-scripts-create-your-own-answer-file-sxs) is an answer file that can control and configure the installation of [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) ([version 1607](https://en.wikipedia.org/wiki/Windows_10,_version_1607) and onwards) or Windows Server [2016](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [2019](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) and [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) or Windows Server [2025](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025), along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
 
 
 The AutoUnattend.xml file can be used with the Windows 10 and Windows 11 Media Creation Tool (MCT) by adding the file to the USB memory stick or the ISO aka DVD (image) file created by the MCT, or by adding it to the Windows Server ISO files and VHD/VHDX (Virtual Hard Disk) and FFU (Full FlashUpdate) files.
@@ -509,87 +509,6 @@ https://superuser.com/questions/1577924/can-i-move-the-c-users-folder-to-d-drive
 This is where machine settings are applied to the finished installation.
 
 ### Registry settings
-
-Set Start button to left
-Desktop: Dark Mode
-Desktop: Change Brightness based on content: Off
-
-File Explorer: Show File Extensions
-File Explorer: Show files in Detail view
-File Explorer: Show Hidden Files and Folders
-File Explorer: Show system files
-
-Power & Battery: 
-Power Mode: Best Performance
-Plugged In: Best Performance
-On Battery: Best Performance
-
-
-Screen, sleep & hibernate time outs
-Plugged In: Turn Screen Off after: 30mins
-Plugged In: Make my Device sleep after: Never
-
-On Battery: Turn my Screen off after: 20mins
-On Battery: Make my device sleep after: 1 hour
-
-Lid & Power button controls
-Plugged In: Pressing the power button will make my PC: Shutdown
-Plugged In: Closing the Lid will make my pc: Sleep
-
-On Battery: Pressing the power button will make my PC: Shutdown
-On Battery: Closing the lid will make my pc: Sleep
-
-BlueTooth & Devices
-BlueTooth: Off
-Touchpad: off
-
-Mouse: Additional Mouse Settings: Mouse Properties: Pointer Options: Hide Pointer while typing: Off
-Mouse: Additional Mouse Settings: Mouse Properties: Pointer Options: Show location of pointer when I press the CTRL key
-
-Network & Internet
-Wifi: Off
-Wifi SSID: Connect automatically when in range: Off
-WiFi SSID: Public Network
-WiFi SSID: Random Hardware addresses: On
-
-
-Personalisation: 
-Background: Solid Color: Black
-Colours: Choose your mode: Dark
-Transparency Effects: Off
-Lock Screen: Personalise your lock screen: Picture
-Lock Screen: Show the lock screen background picture on the sign-in screen: On
-
-Taskbar: Taskbar Alignment: Left 
-Taskbar: Show Badges on taskbar apps: On
-Taskbar: Show flashing on taskbar apps: On 
-Taskbar: Share any window from my Taskbar: Off 
-Taskbar: Select the far corner of the taskbar to show the desktop: On 
-Taskbar: Combine taskbar buttons and hide labels: Always 
-
-Apps: Resume: Resume: Off 
-Apps: Resume: Control which apps can use Resume: OneDrive: Off 
- 
-
-
-
-Accounts: Sign-In Options: 
-Additional Settings: If you've been away, when should Windows require you to sign in? Every time
-Additional Settings: Dynamic Lock: Allow windows to lock your device automatically when you're away: Off: Requires BlueTooth
-Additional Settings: Use my sign-in info to automatically finish setting up after an update: Off
-
-
- 
-
-
-
-
-
-Software to Install
-Notepadd++
-Libre Office
-Github Desktop
-FireFox
 
 
 
