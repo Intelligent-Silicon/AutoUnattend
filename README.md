@@ -550,3 +550,15 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/valida
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-create-usb-bootable-drive?view=windows-11
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/makewinpemedia-command-line-options?view=windows-11
+
+https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/copype-command-line-options?view=windows-11
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/makewinpemedia-command-line-options?view=windows-11
+
+https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
+
+https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install#other-adk-downloads
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-intro?view=windows-11
