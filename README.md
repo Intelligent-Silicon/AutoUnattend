@@ -545,3 +545,8 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-s
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/validate-an-answer-file
 
+
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-create-usb-bootable-drive?view=windows-11
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/makewinpemedia-command-line-options?view=windows-11

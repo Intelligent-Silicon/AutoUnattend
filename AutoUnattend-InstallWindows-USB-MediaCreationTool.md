@@ -283,42 +283,9 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlinese
 [BluetoothTaskbarIconEnabled](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-bluetoothtaskbariconenabled)
 
 ```
-	<BluetoothTaskbarIconEnabled>false</BluetoothTaskbarIconEnabled)
+	<BluetoothTaskbarIconEnabled>false</BluetoothTaskbarIconEnabled>
 ```
 
-[OfflineUserAccounts](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-offlineuseraccounts)
-
-```
-<OfflineUserAccounts>
-     <OfflineAdministratorPassword>
-        <Value>[PasswordValue]</Value>
-        <PlainText>[true/false]</PlainText>
-     </OfflineAdministratorPassword>
-
-     <OfflineLocalAccounts>
-         <LocalAccount>
-             <Password>
-                 <Value>[PasswordValue]</Value>
-                 <PlainText>[true/false]</PlainText>
-             </Password>
-             <Group>[groups]</Group>
-             <Name>[user]</Name>
-             <DisplayName>[userdisplayname]</DisplayName>
-         </LocalAccount>
-     </OfflineLocalAccounts>
-
-     <OfflineDomainAccounts>
-         <OfflineDomainAccount>
-             <SID>[SID1]</SID>
-             <Group>[groups]</Group>
-         </OfflineDomainAccount>
-         <OfflineDomainAccount>
-             <SID>[SID2]</SID>
-             <Group>[groups]</Group>
-         </OfflineDomainAccount>
-    </OfflineDomainAccounts>
-</OfflineUserAccounts>
-```
 
 
 [Microsoft-Windows-Embedded-KeyboardFilterService](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-embedded-keyboardfilterservice)
@@ -372,6 +339,7 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlinese
 <settings pass="specialize">
 	<component name="Microsoft-Windows-Shell-Setup">
 		<ProductKey>AAAAA-BBBBB-CCCCC-DDDDD-EEEEE</ProductKey>
+		<ProductKey>VK7JG-NPHTM-C97JM-9MPGT-3V66T</ProductKey> /// Windows 10/11 Pro
 	</component>
 </settings>	
 ```
@@ -397,7 +365,7 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlinese
 [TimeZone](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-timezone)
 
 ```
-<TimeZone>Greenwich Mean Time (GMT)</TimeZone>
+<TimeZone>GMT Standard Time</TimeZone>
 ```
 
 
@@ -418,6 +386,10 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlinese
 
 [Microsoft-Windows-ErrorReportingCore](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-errorreportingcore)
 
+```
+	<component name="Microsoft-Windows-ErrorReportingCore">
+	</component>
+```
 
 [DefaultConsent](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-errorreportingcore-defaultconsent)
 
@@ -439,6 +411,11 @@ https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlinese
 ## auditUser
 
 ## oobe
+
+```
+<settings pass="oobe">
+</settings>
+```
 
 [Microsoft-Windows-Shell-Setup](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup)
 
