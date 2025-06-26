@@ -175,7 +175,9 @@ function New-ISOFile {
             Write-Verbose ("Applying boot image.")
 
             try {
+				Write-Verbose ("1 " +echo IMAPI2FS.BootOptions)
                 $boot = New-Object -ComObject IMAPI2FS.BootOptions -ErrorAction Stop
+				Write-Verbose ("2 " + echo $boot)
                 $boot.AssignBootImage($stream)
 
                 Write-Verbose ("Boot image applied.")
