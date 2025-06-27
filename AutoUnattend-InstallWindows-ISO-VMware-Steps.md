@@ -10,6 +10,12 @@ Open Deployment and Imaging Tools Environment Command Window
 
 C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools> oscdimg -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\mount\boot\etfsboot.com#pEF,e,bc:\mount\efi\microsoft\boot\efisys_noprompt.bin "c:\mount" "c:\Users\Admin1\Documents\ISO Files\AU_Win10_22H2_x32.iso"
 
+VMware Workstation 17.6.3 build-24583834 Windows 10 22H2_x32.
+If the VMware Workstation defaults to a NVMe Hard Disk, edit the Hardware, add a new SATA Hard disk of the same size (default 60GB), and then remove the NVMe Hard Disk. The NVMe Hard Disk can cause BSOD kmode_excepton_not_handled early in the installation process (Getting files ready for installation 0%) and the SATA hard disk (driver) is the work around.
+
+
+
+
 
 win10 kmode_excepton_not_handled during installation vmware workstation
 
