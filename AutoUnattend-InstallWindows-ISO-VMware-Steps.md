@@ -1,10 +1,105 @@
 PS C:\WINDOWS\system32> $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\Win10_22H2_x32.iso"
 PS C:\WINDOWS\system32> $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter
+PS C:\WINDOWS\system32> md -path "C:\mount"
 PS C:\WINDOWS\system32> Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destination "C:\mount" -Recurse
+PS C:\WINDOWS\system32> Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\Win10_22H2_x32.iso"
+
+Remove the ReadOnly attribute from all the files from the ISO file.
+
+PS C:\WINDOWS\system32> Get-ChildItem "C:\mount\*" -Recurse -File -Force | foreach { Set-ItemProperty -Path $_.FullName -Name IsReadOnly -Value $false } 
 
 
 
-EDIT C:\mount, ie add AutoUnattend.xml
+EDIT C:\mount, ie add AutoUnattend.xml, mount install.esd image, establish index number of the Windows variant you want to install, add drivers, add windows update packages. 
+
+PS C:\WINDOWS\system32> Copy "C:\Users\Admin1\Documents\ISO Files\AutoUnAttend.xml" "C:\mount\AutoUnAttend.xml"
+
+Load Windows 10 Pro x32 and add packages.
+PS C:\WINDOWS\system32> Set-ItemProperty "C:\mount\sources\install.esd" -name IsReadOnly -value $false
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount\sources\install.esd" | Out-File -FilePath "C:\mount\sources\install.esd.txt"
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount\sources\install.esd" /index:6 | Out-File -FilePath "C:\mount\sources\install.esd.6.txt"
+PS C:\WINDOWS\system32> md -path "C:\mount_Win10_Pro_x32"
+PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount\sources\install.esd" /index:6 /mountdir:"C:\mount_Win10_Pro_x32"
+PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_Pro_x32" /Add-Driver /Driver:"C:\Users\Admin1\Documents\ISO Files\VMware Tools 12.4.5" /Recurse /ForceUnsigned
+
+Optionally perform the next two steps and bypass the Windows Package Update.
+
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_Pro_x32" /commit
+
+Open Deployment and Imaging Tools Environment Command Window
+
+C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools> oscdimg -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\mount\boot\etfsboot.com#pEF,e,bc:\mount\efi\microsoft\boot\efisys_noprompt.bin "c:\mount" "c:\Users\Admin1\Documents\ISO Files\AU_Win10_22H2_x32.iso"
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount\sources\install.esd"
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount\sources\install.esd" /index:6
+PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount\sources\install.esd" /index:6 /mountdir:"C:\mount_Win10_Pro_x32"
+PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
+
+Optional incase of problems
+PS C:\WINDOWS\system32> dism /remount-image /MountDir:"C:\mount_Win10_Pro_x32"
+
+
+Servicing Stacks Updates (SSU) need to be updated before Latest Cumulative Update (LCU). 
+SSU's are not released every month so trawl backwards from the current year & month until you can find a SSU, then see what the documentation says.
+Also check what version the Image file is. You can get this by using the following command:
+Dism /Get-ImageInfo /ImageFile:"C:\mount\sources\install.esd" /index:6
+
+
+PS C:\WINDOWS\system32> md -path "C:\mount_kb5060533"
+  
+Download the 2025-06 Cumulative Update for Windows 10 Version 22H2 for x86-based Systems (KB5060533) classified as a Security Update.
+
+Security Updates install into offline (not running) windows image files.
+https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2010%20pro%2022h2%20x86%20security%20updates%202025-06
+
+Standard Updates dont tend to install properly.
+https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2010%20pro%2022h2%20x86%202025-06
+
+
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_Pro_x32" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\ISO Files\ssu-19041.3562-x86_5757db67f982216ee2f5973f4b3cfddbcae916b7.msu"
+
+PS C:\WINDOWS\system32> New-Item -ItemType Directory -Force -Path "C:\temp"
+PS C:\WINDOWS\system32> Dism /Cleanup-Image /Image:"C:\mount_Win10_Pro_x32" /StartComponentCleanup /Resetbase /ScratchDir:"C:\temp"
+
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_Pro_x32" /commit
+
+
+Direct Link to download the KB5060533 MSU.
+https://catalog.s.download.windowsupdate.com/d/msdownload/update/software/secu/2025/06/windows10.0-kb5060533-x86_de4a47dde17d91023f93eb9a37c6c96faebf768c.msu
+
+
+PS C:\WINDOWS\system32> md -path "C:\mount_kb5060533"
+PS C:\WINDOWS\system32> expand -F:* "C:\Users\Admin1\Documents\ISO Files\windows10.0-kb5060533-x86_de4a47dde17d91023f93eb9a37c6c96faebf768c.msu" "C:\mount_kb5060533"
+
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_Pro_x32" /Add-Package /PackagePath:"C:\mount_kb5060533\Windows10.0-KB5060533-x86.cab"
+
+HRESULT = 0x800f0823 - CBS_E_NEW_SERVICING_STACK_REQUIRED
+
+Invoke-WebRequest -Uri "http://www.contoso.com" -OutFile "C:\path\file" 
+
+Alter the search date (YYYY-MM) and click the link for the "YYYY-MM Cumulative Update for Windows 10 Version 22H2 for x86-based Systems (KBnnnnnnn)"
+Make a note of the KB number and add the number to the web address https://support.microsoft.com/help/nnnnnnn, scroll down and look for Update Catalog, click on it and check to make sure it can be it can be added as a stand alone package. If it can, down the update and install it using the command below. For CAB files, use the 2nd command below.
+Dism /Image:"C:\Path\To\Mounted\Install.esd" /Add-Package /PackagePath:"C:\Path\To\WindowsUpdatePackagename.msu"
+Dism /Image:"C:\Path\To\Mounted\Install.esd" /Add-Package /PackagePath:"C:\Path\To\WindowsUpdatePackagename.cab"
+
+
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount\sources\install.esd" /index:6
+PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount\sources\install.esd" /index:6 /mountdir:"C:\mount_Win10_Pro_x32"
+PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
+
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_Pro_x32" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\ISO Files\windows10.0-kb5060533-x86_de4a47dde17d91023f93eb9a37c6c96faebf768c.msu"
+
+
+PS C:\WINDOWS\system32> New-Item -ItemType Directory -Force -Path "C:\temp"
+PS C:\WINDOWS\system32> Dism /Cleanup-Image /Image:"C:\mount_Win10_Pro_x32" /StartComponentCleanup /Resetbase /ScratchDir:"C:\temp"
+
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_Pro_x32" /commit
+
+
+https://knowledge.broadcom.com/external/article?articleNumber=315363
+https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/tools/12-4-0/vmware-tools-administration-12-4-0.html
+
+
 
 Open Deployment and Imaging Tools Environment Command Window
 
@@ -12,6 +107,21 @@ C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment 
 
 VMware Workstation 17.6.3 build-24583834 Windows 10 22H2_x32.
 If the VMware Workstation defaults to a NVMe Hard Disk, edit the Hardware, add a new SATA Hard disk of the same size (default 60GB), and then remove the NVMe Hard Disk. The NVMe Hard Disk can cause BSOD kmode_excepton_not_handled early in the installation process (Getting files ready for installation 0%) and the SATA hard disk (driver) is the work around.
+
+Install VMware Tools 12.4.5.23787635 driver packages 
+
+To extract the VMware Tools to a folder in order to add to the Windows 10 Image
+setup.exe /A C:\VMwareTools
+
+Dism /Mount-Image /ImageFile:C:\test\images\install.wim /Index:<image_index>  /MountDir:C:\mount
+
+Dism /Image:C:\test\offline /Add-Driver /Driver:C:\drivers\mydriver.inf
+
+Dism /Image:C:\test\offline /Add-Driver /Driver:C:\VMwareTools /Recurse
+
+Dism /Image:C:\test\offline /Add-Driver /Driver:C:\drivers\unsigned_driver.inf /ForceUnsigned
+
+Dism /Unmount-Image /MountDir:C:\test\offline /Commit
 
 
 
