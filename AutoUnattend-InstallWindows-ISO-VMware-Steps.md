@@ -50,11 +50,37 @@ PS C:\WINDOWS\system32> md -path "C:\mount_kb5060533"
 Download the 2025-06 Cumulative Update for Windows 10 Version 22H2 for x86-based Systems (KB5060533) classified as a Security Update.
 
 Security Updates install into offline (not running) windows image files.
+Unpack these, and then extract the nested cab files and then install the cab files individually.
+
 https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2010%20pro%2022h2%20x86%20security%20updates%202025-06
 
 Standard Updates dont tend to install properly.
 https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2010%20pro%2022h2%20x86%202025-06
 
+
+This process can take a very very very long time to complete. You can expect this to take an hour or more on slow computers.
+
+Some suggestions online suggest the culmaltive updates contain drivers and updates and doing monthly updates (from the window catalog) is the way to go, ie applying/adding smaller packages. Offline packages take longer than online packages and some suggestions, suggest install a copy of windows, bring it upto date with Windows Updates, then Sysprep the machine state and use that as the windows image. When MS employees work on this technology, they probably have the luxury of using (dual/quad) Intel XEON processors in their workstations or they maybe working remotely on intel xeon rack servers with some sort of hypervisor tech like ESXi to spin up a virtual machine instantly.
+
+https://www.reddit.com/r/MDT/comments/8alizp/comment/dx2i3vm/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+
+MS have just announced they will be removing older drivers from the updates see below.
+
+https://techcommunity.microsoft.com/blog/hardwaredevcenter/removal-of-unwanted-drivers-from-windows-update/4425647
+
+
+A clue the drivers are taking along time to update is to open another powershell window and run the next command whilst the /add-package command is running.
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_Pro_x32" /Get-Drivers | Out-File -FilePath "C:\Users\Admin1\Documents\Drivers\DriverStoreDrivers.txt"
+
+You will see this in the text file:
+Error: 183
+
+The specified image is currently being serviced by another DISM operation.
+Wait for the existing DISM operation to complete, and then try the operation again.
+
+
+
+https://learn.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications
 
 PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_Pro_x32" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\ISO Files\ssu-19041.3562-x86_5757db67f982216ee2f5973f4b3cfddbcae916b7.msu"
 
