@@ -31,9 +31,11 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" /index:7 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd.7.txt"
 The N variants stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 PS C:\WINDOWS\system32> dism /export-image /SourceImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" /SourceIndex:7 /DestinationImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /Compress:max /CheckIntegrity
+As this is a new wim file, its relative index position will be 1, if you were to export more images to the destination file its relative index position will increase by 1.
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.txt"
+PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /readonly
 PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
-
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /discard
 
 3.
 https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
@@ -65,8 +67,10 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_PE_WIM"
 PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /readonly
-PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
-PS C:\WINDOWS\system32> dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM"
+
+If you dont want to use the /ReadOnly attribute but make changes, use the line below.
+PS C:\WINDOWS\system32> Set-ItemProperty "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" -name IsReadOnly -value $false
+
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.Packages.default.txt"
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.PackageKB.default.txt"
 
@@ -75,6 +79,8 @@ PackageState : Installed
 ReleaseType  : Update
 InstallTime  : 04/12/2023 03:23:00
 
+PS C:\WINDOWS\system32> dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM"
+PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /discard # Even though this was loaded with /ReadOnly, /unmount-image has to have either /discard or /commit so using /discard
 
 We can see KB5015684 is installed in the Windows 10 22H2 x32 Boot PE WIM.
@@ -84,8 +90,10 @@ So check the boot.wim which contains the Windows Setup.
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
 PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" /index:2 /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /readonly
-PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
-PS C:\WINDOWS\system32> dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
+
+If you dont want to use the /ReadOnly attribute but make changes, use the line below.
+PS C:\WINDOWS\system32> Set-ItemProperty "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" -name IsReadOnly -value $false
+
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.Setup.Packages.default.txt"
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.Setup.PackageKB.default.txt"
 
@@ -94,6 +102,8 @@ PackageState : Installed
 ReleaseType  : Update
 InstallTime  : 04/12/2023 03:30:00
 
+PS C:\WINDOWS\system32> dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
+PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /discard # Even though this was loaded with /ReadOnly, /unmount-image has to have either /discard or /commit so using /discard
 
 So we can see that KB5015684 has been applied to the boot.wim PE & Setup images, along with the install.wim image we have previously made.
@@ -103,6 +113,41 @@ The later and greater CU KB5015684 would suggest the SSU has been installed at t
 This AutoUnattend answer file needs to setup Windows 10. 
 Parts of it will be reused in other answer files. 
 Settings used in Windows 11 will be ignored.
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/best-practices-for-authoring-answer-files
+
+
+
+[Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work?view=windows-11#understanding-configuration-passes)
+
+[Windows PE](AutoUnattend-AnswerFile-VMware-WindowsPE.md)
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/windowspe?view=windows-11
+Windows PE Settings
+Windows Setup Settings
+
+40GB size
+
+
+Offline Servicing
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/update-windows-settings-and-scripts-create-your-own-answer-file-sxs?view=windows-11
+
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/offlineservicing?view=windows-11
+Update Windows faster by using DISM to make your changes without ever booting Windows. 
+Mount an image to a temporary location, install apps, drivers, languages, and more, and then commit the changes so they can be applied to new devices. 
+DISM requires an elevated command-line or from PowerShell, which makes it easier to automate your changes with scripts.
+
+If you're updating device drivers using an unattended answer file, you must apply the answer file to an offline image and specify the settings in the offlineServicing configuration pass.
+
+If you are updating packages or other settings using an unattended answer file, you can apply the answer file to an offline or online image. 
+Specify the settings in the offlineServicing configuration pass.
+
+Dism /image:C:\test\offline /Apply-Unattend:C:\test\answerfiles\myunattend.xml
+Dism /online /Apply-Unattend:C:\test\answerfiles\myunattend.xml
+
+
+
 
 
 
