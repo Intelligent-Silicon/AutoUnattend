@@ -118,7 +118,8 @@ List installed drivers
 PS C:\WINDOWS\system32> pnputil.exe -e | Out-File -FilePath "C:\Users\Admin1\Documents\Drivers\installdrivers.txt"
 
 Delete driver
-pnputil.exe -f -d oem<number>.inf (replace <number> with the actual number from the .inf file) and press Enter. The -f flag forces deletion, and -d deletes the package
+pnputil.exe -f -d oem<number>.inf (replace <number> with the actual number from the .inf file) and press Enter. 
+The -f flag forces deletion, and -d deletes the package
 
 
 
