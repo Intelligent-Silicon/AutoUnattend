@@ -2,8 +2,18 @@
 
 ## ISO file for VMware
 
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/boot-from-a-dvd?view=windows-10&viewFallbackFrom=windows-11
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deploy-a-custom-image?view=windows-10
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/boot-from-a-dvd?view=windows-10
+
+
+
 Setup for:
 VMWare Workstation 17 on Win11 Home
+UEFI boot - 
 British English
 Single Hard Drive
 Ethernet
@@ -44,6 +54,8 @@ C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment 
 C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\WSIM;
 C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment;
 C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Imaging and Configuration Designer\x86;
+
+
 
 Next type ```copype x86 C:\mount_Win10x32_WinPE```. 
 This will create a folder called: ```C:\mount_Win10x32_WinPE``` and will then create & copy, a number of subfolders and files to the ```C:\mount_Win10x32_WinPE``` folder.
@@ -115,11 +127,16 @@ If you switched off RealTime protection, now is the time to switch it back on, a
 
 Now reopen the Deployment and Imaging Tools Environment command window again and run this command
 
+```
 Makewinpemedia /iso C:\mount_Win10x32_WinPE C:\mount_Win10x32_WinPE\WinPEx32.iso
- 
+```
+
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-mount-and-customize?view=windows-11#add-updates-to-winpe-if-needed
 
 
+Mount-DiskImage -ImagePath "C:\mount_Win10x32_WinPE\WinPEx32.iso"
+
+Dismount-DiskImage -ImagePath "C:\mount_Win10x32_WinPE\WinPEx32.iso"
 
 Create the following Folder: c:\mount_WinPEx32
 Open Command Window and run the following command:

@@ -562,3 +562,25 @@ https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
 https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install#other-adk-downloads
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/winpe-intro?view=windows-11
+
+https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-8.1-and-8/hh825030(v=win.10)
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/windows-system-image-manager-scenarios-overview
+
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/windows-system-image-manager-overview-topics
+
+
+https://superuser.com/questions/1624231/how-to-create-an-unattended-windows-installation-medium-iso-usb-supporting-secur
+
+
+
+    LTI: automates most things and would be used if wanting to boot to auditSystem or auditUser prior to oobeSystem
+    ZTI: automates everything, with the first user interaction either during, or after, OOBE
+
+https://learn.microsoft.com/en-us/intune/configmgr/mdt/lite-touch-installation-guide  
+
+https://learn.microsoft.com/en-us/intune/configmgr/mdt/configmgr-guide
+
+Upon selecting Install: 1:windowsPE
+Setup boots to WinPE: 2:offlineServicing, 3:specialize
+Setup boots to applied image [OS partition]: 5:auditSystem, 6:auditUser, 7:oobeSystem
