@@ -252,7 +252,9 @@ The SSU can be downloaded [here](https://www.catalog.update.microsoft.com/Search
 There are three to choose from. 
 
 [Link 1 2022-05 Servicing Stack Update for Windows 10 Version 21H2 for x86-based Systems (KB5014032) - Windows 10, version 1903 and later, Windows 10 LTSB](www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=841c7193-96db-43b9-8e89-eebd1d1c3a04)
+
 [Link 2 2022-05 Servicing Stack Update for Windows 10 Version 21H1 for x86-based Systems (KB5014032) - Windows 10, version 1903 and later](www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=35bd64e9-aa66-43c3-80ea-a00184937ba3)
+
 [Link 3 2022-05 Servicing Stack Update for Windows 10 Version 20H2 for x86-based Systems (KB5014032) - Windows 10, version 1903 and later](www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=2df37f22-5902-43ec-ae92-d50574470916)
 
 If you click Link 1, then select  
