@@ -262,6 +262,12 @@ Link 2 has N/A, and Link 3 replaces a list of other KB updates.
 
 We can use any of the 3 updates to apply the update if we needed to, but for the purpose of this repo we will download [Link 2](https://catalog.s.download.windowsupdate.com/c/msdownload/update/software/secu/2022/05/ssu-19041.1704-x86_3cec66c3891a613e6656f141547e573f9d700d35.msu). 
 
+We can see the ```MSU``` file is ```ssu-19041.1704-x86_3cec66c3891a613e6656f141547e573f9d700d35.msu``` and we can see ```ssu-19041.1704``` listed in the ```Package Details Package_for_ServicingStack_1704~31bf3856ad364e35~x86~~19041.1704.1.4``` shown above in each ```WIM``` file.
+
+We cant download the Enablement Update KB5015684 from the Microsoft Update Catalog, only from the Windows Update service, but if we download the very latest Cumulative Update by searching for [Windows 10 x86 22H2 Cumulative Update 2025-06](https://www.catalog.update.microsoft.com/Search.aspx?q=Windows%2010%20x86%2022h2%20Cumulative%20Update%202025-06] and then selecting Link 2 to [download the LCU](https://catalog.s.download.windowsupdate.com/c/msdownload/update/software/updt/2025/06/windows10.0-kb5063159-x86_7d10fe75ab78f32f2f68ce8f990e23ef6cf8cf35.msu), we can then expand the ```MSU``` to see what exactly is included in the update file.
+
+
+
  
 
 https://www.catalog.update.microsoft.com/Search.aspx?q=Windows%2010%20x86%20KB5014032
