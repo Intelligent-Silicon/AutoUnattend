@@ -257,7 +257,10 @@ There are three to choose from.
 
 [Link 3 2022-05 Servicing Stack Update for Windows 10 Version 20H2 for x86-based Systems (KB5014032) - Windows 10, version 1903 and later](https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=2df37f22-5902-43ec-ae92-d50574470916)
 
-If you click Link 1, then select  
+If you click Link 1, then select the Package Details tab, you can see this update file has been replaced by ```2023-10 Servicing Stack Update for Windows 10 Version 21H2 for x86-based Systems (KB5031539)```
+Link 2 has N/A, and Link 3 replaces a list of other KB updates.
+
+We can use all 3 of the updates, but for the purpose of this repo we will download [Link 2](https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=35bd64e9-aa66-43c3-80ea-a00184937ba3).  
 
 https://www.catalog.update.microsoft.com/Search.aspx?q=Windows%2010%20x86%20KB5014032
 
