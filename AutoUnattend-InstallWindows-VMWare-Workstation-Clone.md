@@ -191,8 +191,8 @@ InstallTime  : 04/12/2023 02:25:00
 
 ```
 [Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
-[Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_WIM"
-PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_WIM" /discard
+[Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /discard
 ```
 
 So we can see that [KB5015684](https://support.microsoft.com/en-gb/topic/kb5015684-featured-update-to-windows-10-version-22h2-by-using-an-enablement-package-09d43632-f438-47b5-985e-d6fd704eee61) has been applied to the boot.wim PE & Setup images, along with the install.wim image we have previously made.
