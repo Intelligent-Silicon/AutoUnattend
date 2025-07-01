@@ -78,6 +78,9 @@ Click the link below, scroll down to "Download the ADK for Windows 10, version 2
 
 [Download Windows PE add-on for the ADK, version 2004](https://go.microsoft.com/fwlink/?linkid=2120253)
 
+Rename the filename ```adksetup.exe``` to ```adk_setup_2004.exe``` or similar to help differentiate different versions.
+Rename the filename ```adkwinpesetup.exe``` to ```adkwinpesetup_2004.exe``` or similar to help differentiate different versions.
+
 This ADK supports Windows 10, version 2004, and later versions of Windows 10
 This version of the ADK and ADK WinPE Add-on have been republished in May 2025 to fix the security vulnerability. 
 Make sure you install the latest version of ADK to stay most up-to-date. 
