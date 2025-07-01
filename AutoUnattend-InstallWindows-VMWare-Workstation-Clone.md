@@ -61,13 +61,19 @@ PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_I
 
 ### 3 Download the Deployment Tools from the Windows ADK.
 
-https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
-The 32-bit versions of Windows PE are no longer included in the Windows PE add-ons starting with the ADK for Windows 11, version 22H2. 
-The last supported version of 32-bit Windows PE is available in the Windows PE add-on for Windows 10, version 2004.
-We need the 32-bit Windows PE in order to install a 32bit version of Windows.
+As we are trying to install a 32bit version of Windows, we need the last version of ADK which supports 32bit installations.
 
+[Main ADK download page](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install)
 
-https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install#other-adk-downloads
+The last version of ADK which supported 32-bit Windows is version 2004. 
+Click the link below, scroll down to "Download the ADK for Windows 10, version 2004 (Republished in May 2025)" or click on the two Download links below it.
+
+[Main ADK download Page - Other versions](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install#other-adk-downloads)
+
+[Download Windows ADK for Windows 10, version 2004](https://go.microsoft.com/fwlink/?linkid=2120254)
+
+[Download Windows PE add-on for the ADK, version 2004](https://go.microsoft.com/fwlink/?linkid=2120253)
+
 This ADK supports Windows 10, version 2004, and later versions of Windows 10
 This version of the ADK and ADK WinPE Add-on have been republished in May 2025 to fix the security vulnerability. 
 Make sure you install the latest version of ADK to stay most up-to-date. 
@@ -75,8 +81,8 @@ If you have to keep using this version of ADK, make sure you install with the ne
 Note: Before applying a more recent update to the Windows PE add-on, verify the pre-requisite Servicing Stack Update (SSU) in KB5026361 has been applied first. 
 See apply Windows update to the Windows PE media for how to apply SSU.
 
-https://go.microsoft.com/fwlink/?linkid=2120254 Windows ADK for Windows 10, version 2004
-https://go.microsoft.com/fwlink/?linkid=2120253 Windows PE add-on for the ADK, version 2004
+ 
+ 
 https://support.microsoft.com/topic/may-9-2023-kb5026361-os-builds-19042-2965-19044-2965-and-19045-2965-3edafffe-c3cc-4010-af43-2097c84c9437 
 https://learn.microsoft.com/en-us/windows/deployment/update/media-dynamic-update#update-winpe
 
