@@ -37,6 +37,8 @@ PS C:\WINDOWS\system32> Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents
 
 ### 2 Export the required version of Windows from the ```\sources\install.esd``` to a ```\sources\install.wim``` file.
 
+Text files are made to document states before and after change.
+
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd.txt"
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" /index:7 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd.7.txt"
