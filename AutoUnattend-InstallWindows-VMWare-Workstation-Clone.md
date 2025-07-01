@@ -107,7 +107,7 @@ special standalone May 10, 2022 SSU ([KB5014032](https://support.microsoft.com/e
 ### 4.1 To check the ```boot.wim``` which contains the ```WindowsPE``` image used in the ```WindowsPE``` configuration pass.
 
 ```
-PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.ImageInfo.default.txt"
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" /index:1 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.ImageInfo.default.txt"
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_PE_WIM"
 PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /readonly
 ```
@@ -146,6 +146,7 @@ KB5015684 is https://support.microsoft.com/en-gb/topic/kb5015684-featured-update
 ### 4.2 To check the ```boot.wim``` which contains the ```Windows Setup``` image used in the ```WindowsPE``` configuration pass.
 
 ```
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" /index:2 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.ImageInfo.default.txt"
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
 PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" /index:2 /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /readonly
 ```
@@ -170,7 +171,29 @@ PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_B
 
 ### 4.3 To check the ```install.wim``` which contains the main Windows image used to install Windows onto a computer.
 
+```
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.ImageInfo.default.txt"
+PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Install_WIM"
+PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Install_WIM"
+```
 
+```
+PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Packages.default.txt"
+PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.PackageKB.default.txt"
+```
+
+```
+PackageName  : Package_for_KB5015684~31bf3856ad364e35~x86~~19041.1799.1.2
+PackageState : Installed
+ReleaseType  : Update
+InstallTime  : 04/12/2023 03:30:00
+```
+
+```
+[Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
+[Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_WIM"
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_WIM" /discard
+```
 
 So we can see that [KB5015684](https://support.microsoft.com/en-gb/topic/kb5015684-featured-update-to-windows-10-version-22h2-by-using-an-enablement-package-09d43632-f438-47b5-985e-d6fd704eee61) has been applied to the boot.wim PE & Setup images, along with the install.wim image we have previously made.
 The later and greater CU KB5015684 would suggest the SSU has been installed at the time of writing.
