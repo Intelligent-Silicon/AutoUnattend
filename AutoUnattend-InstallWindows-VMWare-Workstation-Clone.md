@@ -157,7 +157,7 @@ InstallTime  : 04/12/2023 03:30:00
 ```
 [Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 [Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
-PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /discard # Even though this was loaded with /ReadOnly, /unmount-image has to have either /discard or /commit so using /discard
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /discard
 ```
 
 So we can see that KB5015684 has been applied to the boot.wim PE & Setup images, along with the install.wim image we have previously made.
