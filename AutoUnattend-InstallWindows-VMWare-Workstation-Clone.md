@@ -70,7 +70,7 @@ As we are trying to install a 32bit version of Windows, we need the last version
 [Main ADK download page](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install)
 
 The last version of ADK which supported 32-bit Windows is version 2004. 
-Click the link below, scroll down to "Download the ADK for Windows 10, version 2004 (Republished in May 2025)" or click on the two Download links below it to download the programs directly.
+Click the link below, scroll down to "```Download the ADK for Windows 10, version 2004 (Republished in May 2025)```" or click on the two Download links below it to download the programs directly.
 
 [Main ADK download Page - Other versions](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install#other-adk-downloads)
 
@@ -78,70 +78,83 @@ Click the link below, scroll down to "Download the ADK for Windows 10, version 2
 
 [Download Windows PE add-on for the ADK, version 2004 ```adkwinpesetup.exe```](https://go.microsoft.com/fwlink/?linkid=2120253)
 
-Rename the filename ```adksetup.exe``` to ```adk_setup_2004.exe``` or similar to help differentiate different versions.
+Rename the filename ```adksetup.exe``` to ```adksetup_2004.exe``` or similar to help differentiate different versions.
 
 Rename the filename ```adkwinpesetup.exe``` to ```adkwinpesetup_2004.exe``` or similar to help differentiate different versions.
 
-This ADK supports Windows 10, version 2004, and later versions of Windows 10
-This version of the ADK and ADK WinPE Add-on have been republished in May 2025 to fix the security vulnerability. 
-Make sure you install the latest version of ADK to stay most up-to-date. 
-If you have to keep using this version of ADK, make sure you install with the new link provided in this table.
-Note: Before applying a more recent update to the Windows PE add-on, verify the pre-requisite Servicing Stack Update (SSU) in KB5026361 has been applied first. 
-See apply Windows update to the Windows PE media for how to apply SSU.
+This 2004 ADK supports Windows 10, version 2004, and later versions of Windows 10
 
- 
- 
-https://support.microsoft.com/topic/may-9-2023-kb5026361-os-builds-19042-2965-19044-2965-and-19045-2965-3edafffe-c3cc-4010-af43-2097c84c9437 
-https://learn.microsoft.com/en-us/windows/deployment/update/media-dynamic-update#update-winpe
+This version of the ADK and ADK WinPE Add-on have been republished in May 2025 to fix a security vulnerability. 
 
-https://support.microsoft.com/topic/may-9-2023-kb5026361-os-builds-19042-2965-19044-2965-and-19045-2965-3edafffe-c3cc-4010-af43-2097c84c9437 
-For offline OS image servicing:
-If your image does not have the March 22, 2022 (KB5011543) or later Cumulative Update (CU), you must install the 
-special standalone May 10, 2022 SSU (KB5014032) before installing this update.
+Windows PE, Setup and main installable Windows needs the Servicing Stack Update (SSU) in [KB5026361](https://support.microsoft.com/en-gb/topic/may-9-2023-kb5026361-os-builds-19042-2965-19044-2965-and-19045-2965-3edafffe-c3cc-4010-af43-2097c84c9437).
+
+The steps below in this section will show you how to check what updates are installed so you can see if KB5026361 is installed.
+
+[For offline OS image servicing:](https://support.microsoft.com/topic/may-9-2023-kb5026361-os-builds-19042-2965-19044-2965-and-19045-2965-3edafffe-c3cc-4010-af43-2097c84c9437)
+
+If your image does not have the March 22, 2022 ([KB5011543](https://support.microsoft.com/en-gb/topic/march-22-2022-kb5011543-os-builds-19042-1620-19043-1620-and-19044-1620-preview-4fe2d1c0-720f-47fe-9523-75339bc107a1)) or later Cumulative Update (CU), you must install the 
+special standalone May 10, 2022 SSU ([KB5014032](https://support.microsoft.com/en-gb/topic/kb5014032-servicing-stack-update-for-windows-10-version-20h2-21h1-and-21h2-may-10-2022-69a798ad-813d-4d62-bb54-2252bbb434a1)) before installing this update.
 
 So check the boot.wim which contains the Windows PE.
+```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.default.txt"
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_PE_WIM"
 PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
-PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /readonly
+```
 
 If you dont want to use the /ReadOnly attribute but make changes, use the line below.
-PS C:\WINDOWS\system32> Set-ItemProperty "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" -name IsReadOnly -value $false
 
+```
+PS C:\WINDOWS\system32> Set-ItemProperty "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" -name IsReadOnly -value $false
+```
+
+```
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.Packages.default.txt"
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.PackageKB.default.txt"
+```
 
 PackageName  : Package_for_KB5015684~31bf3856ad364e35~x86~~19041.1799.1.2
 PackageState : Installed
 ReleaseType  : Update
 InstallTime  : 04/12/2023 03:23:00
 
+```
 PS C:\WINDOWS\system32> dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM"
 PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /discard # Even though this was loaded with /ReadOnly, /unmount-image has to have either /discard or /commit so using /discard
+```
 
 We can see KB5015684 is installed in the Windows 10 22H2 x32 Boot PE WIM.
 KB5015684 is https://support.microsoft.com/en-gb/topic/kb5015684-featured-update-to-windows-10-version-22h2-by-using-an-enablement-package-09d43632-f438-47b5-985e-d6fd704eee61
 
 So check the boot.wim which contains the Windows Setup.
+
+```
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
 PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" /index:2 /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /readonly
+```
 
 If you dont want to use the /ReadOnly attribute but make changes, use the line below.
+```
 PS C:\WINDOWS\system32> Set-ItemProperty "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" -name IsReadOnly -value $false
+```
 
+```
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.Setup.Packages.default.txt"
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.Setup.PackageKB.default.txt"
+```
 
 PackageName  : Package_for_KB5015684~31bf3856ad364e35~x86~~19041.1799.1.2
 PackageState : Installed
 ReleaseType  : Update
 InstallTime  : 04/12/2023 03:30:00
 
+```
 PS C:\WINDOWS\system32> dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
 PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /discard # Even though this was loaded with /ReadOnly, /unmount-image has to have either /discard or /commit so using /discard
+```
 
 So we can see that KB5015684 has been applied to the boot.wim PE & Setup images, along with the install.wim image we have previously made.
 The later and greater CU KB5015684 would suggest the SSU has been installed at the time of writing.
