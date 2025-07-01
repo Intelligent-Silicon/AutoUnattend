@@ -241,12 +241,9 @@ PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_I
 ```
 ### 4.4 Checking for installed Updates Summary
 
-An Update which is a KB number greater than another Update of the same Type will replace the lower numbered Update, unless a note specifically states a previous Update of the same Type needs to be installed.
+An Update which is a KB number greater than another Update of the same Type will replace the lower numbered Update, unless a note specifically states a previous Update of the same Type needs to be installed first.
 
-
- 
-
-You can install the latest CU to skip previous yet-to-be-installed CU's unless it needs a certain previous Patch to be installed. You have to walk the chain of updates and patches backward until you reach your current version of windows.
+You have to walk the chain of updates and patches backward until you reach your current version of windows.
 
 Windows 10 Common Core + Foundation Package (Version Pro N Features) + Enablement Package (22H2).
  
