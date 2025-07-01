@@ -136,6 +136,16 @@ PackageName  : Package_for_KB5015684~31bf3856ad364e35~x86~~19041.1799.1.2
 PackageState : Installed
 ReleaseType  : Update
 InstallTime  : 04/12/2023 03:23:00
+
+PackageName  : Package_for_ServicingStack_1704~31bf3856ad364e35~x86~~19041.1704.1.4
+PackageState : Installed
+ReleaseType  : SecurityUpdate
+InstallTime  : 04/12/2023 02:25:00
+
+PackageName  : Package_for_ServicingStack_3745~31bf3856ad364e35~x86~~19041.3745.1.0
+PackageState : Installed
+ReleaseType  : Update
+InstallTime  : 04/12/2023 02:25:00
 ```
 
 ```
@@ -171,6 +181,16 @@ PackageName  : Package_for_KB5015684~31bf3856ad364e35~x86~~19041.1799.1.2
 PackageState : Installed
 ReleaseType  : Update
 InstallTime  : 04/12/2023 03:30:00
+
+PackageName  : Package_for_ServicingStack_1704~31bf3856ad364e35~x86~~19041.1704.1.4
+PackageState : Installed
+ReleaseType  : SecurityUpdate
+InstallTime  : 04/12/2023 03:30:00
+
+PackageName  : Package_for_ServicingStack_3745~31bf3856ad364e35~x86~~19041.3745.1.0
+PackageState : Installed
+ReleaseType  : Update
+InstallTime  : 04/12/2023 03:30:00
 ```
 
 ```
@@ -196,6 +216,16 @@ PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" 
 
 ```
 PackageName  : Package_for_KB5015684~31bf3856ad364e35~x86~~19041.1799.1.2
+PackageState : Installed
+ReleaseType  : Update
+InstallTime  : 04/12/2023 02:25:00
+
+PackageName  : Package_for_ServicingStack_1704~31bf3856ad364e35~x86~~19041.1704.1.4
+PackageState : Installed
+ReleaseType  : SecurityUpdate
+InstallTime  : 04/12/2023 02:25:00
+
+PackageName  : Package_for_ServicingStack_3745~31bf3856ad364e35~x86~~19041.3745.1.0
 PackageState : Installed
 ReleaseType  : Update
 InstallTime  : 04/12/2023 02:25:00
