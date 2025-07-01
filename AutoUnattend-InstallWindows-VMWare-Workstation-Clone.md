@@ -16,7 +16,7 @@
 
 [4.3 To check the ```install.wim``` which contains the main Windows image used to install Windows onto a computer.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#43-to-check-the-installwim-which-contains-the-main-windows-image-used-to-install-windows-onto-a-computer)
 
-[4.4 Checking Updates Summary]
+[4.4 Checking Updates Summary](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#44-checking-updates-summary)
 
 
 5. Create an Answer File to initially setup windows.
