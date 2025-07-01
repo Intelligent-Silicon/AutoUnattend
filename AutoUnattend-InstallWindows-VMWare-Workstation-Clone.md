@@ -82,7 +82,7 @@ Rename the filename ```adksetup.exe``` to ```adksetup_2004.exe``` or similar to 
 
 Rename the filename ```adkwinpesetup.exe``` to ```adkwinpesetup_2004.exe``` or similar to help differentiate different versions.
 
-This 2004 ADK supports Windows 10, version 2004, and later versions of Windows 10
+This 2004 ADK supports Windows 10, version 2004, and later versions of Windows 10.
 
 This version of the ADK and ADK WinPE Add-on have been republished in May 2025 to fix a security vulnerability. 
 
@@ -126,7 +126,7 @@ InstallTime  : 04/12/2023 03:23:00
 ```
 [Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 [Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM"
-PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /discard # 
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /discard 
 ```
 
 Even though this was loaded with ```/ReadOnly```, ```/unmount-image``` has to have either ```/discard``` or ```/commit```, it cant be missed off so using ```/discard```
