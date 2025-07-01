@@ -260,7 +260,7 @@ There are three to choose from.
 If you click Link 1, then select the Package Details tab, you can see this update file has been replaced by ```2023-10 Servicing Stack Update for Windows 10 Version 21H2 for x86-based Systems (KB5031539)```
 Link 2 has N/A, and Link 3 replaces a list of other KB updates.
 
-We can use any of the 3 updates to apply the update if we needed to, but for the purpose of this repo we will download [Link 2](https://www.catalog.update.microsoft.com/ScopedViewInline.aspx?updateid=35bd64e9-aa66-43c3-80ea-a00184937ba3). 
+We can use any of the 3 updates to apply the update if we needed to, but for the purpose of this repo we will download [Link 2](https://catalog.s.download.windowsupdate.com/c/msdownload/update/software/secu/2022/05/ssu-19041.1704-x86_3cec66c3891a613e6656f141547e573f9d700d35.msu). 
 
  
 
