@@ -15,7 +15,7 @@
 
 
 
-1 Download Windows 10 and copy the ISO to a folder.
+### 1 Download Windows 10 and copy the ISO to a folder.
 
 https://www.microsoft.com/en-gb/software-download/windows10
 
@@ -35,7 +35,7 @@ PS C:\WINDOWS\system32> Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destinati
 PS C:\WINDOWS\system32> Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\Win10_22H2_x32.iso"
 ```
 
-2 Export the required version of Windows from the ```\sources\install.esd``` to a ```\sources\install.wim``` file.
+### 2 Export the required version of Windows from the ```\sources\install.esd``` to a ```\sources\install.wim``` file.
 
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd.txt"
