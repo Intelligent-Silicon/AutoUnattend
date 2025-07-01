@@ -59,7 +59,7 @@ As this is a new wim file, its relative index position will be 1, if you were to
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.txt"
 PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /readonly
-PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
+[Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /discard
 ```
 
@@ -103,10 +103,10 @@ So check the boot.wim which contains the Windows PE.
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.default.txt"
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_PE_WIM"
-PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
+[Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 ```
 
-If you dont want to use the /ReadOnly attribute but make changes, use the line below.
+If you dont want to use the /ReadOnly attribute and make changes, use the line below to change the file attribute.
 
 ```
 PS C:\WINDOWS\system32> Set-ItemProperty "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" -name IsReadOnly -value $false
