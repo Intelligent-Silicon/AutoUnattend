@@ -287,7 +287,7 @@ Expanding Files Complete ...
 PS C:\WINDOWS\system32>
 ```
 
-Inside this expand ```MSU``` file, ```CAB``` files can also be expanded, we can see ```SSU-19041.5967-x86.cab```. Here we can see a similarly numbered SSU which can be installed. We would need to investigate if the SSU seen in ```SSU-19041.5967-x86.cab```is the same one found in ```2023-10 Servicing Stack Update for Windows 10 Version 21H2 for x86-based Systems (KB5031539)``` or not.  
+Inside this expanded ```MSU``` file, ```CAB``` files can also be expanded, we can see ```SSU-19041.5967-x86.cab```. Here we can see a similarly numbered SSU which can be installed. We would need to investigate if the SSU seen in ```SSU-19041.5967-x86.cab```is the same one found in ```2023-10 Servicing Stack Update for Windows 10 Version 21H2 for x86-based Systems (KB5031539)``` or not.  
 
 Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) files can contain other files including image files and ```MSU``` and ```CAB``` files which themselves can contain other files like other ```MSU``` and ```CAB``` files, like [Russian Matryoshka Dolls](https://en.wikipedia.org/wiki/Matryoshka_doll) 
 
