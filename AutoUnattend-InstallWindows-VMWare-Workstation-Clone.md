@@ -70,7 +70,7 @@ As we are trying to install a 32bit version of Windows, we need the last version
 [Main ADK download page](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install)
 
 The last version of ADK which supported 32-bit Windows is version 2004. 
-Click the link below, scroll down to "Download the ADK for Windows 10, version 2004 (Republished in May 2025)" or click on the two Download links below it.
+Click the link below, scroll down to "Download the ADK for Windows 10, version 2004 (Republished in May 2025)" or click on the two Download links below it to download the programs directly.
 
 [Main ADK download Page - Other versions](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install#other-adk-downloads)
 
