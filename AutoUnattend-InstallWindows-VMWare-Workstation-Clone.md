@@ -99,7 +99,7 @@ special standalone May 10, 2022 SSU ([KB5014032](https://support.microsoft.com/e
 
 ### 4. Check what Features, Packages, & KB's are installed (Optional)
  
-So check the boot.wim which contains the Windows PE.
+To check the ```boot.wim``` which contains the Windows PE image.
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.default.txt"
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_PE_WIM"
