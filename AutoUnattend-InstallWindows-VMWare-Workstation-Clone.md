@@ -9,8 +9,8 @@
 [3. Download the Deployment Tools from the Windows ADK.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#3-download-the-deployment-tools-from-the-windows-adk)
 
 [4. Check what Features, Packages, & KB's are installed (Optional)](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#4-check-what-features-packages--kbs-are-installed-optional)
-[4.1 To check the ```boot.wim``` which contains the ```WindowsPE``` image used in the ```WindowsPE``` configuration pass.]
-[4.2 To check the ```boot.wim``` which contains the ```Windows Setup``` image used in the ```WindowsPE``` configuration pass.]
+[4.1 To check the ```boot.wim``` which contains the ```WindowsPE``` image used in the ```WindowsPE``` configuration pass.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#41-to-check-the-bootwim-which-contains-the-windowspe-image-used-in-the-windowspe-configuration-pass)
+[4.2 To check the ```boot.wim``` which contains the ```Windows Setup``` image used in the ```WindowsPE``` configuration pass.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#42-to-check-the-bootwim-which-contains-the-windows-setup-image-used-in-the-windowspe-configuration-pass)
 
 
 4. Create an Answer File to initially setup windows.
