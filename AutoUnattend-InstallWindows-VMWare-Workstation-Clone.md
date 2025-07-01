@@ -167,7 +167,7 @@ InstallTime  : 04/12/2023 03:30:00
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /discard
 ```
 
-So we can see that KB5015684 has been applied to the boot.wim PE & Setup images, along with the install.wim image we have previously made.
+So we can see that [KB5015684](https://support.microsoft.com/en-gb/topic/kb5015684-featured-update-to-windows-10-version-22h2-by-using-an-enablement-package-09d43632-f438-47b5-985e-d6fd704eee61) has been applied to the boot.wim PE & Setup images, along with the install.wim image we have previously made.
 The later and greater CU KB5015684 would suggest the SSU has been installed at the time of writing.
 
 4.
