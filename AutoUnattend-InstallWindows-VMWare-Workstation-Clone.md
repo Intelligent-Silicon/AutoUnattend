@@ -237,7 +237,7 @@ InstallTime  : 04/12/2023 02:25:00
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /discard
 ```
 
-A Cumulative Update (CU) which is a greater number than one cited, will replace earlier CU's.
+A Cumulative Update (CU) which is a greater number than one cited, will replace earlier CU's. You can install the latest CU to skip previous yet-to-be-installed CU's unless it needs a certain previous Patch to be installed. You have to walk the chain of updates and patches backward until you reach your current version of windows.
 
 Windows 10 Common Core + Foundation Package (Version Pro N Features) + Enablement Package (22H2).
  
