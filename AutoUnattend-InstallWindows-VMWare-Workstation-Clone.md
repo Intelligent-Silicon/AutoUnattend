@@ -14,7 +14,7 @@
 
 [4.2 To check the ```boot.wim``` which contains the ```Windows Setup``` image used in the ```WindowsPE``` configuration pass.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#42-to-check-the-bootwim-which-contains-the-windows-setup-image-used-in-the-windowspe-configuration-pass)
 
-[4.3 To check the ```install.wim``` which contains the main Windows image used to install Windows onto a computer.]
+[4.3 To check the ```install.wim``` which contains the main Windows image used to install Windows onto a computer.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#43-to-check-the-installwim-which-contains-the-main-windows-image-used-to-install-windows-onto-a-computer)
 
 4. Create an Answer File to initially setup windows.
 5. Download Windows updates using the update services.
