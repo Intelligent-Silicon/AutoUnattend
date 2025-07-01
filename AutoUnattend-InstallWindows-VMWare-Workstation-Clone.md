@@ -124,6 +124,7 @@ PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_P
  
 
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.PackageKB.default.txt"
+PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Where-Object {$_.PackageName -match "ServicingStack"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.PackageSSU.default.txt"
 [Where-Object does not work directly with DISM, only Cmdlet objects]
 
 PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.Get-WindowsOptionalFeature.default.txt"
@@ -161,6 +162,7 @@ PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_IS
 ```
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.Setup.Packages.default.txt"
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.Setup.PackageKB.default.txt"
+PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM" | Where-Object {$_.PackageName -match "ServicingStack"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.Setup.PackageSSU.default.txt"
 PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /Get-Features | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.Setup.Features.default.txt"
 ```
 
@@ -188,6 +190,7 @@ PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_IS
 ```
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Packages.default.txt"
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.PackageKB.default.txt"
+PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.PackageName -match "ServicingStack"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.PackageSSU.default.txt"
 PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.default.txt"
 ```
 
@@ -205,7 +208,7 @@ PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_I
 ```
 
 So we can see that [KB5015684](https://support.microsoft.com/en-gb/topic/kb5015684-featured-update-to-windows-10-version-22h2-by-using-an-enablement-package-09d43632-f438-47b5-985e-d6fd704eee61) has been applied to the boot.wim PE & Setup images, along with the install.wim image we have previously made.
-The later and greater CU KB5015684 would suggest the SSU has been installed at the time of writing.
+The later and greater in number value CU KB5015684 would suggest the SSU has been installed at the time of writing. The SSU is
 
 4.
 This AutoUnattend answer file needs to setup Windows 10. 
