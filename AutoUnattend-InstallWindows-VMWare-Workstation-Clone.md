@@ -186,7 +186,7 @@ PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Instal
 PackageName  : Package_for_KB5015684~31bf3856ad364e35~x86~~19041.1799.1.2
 PackageState : Installed
 ReleaseType  : Update
-InstallTime  : 04/12/2023 03:30:00
+InstallTime  : 04/12/2023 02:25:00
 ```
 
 ```
