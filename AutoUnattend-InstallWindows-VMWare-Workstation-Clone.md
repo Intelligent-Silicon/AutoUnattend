@@ -287,7 +287,7 @@ Expanding Files Complete ...
 PS C:\WINDOWS\system32>
 ```
 
-Inside this expand ```MSU``` file, ```CAB``` files can also be expanded, we can ```SSU-19041.5967-x86.cab```. Here we can see a similarly numbered SSU which can be installed.
+Inside this expand ```MSU``` file, ```CAB``` files can also be expanded, we can see ```SSU-19041.5967-x86.cab```. Here we can see a similarly numbered SSU which can be installed.
 
 Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) files can contain other image files and ```MSU``` and ```CAB``` which can contain other files like ```MSU``` and ```CAB```, like [Russian Matryoshka Dolls](https://en.wikipedia.org/wiki/Matryoshka_doll) 
 
