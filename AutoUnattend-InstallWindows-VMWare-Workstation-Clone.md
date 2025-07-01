@@ -3,7 +3,7 @@
 ## Create Master copy
 
 1. Download Windows 10 and copy the ISO to a folder.
-2. Export the required version of Windows from the install.esd to a .wim file.
+2. Export the required version of Windows from the ```\sources\install.esd``` to a ```\sources\install.wim``` file.
 3. Download the Deployment Tools from the Windows ADK.
 4. Create an Answer File to initially setup windows.
 5. Download Windows updates using the update services.
@@ -35,16 +35,27 @@ PS C:\WINDOWS\system32> Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destinati
 PS C:\WINDOWS\system32> Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\Win10_22H2_x32.iso"
 ```
 
-2.
+2 Export the required version of Windows from the ```\sources\install.esd``` to a ```\sources\install.wim``` file.
+
+```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd.txt"
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" /index:7 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd.7.txt"
+```
+
 The N variants stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
+
+```
 PS C:\WINDOWS\system32> dism /export-image /SourceImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" /SourceIndex:7 /DestinationImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /Compress:max /CheckIntegrity
+```
 As this is a new wim file, its relative index position will be 1, if you were to export more images to the destination file its relative index position will increase by 1.
+
+```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.txt"
 PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /readonly
 PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /discard
+```
+
 
 3.
 https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
