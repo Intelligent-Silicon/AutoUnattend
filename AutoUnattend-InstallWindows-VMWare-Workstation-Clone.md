@@ -139,14 +139,7 @@ So check the boot.wim which contains the Windows Setup.
 
 ```
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
-[Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
-[Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
 PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" /index:2 /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /readonly
-```
-
-If you dont want to use the /ReadOnly attribute but make changes, use the line below.
-```
-PS C:\WINDOWS\system32> Set-ItemProperty "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" -name IsReadOnly -value $false
 ```
 
 ```
@@ -154,14 +147,16 @@ PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_S
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.Setup.PackageKB.default.txt"
 ```
 
+```
 PackageName  : Package_for_KB5015684~31bf3856ad364e35~x86~~19041.1799.1.2
 PackageState : Installed
 ReleaseType  : Update
 InstallTime  : 04/12/2023 03:30:00
+```
 
 ```
-PS C:\WINDOWS\system32> dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
-PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
+[Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
+[Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /discard # Even though this was loaded with /ReadOnly, /unmount-image has to have either /discard or /commit so using /discard
 ```
 
