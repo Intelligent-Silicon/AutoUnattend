@@ -106,7 +106,7 @@ PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_PE_WIM"
 [Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 ```
 
-If you dont want to use the ```/ReadOnly``` attribute but make changes to a ```WIM```, use the line below to change the file attribute.
+If you dont want to use the ```/ReadOnly``` attribute but make changes to a ```WIM``` file, use the line below to change the file attribute.
 
 ```
 PS C:\WINDOWS\system32> Set-ItemProperty "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" -name IsReadOnly -value $false
