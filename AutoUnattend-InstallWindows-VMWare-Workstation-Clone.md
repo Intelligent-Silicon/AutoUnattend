@@ -238,7 +238,7 @@ PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_I
 
 A [(Latest) Cumulative Update (L(CU))|Servicing Stack Update (SSU)|Feature Update (FU)|Quality Update (QU)|Driver Update (DU)] which is a KB number greater than another KB Update number of the same Type will replace the lower KB numbered Update, unless a note specifically states a previous KB Update of the same Type needs to be installed first.
 
-You have to walk the chain of updates backward until you reach your current version of windows.
+You have to walk the chain of updates backwards until you reach your current version of windows or the required KB's that need to be installed.
 
 Below is how Windows can be viewed:
 
