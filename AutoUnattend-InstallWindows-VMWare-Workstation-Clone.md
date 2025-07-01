@@ -23,7 +23,7 @@ Save as MediaCreationTool_Win10_22H2.exe
 
 Run the MCT and save ISO as Win10_22H2_x32.iso. You'll need 40GB of storage space.
 
-```PS C:\WINDOWS\system32>``` means this is Powershell running as the Administrator.
+```PS C:\WINDOWS\system32>``` means this is Powershell running elevated as the Administrator.
 ```PS C:\Users\Admin1>``` or ```PS C:\Users\[UserName]>``` means this is Powershell running unelevated as the user account.
 
 ```
