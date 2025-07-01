@@ -15,7 +15,8 @@
 
 
 
-1
+1 Download Windows 10 and copy the ISO to a folder.
+
 https://www.microsoft.com/en-gb/software-download/windows10
 
 Save as MediaCreationTool_Win10_22H2.exe
