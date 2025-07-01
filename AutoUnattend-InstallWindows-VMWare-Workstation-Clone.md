@@ -117,10 +117,12 @@ PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_P
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.PackageKB.default.txt"
 ```
 
+```
 PackageName  : Package_for_KB5015684~31bf3856ad364e35~x86~~19041.1799.1.2
 PackageState : Installed
 ReleaseType  : Update
 InstallTime  : 04/12/2023 03:23:00
+```
 
 ```
 PS C:\WINDOWS\system32> dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM"
