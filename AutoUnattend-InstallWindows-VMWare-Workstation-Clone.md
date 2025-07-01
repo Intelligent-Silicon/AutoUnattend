@@ -119,9 +119,15 @@ PS C:\WINDOWS\system32> Set-ItemProperty "C:\mount_Win10_22H2_x32_ISO\sources\bo
 ```
 
 ```
-PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.Packages.default.txt"
+PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.Get-WindowsPackage.default.txt"
+[As Above] PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /Get-Packages | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.Get-Packages.default.txt"
+ 
+
 PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.PackageKB.default.txt"
-PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /Get-Features | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.Features.default.txt"
+[Where-Object does not work directly with DISM, only Cmdlet objects]
+
+PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Boot_PE_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.Get-WindowsOptionalFeature.default.txt"
+[As Above] PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /Get-Features | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.PE.Get-Features.default.txt"
 ```
 
 ```
