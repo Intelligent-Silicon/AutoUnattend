@@ -16,7 +16,7 @@
 
 [4.3 To check the ```install.wim``` which contains the main Windows image used to install Windows onto a computer.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#43-to-check-the-installwim-which-contains-the-main-windows-image-used-to-install-windows-onto-a-computer)
 
-[4.4 Checking Updates Summary](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#44-checking-updates-summary)
+[4.4 Checking for installed Updates Summary](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#44-checking-updates-summary)
 
 
 5. Create an Answer File to initially setup windows.
@@ -239,7 +239,7 @@ InstallTime  : 04/12/2023 02:25:00
 [Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /discard
 ```
-### 4.4 Checking Updates Summary
+### 4.4 Checking for installed Updates Summary
 
 A Cumulative Update (CU) which is a greater number than one cited, will replace earlier CU's. You can install the latest CU to skip previous yet-to-be-installed CU's unless it needs a certain previous Patch to be installed. You have to walk the chain of updates and patches backward until you reach your current version of windows.
 
