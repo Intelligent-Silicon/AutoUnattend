@@ -44,7 +44,7 @@ PS C:\WINDOWS\system32> Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents
 
 We need to export from a ```ESD``` file and create a ```WIM``` file because the ADK Windows System Image Manager (SIM) only uses ```WIM``` files.
 
-Text files are made to document states before and after change.
+Text files are made to document states before and after change, to help track down problems.
 
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd.txt"
