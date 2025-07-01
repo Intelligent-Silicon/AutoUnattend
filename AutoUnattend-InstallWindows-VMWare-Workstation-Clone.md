@@ -8,7 +8,7 @@
 
 [3. Download the Deployment Tools from the Windows ADK.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#3-download-the-deployment-tools-from-the-windows-adk)
 
-[4. Check what Features, Packages, & KB's are installed (Optional)](
+[4. Check what Features, Packages, & KB's are installed (Optional)](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#4-check-what-features-packages--kbs-are-installed-optional)
 
 4. Create an Answer File to initially setup windows.
 5. Download Windows updates using the update services.
@@ -89,7 +89,7 @@ This version of the ADK and ADK WinPE Add-on have been republished in May 2025 t
 
 Windows PE, Setup and main installable Windows needs the Servicing Stack Update (SSU) in [KB5026361](https://support.microsoft.com/en-gb/topic/may-9-2023-kb5026361-os-builds-19042-2965-19044-2965-and-19045-2965-3edafffe-c3cc-4010-af43-2097c84c9437).
 
-The steps below in [section 4](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#4-check-what-features-packages--kbs-are-installed) will show you how to check what updates are installed so you can see if KB5026361 is installed.
+The steps below in [section 4](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#4-check-what-features-packages--kbs-are-installed-optional) will show you how to check what updates are installed so you can see if KB5026361 is installed.
 
 [For offline OS image servicing:](https://support.microsoft.com/topic/may-9-2023-kb5026361-os-builds-19042-2965-19044-2965-and-19045-2965-3edafffe-c3cc-4010-af43-2097c84c9437)
 
