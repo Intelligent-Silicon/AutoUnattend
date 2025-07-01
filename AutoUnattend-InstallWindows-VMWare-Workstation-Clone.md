@@ -74,9 +74,9 @@ Click the link below, scroll down to "Download the ADK for Windows 10, version 2
 
 [Main ADK download Page - Other versions](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install#other-adk-downloads)
 
-[Download Windows ADK for Windows 10, version 2004](https://go.microsoft.com/fwlink/?linkid=2120254)
+[Download Windows ADK for Windows 10, version 2004 ```adksetup.exe```](https://go.microsoft.com/fwlink/?linkid=2120254)
 
-[Download Windows PE add-on for the ADK, version 2004](https://go.microsoft.com/fwlink/?linkid=2120253)
+[Download Windows PE add-on for the ADK, version 2004 ```adkwinpesetup.exe```](https://go.microsoft.com/fwlink/?linkid=2120253)
 
 Rename the filename ```adksetup.exe``` to ```adk_setup_2004.exe``` or similar to help differentiate different versions.
 
