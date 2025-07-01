@@ -1,3 +1,4 @@
+```
 <settings pass="windowsPE">
 	<component name="Microsoft-Windows-International-Core-WinPE">
 		<InputLocale>0809:00000809</InputLocale>
@@ -106,3 +107,4 @@
 		</DynamicUpdate>		
 	</component>
 </settings>
+```
