@@ -271,7 +271,23 @@ We cant download the Enablement Update KB5015684 from the Microsoft Update Catal
 ```
 PS C:\WINDOWS\system32> md -path "C:\mount_windows10.0-kb5063159-x86"
 PS C:\WINDOWS\system32> Expand -F:* "C:\Users\Admin1\Documents\ISO Files\windows10.0-kb5063159-x86_7d10fe75ab78f32f2f68ce8f990e23ef6cf8cf35.msu" "C:\mount_windows10.0-kb5063159-x86"
+Microsoft (R) File Expansion Utility
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Adding C:\mount_windows10.0-kb5063159-x86\Windows10.0-KB5063159-x86-pkgProperties.txt to Extraction Queue
+Adding C:\mount_windows10.0-kb5063159-x86\Windows10.0-KB5063159-x86.cab to Extraction Queue
+Adding C:\mount_windows10.0-kb5063159-x86\Windows10.0-KB5063159-x86_uup.xml to Extraction Queue
+Adding C:\mount_windows10.0-kb5063159-x86\WSUSSCAN.cab to Extraction Queue
+Adding C:\mount_windows10.0-kb5063159-x86\SSU-19041.5967-x86.cab to Extraction Queue
+
+Expanding Files ....
+Progress: 1 out of 5 files
+Expanding Files Complete ...
+5 files total.
+PS C:\WINDOWS\system32>
 ```
+
+In side this folder there are 
 
 
 
