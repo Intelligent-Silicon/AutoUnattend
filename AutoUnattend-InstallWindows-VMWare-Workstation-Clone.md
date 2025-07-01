@@ -88,13 +88,16 @@ This version of the ADK and ADK WinPE Add-on have been republished in May 2025 t
 
 Windows PE, Setup and main installable Windows needs the Servicing Stack Update (SSU) in [KB5026361](https://support.microsoft.com/en-gb/topic/may-9-2023-kb5026361-os-builds-19042-2965-19044-2965-and-19045-2965-3edafffe-c3cc-4010-af43-2097c84c9437).
 
-The steps below in this section will show you how to check what updates are installed so you can see if KB5026361 is installed.
+The steps below in [section 4] will show you how to check what updates are installed so you can see if KB5026361 is installed.
 
 [For offline OS image servicing:](https://support.microsoft.com/topic/may-9-2023-kb5026361-os-builds-19042-2965-19044-2965-and-19045-2965-3edafffe-c3cc-4010-af43-2097c84c9437)
 
 If your image does not have the March 22, 2022 ([KB5011543](https://support.microsoft.com/en-gb/topic/march-22-2022-kb5011543-os-builds-19042-1620-19043-1620-and-19044-1620-preview-4fe2d1c0-720f-47fe-9523-75339bc107a1)) or later Cumulative Update (CU), you must install the 
 special standalone May 10, 2022 SSU ([KB5014032](https://support.microsoft.com/en-gb/topic/kb5014032-servicing-stack-update-for-windows-10-version-20h2-21h1-and-21h2-may-10-2022-69a798ad-813d-4d62-bb54-2252bbb434a1)) before installing this update.
 
+
+### 4. Check what Features, Packages, & KB's are installed
+ 
 So check the boot.wim which contains the Windows PE.
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.default.txt"
