@@ -172,14 +172,14 @@ PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_B
 ### 4.3 To check the ```install.wim``` which contains the main Windows image used to install Windows onto a computer.
 
 ```
-PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.ImageInfo.default.txt"
-PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Install_WIM"
-PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Install_WIM"
+PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.ImageInfo.default.txt"
+PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
+PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
 ```
 
 ```
-PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Packages.default.txt"
-PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.PackageKB.default.txt"
+PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Packages.default.txt"
+PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.PRo.N.PackageKB.default.txt"
 ```
 
 ```
