@@ -42,7 +42,7 @@ PS C:\WINDOWS\system32> Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents
 
 ### 2 Export the required version of Windows from the ```\sources\install.esd``` to a ```\sources\install.wim``` file.
 
-We need to export from a ```ESD``` and create a ```WIM``` file because the ADK Windows System Image Manager (SIM) only uses ```WIM``` files.
+We need to export from a ```ESD``` file and create a ```WIM``` file because the ADK Windows System Image Manager (SIM) only uses ```WIM``` files.
 
 Text files are made to document states before and after change.
 
