@@ -238,6 +238,7 @@ PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_I
 ```
 
 A Cumulative Update (CU) which is a greater number than one cited, will replace earlier CU's.
+
 Windows 10 Common Core + Foundation Package (Version Pro N Features) + Enablement Package (22H2).
  
 [KB5015684](https://support.microsoft.com/en-gb/topic/kb5015684-featured-update-to-windows-10-version-22h2-by-using-an-enablement-package-09d43632-f438-47b5-985e-d6fd704eee61) is an Enablement Update, which means Windows 10 core + has been applied to the boot.wim PE & Setup images, along with the install.wim image we have previously made.
