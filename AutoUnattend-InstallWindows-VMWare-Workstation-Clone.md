@@ -57,7 +57,8 @@ PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_I
 ```
 
 
-3.
+### 3 Download the Deployment Tools from the Windows ADK.
+
 https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
 The 32-bit versions of Windows PE are no longer included in the Windows PE add-ons starting with the ADK for Windows 11, version 22H2. 
 The last supported version of 32-bit Windows PE is available in the Windows PE add-on for Windows 10, version 2004.
