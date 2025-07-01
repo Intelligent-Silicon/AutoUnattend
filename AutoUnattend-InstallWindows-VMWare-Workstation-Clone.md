@@ -56,7 +56,7 @@ The N variants stand for "Not with Windows Media Player" and related Media Playe
 ```
 PS C:\WINDOWS\system32> dism /export-image /SourceImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" /SourceIndex:7 /DestinationImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /Compress:max /CheckIntegrity
 ```
-As this is a new wim file, its relative index position will be 1, if you were to export more images to the destination file its relative index position will increase by 1.
+As this is a new ```WIM``` file, its relative index position will be 1, if you were to export more images to the destination ```WIM``` file its relative index position will increase by 1.
 
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.txt"
