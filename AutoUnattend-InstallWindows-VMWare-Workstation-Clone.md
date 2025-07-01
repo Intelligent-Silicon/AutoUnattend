@@ -178,8 +178,8 @@ PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_IS
 ```
 
 ```
-PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Packages.default.txt"
-PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.PRo.N.PackageKB.default.txt"
+PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Packages.default.txt"
+PS C:\WINDOWS\system32> Get-WindowsPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.PackageName -match "KB"} | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.PackageKB.default.txt"
 ```
 
 ```
