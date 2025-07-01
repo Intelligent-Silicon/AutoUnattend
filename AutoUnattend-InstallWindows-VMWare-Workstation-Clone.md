@@ -61,7 +61,7 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_
 PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /readonly
 [Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 [Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" # If you need to remount for some reason.
-PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /discard
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /discard
 ```
 
 
@@ -104,6 +104,7 @@ To check the ```boot.wim``` which contains the ```WindowsPE``` image used in the
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.ImageInfo.default.txt"
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_PE_WIM"
+PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /readonly
 ```
 
 If you dont want to use the ```/ReadOnly``` attribute but make changes to a ```WIM``` file, use the line below to change the file attribute.
