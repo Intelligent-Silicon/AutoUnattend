@@ -58,10 +58,6 @@ As this is a new wim file, its relative index position will be 1, if you were to
 
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.txt"
-PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /readonly
-[Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
-[Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" # If you need to remount for some reason.
-PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /discard
 ```
 
 
@@ -128,8 +124,11 @@ InstallTime  : 04/12/2023 03:23:00
 ```
 [Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 [Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM"
-PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /discard # Even though this was loaded with /ReadOnly, /unmount-image has to have either /discard or /commit so using /discard
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_PE_WIM" /discard # 
 ```
+
+Even though this was loaded with ```/ReadOnly```, ```/unmount-image``` has to have either ```/discard``` or ```/commit```, it cant be missed off so using ```/discard```
+
 
 We can see KB5015684 is installed in the Windows 10 22H2 x32 Boot PE WIM.
 KB5015684 is https://support.microsoft.com/en-gb/topic/kb5015684-featured-update-to-windows-10-version-22h2-by-using-an-enablement-package-09d43632-f438-47b5-985e-d6fd704eee61
