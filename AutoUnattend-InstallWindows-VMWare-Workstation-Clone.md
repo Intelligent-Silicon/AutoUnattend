@@ -98,7 +98,8 @@ special standalone May 10, 2022 SSU ([KB5014032](https://support.microsoft.com/e
 
 ### 4. Check what Features, Packages, & KB's are installed (Optional)
  
-To check the ```boot.wim``` which contains the ```WindowsPE``` image used in the ```WindowsPE``` configuration pass.
+### 4.1 To check the ```boot.wim``` which contains the ```WindowsPE``` image used in the ```WindowsPE``` configuration pass.
+
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\boot.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\boot.wim.ImageInfo.default.txt"
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_PE_WIM"
@@ -135,7 +136,8 @@ Even though this was loaded with ```/ReadOnly```, ```/unmount-image``` has to ha
 We can see KB5015684 is installed in the Windows 10 22H2 x32 Boot PE WIM.
 KB5015684 is https://support.microsoft.com/en-gb/topic/kb5015684-featured-update-to-windows-10-version-22h2-by-using-an-enablement-package-09d43632-f438-47b5-985e-d6fd704eee61
 
-To check the ```boot.wim``` which contains the Windows Setup.
+
+### 4.2 To check the ```boot.wim``` which contains the ```Windows Setup``` image used in the ```WindowsPE``` configuration pass.
 
 ```
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
