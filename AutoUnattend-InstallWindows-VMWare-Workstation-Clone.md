@@ -268,6 +268,11 @@ Microsoft probably restrict the EU to the Windows Update service, to monitor mor
 
 We cant download the Enablement Update KB5015684 from the Microsoft Update Catalog, only from the Windows Update service, but if we download the very latest Cumulative Update by searching for [Windows 10 x86 22H2 Cumulative Update 2025-06](https://www.catalog.update.microsoft.com/Search.aspx?q=Windows%2010%20x86%2022h2%20Cumulative%20Update%202025-06) and then selecting Link 2 to [download the LCU](https://catalog.s.download.windowsupdate.com/c/msdownload/update/software/updt/2025/06/windows10.0-kb5063159-x86_7d10fe75ab78f32f2f68ce8f990e23ef6cf8cf35.msu), we can then expand the ```MSU``` to see what exactly is included in the update file.
 
+```
+PS C:\WINDOWS\system32> md -path "C:\mount_windows10.0-kb5063159-x86"
+PS C:\WINDOWS\system32> Expand -F:* "C:\Users\Admin1\Documents\ISO Files\windows10.0-kb5063159-x86_7d10fe75ab78f32f2f68ce8f990e23ef6cf8cf35.msu" "C:\mount_windows10.0-kb5063159-x86"
+```
+
 
 
  
