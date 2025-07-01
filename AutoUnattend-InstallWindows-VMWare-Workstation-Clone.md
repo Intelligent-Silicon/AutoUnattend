@@ -15,16 +15,20 @@
 
 
 
-1.
+1
 https://www.microsoft.com/en-gb/software-download/windows10
+
 Save as MediaCreationTool_Win10_22H2.exe
+
 Save ISO as Win10_22H2_x32.iso
 
+```
 PS C:\WINDOWS\system32> $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\Win10_22H2_x32.iso"
 PS C:\WINDOWS\system32> $DiskImageDriveLetter = ($DiskImageResult | Get-Volume).DriveLetter
 PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_ISO"
 PS C:\WINDOWS\system32> Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destination "C:\mount_Win10_22H2_x32_ISO" -Recurse
 PS C:\WINDOWS\system32> Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\Win10_22H2_x32.iso"
+```
 
 2.
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd.txt"
