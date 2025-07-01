@@ -295,7 +295,6 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) fi
 
  
 
-https://www.catalog.update.microsoft.com/Search.aspx?q=Windows%2010%20x86%20KB5014032
 
 4.
 This AutoUnattend answer file needs to setup Windows 10. 
