@@ -127,8 +127,7 @@ Windows Setup Settings
 
 40GB size
 
-
-Offline Servicing
+[Offline Servicing](AutoUnattend-AnswerFile-VMware-OfflineServicing.md)
 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/update-windows-settings-and-scripts-create-your-own-answer-file-sxs?view=windows-11
 
@@ -147,7 +146,15 @@ Dism /image:C:\test\offline /Apply-Unattend:C:\test\answerfiles\myunattend.xml
 Dism /online /Apply-Unattend:C:\test\answerfiles\myunattend.xml
 
 
+[generalize](AutoUnattend-AnswerFile-VMware-generalize.md)
 
+[specialize](AutoUnattend-AnswerFile-VMware-specialize.md)
+
+[auditSystem](AutoUnattend-AnswerFile-VMware-auditSystem.md)
+
+[auditUser](AutoUnattend-AnswerFile-VMware-auditUser.md)
+
+[oobeSystem](AutoUnattend-AnswerFile-VMware-oobeSystem.md)
 
 
 
