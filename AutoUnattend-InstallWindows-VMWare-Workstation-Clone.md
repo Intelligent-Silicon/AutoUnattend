@@ -14,6 +14,7 @@
 
 [4.2 To check the ```boot.wim``` which contains the ```Windows Setup``` image used in the ```WindowsPE``` configuration pass.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#42-to-check-the-bootwim-which-contains-the-windows-setup-image-used-in-the-windowspe-configuration-pass)
 
+[4.3 To check the ```install.wim``` which contains the main Windows image used to install Windows onto a computer.]
 
 4. Create an Answer File to initially setup windows.
 5. Download Windows updates using the update services.
@@ -166,6 +167,10 @@ InstallTime  : 04/12/2023 03:30:00
 [Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM"
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Boot_Setup_WIM" /discard
 ```
+
+### 4.3 To check the ```install.wim``` which contains the main Windows image used to install Windows onto a computer.
+
+
 
 So we can see that [KB5015684](https://support.microsoft.com/en-gb/topic/kb5015684-featured-update-to-windows-10-version-22h2-by-using-an-enablement-package-09d43632-f438-47b5-985e-d6fd704eee61) has been applied to the boot.wim PE & Setup images, along with the install.wim image we have previously made.
 The later and greater CU KB5015684 would suggest the SSU has been installed at the time of writing.
