@@ -159,11 +159,6 @@ PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_B
 
 Even though this was loaded with ```/ReadOnly```, ```/unmount-image``` has to have either ```/discard``` or ```/commit```, it cant be missed off so using ```/discard```
 
-
-We can see KB5015684 is installed in the Windows 10 22H2 x32 Boot PE WIM.
-KB5015684 is https://support.microsoft.com/en-gb/topic/kb5015684-featured-update-to-windows-10-version-22h2-by-using-an-enablement-package-09d43632-f438-47b5-985e-d6fd704eee61
-
-
 ### 4.2 To check the ```boot.wim``` which contains the ```Windows Setup``` image used in the ```WindowsPE``` configuration pass.
 
 ```
