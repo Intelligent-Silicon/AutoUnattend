@@ -3,7 +3,9 @@
 ## Create Master copy
 
 [1. Download Windows 10 and copy the ISO to a folder.](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#1-download-windows-10-and-copy-the-iso-to-a-folder)
+
 [2. Export the required version of Windows from the ```\sources\install.esd``` to a ```\sources\install.wim``` file.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#2-export-the-required-version-of-windows-from-the-sourcesinstallesd-to-a-sourcesinstallwim-file)
+
 3. Download the Deployment Tools from the Windows ADK.
 4. Create an Answer File to initially setup windows.
 5. Download Windows updates using the update services.
