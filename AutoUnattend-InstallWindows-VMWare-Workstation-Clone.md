@@ -23,9 +23,7 @@
 
 [6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#6-create-the-bootable-windows-iso-file-to-install-windows-using-the-autounattend)
 
-https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#6-install-windows-using-autounattendxml-file
-
-7. Download, Install VMware Workstation, Windows Using AutoUnattend.xml File  
+7. Download, Install VMware Workstation, Create Virtual PC to Run Windows 10 x32  
 
 Download Windows updates using the update services.
 7. Install required End User Apps.
@@ -354,7 +352,7 @@ C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment 
 ```
 
 
-### 7. Install Windows Using AutoUnattend.xml File
+### 7. Download, Install VMware Workstation, Create Virtual PC to Run Windows 10 x32
 
 If you havent already got a copy of VMware Workstation Pro, create an account with Broadcom and download it [here](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Workstation%20Pro&displayGroup=VMware%20Workstation%20Pro%2017.0%20for%20Windows&release=17.6.3&os=&servicePk=&language=EN&freeDownloads=true)
 Create a VMware Workstation virtual PC.
