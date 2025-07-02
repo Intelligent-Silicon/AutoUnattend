@@ -308,13 +308,13 @@ This AutoUnattend.xml file will be added to the Windows 10 ```ISO``` file, where
 
 The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work?view=windows-11#understanding-configuration-passes) will take place in this order.
 
-AutoUnattend.xml added to ISO.
+1. AutoUnattend.xml added to ISO.
 
-Create VMware virtual PC.
+2. Create VMware virtual PC.
 
-Boot from ISO to run Setup.exe.
+3. Boot from ISO to run Setup.exe.
 
-AutoUnattend.XML is processed
+4. AutoUnattend.XML is processed
 
 [Windows PE](AutoUnattend-ConfigurationPass-windowsPE.md)
 
