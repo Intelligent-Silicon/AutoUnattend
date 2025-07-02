@@ -355,7 +355,9 @@ C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment 
 ### 7. Download, Install VMware Workstation, Create Virtual PC to Run Windows 10 x32
 
 If you havent already got a copy of VMware Workstation Pro, create an account with Broadcom and download it [here](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Workstation%20Pro&displayGroup=VMware%20Workstation%20Pro%2017.0%20for%20Windows&release=17.6.3&os=&servicePk=&language=EN&freeDownloads=true)
+
 Install VMware & run it.
+
 Click on the ```Create a New Virtual Machine``` and select the following options:
 ```Typical```, ```Installer disc image file``` and select ```C:\Users\Admin1\Documents\ISO Files\UA_Win10_22H2_x32.iso```. It should show below the filename that Windows 10 is detected.
 
