@@ -363,6 +363,16 @@ Click on the ```Create a New Virtual Machine``` and select the following options
 
 Click ```Next```, Virtual Machine Name ```Win10 22H2 x32```, click ```Next```, Maximum disk size 40GB, select ```Store virtual disk as a single file```, click ```Next``` and untick ```Power on this virtual machine after creation```, click ```Finish```.
 
+Next we need to add a single line to the end of the virtual PC's ```VMX``` file 
+C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx
+```
+PS C:\WINDOWS\system32> Add-Content -Path "C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx" -Value 'guestOS = "windows-32"' -PassThru
+```
+
+This forces VMware to only install 32bit OS when there is the choice of 32bit or 64bit, but it also means the AutoUnattenbd.xml Configuration passes that use ```processorArchitecture="X86"``` will be used where two or more configuration passes of the same name exist, differentiated only by the ```processorArchitecture``` .
+
+
+
 Create a VMware Workstation virtual PC.
  
 
