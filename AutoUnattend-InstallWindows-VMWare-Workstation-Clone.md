@@ -322,7 +322,7 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Configuration Pass - auditSystem](AutoUnattend-ConfigurationPass-auditSystem.md)
 
-Blank, will be passed over.
+[Component - Microsoft-Windows-Shell-Setup (OEM Info - RecycleURL)](AutoUnattend-ConfigurationPass-auditSystem-Component-Microsoft-Windows-Shell-Setup.md)
 
 [Configuration Pass - auditUser](AutoUnattend-ConfigurationPass-auditUser.md)
 
