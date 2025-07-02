@@ -21,7 +21,7 @@
 
 [5. Create an AutoUnattend.xml Answer File to initially setup Windows.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#5-create-an-autounattendxml-answer-file-to-initially-setup-windows)
 
-6. Create the Windows ISO file to install Windows using the AutoUnattend.
+6. Create the bootable Windows ISO file to install Windows using the AutoUnattend..
 
 https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#6-install-windows-using-autounattendxml-file
 
@@ -308,6 +308,8 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 ### 5. Create an AutoUnattend.xml Answer File to initially setup Windows.
 
 This AutoUnattend.xml answer file needs to setup Windows 10 Pro N.
+
+Create the AutoUnattend.xml and save it to the "C:\mount_Win10_22H2_x32_ISO" folder.
  
 The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work?view=windows-11#understanding-configuration-passes).
 
@@ -343,9 +345,9 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Component - Microsoft-Windows-Sensors-Core (Screen Dimming)](AutoUnattend-ConfigurationPass-oobeSystem-Component-Microsoft-Windows-Sensors-Core.md)
 
-Create the AutoUnattend.xml and save it to the "C:\mount_Win10_22H2_x32_ISO" folder.
 
-### 6. Create the Windows ISO file to install Windows using the AutoUnattend.
+
+### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
 
 ```
 C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools> oscdimg -m -o -u2 -udfver102 -bootdata:2#p0,e,bC:\mount_Win10_22H2_x32_ISO\bootetfsboot.com#pEF,e,bC:\mount_Win10_22H2_x32_ISO\efi\microsoft\boot\efisys_noprompt.bin C:\mount_Win10_22H2_x32_ISO C:\Users\Admin1\Documents\ISO Files\UA_Win10_22H2_x32.iso 
