@@ -6,7 +6,7 @@
 
 [2. Export the required version of Windows from the ```\sources\install.esd``` to a ```\sources\install.wim``` file.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#2-export-the-required-version-of-windows-from-the-sourcesinstallesd-to-a-sourcesinstallwim-file)
 
-[3. Download the Deployment Tools from the Windows ADK.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#3-download-the-deployment-tools-from-the-windows-adk)
+[3. Download & install the Windows ADK Deployment Tools.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#3-download-the-deployment-tools-from-the-windows-adk)
 
 [4. Check what Features, Packages, & KB's are installed (Optional)](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#4-check-what-features-packages--kbs-are-installed-optional)
 
@@ -21,8 +21,11 @@
 
 [5. Create an AutoUnattend.xml Answer File to initially setup Windows.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#5-create-an-autounattendxml-answer-file-to-initially-setup-windows)
 
+6. Create the Windows ISO file to install Windows using the AutoUnattend.
 
-6. Install Windows Using AutoUnattend.xml File  
+https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#6-install-windows-using-autounattendxml-file
+
+7. Download, Install VMware Workstation, Windows Using AutoUnattend.xml File  
 
 Download Windows updates using the update services.
 7. Install required End User Apps.
@@ -76,7 +79,7 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_
 ```
 
 
-### 3 Download the Deployment Tools from the Windows ADK.
+### 3 Download & install the Windows ADK Deployment Tools.
 
 As we are trying to install a 32bit version of Windows, we need the last version of ADK which supports 32bit installations.
 
@@ -337,7 +340,17 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 [Component - Microsoft-Windows-Sensors-Core (Screen Dimming)](AutoUnattend-ConfigurationPass-oobeSystem-Component-Microsoft-Windows-Sensors-Core.md)
 
 
-### 6. Install Windows Using AutoUnattend.xml File
+
+### 6. Create the Windows ISO file to install Windows using the AutoUnattend.
+
+After creating the AutoUnattend.XML we need to combine the answer file with the ISO file.
+
+
+
+
+
+
+### 7. Install Windows Using AutoUnattend.xml File
 
 If you havent already got a copy of VMware Workstation Pro, create an account with Broadcom and download it [here](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Workstation%20Pro&displayGroup=VMware%20Workstation%20Pro%2017.0%20for%20Windows&release=17.6.3&os=&servicePk=&language=EN&freeDownloads=true)
 Create a VMware Workstation virtual PC.
