@@ -340,6 +340,8 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 ### 6. Install Windows Using AutoUnattend.xml File
 
 
+Create a VMware Workstation virtual PC.
+ 
 
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/best-practices-for-authoring-answer-files
