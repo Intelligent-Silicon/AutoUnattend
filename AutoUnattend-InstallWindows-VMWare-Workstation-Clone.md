@@ -240,7 +240,7 @@ A [(Latest) Cumulative Update (L(CU))|Servicing Stack Update (SSU)|Feature Updat
 
 You have to walk the chain of latest updates backwards until you reach your current version of windows or the required KB's that need to be installed.
 
-Below is how Windows can be viewed:
+Windows can be viewed:
 
 Windows 10 Common Core + Foundation Package (Version Features to make versions like Home, Education, Pro, Pro N and others like Server versions) + Enablement Package (22H2) (updates to features & new/depricated features) + Various Types of Updates.
  
