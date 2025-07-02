@@ -6,7 +6,7 @@
 
 [2. Export the required version of Windows from the ```\sources\install.esd``` to a ```\sources\install.wim``` file.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#2-export-the-required-version-of-windows-from-the-sourcesinstallesd-to-a-sourcesinstallwim-file)
 
-[3. Download & install the Windows ADK Deployment Tools.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#3-download-the-deployment-tools-from-the-windows-adk)
+[3. Download & install the Windows ADK Deployment Tools.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#3-download--install-the-windows-adk-deployment-tools)
 
 [4. Check what Features, Packages, & KB's are installed (Optional)](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#4-check-what-features-packages--kbs-are-installed-optional)
 
@@ -47,6 +47,8 @@ Run the MCT and save ISO as Win10_22H2_x32.iso. You'll need 40GB of storage spac
 ```PS C:\WINDOWS\system32>``` means this is Powershell running elevated as the Administrator.
 
 ```PS C:\Users\Admin1>``` or ```PS C:\Users\[UserName]>``` means this is Powershell running unelevated as the user account.
+
+```C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools>``` means this is the Deployment and Imaging Tools Environment.
 
 ```
 PS C:\WINDOWS\system32> $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\Win10_22H2_x32.iso"
@@ -97,6 +99,8 @@ Click the link below, scroll down to "```Download the ADK for Windows 10, versio
 Rename the filename ```adksetup.exe``` to ```adksetup_2004.exe``` or similar to help differentiate different versions.
 
 Rename the filename ```adkwinpesetup.exe``` to ```adkwinpesetup_2004.exe``` or similar to help differentiate different versions.
+
+Install the two downloads.
 
 This 2004 ADK supports Windows 10, version 2004, and later versions of Windows 10.
 
@@ -339,15 +343,13 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Component - Microsoft-Windows-Sensors-Core (Screen Dimming)](AutoUnattend-ConfigurationPass-oobeSystem-Component-Microsoft-Windows-Sensors-Core.md)
 
-
+Create the AutoUnattend.xml and save it to the "C:\mount_Win10_22H2_x32_ISO" folder.
 
 ### 6. Create the Windows ISO file to install Windows using the AutoUnattend.
 
-After creating the AutoUnattend.XML we need to combine the answer file with the ISO file.
-
-
-
-
+```
+C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools> oscdimg -m -o -u2 -udfver102 -bootdata:2#p0,e,bC:\mount_Win10_22H2_x32_ISO\bootetfsboot.com#pEF,e,bC:\mount_Win10_22H2_x32_ISO\efi\microsoft\boot\efisys_noprompt.bin C:\mount_Win10_22H2_x32_ISO C:\Users\Admin1\Documents\ISO Files\UA_Win10_22H2_x32.iso 
+```
 
 
 ### 7. Install Windows Using AutoUnattend.xml File
