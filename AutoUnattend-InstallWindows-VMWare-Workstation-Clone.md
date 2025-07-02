@@ -330,6 +330,9 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Configuration Pass - oobeSystem](AutoUnattend-ConfigurationPass-oobeSystem.md)
 
+[Component - Microsoft-Windows-Shell-Setup (Hide various OOBE screens, Setup Themes, Local Accounts)](AutoUnattend-ConfigurationPass-oobeSystem-Component-Microsoft-Windows-Shell-Setup.md)
+
+[Component - Microsoft-Windows-Sensors-Core (Screen Dimming)](AutoUnattend-ConfigurationPass-oobeSystem-Component-Microsoft-Windows-Sensors-Core.md)
 
 
 
