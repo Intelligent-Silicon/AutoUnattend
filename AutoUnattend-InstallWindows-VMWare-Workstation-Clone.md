@@ -296,9 +296,12 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 
 ### 5. Create an AutoUnattend.xml Answer File to initially setup Windows.
 
-This AutoUnattend answer file needs to setup Windows 10 Pro. 
-Parts of it will be reused in other answer files found in this repo. 
+This AutoUnattend answer file needs to setup Windows 10 Pro.
+ 
+Parts of it will be reused in other answer files found in this repo.
+ 
 Settings used in Windows 11 will be ignored.
+
 Settings used in Windows 10 that are deprecated for Windows 11 will be ignored by Windows 11.
 
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/best-practices-for-authoring-answer-files
