@@ -318,7 +318,7 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Configuration Pass - specialize](AutoUnattend-ConfigurationPass-specialize.md)
 
-[Component - Microsoft-Windows-Shell-Setup (OEM Info - SupportURL)](AutoUnattend-ConfigurationPass-specialize-Component-Microsoft-Windows-Shell-Setup.md)
+[Component - Microsoft-Windows-Shell-Setup (OEM Info - TradeInURL)](AutoUnattend-ConfigurationPass-specialize-Component-Microsoft-Windows-Shell-Setup.md)
 
 [Configuration Pass - auditSystem](AutoUnattend-ConfigurationPass-auditSystem.md)
 
