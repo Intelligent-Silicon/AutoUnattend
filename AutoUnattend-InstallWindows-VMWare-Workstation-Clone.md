@@ -21,7 +21,7 @@
 
 [5. Create an AutoUnattend.xml Answer File to initially setup Windows.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#5-create-an-autounattendxml-answer-file-to-initially-setup-windows)
 
-6. Create the bootable Windows ISO file to install Windows using the AutoUnattend..
+[6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#6-create-the-bootable-windows-iso-file-to-install-windows-using-the-autounattend)
 
 https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#6-install-windows-using-autounattendxml-file
 
