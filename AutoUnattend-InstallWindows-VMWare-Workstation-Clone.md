@@ -296,31 +296,15 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 
 ### 5. Create an AutoUnattend.xml Answer File to initially setup Windows.
 
-This AutoUnattend answer file needs to setup Windows 10 Pro.
+This AutoUnattend answer file needs to setup Windows 10 Pro N.
  
-Parts of it will be reused in other answer files found in this repo.
- 
-Settings used in Windows 11 will be ignored.
-
-Settings used in Windows 10 that are deprecated for Windows 11 will be ignored by Windows 11.
-
-This AutoUnattend.xml file will be added to the Windows 10 ```ISO``` file, where it will control how Windows installs.
-
-The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work?view=windows-11#understanding-configuration-passes) will take place in this order.
-
-1. AutoUnattend.xml added to ISO.
-
-2. Create VMware virtual PC.
-
-3. Boot from ISO to run Setup.exe.
-
-4. AutoUnattend.XML is processed
+The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work?view=windows-11#understanding-configuration-passes).
 
 [Windows PE](AutoUnattend-ConfigurationPass-windowsPE.md)
 
-Component - Microsoft-Windows-International-Core-WinPE (Language, Locale settings)
+[Component - Microsoft-Windows-International-Core-WinPE (Language, Locale settings)](AutoUnattend-Component-Microsoft-Windows-International-Core-WinPE.md)
 
-Component - Microsoft-Windows-Setup (Hard Disk configuration, diagnostics, Update settings)
+[Component - Microsoft-Windows-Setup (Hard Disk configuration, diagnostics, Update settings)](AutoUnattend-Component-Microsoft-Windows-Setup.md)
 
 [Offline Servicing](AutoUnattend-ConfigurationPass-offlineServicing.md)
 
