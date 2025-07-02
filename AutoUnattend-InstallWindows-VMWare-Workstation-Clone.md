@@ -1,4 +1,4 @@
-# VMware Windows 10 Pro N 22H2 x32
+# VMware Windows 10 Pro N 22H2 x32 AutoUnattend.xml Answer file
 
 ## Create Master copy
 
