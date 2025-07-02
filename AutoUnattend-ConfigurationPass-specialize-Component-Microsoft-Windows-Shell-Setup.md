@@ -1,0 +1,1 @@
+AutoUnattend-ConfigurationPass-specialize-Component-Microsoft-Windows-Shell-Setup.md

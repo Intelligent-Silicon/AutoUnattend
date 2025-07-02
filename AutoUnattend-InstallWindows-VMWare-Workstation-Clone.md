@@ -310,11 +310,11 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Configuration Pass - Offline Servicing](AutoUnattend-ConfigurationPass-offlineServicing.md)
 
-[Component - Microsoft-Windows-Setup (Hard Disk configuration, diagnostics, Update settings)](AutoUnattend-ConfigurationPass-offlineServicing-Component-Microsoft-Windows-Setup.md)
+[Component - Microsoft-Windows-Shell-Setup (Computer Name, Bluetooth Taskbar Icon, OEM Info - SupportProvider)](AutoUnattend-ConfigurationPass-offlineServicing-Component-Microsoft-Windows-Setup.md)
 
 [Configuration Pass - generalize](AutoUnattend-ConfigurationPass-generalize.md)
 
-Blank, will be passed over.
+[Component - Microsoft-Windows-Shell-Setup (OEM Info - SupportURL)](AutoUnattend-ConfigurationPass-offlineServicing-Component-Microsoft-Windows-Setup.md)
 
 [Configuration Pass - specialize](AutoUnattend-ConfigurationPass-specialize.md)
 
