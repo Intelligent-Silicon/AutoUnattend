@@ -300,7 +300,7 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 
 ### 5. Create an AutoUnattend.xml Answer File to initially setup Windows.
 
-This AutoUnattend answer file needs to setup Windows 10 Pro N.
+This AutoUnattend.xml answer file needs to setup Windows 10 Pro N.
  
 The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work?view=windows-11#understanding-configuration-passes).
 
@@ -339,7 +339,7 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 ### 6. Install Windows Using AutoUnattend.xml File
 
-
+If you havent already got a copy of VMware Workstation Pro, create an account with Broadcom and download it [here](https://support.broadcom.com/group/ecx/productfiles?subFamily=VMware%20Workstation%20Pro&displayGroup=VMware%20Workstation%20Pro%2017.0%20for%20Windows&release=17.6.3&os=&servicePk=&language=EN&freeDownloads=true)
 Create a VMware Workstation virtual PC.
  
 
