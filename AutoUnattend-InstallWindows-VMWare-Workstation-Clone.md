@@ -304,6 +304,32 @@ Settings used in Windows 11 will be ignored.
 
 Settings used in Windows 10 that are deprecated for Windows 11 will be ignored by Windows 11.
 
+This AutoUnattend.xml file will be added to the Windows 10 ```ISO``` file, where it will control how Windows installs.
+
+The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work?view=windows-11#understanding-configuration-passes) will take place in this order.
+
+AutoUnattend.xml added to ISO.
+Create VMware virtual PC.
+Boot from ISO to run Setup.exe.
+AutoUnattend.XML is processed
+[Windows PE](AutoUnattend-ConfigurationPass-windowsPE.md)
+Component - Microsoft-Windows-International-Core-WinPE (Language, Locale settings)
+Component - Microsoft-Windows-Setup (Hard Disk configuration, diagnostics, Update settings)
+[Offline Servicing](AutoUnattend-ConfigurationPass-offlineServicing.md)
+Blank, will be passed over.
+[generalize](AutoUnattend-ConfigurationPass-generalize.md)
+Blank, will be passed over.
+[specialize](AutoUnattend-ConfigurationPass-specialize.md)
+Blank, will be passed over.
+[auditSystem](AutoUnattend-ConfigurationPass-auditSystem.md)
+Blank, will be passed over.
+[auditUser](AutoUnattend-ConfigurationPass-auditUser.md)
+Blank, will be passed over.
+[oobeSystem](AutoUnattend-ConfigurationPass-oobeSystem.md)
+
+
+
+
 https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/best-practices-for-authoring-answer-files
 
 
