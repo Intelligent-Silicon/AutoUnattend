@@ -294,7 +294,8 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
  
 
 
-4.
+### 5. Create an AutoUnattend.xml Answer File to initially setup Windows.
+
 This AutoUnattend answer file needs to setup Windows 10. 
 Parts of it will be reused in other answer files. 
 Settings used in Windows 11 will be ignored.
