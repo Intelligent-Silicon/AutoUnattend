@@ -326,7 +326,8 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Configuration Pass - auditUser](AutoUnattend-ConfigurationPass-auditUser.md)
 
-Blank, will be passed over.
+[Component - Microsoft-Windows-Shell-Setup (RegisteredOrganization)](AutoUnattend-ConfigurationPass-auditUser-Component-Microsoft-Windows-Shell-Setup.md)
+
 
 [Configuration Pass - oobeSystem](AutoUnattend-ConfigurationPass-oobeSystem.md)
 
