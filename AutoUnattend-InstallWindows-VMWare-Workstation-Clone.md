@@ -1,4 +1,4 @@
-# VMware Windows 10 Pro
+# VMware Windows 10 Pro N 22H2 x32
 
 ## Create Master copy
 
@@ -343,7 +343,7 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Component - Microsoft-Windows-Sensors-Core (Screen Dimming)](AutoUnattend-ConfigurationPass-oobeSystem-Component-Microsoft-Windows-Sensors-Core.md)
 
-
+[Completed AutoUnattend.XML using above settings.](AutoUnattend-AnswerFile-VMware-Windows10-22H2.md)
 
 ### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
 
