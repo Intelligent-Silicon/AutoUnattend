@@ -46,7 +46,7 @@ Run the MCT and save ISO as Win10_22H2_x32.iso. You'll need 40GB of storage spac
 
 ```PS C:\Users\Admin1>``` or ```PS C:\Users\[UserName]>``` means this is Powershell running unelevated as the user account.
 
-```C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools>``` means this is the Deployment and Imaging Tools Environment.
+```C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools>``` means this is the Windows Kits\Deployment and Imaging Tools Environment.
 
 ```
 PS C:\WINDOWS\system32> $DiskImageResult = Mount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\Win10_22H2_x32.iso"
