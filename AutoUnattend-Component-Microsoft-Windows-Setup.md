@@ -1,5 +1,8 @@
 ```
-<component name="Microsoft-Windows-Setup" processorArchitecture="X86"> /// https://learn.microsoft.com/en-us/dotnet/api/microsoft.build.utilities.processorarchitecture?view=msbuild-17-netcore
+<component name="Microsoft-Windows-Setup" processorArchitecture="X86"> 	/// https://learn.microsoft.com/en-us/dotnet/api/microsoft.build.utilities.processorarchitecture?view=msbuild-17-netcore
+																		/// x86 specified as this will be used for the Windows 10 32bit installation running on VMware.
+																		/// Add this line to the virtual PC's VMX file. guestOS = "windows-32"
+																		/// https://techblog.paalijarvi.fi/2022/10/25/forcing-vmware-virtual-machines-to-appear-32-bit-on-64-bit-hosts/
 	<UseConfigurationSet>true</UseConfigurationSet> /// Allows use of %configsetroot% which is the drive letter of the ISO or USB stick installing windows.
 													/// https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-useconfigurationset
 
