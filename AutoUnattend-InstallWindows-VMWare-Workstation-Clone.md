@@ -304,13 +304,13 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Configuration Pass - Windows PE](AutoUnattend-ConfigurationPass-windowsPE.md)
 
-[Component - Microsoft-Windows-International-Core-WinPE (Language, Locale settings)](AutoUnattend-Component-Microsoft-Windows-International-Core-WinPE.md)
+[Component - Microsoft-Windows-International-Core-WinPE (Language, Locale settings)](AutoUnattend-ConfigurationPass-windowsPE-Component-Microsoft-Windows-International-Core-WinPE.md)
 
-[Component - Microsoft-Windows-Setup (Hard Disk configuration, diagnostics, Update settings)](AutoUnattend-Component-Microsoft-Windows-Setup.md)
+[Component - Microsoft-Windows-Setup (Hard Disk configuration, diagnostics, Update settings)](AutoUnattend-ConfigurationPass-windowsPE-Component-Microsoft-Windows-Setup-WindowsPE.md)
 
 [Configuration Pass - Offline Servicing](AutoUnattend-ConfigurationPass-offlineServicing.md)
 
-Blank, will be passed over.
+[Component - Microsoft-Windows-Setup (Hard Disk configuration, diagnostics, Update settings)](AutoUnattend-ConfigurationPass-offlineServicing-Component-Microsoft-Windows-Setup.md)
 
 [Configuration Pass - generalize](AutoUnattend-ConfigurationPass-generalize.md)
 
