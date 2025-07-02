@@ -15,6 +15,8 @@
 		<Disk wcm:action="add">
 			<DiskID>0</DiskID>					/// https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-disk
 			<WillWipeDisk>true</WillWipeDisk>	/// https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-disk-willwipedisk
+
+			/// Partition Layout https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/configure-uefigpt-based-hard-drive-partitions?view=windows-11#partition-layout
 			<CreatePartitions>					/// https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-disk-createpartitions
 				<!-- System -->
 				<CreatePartition wcm:action="add">	/// https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-setup-diskconfiguration-disk-createpartitions-createpartition
@@ -71,11 +73,12 @@
 				</ModifyPartition>
 
 				<!-- Recovery -->
-				<ModifyPartition wcm:action="add">
+				<ModifyPartition wcm:action="add"> 
 					<Order>4</Order> 
 					<PartitionID>4</PartitionID> 
-					<TypeID>de94bba4-06d1-4d40-a16a-bfd50179d6ac</TypeID>
-					<Format>FAT32</Format>		
+					<TypeID>de94bba4-06d1-4d40-a16a-bfd50179d6ac</TypeID>	/// https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/configure-uefigpt-based-hard-drive-partitions?view=windows-11#recovery-tools-partition		
+																			/// https://support.microsoft.com/en-gb/topic/kb5028997-instructions-to-manually-resize-your-partition-to-install-the-winre-update-400faa27-9343-461c-ada9-24c8229763bf
+					<Format>FAT32</Format>			
 				</ModifyPartition>
 			</ModifyPartitions>
 		</Disk>
@@ -125,7 +128,7 @@
 	<DynamicUpdate>											/// https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-8.1-and-8/ff715725(v=win.10)
 		<Enable>false</Enable>								/// https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-8.1-and-8/ff716469(v=win.10)
 															/// True would require internet access to be available. This might also prevent the OOBE\BYPASSNRO hack seen in the Windows 11 setup process.						
-															/// Not tested to see if it does affect it or not.
+															/// Not tested to see if it does affect OOBE\BYPASSNRO or not.
 		<WillShowUI>OnError</WillShowUI>					/// https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-8.1-and-8/ff715476(v=win.10)
 	</DynamicUpdate>
 </component>
