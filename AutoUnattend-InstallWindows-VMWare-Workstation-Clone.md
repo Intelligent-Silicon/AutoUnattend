@@ -20,6 +20,8 @@
 
 
 [5. Create an AutoUnattend.xml Answer File to initially setup Windows.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#5-create-an-autounattendxml-answer-file-to-initially-setup-windows)
+
+
 6. Download Windows updates using the update services.
 7. Install required End User Apps.
 8. Finish setting up Windows and tweaking it to suit.
