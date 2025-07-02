@@ -262,7 +262,7 @@ Link 2 has N/A, and Link 3 replaces a list of other KB updates.
 
 We can use any of the 3 SSU updates to apply the update if we needed to, but for the purpose of the rest of this section, we will download [Link 2](https://catalog.s.download.windowsupdate.com/c/msdownload/update/software/secu/2022/05/ssu-19041.1704-x86_3cec66c3891a613e6656f141547e573f9d700d35.msu). 
 
-We can see the ```MSU``` file is ```ssu-19041.1704-x86_3cec66c3891a613e6656f141547e573f9d700d35.msu``` and we can see ```ssu-19041.1704``` listed in the ```Package Details Package_for_ServicingStack_1704~31bf3856ad364e35~x86~~19041.1704.1.4``` shown above in each ```WIM``` file. So we can conclude the SSU required is already installed and was included in the Enablement Update which is no longer available for download from the Microsoft Update Catalog. 
+We can see the Link 3 ```MSU``` file is ```ssu-19041.1704-x86_3cec66c3891a613e6656f141547e573f9d700d35.msu``` and we can see ```ssu-19041.1704``` listed in the ```Package Details Package_for_ServicingStack_1704~31bf3856ad364e35~x86~~19041.1704.1.4``` shown above in each ```WIM``` file. So we can conclude the SSU required is already installed and was included in the Enablement Update which is no longer available for download from the Microsoft Update Catalog. 
 
 Microsoft probably restrict the EU to the Windows Update service, to monitor more easily and control updates downloaded by forcing the ```2023-10 Servicing Stack Update for Windows 10 Version 21H2 for x86-based Systems (KB5031539)``` to be downloaded to help minimise the number of updates which need to be downloaded, saving Microsoft global bandwidth costs) when the original Windows 10 Pro 2004 version needs to be reinstalled from scratch.
 
