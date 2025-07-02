@@ -302,33 +302,33 @@ This AutoUnattend answer file needs to setup Windows 10 Pro N.
  
 The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/how-configuration-passes-work?view=windows-11#understanding-configuration-passes).
 
-[Windows PE](AutoUnattend-ConfigurationPass-windowsPE.md)
+[Configuration Pass - Windows PE](AutoUnattend-ConfigurationPass-windowsPE.md)
 
 [Component - Microsoft-Windows-International-Core-WinPE (Language, Locale settings)](AutoUnattend-Component-Microsoft-Windows-International-Core-WinPE.md)
 
 [Component - Microsoft-Windows-Setup (Hard Disk configuration, diagnostics, Update settings)](AutoUnattend-Component-Microsoft-Windows-Setup.md)
 
-[Offline Servicing](AutoUnattend-ConfigurationPass-offlineServicing.md)
+[Configuration Pass - Offline Servicing](AutoUnattend-ConfigurationPass-offlineServicing.md)
 
 Blank, will be passed over.
 
-[generalize](AutoUnattend-ConfigurationPass-generalize.md)
+[Configuration Pass - generalize](AutoUnattend-ConfigurationPass-generalize.md)
 
 Blank, will be passed over.
 
-[specialize](AutoUnattend-ConfigurationPass-specialize.md)
+[Configuration Pass - specialize](AutoUnattend-ConfigurationPass-specialize.md)
 
 Blank, will be passed over.
 
-[auditSystem](AutoUnattend-ConfigurationPass-auditSystem.md)
+[Configuration Pass - auditSystem](AutoUnattend-ConfigurationPass-auditSystem.md)
 
 Blank, will be passed over.
 
-[auditUser](AutoUnattend-ConfigurationPass-auditUser.md)
+[Configuration Pass - auditUser](AutoUnattend-ConfigurationPass-auditUser.md)
 
 Blank, will be passed over.
 
-[oobeSystem](AutoUnattend-ConfigurationPass-oobeSystem.md)
+[Configuration Pass - oobeSystem](AutoUnattend-ConfigurationPass-oobeSystem.md)
 
 
 
