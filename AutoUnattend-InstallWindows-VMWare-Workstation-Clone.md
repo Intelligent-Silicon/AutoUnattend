@@ -23,7 +23,7 @@
 
 [6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#6-create-the-bootable-windows-iso-file-to-install-windows-using-the-autounattend)
 
-7. Download, Install VMware Workstation, Create Virtual PC to Run Windows 10 x32  
+[7. Download, Install VMware Workstation, Create Virtual PC to Run Windows 10 x32](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#7-download-install-vmware-workstation-create-virtual-pc-to-run-windows-10-x32)  
 
 Download Windows updates using the update services.
 7. Install required End User Apps.
