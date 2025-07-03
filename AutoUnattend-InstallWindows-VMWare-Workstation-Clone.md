@@ -356,7 +356,7 @@ PS C:\WINDOWS\system32> Copy-Item "C:\Users\Admin1\Downloads\SIM_Vmware_Win10_22
 ### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
 
 ```
-C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools> oscdimg -m -o -u2 -udfver102 -bootdata:2#p0,e,bC:\mount_Win10_22H2_x32_ISO\bootetfsboot.com#pEF,e,bC:\mount_Win10_22H2_x32_ISO\efi\microsoft\boot\efisys_noprompt.bin C:\mount_Win10_22H2_x32_ISO C:\Users\Admin1\Documents\ISO Files\UA_Win10_22H2_x32.iso 
+C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools> oscdimg -m -o -u2 -udfver102 -bootdata:2#p0,e,bC:\mount_Win10_22H2_x32_ISO\boot\etfsboot.com#pEF,e,bC:\mount_Win10_22H2_x32_ISO\efi\microsoft\boot\efisys_noprompt.bin C:\mount_Win10_22H2_x32_ISO C:\Users\Admin1\Documents\ISO Files\UA_Win10_22H2_x32.iso 
 ```
 
 
