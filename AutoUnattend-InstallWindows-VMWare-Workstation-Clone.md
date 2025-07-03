@@ -70,8 +70,15 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_
 The N variants stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 
 ```
-PS C:\WINDOWS\system32> dism /export-image /SourceImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" /SourceIndex:7 /DestinationImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /Compress:max /CheckIntegrity
+PS C:\WINDOWS\system32> dism /export-image /SourceImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" /SourceIndex:7 /DestinationImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /Compress:max /CheckIntegrity -LogLevel 3 -LogPath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.log"
 ```
+```
+PS C:\WINDOWS\system32> Export-WindowsImage -SourceImagePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd" -SourceIndex 7 -DestinationImagePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim" -CompressionType max -CheckIntegrity -LogLevel 4 -LogPath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.log"
+```
+
+
+ 
+ 
 As this is a new ```WIM``` file, its relative index position will be 1, if you were to export more images to the destination ```WIM``` file its relative index position will increase by 1.
 
 ```
@@ -82,6 +89,9 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_
 ### 3 Download & install the Windows ADK Deployment Tools.
 
 As we are trying to install a 32bit version of Windows, we need the last version of ADK which supports 32bit installations.
+
+32-bit (x86) programs would have PE L as the header.
+64-bit (x64) programs would have PE d† as the header
 
 [Main ADK download page](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install)
 
