@@ -380,7 +380,7 @@ Just drop the trailing ```Guest``` from the Enum Constants name.
 
 64bit OS's have the ```_64``` tagged onto the ```Windows[version][variant]```. 
 
-```guestOS = "Windows[Version][Variant][_64]"```
+```guestOS = "[Win|Windows][Version][Variant][_64]"```
 
 | Enum Constants name | Windows Version | guestOS | Notes |
 | --- | --- | --- | --- |
