@@ -356,7 +356,7 @@ PS C:\WINDOWS\system32> Copy-Item "C:\Users\Admin1\Downloads\SIM_Vmware_Win10_22
 ### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
 
 ```
-C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools> oscdimg -m -o -u2 -udfver102 -bootdata:2#p0,e,b"C:\mount_Win10_22H2_x32_ISO\boot\etfsboot.com"#pEF,e,b"C:\mount_Win10_22H2_x32_ISO\efi\microsoft\boot\efisys_noprompt.bin" "C:\mount_Win10_22H2_x32_ISO" "C:\Users\Admin1\Documents\ISO Files\UA_Win10_22H2_x32.iso" 
+C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools> oscdimg -m -o -u2 -udfver102 -bootdata:2#p0,e,b"C:\mount_Win10_22H2_x32_ISO\boot\etfsboot.com"#pEF,e,b"C:\mount_Win10_22H2_x32_ISO\efi\microsoft\boot\efisys_noprompt.bin" "C:\mount_Win10_22H2_x32_ISO" "C:\Users\Admin1\Documents\ISO Files\AU_Win10_22H2_x32.iso" 
 ```
 
 
@@ -367,7 +367,7 @@ If you havent already got a copy of VMware Workstation Pro, create an account wi
 Install VMware & run it.
 
 Click on the ```Create a New Virtual Machine``` and select the following options:
-```Typical```, ```Installer disc image file``` and select ```C:\Users\Admin1\Documents\ISO Files\UA_Win10_22H2_x32.iso```. It should show below the filename that Windows 10 is detected.
+```Typical```, ```Installer disc image file``` and select ```C:\Users\Admin1\Documents\ISO Files\AU_Win10_22H2_x32.iso```. It should show below the filename that Windows 10 is detected.
 
 Click ```Next```, Virtual Machine Name ```Win10 22H2 x32```, click ```Next```, Maximum disk size 40GB, select ```Store virtual disk as a single file```, click ```Next``` and untick ```Power on this virtual machine after creation```, click ```Finish```.
 
