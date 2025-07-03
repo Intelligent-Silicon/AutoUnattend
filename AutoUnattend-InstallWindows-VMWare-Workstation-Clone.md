@@ -373,7 +373,7 @@ Click ```Next```, Virtual Machine Name ```Win10 22H2 x32```, click ```Next```, M
 
 
 Next check the ```[Virtual Machine Name].VMX``` ```C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx``` has the line entry: ```guestOS = "windows9"```
-This is set when VMware can detect the operating system. When it can't, it will ask you to specify which version of Windows to install, so its crucial you slect the correct bitness of Windows.
+This is set when VMware can detect the operating system. When it can't, it will ask you to specify which version of Windows to install, so its crucial you select the correct bitness of Windows.
 
 The Windows OS's can found [here](https://developer.broadcom.com/xapis/vsphere-web-services-api/latest/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html) 
 
