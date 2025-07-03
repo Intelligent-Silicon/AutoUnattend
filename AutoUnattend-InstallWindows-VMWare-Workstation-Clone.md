@@ -383,6 +383,7 @@ Click on the ```Create a New Virtual Machine``` and select the following options
 
 Click ```Next```, Virtual Machine Name ```Win10 22H2 x32```, click ```Next```, Maximum disk size 40GB, select ```Store virtual disk as a single file```, click ```Next``` and untick ```Power on this virtual machine after creation```, click ```Finish```.
 
+If you are running on a NVMe hard disk, you need to change the Hard Drive from NVMe to SATA, otherwise during the installation process you will experience a Blue Screen of Death (BSOD) ```kmode_excepton_not_handled``` during the installation process.
 
 Next check the ```[Virtual Machine Name].VMX``` ```C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx``` has the line entry: ```guestOS = "windows9"```
 This is set when VMware can detect the operating system. When it can't, it will ask you to specify which version of Windows to install, so its crucial you select the correct bitness of Windows.
