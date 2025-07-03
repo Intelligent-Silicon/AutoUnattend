@@ -372,7 +372,7 @@ Click on the ```Create a New Virtual Machine``` and select the following options
 Click ```Next```, Virtual Machine Name ```Win10 22H2 x32```, click ```Next```, Maximum disk size 40GB, select ```Store virtual disk as a single file```, click ```Next``` and untick ```Power on this virtual machine after creation```, click ```Finish```.
 
 
-Next check the [Virtual Machine Name].VMX ```C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx``` has the line entry: ```guestOS = "windows9"```
+Next check the ```[Virtual Machine Name].VMX``` ```C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx``` has the line entry: ```guestOS = "windows9"```
 
 The Windows OS's can found [here](https://developer.broadcom.com/xapis/vsphere-web-services-api/latest/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html) just drop the trailing ```Guest``` from the Enum Constants name. 64bit OS's have the ```_64``` tagged onto the ```Windows[version]```. 
 
