@@ -378,7 +378,7 @@ The Windows OS's can found [here](https://developer.broadcom.com/xapis/vsphere-w
 
 Just drop the trailing ```Guest``` from the Enum Constants name. 
 
-64bit OS's have the ```_64``` tagged onto the ```Windows[version]```. 
+64bit OS's have the ```_64``` tagged onto the ```Windows[version][variant]```. 
 
 ```guestOS = "Windows[Version][Variant][_64]"```
 
