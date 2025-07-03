@@ -343,7 +343,7 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Component - Microsoft-Windows-Sensors-Core (Screen Dimming)](AutoUnattend-ConfigurationPass-oobeSystem-Component-Microsoft-Windows-Sensors-Core.md)
 
-[Completed AutoUnattend.XML using above settings.](AutoUnattend-AnswerFile-VMware-Windows10-22H2.md)
+[SIM_Vmware_Win10_22H2_x32_AutoUnattend.xml](SIM_Vmware_Win10_22H2_x32_AutoUnattend.xml)
 
 ### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
 
