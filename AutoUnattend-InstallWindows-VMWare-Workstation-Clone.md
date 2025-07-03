@@ -429,10 +429,11 @@ Just drop the trailing ```Guest``` from the Enum Constants name.
 
 
 
-When both 32bit and 64bit versions of Windows exist on ISO or MCT created USB sticks, VMware cant detect which version to install, so you'll be asked to select the correct version of Windows manually. The ```guestOS``` configures the virtual machine in a variety of different ways, this is why its selected at the beginning of a virtual PC creation process.
+When both 32bit and 64bit versions of Windows exist on ```ISO``` or MCT created USB sticks, VMware cant detect which version to install, so you'll be asked to select the correct version of Windows manually. The ```guestOS``` configures the virtual machine in a variety of different ways, this is why its selected at the beginning of a virtual PC creation process.
 
-The correct bitness of windows is crucial for instances of the AutoUnattend.xml file where multiple configuration passes with different ```processorArchitecture=``` exist namely ```processorArchitecture="X86"``` and ```processorArchitecture="AMD64"```. 
-VMware can only emulate ```x`86``` and ```AMD64``` cpu's, to emulate emulate ARM cpu's you need to use [Qemu](https://www.qemu.org/).
+The correct bitness of windows is crucial for instances of the AutoUnattend.xml file where multiple configuration passes with different ```processorArchitecture=``` exist, namely ```processorArchitecture="X86"``` and ```processorArchitecture="AMD64"```. 
+VMware can only emulate ```x86``` and ```AMD64``` cpu's, to emulate emulate ARM cpu's for testing (.Net) code, you need to use [Qemu](https://www.qemu.org/), or connect to an ARM device using a USB to USB, USB to UART cable, with the ARM device setup for remote debugging. Instructions for remotely debugging/controlling ARM devices is beyond this repo's remit.
+
  
 You are now ready to power on the Virtual PC. If all goes to plan, the next step will be logging into Windows on about 5-10mins time!
 
