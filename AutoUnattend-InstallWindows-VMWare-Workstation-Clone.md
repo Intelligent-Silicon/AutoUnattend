@@ -426,19 +426,9 @@ Just drop the trailing ```Guest``` from the Enum Constants name.
 
 
 
-Next we need to add a single line to the end of the virtual PC's ```VMX``` file 
-```C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx```
-
-https://partnerweb.vmware.com/comp_guide2/pdf/VMware_GOS_Compatibility_Guide.pdf
-https://techdocs.broadcom.com/us/en/vmware-cis/desktop-hypervisors/workstation-pro/17-0/using-vmware-workstation-pro/creating-virtual-machines-in-workstation-user-guide.html
-
-```
-PS C:\WINDOWS\system32> $VMXfile = "C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx"
-PS C:\WINDOWS\system32> (Get-Content $VMXfile) -replace 'guestOS = "windows9"', 'guestOS = "windows-32"' | Set-Content $VMXfile
-```
 
 
-This forces VMware to only install 32bit OS when there is the choice of 32bit or 64bit on the ISO or USB stick.
+```guestOS = "windows9"``` forces VMware to only install 32bit OS when there is the choice of 32bit or 64bit on the ISO or USB stick.
 It also means the AutoUnattend.xml Configuration Passes that use ```processorArchitecture="X86"``` will be used where two or more configuration passes of the same name exist, differentiated only by the ```processorArchitecture``` .
 
 You are now ready to power on the Virtual PC. If all goes to plan, the next step will be logging into Windows on about 5-10mins time!
