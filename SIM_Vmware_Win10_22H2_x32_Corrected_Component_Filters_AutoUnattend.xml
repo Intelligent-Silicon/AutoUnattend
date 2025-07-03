@@ -16,6 +16,8 @@
             </Diagnostics>
             <DiskConfiguration>
                 <Disk wcm:action="add">
+                    <DiskID>0</DiskID>
+                    <WillWipeDisk>false</WillWipeDisk>
                     <CreatePartitions>
                         <CreatePartition wcm:action="add">
                             <Order>1</Order>
@@ -63,8 +65,6 @@
                             <Format>FAT32</Format>
                         </ModifyPartition>
                     </ModifyPartitions>
-                    <DiskID>0</DiskID>
-                    <WillWipeDisk>true</WillWipeDisk>
                 </Disk>
                 <WillShowUI>OnError</WillShowUI>
             </DiskConfiguration>

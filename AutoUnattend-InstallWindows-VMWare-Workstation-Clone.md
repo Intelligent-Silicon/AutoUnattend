@@ -437,7 +437,11 @@ VMware can only emulate ```x86``` and ```AMD64``` cpu's, to emulate emulate ARM 
  
 You are now ready to power on the Virtual PC. If all goes to plan, the next step will be logging into Windows on about 5-10mins time!
 
+If you get an error message you will see a message similar to the line below. The line & column numbers will be different to whats shown.
 
+```Windows could not parse or process unattend answer file [D:\autounattend.xml]. The answer file is invalid. The error was detected at line xxx column xxx of the answer file.```
+
+Investigate the failure line.
 
 
 Create a VMware Workstation virtual PC.
