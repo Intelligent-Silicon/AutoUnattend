@@ -83,7 +83,11 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_
 
 As we are trying to install a 32bit version of Windows, we need the last version of ADK which supports 32bit installations.
 
+32bit versions of ADK can work with both 32bit and 64bit versions of Windows. 64bit versions of ADK can only work with 64bit versions of Windows.
+
 [Main ADK download page](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install)
+
+[Windows System Image Manager Supported Platforms](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/windows-system-image-manager-supported-platforms)
 
 The last version of ADK which supported 32-bit Windows is version 2004. 
 Click the link below, scroll down to "```Download the ADK for Windows 10, version 2004 (Republished in May 2025)```" or click on the two Download links below it to download the programs directly.
@@ -441,8 +445,9 @@ If you get an error message you will see a message similar to the line below. Th
 
 ```Windows could not parse or process unattend answer file [D:\autounattend.xml]. The answer file is invalid. The error was detected at line xxx column xxx of the answer file.```
 
-Investigate the failure line.
+Investigate the failure line.  
 
+line 18 column 17
 
 Create a VMware Workstation virtual PC.
  
