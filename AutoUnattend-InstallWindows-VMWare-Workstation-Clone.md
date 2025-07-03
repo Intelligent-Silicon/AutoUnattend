@@ -429,9 +429,11 @@ Just drop the trailing ```Guest``` from the Enum Constants name.
 
 
 
-```guestOS = "windows9"``` forces VMware to only install 32bit OS when there is the choice of 32bit or 64bit on the ISO or USB stick.
-It also means the AutoUnattend.xml Configuration Passes that use ```processorArchitecture="X86"``` will be used where two or more configuration passes of the same name exist, differentiated only by the ```processorArchitecture``` .
+When both 32bit and 64bit versions of Windows exist on ISO or MCT created USB sticks, VMware cant detect which version to install, so you'll be asked to select the correct version of Windows manually. The ```guestOS``` configures the virtual machine in a variety of different ways, this is why its selected at the beginning of a virtual PC creation process.
 
+The correct bitness of windows is crucial for instances of the AutoUnattend.xml file where multiple configuration passes with different ```processorArchitecture=``` exist namely ```processorArchitecture="X86"``` and ```processorArchitecture="AMD64"```. 
+VMware can only emulate ```x`86``` and ```AMD64``` cpu's, to emulate emulate ARM cpu's you need to use [Qemu](https://www.qemu.org/).
+ 
 You are now ready to power on the Virtual PC. If all goes to plan, the next step will be logging into Windows on about 5-10mins time!
 
 
