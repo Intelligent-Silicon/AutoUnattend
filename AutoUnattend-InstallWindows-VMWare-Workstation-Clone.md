@@ -371,16 +371,68 @@ Click on the ```Create a New Virtual Machine``` and select the following options
 
 Click ```Next```, Virtual Machine Name ```Win10 22H2 x32```, click ```Next```, Maximum disk size 40GB, select ```Store virtual disk as a single file```, click ```Next``` and untick ```Power on this virtual machine after creation```, click ```Finish```.
 
+
+Next check the [Virtual Machine Name].VMX ```C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx``` has the line entry: ```guestOS = "windows9"```
+
+The Windows OS's can found [here](https://developer.broadcom.com/xapis/vsphere-web-services-api/latest/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html) just drop the trailing ```Guest``` from the Enum Constants name. 64bit OS's have the ```_64``` tagged onto the ```Windows[version]```. 
+
+guestOS = "Windows[Version][Variant][_64]
+
+| Enum Constants name | Windows Version | guestOS | Notes |
+| --- | --- | --- | --- |
+| win2000AdvServGuest | Windows 2000 Advanced Server | win2000AdvServ | |
+| win2000ProGuest |	Windows 2000 Professional | win2000Pro | |
+| win2000ServGuest |Windows 2000 Server | win2000Serv | |
+| win31Guest |	Windows 3.1 | win31 | | 
+| win95Guest |	Windows 95 | win95 | | 
+| win98Guest |	Windows 98 | win98 | |
+| windows11_64Guest | Windows 11 | windows11_64 | |
+| windows12_64Guest | Windows 12 | windows12_64 | Since vSphere API Release 8.0.0.1 |
+| windows2019srv_64Guest | Windows Server 2019 | windows2019srv_64 | Since vSphere API Release 8.0.0.1 |
+| windows2019srvNext_64Guest | Windows Server 2022 | windows2019srvNext_64 | Since vSphere API Release 7.0 |
+| windows2022srvNext_64Guest | Windows Server 2025 | windows2022srvNext_64 | Since vSphere API Release 7.0.1.0 |
+| windows7_64Guest | Windows 7 (64 bit) | windows7_64 | Since vSphere API Release 8.0.0.1 |
+| windows7Guest | Windows 7 | windows7 | Since vSphere API Release 4.0 |
+| windows7Server64Guest | Windows Server 2008 R2 (64 bit) | windows7Server64 | Since vSphere API Release 4.0 |
+| windows8_64Guest | Windows 8 (64 bit) | windows8_64 | Since vSphere API Release 4.0 |
+| windows8Guest | Windows 8 | windows8 | Since vSphere API Release 5.0 |
+| windows8Server64Guest | Windows 8 Server (64 bit) | windows8Server64 | Since vSphere API Release 5.0 |
+| windows9_64Guest | Windows 10 (64 bit) | windows9_64 | Since vSphere API Release 5.0 |
+| windows9Guest | Windows 10 | windows9 | Since vSphere API Release 6.0 |
+| windows9Server64Guest | Windows 10 Server (64 bit) | windows9Server64 | Since vSphere API Release 6.0 |
+| windowsHyperVGuest | Windows Hyper-V | windowsHyperV | Since vSphere API Release 6.0 |
+| winLonghorn64Guest | Windows Longhorn (64 bit) | winLonghorn64 | Since vSphere API Release 5.5 | 
+| winLonghornGuest | Windows Longhorn | winLonghorn | Since VI API 2.5 |
+| winMeGuest |	Windows Millennium Edition | winMe | Since VI API 2.5 |
+| winNetBusinessGuest |	Windows Small Business Server 2003 | winNetBusiness | Since VI API 2.5 |
+| winNetDatacenter64Guest |	Windows Server 2003, Datacenter Edition (64 bit) | winNetDatacenter64 | Since VI API 2.5 |
+| winNetDatacenterGuest | Windows Server 2003, Datacenter Edition | winNetDatacenter | Since VI API 2.5 |
+| winNetEnterprise64Guest |	Windows Server 2003, Enterprise Edition (64 bit) | winNetEnterprise64 | Since VI API 2.5 |
+| winNetEnterpriseGuest | Windows Server 2003, Enterprise Edition | winNetEnterprise | Since VI API 2.5 |
+| winNetStandard64Guest | Windows Server 2003, Standard Edition (64 bit) | winNetStandard64 | Since VI API 2.5 |
+| winNetStandardGuest |	Windows Server 2003, Standard Edition | winNetStandard | Since VI API 2.5 |
+| winNetWebGuest | Windows Server 2003, Web Edition | winNetWeb | Since VI API 2.5 |
+| winNTGuest | Windows NT 4 | winNT | Since VI API 2.5 |
+| winVista64Guest |	Windows Vista (64 bit) | winVista64 | Since VI API 2.5 |
+| winVistaGuest | Windows Vista | winVista | Since VI API 2.5 |
+| winXPHomeGuest | Windows XP Home Edition | winXPHome | Since VI API 2.5 |
+| winXPPro64Guest |	Windows XP Professional Edition (64 bit) | winXPPro64 | Since VI API 2.5 |
+| winXPProGuest | Windows XP Professional | winXPPro | Since VI API 2.5 |
+
+
+
+
 Next we need to add a single line to the end of the virtual PC's ```VMX``` file 
 ```C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx```
 
-```
-PS C:\WINDOWS\system32> (Get-Content "C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx") -replace 'guestOS', 'guestOS = "windows-32"' | Set-Content "C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx"
-```
+https://partnerweb.vmware.com/comp_guide2/pdf/VMware_GOS_Compatibility_Guide.pdf
+https://techdocs.broadcom.com/us/en/vmware-cis/desktop-hypervisors/workstation-pro/17-0/using-vmware-workstation-pro/creating-virtual-machines-in-workstation-user-guide.html
 
 ```
-PS C:\WINDOWS\system32> Add-Content -Path "C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx" -Value 'guestOS = "windows-32"' -PassThru
+PS C:\WINDOWS\system32> $VMXfile = "C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx"
+PS C:\WINDOWS\system32> (Get-Content $VMXfile) -replace 'guestOS = "windows9"', 'guestOS = "windows-32"' | Set-Content $VMXfile
 ```
+
 
 This forces VMware to only install 32bit OS when there is the choice of 32bit or 64bit on the ISO or USB stick.
 It also means the AutoUnattend.xml Configuration Passes that use ```processorArchitecture="X86"``` will be used where two or more configuration passes of the same name exist, differentiated only by the ```processorArchitecture``` .
