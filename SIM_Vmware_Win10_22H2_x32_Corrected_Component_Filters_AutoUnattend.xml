@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend">
+    <settings pass="windowsPE">
+        <component name="Microsoft-Windows-International-Core-WinPE">
+            <SetupUILanguage>
+                <UILanguage>en-GB</UILanguage>
+            </SetupUILanguage>
+            <InputLocale>0809:00000809</InputLocale>
+            <SystemLocale>en-GB</SystemLocale>
+            <UILanguage>en-GB</UILanguage>
+            <UserLocale>en-GB</UserLocale>
+        </component>
+        <component name="Microsoft-Windows-Setup" processorArchitecture="X86">
+            <Diagnostics>
+                <OptIn>false</OptIn>
+            </Diagnostics>
+            <DiskConfiguration>
+                <Disk wcm:action="add">
+                    <CreatePartitions>
+                        <CreatePartition wcm:action="add">
+                            <Order>1</Order>
+                            <Size>300</Size>
+                            <Type>EFI</Type>
+                        </CreatePartition>
+                        <CreatePartition wcm:action="add">
+                            <Order>2</Order>
+                            <Type>MSR</Type>
+                            <Size>16</Size>
+                        </CreatePartition>
+                        <CreatePartition wcm:action="add">
+                            <Order>3</Order>
+                            <Type>Primary</Type>
+                            <Size>20000</Size>
+                        </CreatePartition>
+                        <CreatePartition wcm:action="add">
+                            <Order>4</Order>
+                            <Type>Primary</Type>
+                            <Size>651</Size>
+                        </CreatePartition>
+                    </CreatePartitions>
+                    <ModifyPartitions>
+                        <ModifyPartition wcm:action="add">
+                            <Order>1</Order>
+                            <PartitionID>1</PartitionID>
+                            <Format>FAT32</Format>
+                        </ModifyPartition>
+                        <ModifyPartition wcm:action="add">
+                            <Order>2</Order>
+                            <PartitionID>2</PartitionID>
+                            <Format>FAT32</Format>
+                        </ModifyPartition>
+                        <ModifyPartition wcm:action="add">
+                            <Order>3</Order>
+                            <PartitionID>3</PartitionID>
+                            <Label>Windows</Label>
+                            <Letter>C</Letter>
+                            <Format>NTFS</Format>
+                        </ModifyPartition>
+                        <ModifyPartition wcm:action="add">
+                            <Order>4</Order>
+                            <PartitionID>4</PartitionID>
+                            <TypeID>de94bba4-06d1-4d40-a16a-bfd50179d6ac</TypeID>
+                            <Format>FAT32</Format>
+                        </ModifyPartition>
+                    </ModifyPartitions>
+                    <DiskID>0</DiskID>
+                    <WillWipeDisk>true</WillWipeDisk>
+                </Disk>
+                <WillShowUI>OnError</WillShowUI>
+            </DiskConfiguration>
+            <DynamicUpdate>
+                <Enable>false</Enable>
+                <WillShowUI>OnError</WillShowUI>
+            </DynamicUpdate>
+            <ImageInstall>
+                <OSImage>
+                    <InstallFrom>
+                        <Path>%configsetroot%\sources\install.wim</Path>
+                        <MetaData wcm:action="add">
+                            <Key>/IMAGE/INDEX</Key>
+                            <Value>1</Value>
+                        </MetaData>
+                    </InstallFrom>
+                    <InstallTo>
+                        <DiskID>0</DiskID>
+                        <PartitionID>3</PartitionID>
+                    </InstallTo>
+                    <InstallToAvailablePartition>false</InstallToAvailablePartition>
+                    <WillShowUI>OnError</WillShowUI>
+                </OSImage>
+            </ImageInstall>
+            <UseConfigurationSet>true</UseConfigurationSet>
+        </component>
+    </settings>
+    <settings pass="offlineServicing">
+        <component name="Microsoft-Windows-Shell-Setup">
+            <BluetoothTaskbarIconEnabled>true</BluetoothTaskbarIconEnabled>
+            <ComputerName />
+        </component>
+    </settings>
+    <settings pass="specialize">
+        <component name="Microsoft-Windows-Shell-Setup">
+            <ProductKey>VK7JG-NPHTM-C97JM-9MPGT-3V66T</ProductKey>
+            <ShowPowerButtonOnStartScreen>true</ShowPowerButtonOnStartScreen>
+            <TimeZone>GMT Standard Time</TimeZone>
+        </component>
+        <component name="Microsoft-Windows-stobject">
+            <FlyoutHighPerformancePowerScheme>8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c</FlyoutHighPerformancePowerScheme>
+        </component>
+        <component name="Microsoft-Windows-ErrorReportingCore">
+            <DefaultConsent>0</DefaultConsent>
+            <DisableWER>1</DisableWER>
+        </component>
+    </settings>
+    <settings pass="oobeSystem">
+        <component name="Microsoft-Windows-Shell-Setup">
+            <OOBE>
+                <HideEULAPage>true</HideEULAPage>
+                <HideOEMRegistrationScreen>true</HideOEMRegistrationScreen>
+                <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
+                <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+                <ProtectYourPC>3</ProtectYourPC>
+            </OOBE>
+            <Themes>
+                <UWPAppsUseLightTheme>false</UWPAppsUseLightTheme>
+                <ThemeName>dark.theme</ThemeName>
+                <DesktopBackground />
+            </Themes>
+            <UserAccounts>
+                <LocalAccounts>
+                    <LocalAccount wcm:action="add">
+                        <Password>
+                            <Value>Admin1</Value>
+                            <PlainText>true</PlainText>
+                        </Password>
+                        <Name>Admin1</Name>
+                        <DisplayName />
+                        <Group>Administrators</Group>
+                    </LocalAccount>
+                    <LocalAccount wcm:action="add">
+                        <Password>
+                            <Value>User1</Value>
+                            <PlainText>true</PlainText>
+                        </Password>
+                        <Name>User1</Name>
+                        <Group>Users</Group>
+                    </LocalAccount>
+                </LocalAccounts>
+            </UserAccounts>
+        </component>
+        <component name="Microsoft-Windows-Sensors-Core">
+            <AllowDimCapable>false</AllowDimCapable>
+            <DefaultAllowDimWhenExternalDisplayConnected>false</DefaultAllowDimWhenExternalDisplayConnected>
+            <DefaultInstantDim>false</DefaultInstantDim>
+        </component>
+    </settings>
+</unattend>
