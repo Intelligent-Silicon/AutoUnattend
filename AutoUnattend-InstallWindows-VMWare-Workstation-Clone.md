@@ -112,9 +112,9 @@ Rename the filename ```adksetup.exe``` to ```adksetup_2004.exe``` or similar to 
 
 Rename the filename ```adkwinpesetup.exe``` to ```adkwinpesetup_2004.exe``` or similar to help differentiate different versions.
 
-<code style="color : Gold">The ADK will only work when running it on the version of Windows you are trying to build an AutoUnattend.xml file for. 
+<strong>The ADK will only work when running it on the version of Windows you are trying to build an AutoUnattend.xml file for. 
 
-In otherwords, you cant build a Windows 10 AutoUnattend.xml on Windows 11 and vice versa.</code>
+In otherwords, you cant build a Windows 10 AutoUnattend.xml on Windows 11 and vice versa.</strong>
 
 Install the two downloads. Only the Deployment Tools in ```adksetup.exe``` need to be installed.
 
