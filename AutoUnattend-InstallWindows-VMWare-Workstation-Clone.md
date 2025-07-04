@@ -94,7 +94,7 @@ As we are trying to install a 32bit version of Windows, we need the last version
 64-bit (x64) programs would have ```PE d†``` as the header and located in %ProgramFiles% on a 64bit OS
 
 | | Header Type | C:\Program Files | C:\Program Files (x86) | 
-|--- | --- | --- |
+|--- | --- | --- | --- |
 | 32bit OS | ```PE L``` | %ProgramFiles% | N/A |
 | 64bit OS | ```PE d†``` | %ProgramFiles% | %ProgramFiles(x86)% |
 
