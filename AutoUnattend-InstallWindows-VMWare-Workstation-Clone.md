@@ -90,9 +90,6 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_
 
 As we are trying to install a 32bit version of Windows, we need the last version of ADK which supports 32bit installations.
 
-32-bit (x86) programs would have ```PE L``` as the header and located in %ProgramFiles(x86)% on a 64bit OS, and located in %ProgramFiles% on a 32bit OS.
-64-bit (x64) programs would have ```PE d†``` as the header and located in %ProgramFiles% on a 64bit OS
-
 | | Header Type | C:\Program Files | C:\Program Files (x86) | 
 |--- | --- | --- | --- |
 | 32bit OS | ```PE L``` | %ProgramFiles% | N/A |
