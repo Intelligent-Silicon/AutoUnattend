@@ -93,6 +93,11 @@ As we are trying to install a 32bit version of Windows, we need the last version
 32-bit (x86) programs would have ```PE L``` as the header and located in %ProgramFiles(x86)% on a 64bit OS, and located in %ProgramFiles% on a 32bit OS.
 64-bit (x64) programs would have ```PE d†``` as the header and located in %ProgramFiles% on a 64bit OS
 
+| | C:\Program Files (x86) | C:\Program Files |
+|--- | --- | --- |
+| 32bit OS | N/A | %ProgramFiles% |
+| 64bit OS | %ProgramFiles(x86)% | %ProgramFiles%
+
 [Main ADK download page](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install)
 
 [Windows System Image Manager Supported Platforms](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/windows-system-image-manager-supported-platforms)
