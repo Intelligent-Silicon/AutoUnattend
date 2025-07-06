@@ -383,6 +383,7 @@ The installation may have set up and used this environment variable for copying 
 | <UseConfigurationSet>true</UseConfigurationSet> | <Path>%configsetroot%\sources\install.wim</Path> | Windows could not collect information for [OSImage] because the specified image file [D:\Sources\D:\\sources\install.wim] does not exist. |
 | <UseConfigurationSet>false</UseConfigurationSet> | <Path>%configsetroot%\sources\install.wim</Path> | Windows could not collect information for [OSImage] because the specified image file [D:\Sources\sources\install.wim] does not exist. |
 | <UseConfigurationSet>false</UseConfigurationSet> | <Path>%SystemRoot%\sources\install.wim</Path> | Windows could not collect information for [OSImage] because the specified image file [X:\windows\sources\install.wim] does not exist | 
+| <UseConfigurationSet>false</UseConfigurationSet> | install.wim</Path> | No Images are available |
 | <UseConfigurationSet>false</UseConfigurationSet> | <Path>%configsetroot%\install.wim</Path> |  |
 
 ### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
