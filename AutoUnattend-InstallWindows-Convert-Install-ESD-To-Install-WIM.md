@@ -13,6 +13,8 @@ PS C:\WINDOWS\system32> dism /export-image /SourceImageFile:"C:\mount\sources\in
 
 PS C:\WINDOWS\system32> DISM /Get-WimInfo /WimFile:"C:\mount\sources\install.wim"
 
+Dism /Image:"C:\mount_Win10_Pro_x32" /Add-Package /PackagePath:"C:\Users\Admin1\Documents\ISO Files\ssu-19041.3562-x86_5757db67f982216ee2f5973f4b3cfddbcae916b7.msu"
+
 
 Dism /unmount-image /mountdir:"C:\mount_Win10_Pro_x32" /discard
 
