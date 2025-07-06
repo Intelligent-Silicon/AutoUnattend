@@ -389,6 +389,12 @@ The installation may have set up and used this environment variable for copying 
 | <UseConfigurationSet>false</UseConfigurationSet> | <Path>%configsetroot%\install.wim</Path> | Windows could not collect information for [OSImage] because the specified image file [D:\Sources\%configsetroot%\install.wim] does not exist |
 
 
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deployment-troubleshooting-and-log-files?view=windows-11#windows-setup-related-log-files
+
+
+
+
+
 ### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
 
 ```
@@ -481,7 +487,31 @@ VMware can only emulate ```x86``` and ```AMD64``` cpu's, to emulate emulate ARM 
  
 You are now ready to power on the Virtual PC. If all goes to plan, the next step will be logging into Windows on about 5-10mins time!
 
-If you get an error message you will see a message similar to the line below. The line & column numbers will be different to whats shown.
+If you get an error message window appear, you can look up the logs during the installation process by pressing ``Shift``` + ```F10```
+
+The various locations can be found [here](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deployment-troubleshooting-and-log-files?view=windows-11#windows-setup-related-log-files)
+
+You can navigate to the folders by typing
+
+```
+cd %windir%\Panther
+```
+
+To display a log file in the command prompt window you can display it line by line by using the following the command:
+
+```
+type filename.log | more
+```
+
+If scrolling through a large log file and you want to break out of a it back to the command prompt press ```CTRL``` + ```C```.
+
+  
+
+you will see a multitude of messages appear in a message. When this happens, click on the window and press Shift+ F10 to bring up a Command window X:\Sources. 
+
+The log file layouts are 
+
+message similar to the line below. The line & column numbers will be different to whats shown.
 
 ```Windows could not parse or process unattend answer file [D:\autounattend.xml]. The answer file is invalid. The error was detected at line xxx column xxx of the answer file.```
 
