@@ -372,7 +372,7 @@ Download [W10_SIM_Generated_VMware_Win10_22H2_x32.xml](W10_SIM_Generated_VMware_
 
 Download and copy the AutoUnattend.xml to the root of the ISO file.
 ```
-PS C:\WINDOWS\system32> Copy-Item "C:\Users\Admin1\Downloads\SIM_Vmware_Win10_22H2_x32_Corrected_Component_Filters_AutoUnattend.xml" -Destination "C:\mount_Win10_22H2_x32_ISO\AutoUnattend.xml"
+PS C:\WINDOWS\system32> Copy-Item "C:\Users\Admin1\Downloads\W10_SIM_Generated_VMware_Win10_22H2_x32.xml" -Destination "C:\mount_Win10_22H2_x32_ISO\AutoUnattend.xml"
 ```
 
 ### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
