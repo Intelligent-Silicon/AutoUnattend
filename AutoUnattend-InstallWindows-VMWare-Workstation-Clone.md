@@ -376,6 +376,14 @@ https://superuser.com/questions/1354041/the-function-of-the-configsetroot-system
 ```
 PS C:\WINDOWS\system32> Copy-Item "C:\Users\Admin1\Downloads\W10_SIM_Generated_VMware_Win10_22H2_x32.xml" -Destination "C:\mount_Win10_22H2_x32_ISO\AutoUnattend.xml"
 ```
+The installation may have set up and used this environment variable for copying files into %SystemRoot%\ConfigSetRoot.
+
+| %ConfigurationSet% | Path | Error Message |
+| --- | --- | --- | 
+| <UseConfigurationSet>true</UseConfigurationSet> | <Path>%configsetroot%\sources\install.wim</Path> | Windows could not collect information for [OSImage] because the specified image file [D:\Sources\D:\\sources\install.wim] does not exist. |
+| <UseConfigurationSet>false</UseConfigurationSet> | <Path>%configsetroot%\sources\install.wim</Path> | Windows could not collect information for [OSImage] because the specified image file [D:\Sources\sources\install.wim] does not exist. |
+| <UseConfigurationSet>false</UseConfigurationSet> | <Path>%SystemRoot%\sources\install.wim</Path> | Windows could not collect information for [OSImage] because the specified image file [X:\windows\sources\install.wim] does not exist | 
+| <UseConfigurationSet>false</UseConfigurationSet> | <Path>%configsetroot%\install.wim</Path> |  |
 
 ### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
 
