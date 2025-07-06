@@ -56,7 +56,7 @@ PS C:\WINDOWS\system32> Copy-Item -Path "$($DiskImageDriveLetter):\*" -Destinati
 PS C:\WINDOWS\system32> Dismount-DiskImage -ImagePath "C:\Users\Admin1\Documents\ISO Files\Win10_22H2_x32.iso"
 ```
 
-The Copy-Item process can take several minutes and the ```PS C:\WINDOWS\system32>``` may not appear unless you periodically click on the Powershell window to force a refresh.
+The Copy-Item process can take several minutes on slower machines and the ```PS C:\WINDOWS\system32>``` may not appear unless you periodically click on the Powershell window to force a refresh.
 
 ### 2 Export the required version of Windows from the ```\sources\install.esd``` to a ```\sources\install.wim``` file.
 
