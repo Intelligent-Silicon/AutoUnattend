@@ -371,6 +371,8 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 Download [W10_SIM_Generated_VMware_Win10_22H2_x32.xml](W10_SIM_Generated_VMware_Win10_22H2_x32.xml)
 
 Download and copy the AutoUnattend.xml to the root of the ISO file.
+https://superuser.com/questions/1354041/the-function-of-the-configsetroot-system-variable-in-windows
+
 ```
 PS C:\WINDOWS\system32> Copy-Item "C:\Users\Admin1\Downloads\W10_SIM_Generated_VMware_Win10_22H2_x32.xml" -Destination "C:\mount_Win10_22H2_x32_ISO\AutoUnattend.xml"
 ```
