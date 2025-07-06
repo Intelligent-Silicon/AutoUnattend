@@ -72,8 +72,13 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_
 The N variants stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 
 ```
+PS C:\WINDOWS\system32> Export-WindowsImage -SourceImagePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd" -SourceIndex 7 -DestinationImagePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim" -DestinationName "Windows 10 Pro N" -LogLevel debug -LogPath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.log" -CompressionType max -CheckIntegrity
+```
+
+```
 PS C:\WINDOWS\system32> dism /export-image /SourceImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.esd" /SourceIndex:7 /DestinationImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /Compress:max /CheckIntegrity -LogLevel 3 -LogPath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.log"
 ```
+
 ```
 PS C:\WINDOWS\system32> Export-WindowsImage -SourceImagePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd" -SourceIndex 7 -DestinationImagePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim" -CompressionType max -CheckIntegrity -LogLevel 4 -LogPath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.log"
 ```
@@ -81,7 +86,12 @@ PS C:\WINDOWS\system32> Export-WindowsImage -SourceImagePath "C:\mount_Win10_22H
 
  
  
-As this is a new ```WIM``` file, its relative index position will be 1, if you were to export more images to the destination ```WIM``` file its relative index position will increase by 1.
+As this is a new ```WIM``` file, its relative index position will be 1, if you were to export more images to the destination ```WIM``` file its relative index position will increase by 1. Contrary to the [documentation](https://learn.microsoft.com/en-us/powershell/module/dism/export-windowsimage?view=windowsserver2025-ps#-loglevel), the loglevels 4 is not accepted but "debug" can be used, taken from "Errors,Warnings,WarningsInfo,Debug" BUT, using debug only shows two lines, seen below, and ```-loglevel``` doesnt output any real log info in practice.
+
+```
+Initializing wimgapi.
+Shutting down wimgapi.
+``` 
 
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.txt"
