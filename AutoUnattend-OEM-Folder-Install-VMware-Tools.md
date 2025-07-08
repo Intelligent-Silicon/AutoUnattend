@@ -19,6 +19,31 @@ PS C:\WINDOWS\system32> Copy-Item "C:\mount_VMware-Tools-12.4.5\setup.exe" -Dest
 
 https://www.vgemba.net/vmware/VMware-Tools-Drivers/
 
+https://techdocs.broadcom.com/us/en/vmware-cis/desktop-hypervisors/fusion-pro/13-0/specify-vmware-tools-components-for-silent-installations.html
+
+VMware Tools Workstation
+VMCI
+CBHelper
+Perfmon
+VmwTimeProvider
+FileIntrospection
+NetworkIntrospection
+ServiceDiscovery
+DeviceHelper
+Hgfs
+SVGA
+VMXNet
+VMXNet3
+PVSCSI
+EFIFW
+MemCtl
+Mouse
+MouseUsb
+Audio
+VSS
+BootCamp
+SaltMinion
+
 
 ```
 <settings pass="specialize">

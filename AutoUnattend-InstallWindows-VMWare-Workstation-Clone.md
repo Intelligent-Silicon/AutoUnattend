@@ -392,8 +392,13 @@ The installation may have set up and used this environment variable for copying 
 https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/deployment-troubleshooting-and-log-files?view=windows-11#windows-setup-related-log-files
 
 
+https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/distribution-shares-and-configuration-sets-overview
 
 
+
+```
+Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\AllSignedAndUnsignedDrivers" /Recurse /ForceUnsigned
+```
 
 ### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
 
@@ -411,7 +416,10 @@ Install VMware & run it.
 Click on the ```Create a New Virtual Machine``` and select the following options:
 ```Typical```, ```Installer disc image file``` and select ```C:\Users\Admin1\Documents\ISO Files\AU_Win10_22H2_x32.iso```. It should show below the filename that Windows 10 is detected.
 
-Click ```Next```, Virtual Machine Name ```Win10 22H2 x32```, click ```Next```, Maximum disk size 40GB, select ```Store virtual disk as a single file```, click ```Next``` and untick ```Power on this virtual machine after creation```, click ```Finish```.
+Disk Size. The minimum disk size for Windows 10 Pro needs to be at least 25GB.
+The VMware Workstation recommended disk size is 60GB.
+
+Click ```Next```, Virtual Machine Name ```Win10 22H2 x32```, click ```Next```, Maximum Disk Size xxxGB, select ```Store virtual disk as a single file```, click ```Next``` and untick ```Power on this virtual machine after creation```, click ```Finish```.
 
 If you are running on a NVMe hard disk, you need to change the Hard Drive from NVMe to SATA, otherwise during the installation process you will experience a Blue Screen of Death (BSOD) ```kmode_excepton_not_handled``` during the installation process.
 
