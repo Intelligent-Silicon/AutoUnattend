@@ -14,9 +14,91 @@
 | WCF-HTTP-Activation | Disabled | Disabled | Disabled | The Windows Process Activation Service (WAS) allows common hosting within IIS regardless of the communications protocol being used. You can host your http WCF services on IIS and they will be dynamically activated once traffic starts arriving. | [Microsoft.com](https://learn.microsoft.com/en-us/archive/msdn-magazine/2007/september/iis-7-0-extend-your-wcf-services-beyond-http-with-was) |
 | WCF-NonHTTP-Activation | Disabled | Disabled | Disabled | As above but where WCF Non-HTTP Activation refers to the ability of Windows Communication Foundation (WCF) services to be activated and hosted using protocols other than HTTP, such as TCP or Named Pipes. | |
 | IIS-WebServerRole | Disabled | Disabled | Disabled | IIS-WebServerRole is the top level, the next level groups the three major feature areas within the IIS-WebServerRole. These are: IIS-WebServer, IIS-WebServerManagementTools, IIS-FTPPublishingService. Each of these groups contains one or more  installable features. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#package-updates) |
+| IIS-WebServer | Disabled | Disabled | Disabled | See Above. | |
+| IIS-CommonHttpFeatures | Disabled | Disabled | Disabled | See Above. | |
+| IIS-HttpErrors | Disabled | Disabled | Disabled | See Above. | |
+| IIS-HttpRedirect | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ApplicationDevelopment | Disabled | Disabled | Disabled | See Above. | |
+| IIS-Security | Disabled | Disabled | Disabled | See Above. | |
+| IIS-RequestFiltering | Disabled | Disabled | Disabled | See Above. | |
+| IIS-NetFxExtensibility | Disabled | Disabled | Disabled | See Above. | |
+| IIS-NetFxExtensibility45 | Disabled | Disabled | Disabled | See Above. | |
+| IIS-HealthAndDiagnostics | Disabled | Disabled | Disabled | See Above. | |
+| IIS-HttpLogging | Disabled | Disabled | Disabled | See Above. | |
+| IIS-LoggingLibraries | Disabled | Disabled | Disabled | See Above. | |
+| IIS-RequestMonitor | Disabled | Disabled | Disabled | See Above. | |
+| IIS-HttpTracing | Disabled | Disabled | Disabled | See Above. | |
+| IIS-URLAuthorization | Disabled | Disabled | Disabled | See Above. | |
+| IIS-IPSecurity | Disabled | Disabled | Disabled | See Above. | |
+| IIS-Performance | Disabled | Disabled | Disabled | See Above. | |
+| IIS-HttpCompressionDynamic | Disabled | Disabled | Disabled | See Above. | |
+| IIS-WebServerManagementTools | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ManagementScriptingTools | Disabled | Disabled | Disabled | See Above. | |
+| IIS-IIS6ManagementCompatibility | Disabled | Disabled | Disabled | See Above. | |
+| IIS-Metabase | Disabled | Disabled | Disabled | See Above. | |
+| WAS-WindowsActivationService | Disabled | Disabled | Disabled | See Above. | |
+| WAS-ProcessModel | Disabled | Disabled | Disabled | See Above. | |
+| WAS-NetFxEnvironment | Disabled | Disabled | Disabled | See Above. | |
+| WAS-ConfigurationAPI | Disabled | Disabled | Disabled | See Above. | |
+| IIS-HostableWebCore | Disabled | Disabled | Disabled | See Above. | |
+| WCF-Services45 | Enabled | Disabled | Disabled | See Above. | |
+| WCF-HTTP-Activation45 | Disabled | Disabled | Disabled | See Above. | |
+| WCF-TCP-Activation45 | Disabled | Disabled | Disabled | See Above. | |
+| WCF-Pipe-Activation45 | Disabled | Disabled | Disabled | See Above. | |
+| WCF-MSMQ-Activation45 | Disabled | Disabled | Disabled | See Above. | |
+| WCF-TCP-PortSharing45 | Enabled | Disabled | Disabled | See Above. | |
+| IIS-StaticContent | Disabled | Disabled | Disabled | See Above. | | 
+| IIS-DefaultDocument | Disabled | Disabled | Disabled | See Above. | |
+| IIS-DirectoryBrowsing | Disabled | Disabled | Disabled | See Above. | |
+| IIS-WebDAV | Disabled | Disabled | Disabled | See Above. | |
+| IIS-WebSockets | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ApplicationInit | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ISAPIFiltern | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ISAPIExtensions | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ASPNET | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ASPNET45 | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ASP | Disabled | Disabled | Disabled | See Above. | |
+| IIS-CGI | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ServerSideIncludes | Disabled | Disabled | Disabled | See Above. | |
+| IIS-CustomLogging | Disabled | Disabled | Disabled | See Above. | |
+| IIS-BasicAuthentication | Disabled | Disabled | Disabled | See Above. | |
+| IIS-HttpCompressionStatic | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ManagementConsole | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ManagementService | Disabled | Disabled | Disabled | See Above. | |
+| IIS-WMICompatibility | Disabled | Disabled | Disabled | See Above. | |
+| IIS-LegacyScripts | Disabled | Disabled | Disabled | See Above. | |
+| IIS-FTPServer | Disabled | Disabled | Disabled | See Above. | |
+| IIS-FTPSvc | Disabled | Disabled | Disabled | See Above. | |
+| IIS-FTPExtensibility | Disabled | Disabled | Disabled | See Above. | |
+| MSMQ-Container | Disabled | Disabled | Disabled | See Above. | |
+| MSMQ-DCOMProxy | Disabled | Disabled | Disabled | See Above. | |
+| MSMQ-Server | Disabled | Disabled | Disabled | See Above. | |
+| MSMQ-HTTP | Disabled | Disabled | Disabled | See Above. | |
+| MSMQ-Multicast | Disabled | Disabled | Disabled | See Above. | |
+| MSMQ-Triggers | Disabled | Disabled | Disabled | See Above. | |
+| SMB1Protocol-Deprecation | Disabled
+| MediaPlayback | Disabled | Disabled | Disabled | See Above. | |
+| MSRDC-Infrastructure | Enabled | Disabled | Disabled | See Above. | |
+| Printing-PrintToPDFServices-Features | Enabled | Disabled | Disabled | See Above. | |
+| MicrosoftWindowsPowerShellV2Root | Enabled | Disabled | Disabled | See Above. | |
+| MicrosoftWindowsPowerShellV2 | Enabled | Disabled | Disabled | See Above. | |
+| SearchEngine-Client-Package | Enabled | Disabled | Disabled | See Above. | |
+| Microsoft-RemoteDesktopConnection | Disabled | Disabled | Disabled | See Above. | |
+| LegacyComponents | Disabled | Disabled | Disabled | See Above. | |
+| DirectPlay | Disabled | Disabled | Disabled | See Above. | |
+| Printing-Foundation-Features | Enabled | Disabled | Disabled | See Above. | |
+| Printing-Foundation-InternetPrinting-Client | Enabled | Disabled | Disabled | See Above. | |
+| Printing-Foundation-LPDPrintService | Disabled | Disabled | Disabled | See Above. | |
+| Printing-Foundation-LPRPortMonitor | Disabled | Disabled | Disabled | See Above. | |
+| NetFx4-AdvSrvs | Enabled | Disabled | Disabled | See Above. | |
+| NetFx4Extended-ASPNET45 | Disabled | Disabled | Disabled | See Above. | |
+| SMB1Protocol | Disabled | Disabled | Disabled | See Above. | |
+| SMB1Protocol-Client | Disabled | Disabled | Disabled | See Above. | |
+| SMB1Protocol-Server | Disabled | Disabled | Disabled | See Above. | |
+| Recall | DisabledWithPayloadRemoved | Disabled | Disabled | See Above. | |
+| HypervisorPlatform | Enabled | Disabled | Disabled | See Above. | |
+| Microsoft-Windows-Subsystem-Linux | Disabled | Disabled | Disabled | See Above. | |
 
-
- 
 
 ```
 PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Online
