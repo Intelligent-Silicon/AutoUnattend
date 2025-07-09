@@ -17,7 +17,7 @@
 | IIS-WebServer | Disabled | Disabled | Disabled | IIS (Internet Information Services) is a flexible, general-purpose web server for Windows systems, offering features for hosting websites, web applications, and services. The IIS 7 and later web servers have a completely modular architecture which offers three key benefits: Componentization, Extensibility, ASP.NET Integration. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/get-started/introduction-to-iis/iis-web-server-overview) |
 | IIS-CommonHttpFeatures | Disabled | Disabled | Disabled | Installs support for static Web server content such as HTML & image files, custom errors, and redirection. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
 | IIS-HttpErrors | Disabled | Disabled | Disabled | Installs HTTP Error files. Allows you to customize the error messages returned to clients. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
-| IIS-HttpRedirect | Disabled | Disabled | Disabled | See Above. | |
+| IIS-HttpRedirect | Disabled | Disabled | Disabled | Provides support to redirect client requests to a specific destination. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
 | IIS-ApplicationDevelopment | Disabled | Disabled | Disabled | See Above. | |
 | IIS-Security | Disabled | Disabled | Disabled | See Above. | |
 | IIS-RequestFiltering | Disabled | Disabled | Disabled | See Above. | |
