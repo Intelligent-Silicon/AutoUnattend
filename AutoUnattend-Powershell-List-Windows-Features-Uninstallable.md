@@ -18,8 +18,8 @@
 | IIS-CommonHttpFeatures | Disabled | Disabled | Disabled | Installs support for static Web server content such as HTML & image files, custom errors, and redirection. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
 | IIS-HttpErrors | Disabled | Disabled | Disabled | Installs HTTP Error files. Allows you to customize the error messages returned to clients. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
 | IIS-HttpRedirect | Disabled | Disabled | Disabled | Provides support to redirect client requests to a specific destination. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
-| IIS-ApplicationDevelopment | Disabled | Disabled | Disabled | See Above. | |
-| IIS-Security | Disabled | Disabled | Disabled | See Above. | |
+| IIS-ApplicationDevelopment | Disabled | Disabled | Disabled | Installs support for application development such as ASP.NET, Classic ASP, CGI, and ISAPI extensions. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
+| IIS-Security | Disabled | Disabled | Disabled | Enables additional security protocols to secure servers, sites, applications, vdirs, and files. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
 | IIS-RequestFiltering | Disabled | Disabled | Disabled | See Above. | |
 | IIS-NetFxExtensibility | Disabled | Disabled | Disabled | See Above. | |
 | IIS-NetFxExtensibility45 | Disabled | Disabled | Disabled | See Above. | |
