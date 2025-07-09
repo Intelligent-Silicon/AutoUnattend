@@ -95,7 +95,7 @@
 | SMB1Protocol | Disabled | Disabled | Disabled | See Above. | |
 | SMB1Protocol-Client | Disabled | Disabled | Disabled | See Above. | |
 | SMB1Protocol-Server | Disabled | Disabled | Disabled | See Above. | |
-| Recall | DisabledWithPayloadRemoved | Disabled | Disabled | See Above. | |
+| Recall | Disabled* | Disabled* | Disabled* | Disabled* = DisabledWithPayloadRemoved See Above. | |
 | HypervisorPlatform | Enabled | Disabled | Disabled | See Above. | |
 | Microsoft-Windows-Subsystem-Linux | Disabled | Disabled | Disabled | See Above. | |
 
