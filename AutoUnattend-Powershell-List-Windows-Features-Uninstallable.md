@@ -20,18 +20,18 @@
 | IIS-HttpRedirect | Disabled | Disabled | Disabled | Provides support to redirect client requests to a specific destination. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
 | IIS-ApplicationDevelopment | Disabled | Disabled | Disabled | Installs support for application development such as ASP.NET, Classic ASP, CGI, and ISAPI extensions. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
 | IIS-Security | Disabled | Disabled | Disabled | Enables additional security protocols to secure servers, sites, applications, vdirs, and files. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
-| IIS-RequestFiltering | Disabled | Disabled | Disabled | See Above. | |
-| IIS-NetFxExtensibility | Disabled | Disabled | Disabled | See Above. | |
-| IIS-NetFxExtensibility45 | Disabled | Disabled | Disabled | See Above. | |
-| IIS-HealthAndDiagnostics | Disabled | Disabled | Disabled | See Above. | |
-| IIS-HttpLogging | Disabled | Disabled | Disabled | See Above. | |
-| IIS-LoggingLibraries | Disabled | Disabled | Disabled | See Above. | |
-| IIS-RequestMonitor | Disabled | Disabled | Disabled | See Above. | |
-| IIS-HttpTracing | Disabled | Disabled | Disabled | See Above. | |
-| IIS-URLAuthorization | Disabled | Disabled | Disabled | See Above. | |
-| IIS-IPSecurity | Disabled | Disabled | Disabled | See Above. | |
-| IIS-Performance | Disabled | Disabled | Disabled | See Above. | |
-| IIS-HttpCompressionDynamic | Disabled | Disabled | Disabled | See Above. | |
+| IIS-RequestFiltering | Disabled | Disabled | Disabled | Configures rules to block selected client requests. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#iis-70-and-above-components-overview) |
+| IIS-NetFxExtensibility | Disabled | Disabled | Disabled | IIS7.0 ASP.NET Workload | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/install-typical-iis-workloads#aspnet-workload)|
+| IIS-NetFxExtensibility45 | Disabled | Disabled | Disabled | IIS 8.5 on Windows Server 2012 R2 ASP.NET Workload| [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-85/installing-iis-85-on-windows-server-2012-r2) |
+| IIS-HealthAndDiagnostics | Disabled | Disabled | Disabled | Provides support for logging, runtime status, and request tracing. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#health-and-diagnostics-updates) |
+| IIS-HttpLogging | Disabled | Disabled | Disabled | | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#health-and-diagnostics-updates) |
+| IIS-LoggingLibraries | Disabled | Disabled | Disabled | | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#health-and-diagnostics-updates) |
+| IIS-RequestMonitor | Disabled | Disabled | Disabled | RSCA – an acronym for Runtime Service and Control API. Underneath the ‘Health and Diagnostics’ feature, you will need to make sure that the ‘Request Monitor’ checkbox is checked for RSCA to be installed.  | [Microsoft.com](https://techcommunity.microsoft.com/blog/iis-support-blog/using-rsca-to-help-you-understand-what-your-iis-server-requests-are-doing/773904) |
+| IIS-HttpTracing | Disabled | Disabled | Disabled | | [microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#health-and-diagnostics-updates) |
+| IIS-URLAuthorization | Disabled | Disabled | Disabled | Part of the Security update groups together all of the authentication, authorization, and filtering features. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#security-updates) |
+| IIS-IPSecurity | Disabled | Disabled | Disabled | See Above. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#security-updates) |
+| IIS-Performance | Disabled | Disabled | Disabled | The Performance update grouping includes the two compression updates for static and dynamic content. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#performance) |
+| IIS-HttpCompressionDynamic | Disabled | Disabled | Disabled | Part of the Performance update grouping which includes the two compression updates for static and this dynamic content. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#performance) |
 | IIS-WebServerManagementTools | Disabled | Disabled | Disabled | See Above. | |
 | IIS-ManagementScriptingTools | Disabled | Disabled | Disabled | See Above. | |
 | IIS-IIS6ManagementCompatibility | Disabled | Disabled | Disabled | See Above. | |
