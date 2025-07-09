@@ -1,5 +1,5 @@
 | Feature | Initial State | Comments | Website |
-| --- | --- | --- | 
+| --- | --- | --- | --- | 
 
 
 | Windows-Defender-Default-Definitions | Enabled | Disabled when newer definitions are downloaded and installed | https://www.reddit.com/r/windows/comments/ssay3k/windowsdefenderdefaultdefenitions_was/ |
