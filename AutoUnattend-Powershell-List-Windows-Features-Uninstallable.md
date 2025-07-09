@@ -1,3 +1,8 @@
+| Feature | Initial State | Comments | Website |
+| --- | --- | --- | 
+| Windows-Defender-Default-Definitions | Enabled | Disabled when newer definitions are downloaded and installed | https://www.reddit.com/r/windows/comments/ssay3k/windowsdefenderdefaultdefenitions_was/ |
+| Printing-XPSServices-Features | Disabled | Microsoft XPS Document Writer, which allows users to save documents as XPS files (an XML-based document format) part of the broader XPS Services. | https://learn.microsoft.com/en-us/windows-hardware/drivers/print/xps-printing-features |
+| TelnetClient | Disabled | Software that enables users to interact with a remote computer via a text-based interface, essentially acting as a terminal emulator. | https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/telnet | 
 
 ```
 PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Online
