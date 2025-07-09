@@ -4,7 +4,8 @@
 | Printing-XPSServices-Features | Disabled | Disabled |Microsoft XPS Document Writer, which allows users to save documents as XPS files (an XML-based document format), part of the broader XPS Services. | https://learn.microsoft.com/en-us/windows-hardware/drivers/print/xps-printing-features |
 | TelnetClient | Disabled | Disabled | Software that enables users to interact with a remote computer via a text-based interface, essentially acting as a terminal emulator. See [Putty](https://www.putty.org/) for an alternative Telnet + more client. | https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/telnet  | 
 | TFTP | Disabled | Disabled | Trivial File Transfer Protocol (UDP), is a simple network protocol used for transferring files between a client and a server. TFTP does not support features like user authentication, directory listing, or file deletion | https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tftp |
-
+| TIFFIFilter | Disabled | Disabled | Windows TIFF IFilter performs optical character recognition (OCR) processing of TIFF images, and then it provides the recognized text to the caller to build the search index | https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-7/dd755985(v=ws.10) |
+| VirtualMachinePlatform | Disabled | Disabled | Provides the underlying platform support for running virtual machines, WSL 2 (Windows Subsystem for Linux) & used to create MSIX Application packages for an App-V or MSI. May require [Virtualisation switched on in UEFI bios](https://support.microsoft.com/en-au/windows/enable-virtualization-on-windows-c5578302-6e43-4b4b-a449-8ced115f58e1). |  
 
 ```
 PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Online
