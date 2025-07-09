@@ -76,7 +76,7 @@
 | MSMQ-HTTP | Disabled | Disabled | Disabled | See Above. | |
 | MSMQ-Multicast | Disabled | Disabled | Disabled | See Above. | |
 | MSMQ-Triggers | Disabled | Disabled | Disabled | See Above. | |
-| SMB1Protocol-Deprecation | Disabled
+| SMB1Protocol-Deprecation | Disabled | Disabled | See Above. | |
 | MediaPlayback | Disabled | Disabled | Disabled | See Above. | |
 | MSRDC-Infrastructure | Enabled | Disabled | Disabled | See Above. | |
 | Printing-PrintToPDFServices-Features | Enabled | Disabled | Disabled | See Above. | |
