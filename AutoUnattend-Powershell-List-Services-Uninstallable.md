@@ -1,0 +1,240 @@
+# AutoUnattend-Powershell-List-Services-Uninstallable
+
+```
+PS C:\WINDOWS\system32> Get-Service
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  AarSvc_471cf       Agent Activation Runtime_471cf
+Stopped  ALG                Application Layer Gateway Service
+Stopped  AppIDSvc           Application Identity
+Running  Appinfo            Application Information
+Stopped  AppReadiness       App Readiness
+```
+
+```
+PS C:\WINDOWS\system32> Get-Service "wmi*"
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  wmiApSrv           WMI Performance Adapter
+Running  WMIRegistration... Intel(R) Management Engine WMI Prov...
+```
+
+```
+PS C:\WINDOWS\system32> Get-Service -DisplayName "*network*"
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  NcaSvc             Network Connectivity Assistant
+Running  NcbService         Network Connection Broker
+Stopped  NcdAutoSetup       Network Connected Devices Auto-Setup
+Stopped  Netman             Network Connections
+Running  netprofm           Network List Service
+Stopped  NetSetupSvc        Network Setup Service
+Stopped  NlaSvc             Network Location Awareness
+Running  nsi                Network Store Interface Service
+Running  WdNisSvc           Microsoft Defender Antivirus Networ...
+Stopped  XboxNetApiSvc      Xbox Live Networking Service
+```
+
+```
+PS C:\WINDOWS\system32> Get-Service -Name "win*" -Exclude "WinRM"
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  WinDefend          Microsoft Defender Antivirus Service
+Running  WinHttpAutoProx... WinHTTP Web Proxy Auto-Discovery Se...
+Running  Winmgmt            Windows Management Instrumentation
+```
+
+```
+PS C:\WINDOWS\system32> Get-Service | Where-Object {$_.Status -eq "Running"}
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  Appinfo            Application Information
+Running  AppXSvc            AppX Deployment Service (AppXSVC)
+Running  AudioEndpointBu... Windows Audio Endpoint Builder
+Running  Audiosrv           Windows Audio
+```
+
+```
+PS C:\WINDOWS\system32> Get-Service | Where-Object {$_.DependentServices} |
+>>     Format-List -Property Name, DependentServices, @{
+>>         Label="NoOfDependentServices"
+>>         Expression={$_.DependentServices.Count}
+>>     }
+
+
+Name                  : AppIDSvc
+DependentServices     : {applockerfltr}
+NoOfDependentServices : 1
+
+Name                  : AudioEndpointBuilder
+DependentServices     : {AarSvc_471cf, RtkAudioUniversalService, AarSvc, Audiosrv}
+NoOfDependentServices : 4
+
+Name                  : Audiosrv
+DependentServices     : {AarSvc_471cf, RtkAudioUniversalService, AarSvc}
+NoOfDependentServices : 3
+
+Name                  : BFE
+DependentServices     : {ZTDNS, XboxNetApiSvc, webthreatdefsvc, wtd...}
+NoOfDependentServices : 12
+```
+
+```
+PS C:\WINDOWS\system32> Get-Service "s*" | Sort-Object Status
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  SensrSvc           Sensor Monitoring Service
+Stopped  SessionEnv         Remote Desktop Configuration
+Stopped  SensorDataService  Sensor Data Service
+Stopped  sppsvc             Software Protection
+```
+
+```
+PS C:\WINDOWS\system32> Get-Service "WinRM" -RequiredServices
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  NSI                Network Store Interface Service
+Running  HTTP               HTTP Service
+Running  RPCSS              Remote Procedure Call (RPC)
+```
+
+```
+PS C:\WINDOWS\system32> "WinRM" | Get-Service
+
+Status   Name               DisplayName
+------   ----               -----------
+Stopped  WinRM              Windows Remote Management (WS-Manag...
+```
+
+```
+PS C:\WINDOWS\system32> Remove-Service -Name "TestService"
+Remove-Service : The term 'Remove-Service' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path
+is correct and try again.
+At line:1 char:1
++ Remove-Service -Name "TestService"
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Remove-Service:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+    
+```
+
+```
+Get-Service -DisplayName "Test Service" | Remove-Service
+```
+
+```
+New-Service -Name "TestService" -BinaryPathName 'C:\WINDOWS\System32\svchost.exe -k netsvcs'
+```
+
+```
+$params = @{
+  Name = "TestService"
+  BinaryPathName = 'C:\WINDOWS\System32\svchost.exe -k netsvcs'
+  DependsOn = "NetLogon"
+  DisplayName = "Test Service"
+  StartupType = "Manual"
+  Description = "This is a test service."
+}
+New-Service @params
+```
+```
+Get-CimInstance -ClassName Win32_Service -Filter "Name='testservice'"
+
+ExitCode  : 0
+Name      : testservice
+ProcessId : 0
+StartMode : Auto
+State     : Stopped
+Status    : OK
+```
+
+```
+$SDDL = "D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWLOCRRC;;;SU)"
+$params = @{
+  BinaryPathName = 'C:\WINDOWS\System32\svchost.exe -k netsvcs'
+  DependsOn = "NetLogon"
+  DisplayName = "Test Service"
+  StartupType = "Manual"
+  Description = "This is a test service."
+  SecurityDescriptorSddl = $SDDL
+}
+New-Service @params
+```
+
+```
+Set-Service -Name LanmanWorkstation -DisplayName "LanMan Workstation"
+```
+
+```
+Set-Service -Name BITS -StartupType Automatic
+Get-Service BITS | Select-Object -Property Name, StartType, Status
+```
+
+```
+Get-CimInstance Win32_Service -Filter 'Name = "BITS"'  | Format-List  Name, Description
+
+Name        : BITS
+Description : Transfers files in the background using idle network bandwidth. If the service is
+              disabled, then any applications that depend on BITS, such as Windows Update or MSN
+              Explorer, will be unable to automatically download programs and other information.
+
+Set-Service -Name BITS -Description "Transfers files in the background using idle network bandwidth."
+Get-CimInstance Win32_Service -Filter 'Name = "BITS"' | Format-List  Name, Description
+
+Name        : BITS
+Description : Transfers files in the background using idle network bandwidth.
+```
+
+```
+Set-Service -Name WinRM -Status Running -PassThru
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  WinRM              Windows Remote Management (WS-Manag...
+```
+
+```
+Get-Service -Name Schedule | Set-Service -Status Paused
+```
+
+```
+$S = Get-Service -Name Schedule
+Set-Service -InputObject $S -Status Stopped
+```
+
+```
+$Cred = Get-Credential
+$S = Get-Service -Name Schedule
+Invoke-Command -ComputerName server01.contoso.com -Credential $Cred -ScriptBlock {
+  Set-Service -InputObject $S -Status Stopped
+}
+```
+
+```
+$credential = Get-Credential
+Set-Service -Name Schedule -Credential $credential
+```
+
+```
+$SDDL = "D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWLOCRRC;;;SU)"
+Set-Service -Name "BITS" -SecurityDescriptorSddl $SDDL
+```
+
+```
+Get-Service SQLWriter,spooler |
+    Set-Service -StartupType Automatic -PassThru |
+    Select-Object Name, StartType
+
+Name      StartType
+----      ---------
+spooler   Automatic
+SQLWriter Automatic
+```
+
