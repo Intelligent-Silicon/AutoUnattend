@@ -3,6 +3,8 @@
 
 [AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md)
 
+[Features}(https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/AutoUnattend-Powershell-List-Windows-Features-Uninstallable.md)
+
 
 [AutoUnattend.xml aka Unattend.xml](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/update-windows-settings-and-scripts-create-your-own-answer-file-sxs) is an answer file that can control and configure the installation of [Windows 10 (22H2)](https://www.microsoft.com/en-gb/software-download/windows10) ([version 1607](https://en.wikipedia.org/wiki/Windows_10,_version_1607) and onwards) or Windows Server [2016](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016), [2019](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019), [2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) and [Windows 11](https://www.microsoft.com/en-gb/software-download/windows11) or Windows Server [2025](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025), along with user software in an expedient, consistent and hands free way on a computer, to make the computer yours.
 
