@@ -32,7 +32,7 @@
 | IIS-IPSecurity | Disabled | Disabled | Disabled | The IIS-IPSecurity feature, also known as IP Address and Domain Restrictions, allows administrators to control access to websites and applications based on IP addresses or domain names. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#security-updates) |
 | IIS-Performance | Disabled | Disabled | Disabled | The Performance update grouping includes the two compression updates for static and dynamic content. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#performance) |
 | IIS-HttpCompressionDynamic | Disabled | Disabled | Disabled | Part of the Performance update grouping which includes the two compression updates for static and this dynamic content. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/install/installing-iis-7/understanding-setup-in-iis#performance) |
-| IIS-WebServerManagementTools | Disabled | Disabled | Disabled | See Above. | |
+| IIS-WebServerManagementTools | Disabled | Disabled | Disabled | The IIS-Web Server Management Tools feature, specifically the IIS Manager, provides a user interface and programmatic access for managing IIS (Internet Information Services) servers locally and remotely. It allows administrators to configure, monitor, and troubleshoot web servers, sites, and applications. | [Microsoft.com](https://learn.microsoft.com/en-us/iis/overview/powerful-admin-tools) |
 | IIS-ManagementScriptingTools | Disabled | Disabled | Disabled | See Above. | |
 | IIS-IIS6ManagementCompatibility | Disabled | Disabled | Disabled | See Above. | |
 | IIS-Metabase | Disabled | Disabled | Disabled | See Above. | |
