@@ -1,5 +1,36 @@
 # AutoUnattend-Powershell-List-Services-Uninstallable
 
+
+List all services and their Dependant Services.
+```
+PS C:\WINDOWS\system32> Get-Service | Select-Object Status, Name, DisplayName, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType, @{Name='DependentServices';Expression={$_.DependentServices -join ';'}} | Export-Csv -Path "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.csv" -NoTypeInformation
+```
+
+Set Service LanmanWorkstation with a new DisplayName.
+```
+Set-Service -Name LanmanWorkstation -DisplayName "LanMan Workstation"
+Set-Service -Name AarSvc_47e64 -DisplayName "Agent Activation Runtime_47e64"
+```
+
+Prefix the DisplayName of selected Services to allow running.
+Service StartType options =  Automatic, Automatic (Delayed), Manual, and Disabled
+V = VirtualPC {A = Automatic|S = Automatic (Delayed Start)|M = Manual|D = Disabled|U = Uninstall}_{DisplayName}
+
+This indicates the Service has been processed. Services not processed will have no V{A|S|M|D|U}_{DisplayName}
+
+Services.StartUpOptions.VMware.CSV File will contain two columns, ServiceName & Prefix which will be used to feed in the prefix to a script which will change the DisplayName.
+
+A second script will alter the StartType setting or uninstall it based on the DisplayName Prefix. Where no Prefix exists, nothing happens.
+
+
+```
+Get-Service -Name wuauserv |
+  ForEach-Object {
+    Set-Service -Name $_.Name -DisplayName ("MyPrefix - " + $_.DisplayName)
+  }
+```
+
+
 ```
 PS C:\WINDOWS\system32> Get-Service | Out-File -FilePath "C:\mount\sources\install.esd.txt"
 ```
@@ -92,7 +123,27 @@ Get-Service | Format-List *
 Get-Service | Format-Table -AutoSize *
 Get-Service | Format-Table -AutoSize * | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
 Get-Service | Format-Table -Property ServiceName, Name, DisplayName, RequiredServices, ServicesDependedOn, Status, CanPauseAndContinue, CanShutdown, CanStop, ServiceType, StartType | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
-Get-Service | Format-Table -Property ServiceName,RequiredServices, Status, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
+Get-Service | Format-Table -Property Status, ServiceName, DisplayName, RequiredServices, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
+
+Get-Service | Where-Object { $_.StartType -match "Automatic" -or $_.StartType -match "Automatic (Delayed Start)" -or $_.StartType -match "Manual" } | Format-Table -Property Status, ServiceName, DisplayName, RequiredServices, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
+Get-Service | Where-Object { $_.Status -match "Running" } | Format-Table -Property Status, ServiceName, DisplayName, RequiredServices, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType | Export-Csv -Path "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
+
+Get-Service | Where-Object { $_.StartType -match "Automatic" } | Format-Table -Property Status, ServiceName, DisplayName, RequiredServices, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
+
+Get-Service | Where-Object { $_.Status -match "Running" } | Format-Table -Property Status, ServiceName, DisplayName, RequiredServices, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
+
+Get-Service | Where-Object { $_.Status -match "Running" } | Format-Table -Property Status, ServiceName, DisplayName, RequiredServices, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType | Export-Csv -Path "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.csv"
+
+
+Get-Service | Select-Object -Property Name,DisplayName,Status | Export-Csv -Path "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.csv" -NoTypeInformation
+
+Get-Service | Select-Object -Property * | Export-Csv -Path "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.csv" -NoTypeInformation
+
+Get-Service | Where-Object { $_.Status -match "Running" } | Format-Table -Property Status, ServiceName, DisplayName, RequiredServices, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType | Export-Csv -Path "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.csv" -NoTypeInformation
+
+Get-Service | Select-Object -Property Status, ServiceName, DisplayName, RequiredServices, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType | Export-Csv -Path "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.csv" -NoTypeInformation
+
+Get-Service | Select-Object Status, Name, DisplayName, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType, @{Name='DependentServices';Expression={$_.DependentServices -join ';'}} | Export-Csv -Path "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.csv" -NoTypeInformation
 ```
 
 Announcing Zero Trust DNS Private Preview
