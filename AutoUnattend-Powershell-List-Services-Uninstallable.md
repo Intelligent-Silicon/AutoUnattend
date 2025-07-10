@@ -13,6 +13,10 @@ PS C:\WINDOWS\system32> Get-Service | Where-Object {$_.DependentServices} |
 >>         Expression={$_.DependentServices.Count}
 >>     }
 
+https://learn.microsoft.com/en-us/dotnet/api/system.serviceprocess.servicecontroller.servicename?view=net-9.0-pp
+
+
+
 ```
 Get-Service | ForEach-Object {$service = $_; $dependents = Get-Service | Where-Object { $_.DependentServices -contains $service }; [PSCustomObject]@{ServiceDisplayName   = $service.DisplayName; DependentDisplayNames = ($service.DependentServices | ForEach-Object { $_.DisplayName }) -join ', ' } } | Format-Table -AutoSize
 ```
