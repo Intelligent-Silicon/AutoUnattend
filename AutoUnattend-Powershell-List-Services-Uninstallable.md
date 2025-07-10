@@ -1,6 +1,83 @@
 # AutoUnattend-Powershell-List-Services-Uninstallable
 
 ```
+PS C:\WINDOWS\system32> Get-Service | Out-File -FilePath "C:\mount\sources\install.esd.txt"
+```
+-DependentServices]
+   [-RequiredServices
+
+```
+PS C:\WINDOWS\system32> Get-Service | Where-Object {$_.DependentServices} |
+>>     Format-List -Property Name, DependentServices, @{
+>>         Label="NoOfDependentServices"
+>>         Expression={$_.DependentServices.Count}
+>>     }
+
+```
+Get-Service | ForEach-Object {$service = $_; $dependents = Get-Service | Where-Object { $_.DependentServices -contains $service }; [PSCustomObject]@{ServiceDisplayName   = $service.DisplayName; DependentDisplayNames = ($service.DependentServices | ForEach-Object { $_.DisplayName }) -join ', ' } } | Format-Table -AutoSize
+```
+
+```
+Get-Service | ForEach-Object {$service = $_; $dependents = Get-Service | Where-Object { $_.DependentServices -contains $service }; [PSCustomObject]@{ServiceDisplayName   = $service.ServiceName; DependentDisplayNames = ($service.DependentServices | ForEach-Object { $_.ServiceName }) -join ', ' } } | Format-Table -AutoSize
+```
+```
+Get-Service | ForEach-Object {$service = $_; $dependents = Get-Service | Where-Object { $_.DependentServices -contains $service }; [PSCustomObject]@{ServiceDisplayName   = $service.ServiceName; DependentDisplayNames = ($service.DependentServices | ForEach-Object { $_.ServiceName }) -join ', ' } } | Format-Table -AutoSize | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.Dependants.txt"
+```
+
+Announcing Zero Trust DNS Private Preview
+https://techcommunity.microsoft.com/blog/networkingblog/announcing-zero-trust-dns-private-preview/4110366
+
+| Out-File -FilePath "C:\mount\sources\install.esd.txt"
+
+
+```
+Get-Service | ForEach-Object {
+    $service = $_
+    $dependents = Get-Service | Where-Object { $_.DependentServices -contains $service }
+    
+    [PSCustomObject]@{
+        ServiceDisplayName   = $service.DisplayName
+        DependentDisplayNames = ($service.DependentServices | ForEach-Object { $_.DisplayName }) -join ', '
+    }
+} | Format-Table -AutoSize
+```
+
+
+
+PS C:\WINDOWS\system32> Get-Service | Where-Object {$_.DependentServices} | ForEach-Object {$_.DependentServices.DisplayName $_.DependentServices}
+
+
+PS C:\WINDOWS\system32> Get-Service | Where-Object {$_.DependentServices} | ForEach-Object {$_.DependentServices.DisplayName $_.DependentServices} | Format-List -Property Name, DependentServices, @{Label="NoOfDependentServices"; Expression={$_.DependentServices.Count} }, @{Label="DependentServiceDisplayName"; Expression={$_.DependentServices.DisplayName} }
+
+PS C:\WINDOWS\system32> Get-Service | Where-Object {$_.DependentServices} | 
+    Format-List -Property Name, DependentServices, 
+    @{
+    Label="NoOfDependentServices";
+    Expression={$_.DependentServices.Count}
+    }, 
+    @{
+    Label="DisplayName"; 
+    Expression={
+    foreach ($_.DependentServices.DisplayName in $_.DependentServices);
+    {$_.DependentServices.DisplayName}
+    }}  
+   
+   foreach ($_.DependentServices.DisplayName in $_.DependentServices);
+    {$_.DependentServices.DisplayName}
+    }}
+    
+    
+   Import-csv C:\filename.csv | Where-Object {$_.ExternalEmailAddress -ne "" } | ForEach-Object { New-MailContact -Name $_.Name -ExternalEmailAddress $_.ExternalEmailAddress }
+   
+   
+$letterArray = 'a','b','c','d'
+foreach ($letter in $letterArray)
+{
+  Write-Host $letter
+}
+
+
+```
 PS C:\WINDOWS\system32> Get-Service
 
 Status   Name               DisplayName
