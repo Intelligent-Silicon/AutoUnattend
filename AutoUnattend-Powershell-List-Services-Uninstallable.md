@@ -28,6 +28,73 @@ Get-Service | ForEach-Object {$service = $_; $dependents = Get-Service | Where-O
 Get-Service | ForEach-Object {$service = $_; $dependents = Get-Service | Where-Object { $_.DependentServices -contains $service }; [PSCustomObject]@{ServiceDisplayName   = $service.ServiceName; DependentDisplayNames = ($service.DependentServices | ForEach-Object { $_.ServiceName }) -join ', ' } } | Format-Table -AutoSize | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.Dependants.txt"
 ```
 
+```
+Get-Service | ForEach-Object {  $service = $_; $dependents = Get-Service | Where-Object { $_.DependentServices -contains $service }; 
+[PSCustomObject]@{
+                    ServiceName   = $service.ServiceName;
+                    DisplayName   = ($service.DisplayName ) -join ', ';
+                    Description   = ($service.Description) -join ', '; 
+                    Status   = ($service.Status ) -join ', '; 
+                    StartupType             = ($service.StartupType       | ForEach-Object { $_.ServiceName }) -join ', '                     
+                    DependentServiceNames   = ($service.DependentServices | ForEach-Object { $_.ServiceName }) -join ', ' 
+                 }
+                             } | Format-Table -AutoSize | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.Dependants.txt"
+```
+
+
+```
+Get-Service | ForEach-Object {
+    $service = $_
+    $serviceConfig = Get-WmiObject -Class Win32_Service -Filter "Name = '$($service.Name)'"
+
+    [PSCustomObject]@{
+        ServiceName       = $service.Name
+        DisplayName       = $service.DisplayName
+        Description       = $serviceConfig.Description
+        StartupType       = $serviceConfig.StartMode
+        DependentServices = ($service.DependentServices | Select-Object -ExpandProperty Name) -join ", "
+    }
+} | Format-Table -AutoSize | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.Dependants.txt"
+```
+
+```
+Get-Service | ForEach-Object {
+    $service = $_
+    $serviceConfig = Get-WmiObject -Class Win32_Service -Filter "Name = '$($service.Name)'"
+
+    [PSCustomObject]@{
+        ServiceName       = $service.Name
+        DisplayName       = $service.DisplayName
+        StartupType       = $serviceConfig.StartMode
+        DependentServices = ($service.DependentServices | Select-Object -ExpandProperty Name) -join ", "
+    }
+} | Format-Table -AutoSize | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.Dependants.txt"
+```
+
+```
+Get-Service | ForEach-Object {
+    $service = $_
+    $serviceConfig = Get-WmiObject -Class Win32_Service -Filter "Name = '$($service.Name)'"
+
+    [PSCustomObject]@{
+        ServiceName       = $service.Name
+        DisplayName       = $service.DisplayName
+        StartupType       = $serviceConfig.StartMode
+        DependentServices = ($service.DependentServices | Select-Object -ExpandProperty Name) -join ", "
+        Description       = $serviceConfig.Description
+    }
+} | Format-Table -AutoSize | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.Dependants.txt"
+```
+
+```
+gsv | fl *
+Get-Service | Format-List * 
+Get-Service | Format-Table -AutoSize *
+Get-Service | Format-Table -AutoSize * | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
+Get-Service | Format-Table -Property ServiceName, Name, DisplayName, RequiredServices, ServicesDependedOn, Status, CanPauseAndContinue, CanShutdown, CanStop, ServiceType, StartType | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
+Get-Service | Format-Table -Property ServiceName,RequiredServices, Status, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
+```
+
 Announcing Zero Trust DNS Private Preview
 https://techcommunity.microsoft.com/blog/networkingblog/announcing-zero-trust-dns-private-preview/4110366
 
