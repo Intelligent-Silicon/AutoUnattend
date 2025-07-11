@@ -7,9 +7,110 @@ PS C:\WINDOWS\system32> Get-Module -ListAvailable | Out-File -FilePath "C:\Users
 
 ```
 
+List all packages
+
 ```
-Get-Package -AllVersions
+PS C:\WINDOWS\system32> Get-Package -AllVersions
 ```
+
+List all packages
+
+```
+PS C:\WINDOWS\system32> Get-Package -AllVersions | Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\ISO Files\WindowsPackages.All.AllProperties.txt"
+```
+```
+Get-Package -Name "PackageManagement" -MinimumVersion "1.2.0" -MaximumVersion "1.3.0"
+```
+ 
+```
+# Get all installed Windows Defender Security Intelligence updates
+PS C:\WINDOWS\system32> $MSDefenderUpdates = Get-Package -AllVersions | Where-Object { $_.Name -like "Security Intelligence Update for Microsoft Defender Antivirus*" } | Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\ISO Files\WindowsPackages.MSDefender.SecurityIntelligenceUpdate.txt"
+
+PS C:\WINDOWS\system32> $MSDefenderUpdates = Get-Package -AllVersions | Where-Object { $_.Name -like "Security Intelligence Update for Microsoft Defender Antivirus*" }
+
+[Optional] PS C:\WINDOWS\system32> Echo $MSDefenderUpdates | Format-Table -AutoSize
+
+# Sort by Version Number
+PS C:\WINDOWS\system32> $MSDefenderUpdates | Sort-Object { If ($_."Name" -match "Version (\d+\.\d+\.\d+\.\d+)") { [version]$matches[1] } } -Descending | Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\ISO Files\WindowsPackages.MSDefender.SecurityIntelligenceUpdate.txt"
+
+PS C:\WINDOWS\system32> $MSDefenderUpdates | Sort-Object { If ($_."Name" -match "Version (\d+\.\d+\.\d+\.\d+)") { [version]$matches[1] } } -Descending | Format-Table -AutoSize 
+
+# Keep the newest update
+PS C:\WINDOWS\system32> $MSDefenderUpdatesLatest = $MSDefenderUpdates | Select-Object -First 1
+
+[Optional] PS C:\WINDOWS\system32> Echo $MSDefenderUpdatesLatest | Format-Table -AutoSize
+
+
+#Build a list of Updates to Remove
+PS C:\WINDOWS\system32> $MSDefenderUpdatesToRemove = $MSDefenderUpdates | Where-Object { $_."Name" -ne $MSDefenderUpdatesLatest."Name" }
+
+PS C:\WINDOWS\system32> Echo $MSDefenderUpdatesToRemove | Format-Table -AutoSize
+
+# Remove Updates
+# Dry Run
+PS C:\WINDOWS\system32> ForEach ($MSDefenderUpdateToRemove in $MSDefenderUpdatesToRemove) { Write-Host "Uninstalling: $($MSDefenderUpdateToRemove.Name)" } 
+
+# Live Run
+PS C:\WINDOWS\system32> ForEach ($MSDefenderUpdateToRemove in $MSDefenderUpdatesToRemove) {Write-Host "Uninstalling: $($MSDefenderUpdateToRemove.Name)"; Get-Package -Name $MSDefenderUpdateToRemove.Name | Uninstall-Package -Force}  
+ 
+
+# Sort by version ascending (oldest first)
+$sorted = $updates | Sort-Object {
+    if ($_."Name" -match "Version (\d+\.\d+\.\d+\.\d+)") {
+        [version]$matches[1]
+    }
+}
+
+# Get the oldest update
+$oldest = $sorted | Select-Object -First 1
+
+# Uninstall using the name
+if ($oldest) {
+    Write-Host "Uninstalling: $($oldest.Name)"
+    Get-Package -Name $oldest.Name | Uninstall-Package -Force
+} else {
+    Write-Host "No matching update found."
+}
+
+
+
+PS C:\WINDOWS\system32> foreach ($MSDefenderUpdateToRemove in $MSDefenderUpdatesToRemove) {
+    Write-Host "Attempting to uninstall $($update.HotFixID)..." -ForegroundColor Yellow
+    wusa /uninstall /kb:$($update.HotFixID.Replace("KB", "")) /quiet /norestart
+}
+
+
+
+# Sort by version in descending order
+$updates | Sort-Object {
+    if ($_."Name" -match "Version (\d+\.\d+\.\d+\.\d+)") {
+        [version]$matches[1]
+    }
+} -Descending | Format-Table Name
+
+
+
+PS C:\WINDOWS\system32> $SortedMSDefenderUpdates = $MSDefenderUpdates | Sort-Object Name | Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\ISO Files\WindowsPackages.MSDefender.SecurityIntelligenceUpdate.Sorted.txt"
+
+PS C:\WINDOWS\system32> $SortedMSDefenderUpdates = $MSDefenderUpdates | Sort-Object Name
+
+[Optional] PS C:\WINDOWS\system32> Echo $SortedMSDefenderUpdates
+
+# Filter Security Intelligence updates only
+PS C:\WINDOWS\system32> $securityIntelligenceUpdates = $MSDefenderUpdates | Where-Object {
+    $_.Description -match "Security Intelligence Update"
+}
+
+
+```
+
+
+Microsoft Devbox 
+https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/dev-box/overview-what-is-microsoft-dev-box.md
+https://github.com/microsoft/windows-dev-box-setup-scripts
+
+
+Uninstall Old Packages 
 
 Lists all apps that can be uninstalled using Settings.
 ```
