@@ -53,6 +53,8 @@ PS C:\WINDOWS\system32> ForEach ($MSDefenderUpdateToRemove in $MSDefenderUpdates
 # Live Run
 PS C:\WINDOWS\system32> ForEach ($MSDefenderUpdateToRemove in $MSDefenderUpdatesToRemove) {Write-Host "Uninstalling: $($MSDefenderUpdateToRemove.Name)"; Get-Package -Name $MSDefenderUpdateToRemove.Name | Uninstall-Package -Force}  
  
+PS C:\WINDOWS\system32> $MSDefenderUpdates = Get-Package -AllVersions | Where-Object { $_.Name -like "Security Intelligence Update for Microsoft Defender Antivirus*" } | Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\ISO Files\WindowsPackages.MSDefender.SecurityIntelligenceUpdates.Removed.txt" 
+
 
 # Sort by version ascending (oldest first)
 $sorted = $updates | Sort-Object {
