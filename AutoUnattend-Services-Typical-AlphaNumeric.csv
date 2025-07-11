@@ -19,8 +19,6 @@ BrokerInfrastructure,Background Tasks Infrastructure Service,Supports background
 BTAGService,Bluetooth Audio Gateway Service,Enables Bluetooth devices to stream audio through the system’s audio drivers.
 BthAvctpSvc,AVCTP service,Manages AVCTP protocol for Bluetooth audio communication between host and remote devices.
 bthserv,Bluetooth Support Service,Provides Bluetooth device discovery and association capabilities.
-...,,
-Name,DisplayName,Description
 camsvc,Capability Access Manager Service,Manages access to user capabilities like location or camera for apps requiring permissions.
 CaptureService_47e64,CaptureService_47e64,Handles screen and game capture tasks tied to the Xbox Game Bar.
 cbdhsvc_47e64,Clipboard User Service_47e64,Supports clipboard history and cloud clipboard features across devices.
@@ -64,8 +62,6 @@ EapHost,Extensible Authentication Protocol,Supports authentication for network a
 edgeupdate,Microsoft Edge Update Service (edgeupdate),Keeps the Microsoft Edge browser up to date.
 edgeupdatem,Microsoft Edge Update Service (edgeupdatem),Background updater for Edge in machine context.
 EFS,Encrypting File System (EFS),Enables file-level encryption to protect user data.
-,,
-Name,DisplayName,Description
 ElevocService,Elevoc Control Service,Enhances audio processing for supported Elevoc devices.
 embeddedmode,Embedded Mode,Controls features and behaviors tailored for embedded Windows environments.
 EntAppSvc,Enterprise App Management Service,Manages deployment and configuration of enterprise-managed applications.
@@ -94,8 +90,6 @@ iphlpsvc,IP Helper,Provides IPv6 transition technologies and tunnel maintenance 
 IpxlatCfgSvc,IP Translation Configuration Service,Handles configuration for IP translation on mobile broadband devices.
 jhi_service,Intel(R) Dynamic Application Loader Host Interface Service,Supports communication between applications and Intel Management Engine firmware.
 KeyIso,CNG Key Isolation,Isolates private keys to enhance cryptographic security for sensitive operations.
-,,
-Name,DisplayName,Description
 KtmRm,KtmRm for Distributed Transaction Coordinator,Coordinates transactional resource management across multiple systems and protocols.
 LanmanServer,Server,"Provides file, print, and named pipe sharing over the network."
 LanmanWorkstation,Workstation,Connects the local computer to remote resources over the network.
@@ -123,8 +117,6 @@ NaturalAuthentication,Natural Authentication,Facilitates biometric and behaviora
 NcaSvc,Network Connectivity Assistant,Assists with captive portal detection and network connectivity evaluation.
 NcbService,Network Connection Broker,Provides connection status and event updates for network-enabled apps.
 NcdAutoSetup,Network Connected Devices Auto-Setup,"Automatically configures devices connected to the network, like printers or media players."
-,,
-Name,DisplayName,Description
 Netlogon,Netlogon,Supports secure communication between domain controllers and client systems during logon procedures.
 Netman,Network Connections,"Manages network adapters and enables creation, configuration, and management of network connections."
 netprofm,Network List Service,Identifies and classifies networks to apply appropriate policies and settings.
@@ -153,8 +145,6 @@ PrintWorkflowUserSvc_47e64,PrintWorkflow_47e64,Manages user workflows for printi
 ProfSvc,User Profile Service,Handles user profile loading during login and unloading during logout.
 PushToInstall,Windows PushToInstall Service,Enables system-triggered app installations from trusted services or enterprise management.
 QWAVE,Quality Windows Audio Video Experience,Optimizes streaming by prioritizing media traffic on the network for smooth playback.
-,,
-Name,DisplayName,Description
 RasAuto,Remote Access Auto Connection Manager,Initiates VPN or dial-up connections automatically when a remote resource is needed.
 RasMan,Remote Access Connection Manager,Manages dial-up and VPN connections for remote access to networks.
 refsdedupsvc,ReFS Dedup Service,"Handles deduplication tasks for Resilient File System (ReFS) volumes, optimizing space."
@@ -186,8 +176,6 @@ shpamsvc,Shared PC Account Manager,Manages account provisioning and maintenance 
 smphost,Microsoft Storage Spaces SMP,Supports Storage Spaces and resilient storage pool management.
 SmsRouter,Microsoft Windows SMS Router Service.,Routes text messages on systems equipped with cellular features.
 SNMPTrap,SNMP Trap,Receives and logs trap messages from remote SNMP devices.
-,,
-Name,DisplayName,Description
 Spooler,Print Spooler,Manages print jobs by queuing them and sending them to the printer in order.
 sppsvc,Software Protection,"Ensures Windows and Office software integrity, licensing, and anti-piracy mechanisms."
 SSDPSRV,SSDP Discovery,Discovers UPnP devices on the network and notifies clients about them.
@@ -219,8 +207,6 @@ UserManager,User Manager,Manages user sessions and credentials for sign-in and s
 UsoSvc,Update Orchestrator Service,Orchestrates Windows Update operations including scans and installations.
 VaultSvc,Credential Manager,Stores credentials and passwords securely in the Windows vault.
 vds,Virtual Disk,Manages virtual disk operations including creation and configuration.
-,,
-Name,DisplayName,Description
 VMAuthdService,VMware Authorization Service,Handles permission elevation and access control for VMware virtual machines.
 vmicguestinterface,Hyper-V Guest Service Interface,Enables communication between the host and guest in a Hyper-V environment.
 vmicheartbeat,Hyper-V Heartbeat Service,Monitors the health of virtual machines and reports heartbeat status.
