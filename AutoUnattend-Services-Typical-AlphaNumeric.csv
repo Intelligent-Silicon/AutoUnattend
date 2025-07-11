@@ -1,0 +1,284 @@
+Name,DisplayName,Description
+AarSvc_47e64,Agent Activation Runtime_47e64,"Handles app activation operations for apps using the Windows App Runtime, especially in multi-user scenarios."
+ALG,Application Layer Gateway Service,Provides support for third-party protocol plug-ins for Internet Connection Sharing and Windows Firewall.
+AppIDSvc,Application Identity,Determines and verifies the identity of applications for enforcing AppLocker policies.
+Appinfo,Application Information,Facilitates software elevation for applications that require administrative privileges.
+AppReadiness,App Readiness,Prepares apps for use the first time a user signs in to a device and when apps are added.
+AppXSvc,AppX Deployment Service (AppXSVC),Manages deployment of Windows Store apps including installation and removal.
+ApxSvc,Windows Virtual Audio Device Proxy Service,"Acts as a proxy for virtual audio device drivers, improving compatibility and performance."
+AudioEndpointBuilder,Windows Audio Endpoint Builder,"Creates and manages audio endpoint devices on the system, essential for sound output."
+Audiosrv,Windows Audio,Controls audio playback and recording for Windows-based programs.
+autotimesvc,Cellular Time,Synchronizes device time using cellular network data for accurate system clock settings.
+AxInstSV,ActiveX Installer (AxInstSV),Enables installation of ActiveX controls when using Internet Explorer.
+BcastDVRUserService_47e64,GameDVR and Broadcast User Service_47e64,Supports capturing and broadcasting gameplay using Windows Game Bar.
+BDESVC,BitLocker Drive Encryption Service,"Manages BitLocker encryption, helping to protect disk drives against unauthorized access."
+BFE,Base Filtering Engine,Provides a foundation for firewall and IPsec by managing filtering policies and security.
+BITS,Background Intelligent Transfer Service,Transfers files in the background using idle network bandwidth; used by updates and installers.
+BluetoothUserService_47e64,Bluetooth User Support Service_47e64,Manages Bluetooth user interactions including pairing and notifications.
+BrokerInfrastructure,Background Tasks Infrastructure Service,Supports background task scheduling and resource management for system services.
+BTAGService,Bluetooth Audio Gateway Service,Enables Bluetooth devices to stream audio through the system’s audio drivers.
+BthAvctpSvc,AVCTP service,Manages AVCTP protocol for Bluetooth audio communication between host and remote devices.
+bthserv,Bluetooth Support Service,Provides Bluetooth device discovery and association capabilities.
+...,,
+Name,DisplayName,Description
+camsvc,Capability Access Manager Service,Manages access to user capabilities like location or camera for apps requiring permissions.
+CaptureService_47e64,CaptureService_47e64,Handles screen and game capture tasks tied to the Xbox Game Bar.
+cbdhsvc_47e64,Clipboard User Service_47e64,Supports clipboard history and cloud clipboard features across devices.
+CDPSvc,Connected Devices Platform Service,Facilitates device discovery and connectivity for Windows apps and services.
+CDPUserSvc_47e64,Connected Devices Platform User Service_47e64,Provides per-user support for device connectivity and synchronization.
+CertPropSvc,Certificate Propagation,Propagates smart card certificates to the user profile for authentication.
+ClipSVC,Client Licence Service (ClipSVC),Manages licensing and infrastructure for Store apps.
+CloudBackupRestoreSvc_47e64,Cloud Backup and Restore Service_47e64,Handles data backup and restore using Microsoft cloud services.
+COMSysApp,COM+ System Application,Supports COM+ components and event publication.
+ConsentUxUserSvc_47e64,ConsentUX User Service_47e64,Facilitates user consent UI interactions for specific applications.
+CoreMessagingRegistrar,CoreMessaging,Supports inter-process and system-level messaging mechanisms.
+cplspcon,Intel(R) Content Protection HDCP Service,Manages HDCP protections for digital video and media.
+CredentialEnrollmentManagerUserSvc_47e64,CredentialEnrollmentManagerUserSvc_47e64,Handles user credential management for signing in and authentication.
+CryptSvc,Cryptographic Services,Provides cryptography and key management for Windows security features.
+DcomLaunch,DCOM Server Process Launcher,Manages object activation requests for COM+ services.
+dcsvc,Declared Configuration(DC) service,Manages declared configurations across apps and system.
+defragsvc,Optimise drives,Performs disk defragmentation and optimization tasks.
+DeviceAssociationBrokerSvc_47e64,DeviceAssociationBroker_47e64,Helps with pairing new devices in a user context.
+DeviceAssociationService,Device Association Service,Enables automatic pairing for devices like printers and audio accessories.
+DeviceInstall,Device Install Service,Coordinates installation of newly detected hardware devices.
+DevicePickerUserSvc_47e64,DevicePicker_47e64,Provides UI for selecting and pairing devices in user sessions.
+DevicesFlowUserSvc_47e64,DevicesFlow_47e64,Helps with device flow experiences including pairing and configuration.
+DevQueryBroker,DevQuery Background Discovery Broker,Discovers devices in the background for apps and services.
+Dhcp,DHCP Client,Automatically assigns IP addresses and network configuration.
+diagsvc,Diagnostic Execution Service,Executes troubleshooting and diagnostic tasks.
+DiagTrack,Connected User Experiences and Telemetry,Gathers diagnostics and usage data to improve system performance.
+DispBrokerDesktopSvc,Display Policy Service,Manages display settings and policies for desktop environments.
+DisplayEnhancementService,Display Enhancement Service,Adjusts display visuals like HDR and brightness based on environment.
+DmEnrollmentSvc,Device Management Enrollment Service,Enrolls the device in enterprise management systems like Intune.
+dmwappushservice,Device Management Wireless Application Protocol (WAP) Push message Routing Service,Routes push messages from mobile device management servers.
+Dnscache,DNS Client,Resolves domain names to IP addresses using DNS.
+DolbyDAXAPI,Dolby DAX API Service,Supports Dolby audio enhancements on supported hardware.
+DoSvc,Delivery Optimization,Enables efficient downloading of Windows updates and apps.
+dot3svc,Wired AutoConfig,Provides authentication for Ethernet network connections.
+DPS,Diagnostic Policy Service,Detects and troubleshoots issues with system components.
+dptftcs,Intel(R) Dynamic Tuning Technology Telemetry Service,Collects and reports thermal and power telemetry data.
+DsmSvc,Device Setup Manager,Coordinates device setup operations during install and upgrade.
+DsSvc,Data Sharing Service,Shares application and user data between devices.
+DusmSvc,Data Usage,Tracks and reports network data usage statistics.
+EapHost,Extensible Authentication Protocol,Supports authentication for network access methods like Wi-Fi and VPN.
+edgeupdate,Microsoft Edge Update Service (edgeupdate),Keeps the Microsoft Edge browser up to date.
+edgeupdatem,Microsoft Edge Update Service (edgeupdatem),Background updater for Edge in machine context.
+EFS,Encrypting File System (EFS),Enables file-level encryption to protect user data.
+,,
+Name,DisplayName,Description
+ElevocService,Elevoc Control Service,Enhances audio processing for supported Elevoc devices.
+embeddedmode,Embedded Mode,Controls features and behaviors tailored for embedded Windows environments.
+EntAppSvc,Enterprise App Management Service,Manages deployment and configuration of enterprise-managed applications.
+EventLog,Windows Event Log,"Records security, system, and application events for audit and troubleshooting purposes."
+EventSystem,COM+ Event System,Supports COM+ event publication and subscriber registration.
+fdPHost,Function Discovery Provider Host,Enables discovery of devices on the local network using function protocols.
+FDResPub,Function Discovery Resource Publication,Publishes this computer and resources so they can be discovered via network protocols.
+fhsvc,File History Service,Provides backup and restore for user files through File History.
+FontCache,Windows Font Cache Service,Improves font performance by caching commonly used font data.
+FrameServer,Windows Camera Frame Server,Delivers raw camera frames to applications using the camera subsystem.
+FrameServerMonitor,Windows Camera Frame Server Monitor,Monitors and supports the operation of the Windows camera frame server.
+GameInputSvc,GameInput Service,Provides input support from game controllers and other interactive devices.
+gpsvc,Group Policy Client,Applies Group Policy settings from Active Directory to the local computer and user accounts.
+GraphicsPerfSvc,GraphicsPerfSvc,Optimizes and monitors system graphics performance.
+hidserv,Human Interface Device Service,"Supports generic input devices such as buttons, sensors, and gaming peripherals."
+hpatchmon,Hotpatch Monitoring Service,Handles hotpatch installation for updates that do not require a reboot.
+HvHost,HV Host Service,Provides support for Hyper-V virtual machines on the host OS.
+icssvc,Windows Mobile Hotspot Service,Enables sharing of the computer's Internet connection via mobile hotspot functionality.
+igccservice,Intel(R) Graphics Command Center Service,Manages Intel graphics settings and features via the Graphics Command Center.
+IKEEXT,IKE and AuthIP IPsec Keying Modules,Supports secure key exchange for IPsec and VPN connections using IKE protocols.
+InstallService,Microsoft Store Install Service,Coordinates installation of applications from the Microsoft Store.
+Intel(R) Platform License Manager Service,Intel(R) Platform License Manager Service,Manages Intel platform licensing for software and hardware features.
+InventorySvc,Inventory and Compatibility Appraisal service,Collects hardware and software inventory for compatibility assessments during updates.
+ipfsvc,Intel(R) Innovation Platform Framework Service,Provides runtime support for Intel innovation platform features and services.
+iphlpsvc,IP Helper,Provides IPv6 transition technologies and tunnel maintenance for advanced network scenarios.
+IpxlatCfgSvc,IP Translation Configuration Service,Handles configuration for IP translation on mobile broadband devices.
+jhi_service,Intel(R) Dynamic Application Loader Host Interface Service,Supports communication between applications and Intel Management Engine firmware.
+KeyIso,CNG Key Isolation,Isolates private keys to enhance cryptographic security for sensitive operations.
+,,
+Name,DisplayName,Description
+KtmRm,KtmRm for Distributed Transaction Coordinator,Coordinates transactional resource management across multiple systems and protocols.
+LanmanServer,Server,"Provides file, print, and named pipe sharing over the network."
+LanmanWorkstation,Workstation,Connects the local computer to remote resources over the network.
+LenovoFnAndFunctionKeys,Lenovo Fn and function keys service,Manages Lenovo hotkeys and function key features for compatible systems.
+lfsvc,Geolocation Service,Determines system location for apps that require geolocation data.
+LibreOfficeMaintenance,LibreOffice Maintenance Service,Performs automated updates and maintenance tasks for LibreOffice.
+LicenseManager,Windows License Manager Service,Tracks licensing information and activation status for Windows and apps.
+lltdsvc,Link-Layer Topology Discovery Mapper,Discovers network devices and creates a topology map for diagnostics.
+lmhosts,TCP/IP NetBIOS Helper,Enables support for NetBIOS over TCP/IP and assists with name resolution.
+LocalKdc,Kerberos Local Key Distribution Center,Generates and distributes local Kerberos keys for authentication.
+LSM,Local Session Manager,Manages user sessions and remote desktop interactions.
+LxpSvc,Language Experience Service,Downloads and manages language packs and related content.
+MapsBroker,Downloaded Maps Manager,Supports offline map downloads for navigation apps.
+McmSvc,Mobile connectivity module service,Manages profiles and configurations for mobile broadband modules.
+McpManagementService,McpManagementService,Handles settings and management for MCP-based modules and devices.
+MDCoreSvc,Microsoft Defender Core Service,Provides core services required by Microsoft Defender functionality.
+MessagingService_47e64,MessagingService_47e64,Supports sync and delivery of user messages across apps and devices.
+MicrosoftEdgeElevationService,Microsoft Edge Elevation Service (MicrosoftEdgeElevationService),Handles privilege elevation tasks for Edge-related installations and updates.
+MozillaMaintenance,Mozilla Maintenance Service,Manages updates and maintenance for Mozilla applications like Firefox.
+mpssvc,Windows Defender Firewall,Monitors and filters network traffic based on security rules and settings.
+MSDTC,Distributed Transaction Coordinator,"Coordinates transactions across multiple systems, databases, and applications."
+MSiSCSI,Microsoft iSCSI Initiator Service,Enables connectivity to iSCSI-based storage devices and networks.
+msiserver,Windows Installer,Supports installation and configuration of applications using Windows Installer packages.
+NaturalAuthentication,Natural Authentication,Facilitates biometric and behavioral authentication methods.
+NcaSvc,Network Connectivity Assistant,Assists with captive portal detection and network connectivity evaluation.
+NcbService,Network Connection Broker,Provides connection status and event updates for network-enabled apps.
+NcdAutoSetup,Network Connected Devices Auto-Setup,"Automatically configures devices connected to the network, like printers or media players."
+,,
+Name,DisplayName,Description
+Netlogon,Netlogon,Supports secure communication between domain controllers and client systems during logon procedures.
+Netman,Network Connections,"Manages network adapters and enables creation, configuration, and management of network connections."
+netprofm,Network List Service,Identifies and classifies networks to apply appropriate policies and settings.
+NetSetupSvc,Network Setup Service,Performs setup and initialization tasks when connecting to new networks.
+NetTcpPortSharing,Net.Tcp Port Sharing Service,Allows multiple applications to share TCP ports using Net.Tcp for interprocess communication.
+NgcCtnrSvc,Microsoft Passport Container,Stores credentials in a secure container used by Windows Hello and other identity systems.
+NgcSvc,Microsoft Passport,Manages Windows Hello biometric and PIN authentication credentials.
+NlaSvc,Network Location Awareness,Detects current network environment and notifies applications of location changes.
+NPSMSvc_47e64,Now Playing Session Manager Service_47e64,Handles information about media playback sessions for cross-device sync.
+nsi,Network Store Interface Service,Manages the network configuration store for Windows networking components.
+P9RdrService_47e64,P9RdrService_47e64,Supports rendering services related to P9 protocols (internal use).
+PcaSvc,Program Compatibility Assistant Service,Detects compatibility issues for older software and suggests solutions or modes.
+PenService_47e64,PenService_47e64,Provides support for digital pen and stylus input features on compatible hardware.
+perceptionsimulation,Windows Perception Simulation Service,Simulates perception data (like spatial awareness) for testing mixed reality apps.
+PerfHost,Performance Counter DLL Host,Enables remote access to Windows performance counters through DLLs.
+PhoneSvc,Phone Service,Provides core telephony service features for Windows devices with mobile capabilities.
+PimIndexMaintenanceSvc_47e64,Contact Data_47e64,Maintains indexes for contact and people data used by applications.
+pla,Performance Logs & Alerts,Collects system performance data and issues alerts when thresholds are exceeded.
+PlugPlay,Plug and Play,Detects and configures hardware changes automatically during runtime.
+PolicyAgent,IPsec Policy Agent,Applies IPsec rules and handles IP security protocol interactions.
+Power,Power,Manages power policies and transitions between system power states.
+PrintDeviceConfigurationService,Print Device Configuration Service,Configures print devices and manages print-specific parameters.
+PrintNotify,Printer Extensions and Notifications,Supports printer status updates and interactions with printing apps and services.
+PrintScanBrokerService,PrintScanBrokerService,Coordinates scanning operations across supported hardware and apps.
+PrintWorkflowUserSvc_47e64,PrintWorkflow_47e64,Manages user workflows for printing tasks including discovery and job control.
+ProfSvc,User Profile Service,Handles user profile loading during login and unloading during logout.
+PushToInstall,Windows PushToInstall Service,Enables system-triggered app installations from trusted services or enterprise management.
+QWAVE,Quality Windows Audio Video Experience,Optimizes streaming by prioritizing media traffic on the network for smooth playback.
+,,
+Name,DisplayName,Description
+RasAuto,Remote Access Auto Connection Manager,Initiates VPN or dial-up connections automatically when a remote resource is needed.
+RasMan,Remote Access Connection Manager,Manages dial-up and VPN connections for remote access to networks.
+refsdedupsvc,ReFS Dedup Service,"Handles deduplication tasks for Resilient File System (ReFS) volumes, optimizing space."
+RemoteAccess,Routing and Remote Access,"Provides routing and remote access services including VPN, NAT, and dial-up support."
+RemoteRegistry,Remote Registry,Allows remote users to modify registry settings on this computer (can be disabled for security).
+RetailDemo,Retail Demo Service,"Enables retail demo experience used in display units, resets settings after a timeout."
+RmSvc,Radio Management Service,Manages the configuration of radio devices like Wi-Fi and Bluetooth hardware.
+RpcEptMapper,RPC Endpoint Mapper,Maps client requests to remote procedure call services on the network.
+RpcLocator,Remote Procedure Call (RPC) Locator,Maintains RPC name service information for clients.
+RpcSs,Remote Procedure Call (RPC),Core service for interprocess communication in Windows systems.
+RtkAudioUniversalService,Realtek Audio Universal Service,Manages Realtek audio devices including driver support and enhancements.
+SamSs,Security Accounts Manager,Handles user authentication and local security policies.
+SCardSvr,Smart Card,Enables access to smart card readers and interfaces for authentication.
+ScDeviceEnum,Smart Card Device Enumeration Service,Discovers smart card devices connected to the system.
+Schedule,Task Scheduler,"Launches tasks at specified times or events, automating system maintenance and app actions."
+SCPolicySvc,Smart Card Removal Policy,Locks or logs off users if a smart card is removed mid-session.
+SDRSVC,Windows Backup,Enables creation and restoration of backups using Windows Backup features.
+seclogon,Secondary Log-on,Allows users to run processes under different user credentials.
+SecurityHealthService,Windows Security Service,"Monitors security health across antivirus, firewall, and threat protection."
+SEMgrSvc,Payments and NFC/SE Manager,Handles NFC transactions and secure element access for digital payments.
+SENS,System Event Notification Service,Delivers notifications about system events to applications.
+SensorDataService,Sensor Data Service,Collects data from system sensors and makes it available to applications.
+SensorService,Sensor Service,Manages hardware sensors such as accelerometers or environmental sensors.
+SensrSvc,Sensor Monitoring Service,Provides monitoring and alerting functions for connected sensors.
+SessionEnv,Remote Desktop Configuration,Manages remote desktop sessions and configuration settings.
+SharedAccess,Internet Connection Sharing (ICS),Enables one computer to share its internet connection with others on the network.
+ShellHWDetection,Shell Hardware Detection,Detects media devices and hardware events like CD/DVD insertion.
+shpamsvc,Shared PC Account Manager,Manages account provisioning and maintenance in shared PC environments.
+smphost,Microsoft Storage Spaces SMP,Supports Storage Spaces and resilient storage pool management.
+SmsRouter,Microsoft Windows SMS Router Service.,Routes text messages on systems equipped with cellular features.
+SNMPTrap,SNMP Trap,Receives and logs trap messages from remote SNMP devices.
+,,
+Name,DisplayName,Description
+Spooler,Print Spooler,Manages print jobs by queuing them and sending them to the printer in order.
+sppsvc,Software Protection,"Ensures Windows and Office software integrity, licensing, and anti-piracy mechanisms."
+SSDPSRV,SSDP Discovery,Discovers UPnP devices on the network and notifies clients about them.
+SstpSvc,Secure Socket Tunneling Protocol Service,Provides secure tunneling for VPN connections using SSTP.
+StateRepository,State Repository Service,Stores app data related to app states and sessions across devices.
+StiSvc,Windows Image Acquisition (WIA),Allows acquisition of images from scanners and cameras for apps and users.
+StorSvc,Storage Service,"Manages storage volumes, performance settings, and optimization."
+svsvc,Spot Verifier,Verifies file integrity on NTFS volumes to detect and resolve issues.
+swprv,Microsoft Software Shadow Copy Provider,Coordinates with Volume Shadow Copy Service to create snapshots for backups.
+SysMain,SysMain,Optimizes system performance over time by monitoring usage patterns.
+SystemEventsBroker,System Events Broker,Supports delivery of system events to background tasks in modern Windows apps.
+TapiSrv,Telephony,Provides telephony API services to applications for voice/data communication.
+TermService,Remote Desktop Services,Enables remote desktop functionality and remote connection to the computer.
+TextInputManagementService,Text Input Management Service,"Coordinates modern input features such as touch, handwriting, and IMEs."
+Themes,Themes,Manages user interface themes and customizations for Windows.
+TieringEngineService,Storage Tiers Management,Optimizes storage performance by managing data across different storage tiers.
+TimeBrokerSvc,Time Broker,Facilitates background task execution triggered by system events or schedules.
+TokenBroker,Web Account Manager,Handles authentication tokens for apps that use Microsoft or web accounts.
+TrkWks,Distributed Link Tracking Client,Maintains links to files moved within or across NTFS volumes.
+TroubleshootingSvc,Recommended Troubleshooting Service,Identifies and automates fixes for common system problems.
+TrustedInstaller,Windows Modules Installer,"Installs, updates, and removes Windows system components and updates."
+tzautoupdate,Auto Time Zone Updater,Automatically updates the system time zone based on location and settings.
+UdkUserSvc_47e64,Udk User Service_47e64,Supports device-specific or user-context services for UDK platform apps.
+UmRdpService,Remote Desktop Services UserMode Port Redirector,Redirects user-mode ports during Remote Desktop sessions.
+UnistoreSvc_47e64,User Data Storage_47e64,Stores app data such as preferences and content for synchronization.
+upnphost,UPnP Device Host,Manages Universal Plug and Play device hosting and communication.
+UserDataSvc_47e64,User Data Access_47e64,Provides access to user data such as contacts and appointments for apps.
+UserManager,User Manager,Manages user sessions and credentials for sign-in and switch operations.
+UsoSvc,Update Orchestrator Service,Orchestrates Windows Update operations including scans and installations.
+VaultSvc,Credential Manager,Stores credentials and passwords securely in the Windows vault.
+vds,Virtual Disk,Manages virtual disk operations including creation and configuration.
+,,
+Name,DisplayName,Description
+VMAuthdService,VMware Authorization Service,Handles permission elevation and access control for VMware virtual machines.
+vmicguestinterface,Hyper-V Guest Service Interface,Enables communication between the host and guest in a Hyper-V environment.
+vmicheartbeat,Hyper-V Heartbeat Service,Monitors the health of virtual machines and reports heartbeat status.
+vmickvpexchange,Hyper-V Data Exchange Service,Transfers configuration and settings between host and Hyper-V virtual machines.
+vmicrdv,Hyper-V Remote Desktop Virtualization Service,Supports remote desktop experiences within Hyper-V guests.
+vmicshutdown,Hyper-V Guest Shutdown Service,Allows controlled shutdown of virtual machines from the host system.
+vmictimesync,Hyper-V Time Synchronization Service,Synchronizes time between host and virtual machines in Hyper-V.
+vmicvmsession,Hyper-V PowerShell Direct Service,Allows PowerShell commands to be run inside a VM from the host.
+vmicvss,Hyper-V Volume Shadow Copy Requestor,Coordinates shadow copies of virtual machine data during backup operations.
+VMnetDHCP,VMware DHCP Service,Provides DHCP services to VMware virtual machines for IP address allocation.
+VMUSBArbService,VMware USB Arbitration Service,Enables USB devices to be dynamically connected to VMware virtual machines.
+VMware NAT Service,VMware NAT Service,Enables network address translation for VMware virtual machines.
+VmwareAutostartService,VMware Autostart Service,Automatically powers on selected VMware virtual machines at startup.
+VSS,Volume Shadow Copy,Creates point-in-time snapshots of files or volumes for backup and restore purposes.
+W32Time,Windows Time,Synchronizes the system clock with time servers to maintain accurate timestamps.
+WaaSMedicSvc,WaaSMedicSvc,Detects and repairs issues that may block Windows Update functionality.
+WalletService,WalletService,Manages digital wallet operations for payments and stored credentials.
+WarpJITSvc,Warp JIT Service,Supports Just-In-Time compilation for graphics workloads using WARP.
+wbengine,Block Level Backup Engine Service,Performs block-level backups of drives for recovery and disaster preparedness.
+WbioSrvc,Windows Biometric Service,Provides biometric support for devices like fingerprint readers and facial recognition.
+Wcmsvc,Windows Connection Manager,Manages mobile and wireless connections and monitors their health.
+wcncsvc,Windows Connect Now - Config Registrar,Supports quick setup and configuration of wireless access points and networks.
+WdiServiceHost,Diagnostic Service Host,Provides support for diagnostic data collection services.
+WdiSystemHost,Diagnostic System Host,Supports system-wide diagnostics operations and data collection.
+WdNisSvc,Microsoft Defender Antivirus Network Inspection Service,Analyzes network traffic for threats as part of Defender's real-time protection.
+WebClient,WebClient,Enables access to files via WebDAV by integrating remote web servers into Windows Explorer.
+webthreatdefsvc,Web Threat Defense Service,Monitors and mitigates known web-based threats for compatible security platforms.
+webthreatdefusersvc_47e64,Web Threat Defense User Service_47e64,Provides user-specific defenses against online threats and malicious content.
+Wecsvc,Windows Event Collector,Collects events from remote systems and consolidates them into local logs.
+WEPHOSTSVC,Windows Encryption Provider Host Service,Manages encryption providers that protect data across the system.
+wercplsupport,Problem Reports Control Panel Support,Displays and manages user-reported issues and crash data.
+WerSvc,Windows Error Reporting Service,Captures and reports application and system errors to Microsoft for analysis.
+WFDSConMgrSvc,Wi-Fi Direct Services Connection Manager Service,Supports discovery and connection of peer-to-peer Wi-Fi Direct services.
+whesvc,Windows Health and Optimized Experiences,Evaluates system health and suggests performance-enhancing recommendations.
+WiaRpc,Still Image Acquisition Events,Handles image acquisition events from scanners and digital cameras.
+WinDefend,Microsoft Defender Antivirus Service,"Scans for and blocks viruses, malware, and other threats in real-time."
+WinHttpAutoProxySvc,WinHTTP Web Proxy Auto-Discovery Service,Automatically configures web proxy settings using WPAD.
+Winmgmt,Windows Management Instrumentation,Delivers system management data and control interfaces to administration tools.
+WinRM,Windows Remote Management (WS-Management),Enables secure remote management through standard web services protocols.
+wisvc,Windows Insider Service,Manages participation in the Windows Insider Program and feature preview deployment.
+WlanSvc,WLAN AutoConfig,Controls wireless network connectivity and ensures proper authentication and switching.
+wlidsvc,Microsoft Account Sign-in Assistant,Enables applications to sign in using Microsoft accounts and sync credentials.
+wlpasvc,Local Profile Assistant Service,Assists with profile setup and syncing for locally created accounts.
+WManSvc,Windows Management Service,Supports automation and remote management of Windows features and configurations.
+wmiApSrv,WMI Performance Adapter,Provides performance data for WMI clients like monitoring tools.
+WMIRegistrationService,Intel(R) Management Engine WMI Provider Registration,Registers WMI providers related to Intel Management Engine for system interactions.
+workfolderssvc,Work Folders,Enables syncing of work-related files to corporate servers from the local device.
+WpcMonSvc,Parental Controls,"Helps apply user restrictions, monitoring, and content filtering for child accounts."
+WPDBusEnum,Portable Device Enumerator Service,Detects portable devices and facilitates communication with media applications.
+WpnService,Windows Push Notifications System Service,Manages push notification infrastructure across user and system apps.
+WpnUserService_47e64,Windows Push Notifications User Service_47e64,Delivers notifications and alerts specific to the logged-in user.
+WSAIFabricSvc,WSAIFabricSvc,Manages connectivity and system services for specific WSAI hardware integrations.
+wscsvc,Security Center,"Monitors antivirus, firewall, and security status and alerts users to potential issues."
+WSearch,Windows Search,"Indexes files, email, and other content to allow fast search performance."
+wuauserv,Windows Update,Downloads and installs Windows updates for system security and features.
+WwanSvc,WWAN AutoConfig,Handles mobile broadband network connectivity and configuration.
+XblAuthManager,Xbox Live Auth Manager,Authenticates Xbox Live users and enables account-based access for gaming.
+XblGameSave,Xbox Live Game Save,Synchronizes and saves user game progress via Xbox Live cloud services.
+XboxGipSvc,Xbox Accessory Management Service,Supports connection and configuration of Xbox accessories like controllers.
+XboxNetApiSvc,Xbox Live Networking Service,Manages multiplayer networking and communication for Xbox Live gaming sessions.
+ZTHELPER,ZTHELPER,Handles tasks for ZT-related services and features (internal use).
