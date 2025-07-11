@@ -35,79 +35,54 @@
             <Diagnostics>
                 <OptIn>false</OptIn>
             </Diagnostics>
-            <DiskConfiguration>
+            <DynamicUpdate>
+                <Enable>false</Enable>
+                <WillShowUI>OnError</WillShowUI>
+            </DynamicUpdate>
+             <DiskConfiguration>
+                <WillShowUI>OnError</WillShowUI>
                 <Disk wcm:action="add">
+                    <DiskID>0</DiskID>
+                    <WillWipeDisk>true</WillWipeDisk>
                     <CreatePartitions>
                         <CreatePartition wcm:action="add">
                             <Order>1</Order>
-                            <Size>300</Size>
+                            <Size>100</Size>
                             <Type>EFI</Type>
                         </CreatePartition>
                         <CreatePartition wcm:action="add">
                             <Order>2</Order>
-                            <Size>16</Size>
-                            <Type>MSR</Type>
-                        </CreatePartition>
-                        <CreatePartition wcm:action="add">
-                            <Order>3</Order>
-                            <Size>20000</Size>
                             <Type>Primary</Type>
-                        </CreatePartition>
-                        <CreatePartition wcm:action="add">
-                            <Order>4</Order>
-                            <Type>Primary</Type>
-                            <Size>651</Size>
+                            <Extend>true</Extend>
                         </CreatePartition>
                     </CreatePartitions>
                     <ModifyPartitions>
                         <ModifyPartition wcm:action="add">
-                            <PartitionID>1</PartitionID>
                             <Order>1</Order>
+                            <PartitionID>1</PartitionID>
                             <Format>FAT32</Format>
                         </ModifyPartition>
                         <ModifyPartition wcm:action="add">
                             <Order>2</Order>
                             <PartitionID>2</PartitionID>
-                            <Format>FAT32</Format>
-                        </ModifyPartition>
-                        <ModifyPartition wcm:action="add">
-                            <Order>3</Order>
-                            <PartitionID>3</PartitionID>
-                            <Label>W10_VMware</Label>
+                            <Label>Windows</Label>
                             <Letter>C</Letter>
                             <Format>NTFS</Format>
                         </ModifyPartition>
-                        <ModifyPartition wcm:action="add">
-                            <Order>4</Order>
-                            <PartitionID>4</PartitionID>
-                            <TypeID>de94bba4-06d1-4d40-a16a-bfd50179d6ac</TypeID>
-                            <Format>FAT32</Format>
-                        </ModifyPartition>
                     </ModifyPartitions>
-                    <DiskID>0</DiskID>
-                    <WillWipeDisk>false</WillWipeDisk>
                 </Disk>
-                <WillShowUI>OnError</WillShowUI>
             </DiskConfiguration>
-            <DynamicUpdate>
-                <Enable>false</Enable>
-                <WillShowUI>OnError</WillShowUI>
-            </DynamicUpdate>
             <ImageInstall>
                 <OSImage>
                     <InstallFrom>
-                        <Path>%configsetroot%\sources\install.wim</Path>
+                        <Path>install.esd</Path>
                         <MetaData wcm:action="add">
-                            <Key>/IMAGE/INDEX</Key>
-                            <Value>1</Value>
+                            <Key>/IMAGE/NAME</Key>
+                            <Value>Windows 10 Pro</Value>
                         </MetaData>
                     </InstallFrom>
-                    <InstallTo>
-                        <DiskID>0</DiskID>
-                        <PartitionID>3</PartitionID>
-                    </InstallTo>
                     <Compact>false</Compact>
-                    <InstallToAvailablePartition>false</InstallToAvailablePartition>
+                    <InstallToAvailablePartition>true</InstallToAvailablePartition>
                     <WillShowUI>OnError</WillShowUI>
                 </OSImage>
             </ImageInstall>
@@ -141,8 +116,43 @@
             <DefaultConsent>0</DefaultConsent>
             <DisableWER>1</DisableWER>
         </component>
+        <component name="Microsoft-Windows-powercpl" processorArchitecture="x86" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <PreferredPlan>8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c</PreferredPlan>
+        </component>
+        <component name="Microsoft-Windows-Deployment" processorArchitecture="x86" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <RunSynchronous>
+                <RunSynchronousCommand wcm:action="add">
+                    <Description>Disable Win10 First Login Animation</Description>
+                    <Order>1</Order>
+                    <Path>reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v EnableFirstLogonAnimation /t REG_DWORD /d 0 /f</Path>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Description>Disable MS Edge First Run Welcome Screen</Description>
+                    <Order>2</Order>
+                    <Path>reg add HKLM\Software\Microsoft\Edge /v HideFirstRunExperience /t REG_DWORD /d 1 /f</Path>
+                </RunSynchronousCommand>              
+                <RunSynchronousCommand wcm:action="add">
+                    <Description>Install VMware Tools</Description>
+                    <Order>3</Order>
+                    <Path>"C:\Software Installers\Vmware-Tools\setup.exe" /S </Path>
+                    <WillReboot>Never</WillReboot>
+                </RunSynchronousCommand>
+                <RunSynchronousCommand wcm:action="add">
+                    <Description>Install Firefox</Description>
+                    <Order>4</Order>
+                    <Path>"C:\Software Installers\Firefox x32\Firefox Setup 140.0.2.exe" /S </Path>
+                    <WillReboot>Never</WillReboot>
+                </RunSynchronousCommand>                
+            </RunSynchronous>    
+        </component>
     </settings>
     <settings pass="oobeSystem">
+        <component name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="x86" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <InputLocale>en-GB</InputLocale>
+            <SystemLocale>en-GB</SystemLocale>
+            <UILanguage>en-GB</UILanguage>
+            <UserLocale>en-GB</UserLocale>
+        </component>
         <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="x86" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <OOBE>
                 <HideEULAPage>true</HideEULAPage>
@@ -150,6 +160,12 @@
                 <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
                 <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
                 <ProtectYourPC>3</ProtectYourPC>
+                <NetworkLocation>Other</NetworkLocation>
+                <VMModeOptimizations>
+                    <SkipAdministratorProfileRemoval>true</SkipAdministratorProfileRemoval>
+                    <SkipNotifyUILanguageChange>true</SkipNotifyUILanguageChange>
+                    <SkipWinREInitialization>true</SkipWinREInitialization>
+                </VMModeOptimizations>    
             </OOBE>
             <Themes>
                 <UWPAppsUseLightTheme>false</UWPAppsUseLightTheme>
@@ -160,16 +176,16 @@
                 <LocalAccounts>
                     <LocalAccount wcm:action="add">
                         <Password>
-                            <Value>QQBkAG0AaQBuADEAUABhAHMAcwB3AG8AcgBkAA==</Value>
-                            <PlainText>false</PlainText>
+                            <Value>Admin1</Value>
+                            <PlainText>true</PlainText>
                         </Password>
                         <Name>Admin1</Name>
                         <Group>Administrators</Group>
                     </LocalAccount>
                     <LocalAccount wcm:action="add">
                         <Password>
-                            <Value>VQBzAGUAcgAxAFAAYQBzAHMAdwBvAHIAZAA=</Value>
-                            <PlainText>false</PlainText>
+                            <Value>User1</Value>
+                            <PlainText>true</PlainText>
                         </Password>
                         <Name>User1</Name>
                         <Group>Users</Group>
@@ -178,5 +194,4 @@
             </UserAccounts>
         </component>
     </settings>
-    <cpi:offlineImage cpi:source="wim:c:/users/admin1/downloads/install_win10_22h2_x32_pro_n.wim#Windows 10 Pro N" xmlns:cpi="urn:schemas-microsoft-com:cpi" />
 </unattend>

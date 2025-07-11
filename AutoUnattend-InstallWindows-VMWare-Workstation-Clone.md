@@ -425,13 +425,6 @@ If you are running on a NVMe hard disk, you need to change the Hard Drive from N
 
 Click on the ```Edit the virtual machine settings```, click the ```Add``` button, make sure the Hard Disk is selected, click the ```Next``` button, select ```SATA```, click the ```Next``` button, select 
 
-C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmdk
-C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmdk
-
-
-
-Next check the ```[Virtual Machine Name].VMX``` ```C:\Users\Admin1\Documents\Virtual Machines\Win10 22H2 x32\Win10 22H2 x32.vmx``` has the line entry: ```guestOS = "windows9"```
-This is set when VMware can detect the operating system. When it can't, it will ask you to specify which version of Windows to install, so its crucial you select the correct bitness of Windows.
 
 The Windows OS's can found [here](https://developer.broadcom.com/xapis/vsphere-web-services-api/latest/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html) 
 
@@ -485,9 +478,7 @@ Just drop the trailing ```Guest``` from the Enum Constants name.
 
 
 
-
-
-When both 32bit and 64bit versions of Windows exist on ```ISO``` or MCT created USB sticks, VMware cant detect which version to install, so you'll be asked to select the correct version of Windows manually. The ```guestOS``` configures the virtual machine in a variety of different ways, this is why its selected at the beginning of a virtual PC creation process.
+When both 32bit and 64bit versions of Windows exist on ```ISO``` or MCT created USB sticks, VMware cant detect which version to install, so you'll be asked to select the correct version of Windows manually. The ```guestOS``` configures the virtual machine in a variety of different ways to suit the operating system selected and the bitness, this is why its selected at the beginning of a virtual PC creation process.
 
 The correct bitness of windows is crucial for instances of the AutoUnattend.xml file where multiple configuration passes with different ```processorArchitecture=``` exist, namely ```processorArchitecture="X86"``` and ```processorArchitecture="AMD64"```. 
 VMware can only emulate ```x86``` and ```AMD64``` cpu's, to emulate emulate ARM cpu's for testing (.Net) code, you need to use [Qemu](https://www.qemu.org/), or connect to an ARM device using a USB to USB, USB to UART cable, with the ARM device setup for remote debugging. Instructions for remotely debugging/controlling ARM devices is beyond this repo's remit.
