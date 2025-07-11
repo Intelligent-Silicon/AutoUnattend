@@ -15,6 +15,8 @@ Output to TXT
 PS C:\WINDOWS\system32> Get-Service | Select-Object Status, Name, DisplayName, CanPauseAndContinue, CanShutdown, CanStop, StartType, ServiceType, @{Name='DependentServices';Expression={$_.DependentServices -join ';'}} | Out-File -FilePath "C:\Users\Admin1\Documents\ISO Files\Services.AllProperties.txt"
 ```
 
+[Typical Services by Category](AutoUnattend-Services-Typical-Category.md)
+
 
 ```
 PS C:\WINDOWS\system32> Get-Service | Select-Object Name, DisplayName| Export-Csv -Path "C:\Users\Admin1\Documents\ISO Files\Services.ServiceName.csv" -NoTypeInformation
