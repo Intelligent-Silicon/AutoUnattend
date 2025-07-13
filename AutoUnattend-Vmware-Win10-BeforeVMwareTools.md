@@ -293,3 +293,60 @@ foreach ($profile in $profiles) {
     $rules | Out-String | Out-File -width 1000 -Append -Encoding UTF8 -FilePath "C:\Users\Admin1\Documents\Firewall.Rules.txt"
 }
 ```
+
+```
+# List all firewall rules
+Get-NetFirewallRule |
+Select-Object Name, DisplayName, Enabled, Direction, Action, Profile |
+Format-Table -AutoSize | Out-File -width 1000 -Encoding UTF8 -FilePath "C:\Users\Admin1\Documents\Firewall.Rules.txt"
+```
+
+
+Lockdown Firewall allowing only Github and Firefox
+```
+# Step 1: Block all outbound traffic
+Set-NetFirewallProfile -Profile Domain,Private,Public -DefaultOutboundAction Block
+
+# Step 2: Allow Firefox outbound
+New-NetFirewallRule -DisplayName "Allow Firefox Outbound" `
+  -Direction Outbound `
+  -Program "C:\Program Files\Mozilla Firefox\firefox.exe" `
+  -Action Allow `
+  -Profile Domain,Private,Public
+
+# Step 3: Allow GitHub Domains (via port 443 + 80 for HTTPS/HTTP)
+$githubDomains = @(
+  "github.com", "api.github.com", "githubusercontent.com"
+)
+
+foreach ($domain in $githubDomains) {
+    New-NetFirewallRule -DisplayName "Allow $domain" `
+        -Direction Outbound `
+        -RemoteFqdn $domain `
+        -Protocol TCP `
+        -LocalPort Any `
+        -RemotePort 443 `
+        -Action Allow `
+        -Profile Domain,Private,Public
+}
+
+# Optional: Log dropped packets for analysis
+Set-NetFirewallProfile -LogBlocked -LogFileName "C:\FirewallLogs.txt"
+```
+
+Backup Existing Firewall Rules
+```
+# Export current firewall rules to a file
+$backupPath = "C:\Users\Admin1\Documents\Win 11 Home\FirewallBackup.wfw"
+netsh advfirewall export $backupPath
+```
+
+
+Import Firewall Rules - Overwrites existing rules.
+```
+# Import firewall rules to a file
+$backupPath = "C:\Users\Admin1\Documents\Win 11 Home\FirewallBackup.wfw"
+netsh advfirewall import $backupPath
+```
+
+
