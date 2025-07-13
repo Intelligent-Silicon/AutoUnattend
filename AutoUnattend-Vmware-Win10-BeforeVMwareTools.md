@@ -1,35 +1,64 @@
 # Window 10
 
-Drivers
-List installed Drivers
+Audit PC
+```
+PS C:\Users\Admin1> Get-CimInstance Win32_OperatingSystem | Select-Object Caption | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\Windows10_Enterprise_LTSC\Get-CimInstance.Win32_OperatingSystem.Caption.txt"
 
-List two files OEM0.inf and OEM1.inf. Get-Drivers shows more info, namely original filename.
-```
-PS C:\WINDOWS\system32> Dism /Online /Get-Drivers | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\Drivers\InstalledDrivers.BeforeVMwareTools.Get-Drivers.txt"
-```
+Caption
+-------
+Microsoft Windows 10 Enterprise LTSC
 
-Lists All Hardware with and without Drivers.
-```
-PS C:\WINDOWS\system32> Get-WmiObject Win32_PNPEntity | Select * | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\Drivers\InstalledDrivers.BeforeVMwareTools.Get-WMIobject.Win32_PNPEntity.txt"
-```
+PS C:\Users\Admin1> Get-CimInstance Win32_OperatingSystem | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\Windows10_Enterprise_LTSC\Get-CimInstance.Win32_OperatingSystem.txt"
 
-List All Hardware missing a Driver.
-```
-PS C:\WINDOWS\system32> Get-WmiObject Win32_PnPEntity | Where {$_.Status -ne "OK"} | Select * | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\Drivers\InstalledDrivers.BeforeVMwareTools.Get-WMIobject.Win32_PNPEntity.MissingDrivers.txt"
+SystemDirectory     Organization BuildNumber RegisteredUser SerialNumber            Version
+---------------     ------------ ----------- -------------- ------------            -------
+C:\Windows\system32              19044       Windows User   00425-00000-00002-AA384 10.0.19044
 ```
 
-List All VMware Hard Drivers
 ```
-PS C:\WINDOWS\system32> Get-WmiObject Win32_PnPEntity | Where {$_.Name -match "VMware"} | Select * | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\Drivers\InstalledDrivers.BeforeVMwareTools.Get-WMIobject.Win32_PNPEntity.VMwareDrivers.txt"
+
+PS C:\Users\Admin1> Get-CimInstance Win32_OperatingSystem | Select-Object Caption
+
+Caption
+-------
+Microsoft Windows 11 Home
+
+SystemDirectory     Organization BuildNumber RegisteredUser SerialNumber            Version
+---------------     ------------ ----------- -------------- ------------            -------
+C:\WINDOWS\system32              26100                      00356-07439-96876-AAOEM 10.0.26100
+```
+
+```
+md "C:\Users\Admin1\Documents\Windows10_Enterprise_LTSC"
+```
+
+DriverStore.Inf.Files.txt
+```
+PS C:\WINDOWS\system32> Dism /Online /Get-Drivers | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\Windows10_Enterprise_LTSC\DriverStore.Inf.Files.txt"
+```
+
+InstalledDrivers.Get-WMIobject.Win32_PNPEntity.txt
+```
+PS C:\WINDOWS\system32> Get-WmiObject Win32_PNPEntity | Select * | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\Windows10_Enterprise_LTSC\InstalledDrivers.Get-WMIobject.Win32_PNPEntity.txt"
+```
+
+InstalledDrivers.Get-WMIobject.Win32_PNPEntity.MissingDrivers.txt
+```
+PS C:\WINDOWS\system32> Get-WmiObject Win32_PnPEntity | Where {$_.Status -ne "OK"} | Select * | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\Windows10_Enterprise_LTSC\InstalledDrivers.Get-WMIobject.Win32_PNPEntity.MissingDrivers.txt"
+```
+
+InstalledDrivers.Get-WMIobject.Win32_PNPEntity.VMwareDrivers.txt
+```
+PS C:\WINDOWS\system32> Get-WmiObject Win32_PnPEntity | Where {$_.Name -match "VMware"} | Select * | Out-File -Width 1000 -FilePath "C:\Users\Admin1\Documents\Windows10_Enterprise_LTSC\InstalledDrivers.Get-WMIobject.Win32_PNPEntity.VMwareDrivers.txt"
 ```
 
 
-List All AppX
+WindowsAppX.AllUsers.txt
 ```
-PS C:\WINDOWS\system32> Get-AppxPackage -Allusers | Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\ISO Files\WindowsAppX.AllUsers.txt"
+PS C:\WINDOWS\system32> Get-AppxPackage -Allusers | Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\Windows10_Enterprise_LTSC\InstalledAppX.Get-AppxPackage.AllUsers.txt"
 ```
 
-List All Services
+Services.AllProperties.txt
 ```
 Get-Service | ForEach-Object { 
     $service = $_
