@@ -1,7 +1,5 @@
 # Window 10
 
-After installation, before VMware Tools installed, but VMware Drivers installed
-
 Drivers
 List installed Drivers
 
@@ -52,12 +50,246 @@ Get-Service | ForEach-Object {
 } | Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\Services.AllProperties.txt" 
 ```
 
+List all Services with Recovery Options
+```
+Get-Service | ForEach-Object {
+    $service = $_
+    $serviceName = $service.Name
+    $regPath = "HKLM:\SYSTEM\CurrentControlSet\Services\$serviceName"
+
+    # Recovery info from registry
+    $recovery = Get-ItemProperty -Path $regPath -ErrorAction SilentlyContinue
+
+    # Extended details via WMI
+    $wmi = Get-WmiObject -Class Win32_Service -Filter "Name='$serviceName'"
+    $displayName  = $wmi.DisplayName
+    $logonAccount = $wmi.StartName
+    $startMode    = $wmi.StartMode
+    $status       = $wmi.State
+
+    # Safely collect dependent services
+    $dependentList = @()
+    foreach ($dep in $service.DependentServices) {
+        $dependentList += $dep.DisplayName
+    }
+    $dependentServices = if ($dependentList.Count -gt 0) { $dependentList -join ', ' } else { 'None' }
+
+    [PSCustomObject]@{
+        ServiceName           = $serviceName
+        DisplayName           = $displayName
+        Status                = $status
+        StartupType           = $startMode
+        LogonAccount          = $logonAccount
+        DependentServices     = $dependentServices
+        FirstFailureAction    = if ($recovery.PSObject.Properties['FirstFailure'])  { $recovery.FirstFailure } else { 'N/A' }
+        SecondFailureAction   = if ($recovery.PSObject.Properties['SecondFailure']) { $recovery.SecondFailure } else { 'N/A' }
+        ThirdFailureAction    = if ($recovery.PSObject.Properties['ThirdFailure'])  { $recovery.ThirdFailure } else { 'N/A' }
+        ResetPeriodInSeconds  = if ($recovery.PSObject.Properties['ResetPeriod'])   { $recovery.ResetPeriod } else { 'N/A' }
+        RebootMessage         = if ($recovery.PSObject.Properties['RebootMessage']) { $recovery.RebootMessage } else { 'N/A' }
+        CommandLineAction     = if ($recovery.PSObject.Properties['Command'])       { $recovery.Command } else { 'N/A' }
+    }
+} | Format-Table -AutoSize | Out-File -width 2000 -FilePath "C:\Users\Admin1\Documents\Services.AllProperties.txt" 
+```
+```
+Get-Service | ForEach-Object {
+    $service = $_
+    $serviceName = $service.Name
+    $regPath = "HKLM:\SYSTEM\CurrentControlSet\Services\$serviceName"
+
+    # Recovery info from registry
+    $recovery = Get-ItemProperty -Path $regPath -ErrorAction SilentlyContinue
+    echo $recovery 
+    # Extended details via WMI
+    $wmi = Get-WmiObject -Class Win32_Service -Filter "Name='$serviceName'"
+    $displayName  = $wmi.DisplayName
+    $logonAccount = $wmi.StartName
+    $startMode    = $wmi.StartMode
+    $status       = $wmi.State
+
+    # Collect dependent services by ServiceName
+    $dependentList = @()
+    foreach ($dep in $service.DependentServices) {
+        $dependentList += $dep.Name
+    }
+    $dependentServices = if ($dependentList.Count -gt 0) { $dependentList -join ', ' } else { 'None' }
+
+    [PSCustomObject]@{
+        ServiceName           = $serviceName
+        DisplayName           = $displayName
+        Status                = $status
+        StartupType           = $startMode
+        LogonAccount          = $logonAccount
+        DependentServices     = $dependentServices
+        FirstFailureAction    = if ($recovery.PSObject.Properties['FirstFailure'])  { $recovery.FirstFailure } else { 'N/A' }
+        SecondFailureAction   = if ($recovery.PSObject.Properties['SecondFailure']) { $recovery.SecondFailure } else { 'N/A' }
+        ThirdFailureAction    = if ($recovery.PSObject.Properties['ThirdFailure'])  { $recovery.ThirdFailure } else { 'N/A' }
+        ResetPeriodInSeconds  = if ($recovery.PSObject.Properties['ResetPeriod'])   { $recovery.ResetPeriod } else { 'N/A' }
+        RebootMessage         = if ($recovery.PSObject.Properties['RebootMessage']) { $recovery.RebootMessage } else { 'N/A' }
+        CommandLineAction     = if ($recovery.PSObject.Properties['Command'])       { $recovery.Command } else { 'N/A' }
+    }
+} | Format-Table -AutoSize | Out-File -width 2000 -FilePath "C:\Users\Admin1\Documents\Services.AllProperties.txt" 
+```
+
+
+
 List all Software
 
 ```
-Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\Services.AllProperties.txt" 
+Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\Services.AllProperties.txt" 
+```
+
+List All Tasks
+
+```
+PS C:\WINDOWS\system32> Get-ScheduledTask | Format-Table -AutoSize  | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\Tasks.Scheduled.txt"
+```
+
+List All Tasks with Info
+```
+# Get all scheduled tasks
+$tasks = Get-ScheduledTask
+
+$taskInfoList = foreach ($task in $tasks) {
+    try {
+        $info = Get-ScheduledTaskInfo -TaskName $task.TaskName -TaskPath $task.TaskPath
+        [PSCustomObject]@{
+            TaskName        = $task.TaskName
+            TaskPath        = $task.TaskPath
+            LastRunTime     = $info.LastRunTime
+            NextRunTime     = $info.NextRunTime
+            LastTaskResult  = $info.LastTaskResult
+            LastStatus      = $info.LastStatus
+        }
+    } catch {
+        [PSCustomObject]@{
+            TaskName        = $task.TaskName
+            TaskPath        = $task.TaskPath
+            LastRunTime     = "N/A"
+            NextRunTime     = "N/A"
+            LastTaskResult  = "N/A"
+            LastStatus      = "Failed to retrieve info"
+        }
+    }
+}
+
+# Display results in a table
+$taskInfoList | Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\Tasks.Scheduled.Info.txt"
+```
+```
+# Get all scheduled tasks
+$tasks = Get-ScheduledTask
+
+$taskInfoList = foreach ($task in $tasks) {
+    try {
+        $info = Get-ScheduledTaskInfo -TaskName $task.TaskName -TaskPath $task.TaskPath
+        $principal = $task.Principal.UserId
+
+        [PSCustomObject]@{
+            TaskName        = $task.TaskName
+            TaskPath        = $task.TaskPath
+            User            = $principal
+            LastRunTime     = $info.LastRunTime
+            NextRunTime     = $info.NextRunTime
+            LastTaskResult  = $info.LastTaskResult
+            LastStatus      = $info.LastStatus
+        }
+    } catch {
+        [PSCustomObject]@{
+            TaskName        = $task.TaskName
+            TaskPath        = $task.TaskPath
+            User            = "N/A"
+            LastRunTime     = "N/A"
+            NextRunTime     = "N/A"
+            LastTaskResult  = "N/A"
+            LastStatus      = "Failed to retrieve info"
+        }
+    }
+}
+
+# Display results in a table
+$taskInfoList | Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\Tasks.Scheduled.Info.txt"
 ```
 
 
+List Startups
+```
+# Get startup entries from registry and startup folders
+$startupEntries = @()
+
+# Check common registry locations
+$regPaths = @(
+    "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run",
+    "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
+)
+
+foreach ($path in $regPaths) {
+    try {
+        $entries = Get-ItemProperty -Path $path | Select-Object -Property * -ExcludeProperty PSPath, PSParentPath, PSChildName, PSDrive, PSProvider
+        foreach ($entry in $entries.PSObject.Properties) {
+            $startupEntries += [PSCustomObject]@{
+                Source      = $path
+                AppName     = $entry.Name
+                Command     = $entry.Value
+                User        = if ($path -like "HKCU*") { "$env:USERNAME (Current User)" } else { "System" }
+            }
+        }
+    } catch {
+        Write-Warning "Failed to access $path"
+    }
+}
+
+# Check Startup folders
+$startupFolders = @(
+    "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup",   # Current user
+    "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Startup" # All users
+)
+
+foreach ($folder in $startupFolders) {
+    if (Test-Path $folder) {
+        Get-ChildItem -Path $folder -File | ForEach-Object {
+            $startupEntries += [PSCustomObject]@{
+                Source      = $folder
+                AppName     = $_.Name
+                Command     = $_.FullName
+                User        = if ($folder -like "*ProgramData*") { "System (All Users)" } else { "$env:USERNAME (Current User)" }
+            }
+        }
+    }
+}
+
+# Display results in a table
+$startupEntries | Format-Table -AutoSize
+
+```
 
 
+List Firewall Rules
+
+```
+$profiles = @('Private', 'Public', 'Domain')
+
+foreach ($profile in $profiles) {
+    Write-Host "`n=== $profile Profile Firewall Rules ===" -ForegroundColor Cyan
+
+    Get-NetFirewallRule |
+        Where-Object { $_.Profile -contains $profile } |
+        Select-Object DisplayName, Direction, Action, Enabled, Profile |
+        Sort-Object DisplayName       
+} Format-Table -AutoSize | Out-File -width 1000 -FilePath "C:\Users\Admin1\Documents\Firewall.Rules.txt"
+```
+```
+$profiles = @('Private', 'Public', 'Domain')
+
+foreach ($profile in $profiles) {
+    $rules = Get-NetFirewallRule |
+        Where-Object { $_.Profile -contains $profile } |
+        Select-Object DisplayName, Direction, Action, Enabled, Profile |
+        Sort-Object DisplayName
+
+    $header = "`n=== $profile Profile Firewall Rules ===`n"
+    $outputPath = "$env:USERPROFILE\Desktop\FirewallRules_$profile.txt"
+
+    $header | Out-File -FilePath $outputPath -Encoding UTF8
+    $rules | Out-String | Out-File -width 1000 -Append -Encoding UTF8 -FilePath "C:\Users\Admin1\Documents\Firewall.Rules.txt"
+}
+```

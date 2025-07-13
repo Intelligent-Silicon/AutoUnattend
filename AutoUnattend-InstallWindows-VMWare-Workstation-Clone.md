@@ -416,7 +416,7 @@ Install VMware & run it.
 Click on the ```Create a New Virtual Machine``` and select the following options:
 ```Typical```, ```Installer disc image file``` and select ```C:\Users\Admin1\Documents\ISO Files\AU_Win10_22H2_x32.iso```. It should show below the filename that Windows 10 is detected.
 
-Disk Size. The minimum disk size for Windows 10 Pro needs to be at least 30GB.
+Disk Size. The minimum disk size for Windows 10 Pro needs to be at least 40GB.
 The VMware Workstation recommended disk size is 60GB.
 
 Click ```Next```, Virtual Machine Name ```Win10 22H2 x32```, click ```Next```, Maximum Disk Size xxxGB, select ```Store virtual disk as a single file```, click ```Next``` and untick ```Power on this virtual machine after creation```, click ```Finish```.
