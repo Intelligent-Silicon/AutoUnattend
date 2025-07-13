@@ -305,7 +305,7 @@ Format-Table -AutoSize | Out-File -width 1000 -Encoding UTF8 -FilePath "C:\Users
 Lockdown Firewall allowing only Github and Firefox
 ```
 # Step 1: Block all outbound traffic
-Set-NetFirewallProfile -Profile Domain,Private,Public -DefaultOutboundAction Block
+Set-NetFirewallProfile -Profile Domain,Private,Public -DefaultOutboundAction Block -DefaultInboundAction Block
 
 # Step 2: Allow Firefox outbound
 New-NetFirewallRule -DisplayName "Allow Firefox Outbound" `
@@ -331,7 +331,7 @@ foreach ($domain in $githubDomains) {
 }
 
 # Optional: Log dropped packets for analysis
-Set-NetFirewallProfile -LogBlocked -LogFileName "C:\FirewallLogs.txt"
+Set-NetFirewallProfile -LogBlocked -LogFileName "C:\Users\Admin1\Documents\Firewall Log\FirewallLogs.txt"
 ```
 
 Backup Existing Firewall Rules
@@ -349,4 +349,105 @@ $backupPath = "C:\Users\Admin1\Documents\Win 11 Home\FirewallBackup.wfw"
 netsh advfirewall import $backupPath
 ```
 
+List inbound rules
+```
+Get-NetFirewallRule -Direction Inbound | Where-Object {$_.Enabled -eq "True"} |
+Select-Object Name, DisplayName, Action, Profile, Protocol, LocalPort, RemoteAddress |
+Format-Table -AutoSize | Out-File -width 1000 -Encoding UTF8 -FilePath "C:\Users\Admin1\Documents\Firewall.Rules.Inbound.txt"
+```
 
+Log Network Traffic
+```
+# Get the current date and time for log naming
+$timestamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
+$logFile = "NetworkTrafficLog_$timestamp.txt"
+
+# Collect all TCP connections
+$connections = Get-NetTCPConnection | Where-Object { $_.State -eq "Established" }
+
+# Prepare a log entry
+$log = @()
+
+foreach ($conn in $connections) {
+    $procId = $conn.OwningProcess
+    $proc = Get-Process -Id $procId -ErrorAction SilentlyContinue
+    $appName = if ($proc) { $proc.ProcessName } else { "Unknown" }
+
+    $entry = @{
+        Timestamp       = Get-Date
+        Application     = $appName
+        LocalAddress    = $conn.LocalAddress
+        LocalPort       = $conn.LocalPort
+        RemoteAddress   = $conn.RemoteAddress
+        RemotePort      = $conn.RemotePort
+        State           = $conn.State
+    }
+
+    $log += ($entry | Out-String)
+}
+
+# Save the log to a file
+$log | Out-File -FilePath $logFile -Encoding UTF8
+
+Write-Host "Network traffic logged to $logFile"
+```
+
+
+
+GUI
+```
+Add-Type -AssemblyName System.Windows.Forms
+
+# Create the form
+$form = New-Object System.Windows.Forms.Form
+$form.Text = "Network Traffic Logger"
+$form.Size = New-Object System.Drawing.Size(400,200)
+$form.StartPosition = "CenterScreen"
+
+# Create a button
+$button = New-Object System.Windows.Forms.Button
+$button.Text = "Log Network Traffic"
+$button.Size = New-Object System.Drawing.Size(200,40)
+$button.Location = New-Object System.Drawing.Point(100,50)
+
+# Status label
+$label = New-Object System.Windows.Forms.Label
+$label.Text = "Press the button to start logging."
+$label.AutoSize = $true
+$label.Location = New-Object System.Drawing.Point(100,110)
+
+$form.Controls.Add($button)
+$form.Controls.Add($label)
+
+# Function to log network traffic
+$button.Add_Click({
+    $timestamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
+    $logFile = "NetworkTrafficLog_$timestamp.txt"
+    $connections = Get-NetTCPConnection | Where-Object { $_.State -eq "Established" }
+    $log = @()
+
+    foreach ($conn in $connections) {
+        $procId = $conn.OwningProcess
+        $proc = Get-Process -Id $procId -ErrorAction SilentlyContinue
+        $appName = if ($proc) { $proc.ProcessName } else { "Unknown" }
+
+        $entry = @{
+            Timestamp       = Get-Date
+            Application     = $appName
+            LocalAddress    = $conn.LocalAddress
+            LocalPort       = $conn.LocalPort
+            RemoteAddress   = $conn.RemoteAddress
+            RemotePort      = $conn.RemotePort
+            State           = $conn.State
+        }
+
+        $log += ($entry | Out-String)
+    }
+
+    $log | Out-File -FilePath $logFile -Encoding UTF8
+    $label.Text = "Log saved: $logFile"
+})
+
+# Run the form
+[void]$form.ShowDialog()
+```
