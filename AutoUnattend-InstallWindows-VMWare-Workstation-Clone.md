@@ -332,7 +332,7 @@ PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_IS
 ```
 
 
-List All Programs/Features
+List All Programs/Features.
 
 ```
 PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-Features.default.txt"
@@ -345,7 +345,7 @@ PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Ins
 ```
 
 
-List Disabled Programs/Features
+List Disabled Programs/Features.
 
 ```
 PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object { $_.State -match "Disabled" } | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsOptionalFeature.default.Disabled.txt"
@@ -353,12 +353,23 @@ PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x3
 PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object { $_.State -notmatch "Installed" } | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.NotInstalled.txt"
 ```
 
-List Enabled Programs/Features
+List Enabled Programs/Features.
 
 ```
 PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object { $_.State -match "Enabled" } | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsOptionalFeature.default.Enabled.txt"
 
 PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object { $_.State -match "Installed" } | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.Installed.txt"
+```
+
+Remove Programs/Features.
+
+
+Unmount Image.
+
+```
+[Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
+[Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /discard
 ```
 
 
