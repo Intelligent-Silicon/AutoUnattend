@@ -328,7 +328,6 @@ Distinctions
 | Command | Scope and Purpose | Include FOD | Includes Modern Apps | Offline Support | Notes|  
 | --- | --- | --- | --- | --- | --- | 
 | ```Dism /get-features``` | Lists CBS (Component-Based Servicing) features — core OS components | No | No | Yes | Legacy DISM command; shows foundational system features like Hyper-V, .NET Framework |
- |
 | ```Get-WindowsOptionalFeature``` | PowerShell cmdlet for optional Windows foundation features | Partial | No | Yes | Similar to DISM but more flexible in scripting; doesn’t include FoD or AppX packages |
 | ```Get-WindowsCapability``` | Lists Features on Demand (FoD) and modern modular components | Yes | Yes | Yes | Best for discovering app-like features (Snipping Tool, OpenSSH, RSAT, etc.) | 
 
