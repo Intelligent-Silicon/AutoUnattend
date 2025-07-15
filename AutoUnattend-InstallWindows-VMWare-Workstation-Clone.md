@@ -325,7 +325,7 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 
 Distinctions
 
-| Location |  \\Windows\\winsxs |  \\Windows\\servicing\\packages | \\Windows\\servicing\\Packages | Offline Image Support | Notes |
+| Location |  \\Windows\\winsxs |  \\Windows\\servicing\\packages | \\Windows\\servicing\\Packages |  |  |
 | --- | --- | --- | --- | --- | --- | 
 | Command | Component Store  | Package Store | Feature On Demand | Offline Image Support | Notes |  
 | ```Dism /get-features``` | Yes | No | No | Yes | Lists Component-Based Servicing (CBS) features — core OS components. |
