@@ -18,6 +18,7 @@
 
 [4.4 Checking for installed Updates Summary](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#44-checking-for-installed-updates-summary)
 
+[5. Disable Features in install.wim](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#5-disable-features-in-installwim)
 
 [5. Create an AutoUnattend.xml Answer File to initially setup Windows.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#5-create-an-autounattendxml-answer-file-to-initially-setup-windows)
 
