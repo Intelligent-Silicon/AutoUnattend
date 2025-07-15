@@ -325,11 +325,13 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 
 Distinctions
 
-| Command | Component-Based Servicing | Appx | Feature On Demand | Offline Support | Notes|  
+| Location |  \Windows\winsxs |  \Windows\servicing\packages | \Windows\servicing\Packages | Offline Image Support | Notes |
+| Command | Component Store  | Package Store | Feature On Demand | Offline Image Support | Notes |  
 | --- | --- | --- | --- | --- | --- | 
-| ```Dism /get-features``` | Yes | No | No | Yes | Lists CBS (Component-Based Servicing) features — core OS components |
-| ```Get-WindowsOptionalFeature``` |Yes | No | No | |
-| ```Get-WindowsCapability``` | No | Yes | Yes | |
+| ```Dism /get-features``` | Yes | No | No | Yes | Lists Component-Based Servicing (CBS) features — core OS components. |
+| ```Get-AppxProvisionedPackage``` | No | Yes | No | No | Provisioned Appx packages |
+| ```Get-WindowsOptionalFeature``` | Yes | No | No | Yes |
+| ```Get-WindowsCapability``` | No | Yes | Yes | Yes |
 
 
 ``` 
@@ -345,6 +347,7 @@ Related Cmdlets
 If you’re customizing Windows images or trimming down your install footprint, this cmdlet is a must-have in your toolkit. 
 
 
+Mount Image.
 
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.ImageInfo.default.txt"
@@ -352,10 +355,53 @@ PS C:\WINDOWS\system32> md -path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
 PS C:\WINDOWS\system32> Dism /mount-image /imagefile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
 ```
 
+
+List All Programs/Features
+
 ```
 PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-Features.default.txt"
 
+PS C:\WINDOWS\system32> Get-AppxProvisionedPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-AppxProvisionedPackage.default.txt"
+
 PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsOptionalFeature.default.txt"
+
+PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.txt"
+```
+
+```Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features``` will miss 
+
+
+List Disabled Programs/Features
+
+```
+PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object { $_.State -match "Disabled" } | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsOptionalFeature.default.Disabled.txt"
+
+PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object { $_.State -notmatch "Installed" } | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.NotInstalled.txt"
+```
+
+List Enabled Programs/Features
+
+```
+PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object { $_.State -match "Enabled" } | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsOptionalFeature.default.Enabled.txt"
+
+PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object { $_.State -match "Installed" } | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.Installed.txt"
+```
+
+
+PS C:\WINDOWS\system32> $dismOutput = dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features
+PS C:\WINDOWS\system32> $Features = $dismOutput | Where-Object { $dismOutput.State -match "Disabled" }
+
+Get-Process | Get-Member -MemberType Properties
+$dismOutput | Get-Member -MemberType Properties
+
+
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-Features.default.txt"
+
+PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsOptionalFeature.default.txt"
+
+PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.txt"
+```
+
 
 PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features | Where-Object {$_.State -eq "Disabled"} | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-Features.default.Disabled.txt"
 
