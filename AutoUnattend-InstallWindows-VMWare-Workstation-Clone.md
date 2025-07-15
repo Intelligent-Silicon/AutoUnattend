@@ -329,7 +329,7 @@ Distinctions
 | --- | --- | --- | --- | --- | --- | --- | 
 | Command | Component Store  | Package Store | Feature On Demand | Offline Image Support | Notes |  
 | ```Dism /get-features``` | Yes | No | No | Yes |  | |
-| ```Dism /get-features``` | Yes | No | No | Yes |  | | 
+| ```Dism /Get-Capabilities``` | No | No | No | Yes |  | | 
 | ```Get-AppxProvisionedPackage``` | No | Yes | No | No | | | 
 | ```Get-WindowsOptionalFeature``` | Yes | No | No | Yes | | 
 | ```Get-WindowsCapability``` | No | Yes | Yes | Yes | |
