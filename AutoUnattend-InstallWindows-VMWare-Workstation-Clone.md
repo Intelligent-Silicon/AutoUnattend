@@ -323,34 +323,6 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 
 ### 5. Disable Features in install.wim
 
-Distinctions
-
-| Location |  \\Windows\\System32 | \\Windows\\winsxs | \\Program Files\\WindowsApps | \\Windows\\servicing\\packages | |
-| --- | --- | --- | --- | --- | --- |
-| Command | Component Store  | Package Store | Feature On Demand | Offline Image Support | Notes |  
-| ```Dism /get-Features``` | Yes | Yes | No | Yes | Yes | 
-
-| ```Dism /Get-Capabilities``` | No | No | No | | Yes |  | |
-| ```Dism /Get-Packages``` | No | No | No | | Yes |  | |
-| ```Dism /Get-ProvisionedAppxPackages``` | No | No | No | | Yes |  | |
-| ```Get-AppxProvisionedPackage``` | No | Yes | | No | No | | | 
-| ```Get-WindowsOptionalFeature``` | Yes | No | No |  | Yes | | 
-| ```Get-WindowsCapability``` | No | Yes | Yes |  | Yes | |
-
-
-``` 
-PS C:\WINDOWS\system32> Get-WindowsCapability -Online | Where-Object { $_.Name -like "*SnippingTool*" }
-PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object { $_.Name -like "*SnippingTool*" }
-```
-
-Related Cmdlets
-- Add-WindowsCapability — install a capability
-- Remove-WindowsCapability — uninstall one
-- Export-WindowsCapabilitySource — prep offline sources
-
-If you’re customizing Windows images or trimming down your install footprint, this cmdlet is a must-have in your toolkit. 
-
-
 Mount Image.
 
 ```
@@ -372,8 +344,6 @@ PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x3
 PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.txt"
 ```
 
-```Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features``` will miss 
-
 
 List Disabled Programs/Features
 
@@ -390,77 +360,6 @@ PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x3
 
 PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object { $_.State -match "Installed" } | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.Installed.txt"
 ```
-
-
-PS C:\WINDOWS\system32> $dismOutput = dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features
-PS C:\WINDOWS\system32> $Features = $dismOutput | Where-Object { $dismOutput.State -match "Disabled" }
-
-Get-Process | Get-Member -MemberType Properties
-$dismOutput | Get-Member -MemberType Properties
-
-
-PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-Features.default.txt"
-
-PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsOptionalFeature.default.txt"
-
-PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.txt"
-```
-
-
-PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features | Where-Object {$_.State -eq "Disabled"} | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-Features.default.Disabled.txt"
-
-PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.State -eq "Enabled"} | Out-File -Width 1000 -FilePath C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsOptionalFeature.default.Enabled.txt"
-
-PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.State -eq "Disabled"} | Out-File -Width 1000 -FilePath C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Get-WindowsOptionalFeature.Features.default.Disabled.txt"
-
-
-[Optional] PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.State -eq "Enabled"} | ForEach-Object { Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName $_.FeatureName -Remove }
-
-$mountPath = "C:\Mount"
-
-Get-WindowsOptionalFeature -Path $mountPath | ForEach-Object {
-    Disable-WindowsOptionalFeature -Path $mountPath -FeatureName $_.FeatureName -Remove
-}
-```
-
-PS C:\WINDOWS\system32> $dismOutput = dism /online /get-features /format:table
-PS C:\WINDOWS\system32> $disabledFeatures = $dismOutput | Where-Object { $_ -match "\|\s+Disabled" }
-PS C:\WINDOWS\system32> foreach ($line in $disabledFeatures) {
->>     $featureName = ($line -split '\|')[0].Trim()
->>     Write-Output "Disabled Feature: $featureName"
->> }
-PS C:\WINDOWS\system32> $dismOutput = dism /online /get-features
-PS C:\WINDOWS\system32> $disabledFeatures = $dismOutput | Where-Object { $_.State -match "Disabled" }
-PS C:\WINDOWS\system32> foreach ($line in $disabledFeatures) {
->>     $featureName = ($line -split '\|')[0].Trim()
->>     Write-Output "Disabled Feature: $featureName"
->> }
-
-
-
-
-```
-[Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
-[Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
-PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /discard
-```
-
-
-| Out-File -FilePath "C:\Users\Admin1\Documents\Drivers\installdrivers.txt"
-
-Mount-WindowsImage -ImagePath "D:\sources\install.wim" -Index 1 -Path "C:\Mount"
-
-
-```
-Mount-WindowsImage -ImagePath "D:\sources\install.wim" -Index 1 -Path "C:\Mount"
-
-Get-WindowsOptionalFeature -Path "C:\Mount" | Where-Object {$_.State -eq "Enabled"} | ForEach-Object {
-    Disable-WindowsOptionalFeature -Path "C:\Mount" -FeatureName $_.FeatureName -Remove
-}
-```
-
-
- 
 
 
 ### 5. Create an AutoUnattend.xml Answer File to initially setup Windows.
