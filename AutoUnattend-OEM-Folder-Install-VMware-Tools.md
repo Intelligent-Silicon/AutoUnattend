@@ -60,5 +60,7 @@ SaltMinion
 </settings>
 ```
 
+setup.exe" /S /v"/qn REBOOT=R ADDLOCAL=ALL REMOVE=AppDefense,FileIntrospection,NetworkIntrospection,Hgfs" /l "C:\Software Installers\Vmware-Tools\VMwareToolsInstall.log"
 
+etup.exe /S /v"/qn REBOOT=R ADDLOCAL=ALL"
  

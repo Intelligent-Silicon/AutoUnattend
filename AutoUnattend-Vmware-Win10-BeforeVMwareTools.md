@@ -239,10 +239,12 @@ $backupPath = "C:\Users\Admin1\Documents\Windows10_Enterprise_LTSC\Firewall.Back
 netsh advfirewall import $backupPath
 ```
 
+Folders.txt
 ```
 Get-ChildItem -Path 'C:\' -Directory -Recurse | Select-Object FullName | Out-File -width 1000 -Encoding UTF8 -FilePath "C:\Users\Admin1\Documents\Windows10_Enterprise_LTSC\Folders.txt"
 ``` 
 
+DiskSpace.txt
 ```
 Get-WmiObject -Class Win32_LogicalDisk -Filter "DriveType=3" | Select-Object `
     @{Name="Drive";Expression={$_.DeviceID}},
