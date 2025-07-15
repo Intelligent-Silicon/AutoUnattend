@@ -326,9 +326,10 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 Distinctions
 
 | Location |  \\Windows\\System32 | \\Windows\\winsxs | \\Program Files\\WindowsApps | \\Windows\\servicing\\packages | |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Command | Component Store  | Package Store | Feature On Demand | Offline Image Support | Notes |  
-| ```Dism /get-Features``` | Yes | Yes | No | Yes | Yes |  | |
+| ```Dism /get-Features``` | Yes | Yes | No | Yes | Yes | 
+
 | ```Dism /Get-Capabilities``` | No | No | No | | Yes |  | |
 | ```Dism /Get-Packages``` | No | No | No | | Yes |  | |
 | ```Dism /Get-ProvisionedAppxPackages``` | No | No | No | | Yes |  | |
