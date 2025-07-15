@@ -328,11 +328,13 @@ Distinctions
 | Location |  \\Windows\\winsxs | \\Program Files\\WindowsApps | \\Windows\\servicing\\packages | \\Windows\\servicing\\Packages |  |  |
 | --- | --- | --- | --- | --- | --- | --- | 
 | Command | Component Store  | Package Store | Feature On Demand | Offline Image Support | Notes |  
-| ```Dism /get-features``` | Yes | No | No | Yes |  | |
-| ```Dism /Get-Capabilities``` | No | No | No | Yes |  | | 
-| ```Get-AppxProvisionedPackage``` | No | Yes | No | No | | | 
-| ```Get-WindowsOptionalFeature``` | Yes | No | No | Yes | | 
-| ```Get-WindowsCapability``` | No | Yes | Yes | Yes | |
+| ```Dism /get-features``` | Yes | No | No | | Yes |  | |
+| ```Dism /Get-Capabilities``` | No | No | No | | Yes |  | |
+| ```Dism /Get-Packages``` | No | No | No | | Yes |  | |
+| ```Dism /Get-ProvisionedAppxPackages``` | No | No | No | | Yes |  | |
+| ```Get-AppxProvisionedPackage``` | No | Yes | | No | No | | | 
+| ```Get-WindowsOptionalFeature``` | Yes | No | No |  | Yes | | 
+| ```Get-WindowsCapability``` | No | Yes | Yes |  | Yes | |
 
 
 ``` 
