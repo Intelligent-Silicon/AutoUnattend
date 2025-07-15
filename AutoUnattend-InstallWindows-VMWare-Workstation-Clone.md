@@ -328,7 +328,6 @@ Distinctions
 | Location |  \\Windows\\winsxs |  \\Windows\\servicing\\packages | \\Windows\\servicing\\Packages | Offline Image Support | Notes |
 | --- | --- | --- | --- | --- | --- | 
 | Command | Component Store  | Package Store | Feature On Demand | Offline Image Support | Notes |  
-| --- | --- | --- | --- | --- | --- | 
 | ```Dism /get-features``` | Yes | No | No | Yes | Lists Component-Based Servicing (CBS) features — core OS components. |
 | ```Get-AppxProvisionedPackage``` | No | Yes | No | No | Provisioned Appx packages |
 | ```Get-WindowsOptionalFeature``` | Yes | No | No | Yes |
