@@ -87,6 +87,12 @@ Shutting down wimgapi.
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.txt"
 ```
 
+Rename ```install.esd``` to prevent installation.
+```
+PS C:\WINDOWS\system32> Rename-Item -Path "C:\mount_Win10_22H2_x32_ISO\sources\install.esd" -NewName "install.esd.NoLongerUsed"
+
+```
+
 
 ### 3 Download & install the Windows ADK Deployment Tools.
 
@@ -323,8 +329,10 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 
 ### 5. Disable Features in install.wim
 
+Intall.wim file size 3,109,304KB
+
 Mount Image.
-Image Size: 3,078,515 KB
+
 
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.ImageInfo.default.txt"
@@ -458,7 +466,7 @@ Unmount the WIM and save the changes.
 [Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /commit
 ```
-Image Size: 3.5GB
+Intall.wim file size 3,109,304KB
 
 Clear up the .NET native image cache.
 ```
@@ -530,9 +538,9 @@ Unmount Image and save changes.
 ```
 [Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
 [Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
-PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /discard
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /commit
 ```
-
+Intall.wim file size 3,109,304KB
 
 https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_x86fre_FOD-PACKAGES_OEM_PT1_x86fre_MULTI.iso
 
