@@ -525,13 +525,7 @@ To add back individual Packages:
 PS C:\WINDOWS\system32> Add-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -Name "Microsoft.MSPaint_2019.729.2301.0_neutral_~_8wekyb3d8bbwe"
 ```
 
-To Unmount and save the changes
-
-```
-PS C:\WINDOWS\system32> Dism /Unmount-Image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /commit
-```
-
-Unmount Image.
+Unmount Image and save changes.
 
 ```
 [Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
