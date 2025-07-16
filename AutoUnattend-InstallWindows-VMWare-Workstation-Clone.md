@@ -324,6 +324,7 @@ Image files (```.ISO```, ```.vhd```, ```boot.wim```, ```install.[wim|esd]```) ca
 ### 5. Disable Features in install.wim
 
 Mount Image.
+Image Size: 3,078,515 KB
 
 ```
 PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /index:1 | Out-File -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.ImageInfo.default.txt"
@@ -337,11 +338,11 @@ List All Programs/Features.
 ```
 PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Get-Features | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-Features.default.txt"
 
-PS C:\WINDOWS\system32> Get-AppxProvisionedPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-AppxProvisionedPackage.default.txt"
-
 PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsOptionalFeature.default.txt"
 
 PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.txt"
+
+PS C:\WINDOWS\system32> Get-AppxProvisionedPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-AppxProvisionedPackage.default.txt"
 ```
 
 
@@ -363,6 +364,198 @@ PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Ins
 
 Remove Programs/Features.
 
+To Disable and Remove ALL Features, shrinking the WIM file size considerably, reducing the attack vector and forcing Features to be downloaded and reinstalled manually...  
+
+The ```-Remove``` attribute removes the feature from the Component Based Store (CBS) aka the ```C:\Windows\SXS```, which will shrink the Side-by-Side folder. 
+
+This folder alone is over 4GB in size, which will help to reduce the size of the virtual machine.
+
+Doesnt show name or output to file
+```
+PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.FeatureName} | ForEach-Object { Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName $_.FeatureName -Remove }
+```
+
+To disable and remove specific named Features.
+```
+PS C:\WINDOWS\system32> Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName "<FeatureName>" -Remove
+PS C:\WINDOWS\system32> Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName Printing-Foundation-InternetPrinting-Client -Remove
+PS C:\WINDOWS\system32> Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName Microsoft-Hyper-V -Remove
+```
+
+To disable and remove specific wildcard named Features.
+```
+PS C:\WINDOWS\system32> Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName "<FeatureName>*" -Remove
+PS C:\WINDOWS\system32> Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName Printing* -Remove
+PS C:\WINDOWS\system32> Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName Microsoft-Hyper-V* -Remove
+```
+
+Save current Features after removal.
+```
+PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsOptionalFeature.RemovedAll.txt"
+```
+
+To remove Capabilities
+
+Doesnt show name or output to file
+
+```
+PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.Name} | ForEach-Object { Remove-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -Name $_.Name }
+```
+
+Save list of current Capabilities after removal.
+```
+PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.RemovedAll.txt"
+```
+
+Remove All default Provisioned Apps
+
+```
+PS C:\WINDOWS\system32> Get-AppxProvisionedPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.PackageName} | ForEach-Object { Remove-AppxProvisionedPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -PackageName $_.PackageName }
+```
+
+Two Packages will remain which are required for Windows to function properly.
+```
+DisplayName  : Microsoft.DesktopAppInstaller
+DisplayName  : Microsoft.VCLibs.140.00
+```
+
+Save list of current Provisioned Packages after removal.
+
+```
+PS C:\WINDOWS\system32> Get-AppxProvisionedPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-AppxProvisionedPackage.RemovedAll.txt"
+```
+
+To remove individual packages 
+
+```
+Remove-AppxProvisionedPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -PackageName "Microsoft.YourPhone"
+```
+
+
+
+Final File removal and cleanup.
+
+Check for Corruption in the Component Based Store aka ```C:\Windows\SXS```
+
+```
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Cleanup-Image /ScanHealth
+```
+
+Fix issues with Windows Update - although not needed, still best to perform.
+```
+PS C:\WINDOWS\system32> DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Cleanup-Image /RestoreHealth
+```
+
+Removes outdated component versions and payloads, including file removal.
+```
+PS C:\WINDOWS\system32> DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Cleanup-Image /StartComponentCleanup /ResetBase
+```
+
+Unmount the WIM and save the changes.
+
+```
+[Optional] PS C:\WINDOWS\system32> Dism /get-mountedwiminfo
+[Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
+PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /commit
+```
+Image Size: 3,078,515 KB
+
+Clear up the .NET native image cache.
+```
+ngen executequeueditems
+```
+
+### 6. Add back individual Features and Capabilities
+
+
+
+To add back individual features.
+
+To Add a PDF Printer
+FeatureName : Printing-PrintToPDFServices-Features
+State       : Enabled
+
+To Add the Snipping Tool thats based on the PCBugReporter.com Ltd bug reporter IMO.
+FeatureName : Microsoft-SnippingTool
+State       : Enabled
+
+
+
+To add back and enable individual Features
+
+```/All``` enables parent features that are required by the named feature.
+
+```/LimitAccess``` prevents DISM from contacting Windows Update or WSUS.
+
+For Clarion 6 or earlier.
+```
+DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:NTVDM /All /LimitAccess
+```
+
+For Clarion 6 Web Edition
+```
+DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-WebServer /All /LimitAccess
+``` 
+IIS-WebServer will also install IIS-WebServerRole
+
+```
+DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-WebServerManagementTools /All /LimitAccess
+```
+
+For Clarion ASP templates
+
+```
+DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-ASP /All /LimitAccess
+```
+
+For Clarion PHP templates & Ron Schofield's Clarion Perl Templates
+
+```
+DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-CGI /All /LimitAccess
+```
+
+
+
+To Add Features for Clarion
+
+To run the Clarion 6 IDE, NTVDM is required for the 16bit elements of the IDE.
+
+```
+DISM /Mount-Image /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /Index:1 /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
+DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:NTVDM /All /LimitAccess
+DISM /Unmount-Image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /commit
+```
+
+For Clarion 6 Web Edition
+FeatureName : IIS-WebServer
+State       : Disabled
+
+FeatureName : IIS-WebServerManagementTools
+State       : Disabled
+
+FeatureName : IIS-WebServerRole
+State       : Disabled
+
+For Clarion ASP templates
+FeatureName : IIS-ASP
+State       : Disabled
+
+For Clarion PHP templates & Ron Schofield's Clarion Perl Templates
+FeatureName : IIS-CGI
+State       : Disabled
+
+
+
+
+PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName $_.FeatureName -NoRestart
+
+
+PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.State -eq "Enabled"} | ForEach-Object {
+    Disable-WindowsOptionalFeature -Online -FeatureName $_.FeatureName -NoRestart
+}
+```
+
+
 
 Unmount Image.
 
@@ -371,6 +564,20 @@ Unmount Image.
 [Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /discard
 ```
+
+
+https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_x86fre_FOD-PACKAGES_OEM_PT1_x86fre_MULTI.iso
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities?view=windows-11
+
+https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/features-on-demand-language-fod?view=windows-11
+
+
+- BIOS/UEFI virtualization must be switched on
+- For Intel CPUs: Look for Intel VT-x or Intel Virtualization Technology
+- For AMD CPUs: Look for AMD-V or SVM Mode
+- Secure Boot and TPM 2.0 also need to be enabled for full protection
+
 
 
 ### 5. Create an AutoUnattend.xml Answer File to initially setup Windows.
