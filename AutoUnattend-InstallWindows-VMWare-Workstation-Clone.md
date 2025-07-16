@@ -443,12 +443,12 @@ PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" 
 
 Fix issues with Windows Update - although not needed, still best to perform.
 ```
-PS C:\WINDOWS\system32> DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Cleanup-Image /RestoreHealth
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Cleanup-Image /RestoreHealth
 ```
 
 Removes outdated component versions and payloads, including file removal.
 ```
-PS C:\WINDOWS\system32> DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Cleanup-Image /StartComponentCleanup /ResetBase
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Cleanup-Image /StartComponentCleanup /ResetBase
 ```
 
 Unmount the WIM and save the changes.
@@ -458,7 +458,7 @@ Unmount the WIM and save the changes.
 [Optional] PS C:\WINDOWS\system32> Dism /remount-image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
 PS C:\WINDOWS\system32> Dism /unmount-image /mountdir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /commit
 ```
-Image Size: 3,078,515 KB
+Image Size: 3.5GB
 
 Clear up the .NET native image cache.
 ```
@@ -467,95 +467,69 @@ ngen executequeueditems
 
 ### 6. Add back individual Features and Capabilities
 
-
-
-To add back individual features.
-
-To Add a PDF Printer
-FeatureName : Printing-PrintToPDFServices-Features
-State       : Enabled
-
-To Add the Snipping Tool thats based on the PCBugReporter.com Ltd bug reporter IMO.
-FeatureName : Microsoft-SnippingTool
-State       : Enabled
-
-
-
 To add back and enable individual Features
 
 ```/All``` enables parent features that are required by the named feature.
 
 ```/LimitAccess``` prevents DISM from contacting Windows Update or WSUS.
 
-For Clarion 6 or earlier.
 ```
-DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:NTVDM /All /LimitAccess
+PS C:\WINDOWS\system32> Dism /Mount-Image /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /Index:1 /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
+```
+
+
+To add back individual Features:
+
+For Clarion 6 or earlier which need 16bit capabilities.
+```
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:NTVDM /All /LimitAccess
 ```
 
 For Clarion 6 Web Edition
 ```
-DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-WebServer /All /LimitAccess
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-WebServer /All /LimitAccess
 ``` 
 IIS-WebServer will also install IIS-WebServerRole
 
 ```
-DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-WebServerManagementTools /All /LimitAccess
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-WebServerManagementTools /All /LimitAccess
 ```
 
 For Clarion ASP templates
 
 ```
-DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-ASP /All /LimitAccess
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-ASP /All /LimitAccess
 ```
 
 For Clarion PHP templates & Ron Schofield's Clarion Perl Templates
 
 ```
-DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-CGI /All /LimitAccess
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:IIS-CGI /All /LimitAccess
 ```
 
-
-
-To Add Features for Clarion
-
-To run the Clarion 6 IDE, NTVDM is required for the 16bit elements of the IDE.
+To Add a PDF Printer
 
 ```
-DISM /Mount-Image /ImageFile:"C:\mount_Win10_22H2_x32_ISO\sources\install.wim" /Index:1 /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM"
-DISM /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:NTVDM /All /LimitAccess
-DISM /Unmount-Image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /commit
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:Printing-PrintToPDFServices-Features /All /LimitAccess
 ```
 
-For Clarion 6 Web Edition
-FeatureName : IIS-WebServer
-State       : Disabled
+To Add the Snipping Tool thats based on the my own PCBugReporter.com Ltd bug reporter IMO.
 
-FeatureName : IIS-WebServerManagementTools
-State       : Disabled
-
-FeatureName : IIS-WebServerRole
-State       : Disabled
-
-For Clarion ASP templates
-FeatureName : IIS-ASP
-State       : Disabled
-
-For Clarion PHP templates & Ron Schofield's Clarion Perl Templates
-FeatureName : IIS-CGI
-State       : Disabled
-
-
-
-
-PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName $_.FeatureName -NoRestart
-
-
-PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.State -eq "Enabled"} | ForEach-Object {
-    Disable-WindowsOptionalFeature -Online -FeatureName $_.FeatureName -NoRestart
-}
+```
+PS C:\WINDOWS\system32> Dism /Image:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /Enable-Feature /FeatureName:Microsoft-SnippingTool /All /LimitAccess
 ```
 
+To add back individual Packages:
 
+```
+PS C:\WINDOWS\system32> Add-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -Name "Microsoft.MSPaint_2019.729.2301.0_neutral_~_8wekyb3d8bbwe"
+```
+
+To Unmount and save the changes
+
+```
+PS C:\WINDOWS\system32> Dism /Unmount-Image /MountDir:"C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" /commit
+```
 
 Unmount Image.
 
