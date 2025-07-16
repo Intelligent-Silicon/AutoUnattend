@@ -1,5 +1,7 @@
 # VMware Windows 10 Pro N 22H2 x32 AutoUnattend.xml Answer file
 
+https://superuser.com/questions/1624231/how-to-create-an-unattended-windows-installation-medium-iso-usb-supporting-secur
+
 ## Create Master copy
 
 [1. Download Windows 10 and copy the ISO to a folder.](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md#1-download-windows-10-and-copy-the-iso-to-a-folder)
