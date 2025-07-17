@@ -647,9 +647,9 @@ https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/wsim/distri
 ```
 Dism /Image:"C:\Win11_Pro_64bit" /Add-Driver /Driver:"C:\AllSignedAndUnsignedDrivers" /Recurse /ForceUnsigned
 ```
-The $OEM$ folders and D:\Sources folder get copied to C:\Windows when installation takes place. This can add 10GB to the VMware virtual PC taking up unneccesary space.
+The $OEM$ folders and D:\Sources folder get copied to C:\Windows when installation takes place. This can add 10GB to the VMware virtual PC taking up unneccesary space. This pushes you towards having to use the SysPrep method to create a minimal and thus reduced attack vector instance of Windows. 
 
-If using the $OEM$ folders, the Sources folder is also copied over! This pushes you towards the conclusion the SysPrep custom image is the way to create a minimal installation of Windows, for subsequent installations
+
 
 
 ### 6. Create the bootable Windows ISO file to install Windows using the AutoUnattend.
