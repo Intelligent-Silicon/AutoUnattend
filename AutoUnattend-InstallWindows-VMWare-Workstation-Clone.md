@@ -75,6 +75,10 @@ PS C:\WINDOWS\system32> Dism /Get-ImageInfo /ImageFile:"C:\mount_Win10_22H2_x32_
 The N variants stand for "Not with Windows Media Player" and related Media Player apps, to comply with European Union law.
 
 ```
+Remove-Item -Path "C:\mount_Win10_22H2_x32_ISO\sources\install.wim"
+```
+
+```
 PS C:\WINDOWS\system32> Export-WindowsImage -SourceImagePath "C:\mount_Win10_22H2_x32_ISO\sources\install.esd" -SourceIndex 7 -DestinationImagePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim" -DestinationName "Windows 10 Pro N" -LogLevel debug -LogPath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.log" -CompressionType max -CheckIntegrity
 ```
 
