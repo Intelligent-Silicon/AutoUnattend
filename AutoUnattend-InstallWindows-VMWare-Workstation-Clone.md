@@ -576,6 +576,13 @@ The [Configuration Pass Order](https://learn.microsoft.com/en-us/windows-hardwar
 
 [Component - Microsoft-Windows-Setup (Hard Disk configuration, diagnostics, Update settings)](AutoUnattend-ConfigurationPass-windowsPE-Component-Microsoft-Windows-Setup-WindowsPE.md)
 
+https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-8.1-and-8/hh825195(v=win.10)#activate-windows
+
+https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys?tabs=windows1110ltsc%2Cwindows81%2Cserver2025%2Cversion1803
+
+https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys?tabs=windows1110ltsc%2Cwindows81%2Cserver2025%2Cversion1803#generic-volume-license-keys
+
+
 [Configuration Pass - Offline Servicing](AutoUnattend-ConfigurationPass-offlineServicing.md)
 
 [Component - Microsoft-Windows-Shell-Setup (Computer Name, Bluetooth Taskbar Icon, OEM Info - SupportProvider)](AutoUnattend-ConfigurationPass-offlineServicing-Component-Microsoft-Windows-Shell-Setup.md)
