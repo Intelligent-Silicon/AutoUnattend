@@ -393,6 +393,10 @@ Doesnt show name or output to file
 PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.FeatureName} | ForEach-Object { Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName $_.FeatureName -Remove }
 ```
 
+```
+PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -online | Where-Object {$_.State -eq "Enabled"} | ForEach-Object { Disable-WindowsOptionalFeature -online -FeatureName $_.FeatureName -Remove }
+```
+
 To disable and remove specific named Features.
 ```
 PS C:\WINDOWS\system32> Disable-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -FeatureName "<FeatureName>" -Remove
@@ -419,6 +423,9 @@ Doesnt show name or output to file
 ```
 PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.Name} | ForEach-Object { Remove-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -Name $_.Name }
 ```
+```
+PS C:\WINDOWS\system32> Get-WindowsCapability -online | Where-Object {$_.State -eq "Installed"} | ForEach-Object { Remove-WindowsCapability -online  -Name $_.Name }
+```
 
 Save list of current Capabilities after removal.
 ```
@@ -429,6 +436,10 @@ Remove All default Provisioned Apps
 
 ```
 PS C:\WINDOWS\system32> Get-AppxProvisionedPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Where-Object {$_.PackageName} | ForEach-Object { Remove-AppxProvisionedPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" -PackageName $_.PackageName }
+```
+
+```
+PS C:\WINDOWS\system32> Get-AppxProvisionedPackage -online | Where-Object {$_.PackageName} | ForEach-Object { Remove-AppxProvisionedPackage -online -PackageName $_.PackageName }
 ```
 
 Two Packages will remain which are required for Windows to function properly.
@@ -482,6 +493,8 @@ Clear up the .NET native image cache.
 ```
 ngen executequeueditems
 ```
+Clean up Restore Points
+
 
 ### 6. Add back individual Features and Capabilities
 

@@ -133,7 +133,10 @@ These commands will run a program, which can be most types and shows how to pass
     <Path>anotherSampleProgram.exe</Path>
 </RunSynchronousCommand>
 
-Other ways to copy files to the root drive of the windows installation is to use the $OEM$ Folders and sub folders. This can be handy for copying user programs like Softvelocity's Clarion, Lindersoft's SetupBuilder, Firefox, MS Office, Notepad++ to be installed later on in the installation process. On the USB memory stick after using the windows media creation tool to copy the windows installation files onto the USB stick, there will be a sources folder in the root folder. Under the sources folder, add a subfolder called $OEM$ Folders. Below are the subfolder options that can exist.
+Other ways to copy files to the root drive of the windows installation is to use the $OEM$ Folders and sub folders. 
+
+
+This can be handy for copying user programs like Softvelocity's Clarion, Lindersoft's SetupBuilder, Firefox, MS Office, Notepad++ to be installed later on in the installation process. On the USB memory stick after using the windows media creation tool to copy the windows installation files onto the USB stick, there will be a sources folder in the root folder. Under the sources folder, add a subfolder called $OEM$ Folders. Below are the subfolder options that can exist.
 
 \sources\$OEM$ Folders\Textmode					Contains updated mass-storage drivers and hardware abstraction layer (HAL) files that the text-mode part of Setup requires.
 \sources\$OEM$ Folders\$$					Contains files that Windows Setup copies to the %WINDIR% folder (for example, C:\Windows) during installation.
