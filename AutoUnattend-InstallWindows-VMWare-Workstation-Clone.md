@@ -361,6 +361,8 @@ PS C:\WINDOWS\system32> Get-WindowsOptionalFeature -Path "C:\mount_Win10_22H2_x3
 PS C:\WINDOWS\system32> Get-WindowsCapability -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-WindowsCapability.default.txt"
 
 PS C:\WINDOWS\system32> Get-AppxProvisionedPackage -Path "C:\mount_Win10_22H2_x32_Install_Pro_N_WIM" | Out-File -Width 1000 -FilePath "C:\mount_Win10_22H2_x32_ISO\sources\install.wim.Pro.N.Features.Get-AppxProvisionedPackage.default.txt"
+
+Dism /online /Get-Packages
 ```
 
 
