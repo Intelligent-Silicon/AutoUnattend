@@ -1,6 +1,8 @@
 # Automatic Windows Installation 
 # AutoUnattend.xml Answer File
 
+This is still work in progress and requires condensing because its still too long to read.
+
 [AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md)
 
 [Features](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/AutoUnattend-Powershell-List-Windows-Features-Uninstallable.md)
