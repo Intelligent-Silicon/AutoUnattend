@@ -3,6 +3,8 @@
 
 20250731:This is still work in progress and requires condensing because its still too long to read.
 
+Ditched this to go back to Windows XP. Windows 10 is simply too bloated and slow on some laptops but old people who are not tech savvy probably wont mind it!
+
 [AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md](AutoUnattend-InstallWindows-VMWare-Workstation-Clone.md)
 
 [Features](https://github.com/Intelligent-Silicon/AutoUnattend/blob/main/AutoUnattend-Powershell-List-Windows-Features-Uninstallable.md)
